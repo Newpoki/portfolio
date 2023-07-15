@@ -10,12 +10,18 @@ export const metadata: Metadata = {
   description: "My personal portfolio",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Header />
-        <main className="px-12 py-12">{children}</main>
+        <main className="px-12 ">
+          <Header />
+          {children}
+        </main>
       </body>
     </html>
   );
