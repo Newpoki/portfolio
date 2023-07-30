@@ -8,6 +8,10 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Jason Savelli",
   description: "My personal portfolio",
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+  },
 };
 
 type IRootLayout = {
