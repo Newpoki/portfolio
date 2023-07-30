@@ -1,4 +1,10 @@
+import { Metadata } from "next";
 import { Typography } from "../components/typography";
+
+export const metadata: Metadata = {
+  title: "Jason Savelli - Projects",
+  description: "My side projects",
+};
 
 export default function Projects() {
   return (
