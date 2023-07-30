@@ -1,3 +1,5 @@
+import plugin from "tailwindcss";
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -7,15 +9,28 @@ module.exports = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-      },
       transitionProperty: {
         width: "width",
       },
+      keyframes: {
+        "slide-up": {
+          "0%": {
+            transform: "translateY(100%)",
+          },
+          "100%": {
+            transform: "translateY(0)",
+          },
+        },
+        opacity: {
+          "0%": {
+            opacity: 0,
+          },
+          "100%": {
+            opacity: 1,
+          },
+        },
+      },
     },
   },
-  plugins: [],
+  plugins: [require("./tailwind-plugins/animation-delay")],
 };
