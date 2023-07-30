@@ -2,6 +2,7 @@
 
 import classNames from "classnames";
 import { usePathname } from "next/navigation";
+import { InternalLink } from "../components/internal-link";
 
 type IHeaderLink = {
   children: React.ReactNode;
@@ -16,9 +17,10 @@ export const HeaderLink = ({ className, href, children }: IHeaderLink) => {
     <div
       className={classNames("group/link flex flex-col items-center", className)}
     >
-      <a className="capitalize" href={href}>
+      <InternalLink className="capitalize" href={href}>
         {children}
-      </a>
+      </InternalLink>
+
       <span
         className={classNames(
           "h-[2px] w-0 bg-black transition-width group-hover/link:w-full",

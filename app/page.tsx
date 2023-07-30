@@ -2,7 +2,6 @@ import { Metadata } from "next";
 import DownloadIcon from "@/public/icons/download.svg";
 import { RevealButton } from "./reveal-button";
 import { Typography } from "./components/typography";
-import { useRef } from "react";
 
 export const metadata: Metadata = {
   title: "Jason Savelli - Home",

@@ -1,11 +1,11 @@
-import { useRef } from "react";
 import { HeaderDrawer } from "./header-drawer";
 import { HeaderLink } from "./header-link";
 import Hamburger from "@/public/icons/hamburger.svg";
+import JavascriptIcon from "@/public/icons/javascript.svg";
 
 export const Header = () => {
   return (
-    <header className="mb-8 flex justify-between py-4 font-semibold">
+    <header className="mb-8 flex items-center justify-between py-4 font-semibold">
       <div className=" group/menu flex lg:hidden">
         <button>
           <Hamburger width={32} />
@@ -14,7 +14,7 @@ export const Header = () => {
         <HeaderDrawer />
       </div>
 
-      <span>Jason Savelli</span>
+      <JavascriptIcon className="w-8 lg:w-8" />
 
       <div className="hidden gap-8 lg:flex">
         <HeaderLink href="/">home</HeaderLink>
