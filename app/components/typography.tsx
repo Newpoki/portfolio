@@ -51,7 +51,7 @@ export const Typography = ({
   const classes = useMemo(() => {
     switch (variant) {
       case "h1":
-        return "text-2xl sm:text-3xl lg:text-5xl font-bold uppercase xl:text-7xl 2xl:text-8xl";
+        return "text-2xl sm:text-3xl lg:text-5xl font-bold uppercase xl:text-7xl 2xl:text-9xl";
       case "h2":
         return "text-md sm:text-lg lg:text-xl font-semibold xl:text-2xl";
     }

@@ -14,7 +14,7 @@ export default function Home() {
     <div>
       <div className="mb-8 flex flex-col">
         <Typography variant="h1">Jason Savelli</Typography>
-        <Typography variant="h1">Front End developper</Typography>
+        <Typography variant="h1">Front End Dev</Typography>
       </div>
 
       <Typography className="mb-8" variant="h2">

@@ -20,6 +20,7 @@ export default function RootLayout({ children }: IRootLayout) {
       <body className={inter.className}>
         <main className="px-4 lg:px-12">
           <Header />
+
           {children}
         </main>
       </body>
