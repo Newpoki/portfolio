@@ -1,5 +1,4 @@
 import classNames from "classnames";
-import Link, { LinkProps } from "next/link";
 import { useMemo } from "react";
 
 type TypographyH1 = {
