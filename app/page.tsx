@@ -1,6 +1,8 @@
 import { Metadata } from "next";
 import DownloadIcon from "@/public/icons/download.svg";
 import { RevealButton } from "./reveal-button";
+import { Typography } from "./components/typography";
+import { useRef } from "react";
 
 export const metadata: Metadata = {
   title: "Jason Savelli - Home",
@@ -10,16 +12,14 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <div>
-      <h1 className="mb-8 flex flex-col">
-        <span className="text-9xl font-bold uppercase">Jason Savelli</span>
-        <span className="text-9xl font-bold uppercase">
-          Front End developper
-        </span>
-      </h1>
+      <div className="mb-8 flex flex-col">
+        <Typography variant="h1">Jason Savelli</Typography>
+        <Typography variant="h1">Front End developper</Typography>
+      </div>
 
-      <h2 className="mb-8 text-2xl font-semibold">
+      <Typography className="mb-8" variant="h2">
         I enjoy working on React projects with TypeScript.
-      </h2>
+      </Typography>
 
       <RevealButton
         hidden={
