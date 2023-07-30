@@ -29,7 +29,6 @@ export default function Home() {
         </SlideUp>
       </div>
 
-      {/* 1150 so the second title animation is ended */}
       <FadeIn className="animation-delay-[1150ms]">
         <Typography className="mb-8 " variant="h2">
           I enjoy working on React projects with TypeScript.

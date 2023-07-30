@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import { Typography } from "../components/typography";
 import { IProjectSummary } from "./types";
 import { ProjectItem } from "./project-item";
+import { SlideUp } from "../components/slide-up";
 
 export const metadata: Metadata = {
   title: "Jason Savelli - Projects",
@@ -42,16 +43,21 @@ export default async function Projects() {
 
   return (
     <div>
-      <Typography className="mb-8" variant="h1">
-        Projects
-      </Typography>
-      <Typography className="mb-4 lg:mb-8" variant="h2">
-        Some side projects I have worked on.
-      </Typography>
+      <SlideUp className="mb-8">
+        <Typography variant="h1">Projects</Typography>
+      </SlideUp>
+
+      <SlideUp className="animation-delay-150 mb-4 lg:mb-8">
+        <Typography variant="h2">
+          Some side projects I have worked on.
+        </Typography>
+      </SlideUp>
 
       <ul className="grid grid-cols-1 items-stretch gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-        {data.map((project) => {
-          return <ProjectItem project={project} key={project.id} />;
+        {data.map((project, index) => {
+          return (
+            <ProjectItem index={index} project={project} key={project.id} />
+          );
         })}
       </ul>
     </div>
