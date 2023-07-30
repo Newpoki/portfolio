@@ -1,8 +1,12 @@
+import { Typography } from "../components/typography";
+
 export default function Projects() {
   return (
     <div>
-      <h1 className="text-9xl font-bold uppercase">Projects</h1>
-      <h2>Some side projects I have work on</h2>
+      <Typography className="mb-8" variant="h1">
+        Projects
+      </Typography>
+      <Typography variant="h2">Some side projects I have work on.</Typography>
     </div>
   );
 }

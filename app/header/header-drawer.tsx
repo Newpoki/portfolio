@@ -27,16 +27,28 @@ export const HeaderDrawer = () => {
       </button>
 
       <div className="flex flex-1 flex-col justify-center gap-6 ">
-        <HeaderLink className="self-start" href="/">
+        <HeaderLink className="self-start" href="/" onClick={handleCloseDrawer}>
           home
         </HeaderLink>
-        <HeaderLink className="self-start" href="/projects">
+        <HeaderLink
+          className="self-start"
+          href="/projects"
+          onClick={handleCloseDrawer}
+        >
           projects
         </HeaderLink>
-        <HeaderLink className="self-start" href="/experiencies">
+        <HeaderLink
+          className="self-start"
+          href="/experiencies"
+          onClick={handleCloseDrawer}
+        >
           experiencies
         </HeaderLink>
-        <HeaderLink className="self-start" href="/about">
+        <HeaderLink
+          className="self-start"
+          href="/about"
+          onClick={handleCloseDrawer}
+        >
           about
         </HeaderLink>
       </div>

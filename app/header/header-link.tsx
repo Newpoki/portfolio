@@ -8,14 +8,21 @@ type IHeaderLink = {
   children: React.ReactNode;
   className?: string;
   href: string;
+  onClick?: React.MouseEventHandler<HTMLDivElement>;
 };
 
-export const HeaderLink = ({ className, href, children }: IHeaderLink) => {
+export const HeaderLink = ({
+  className,
+  href,
+  children,
+  onClick,
+}: IHeaderLink) => {
   const pathname = usePathname();
 
   return (
     <div
       className={classNames("group/link flex flex-col items-center", className)}
+      onClick={onClick}
     >
       <InternalLink className="capitalize" href={href}>
         {children}
