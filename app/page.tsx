@@ -3,6 +3,7 @@ import DownloadIcon from "@/public/icons/download.svg";
 import { RevealButton } from "./reveal-button";
 import { Typography } from "./components/typography";
 import { FadeIn } from "./components/fade-in";
+import { SlideUp } from "./components/slide-up";
 
 export const metadata: Metadata = {
   title: "Jason Savelli - Home",
@@ -13,16 +14,11 @@ export default function Home() {
   return (
     <div>
       <div className="mb-8 flex flex-col">
-        <div className="overflow-hidden">
-          <Typography
-            className="animate-[slide-up_1s_ease-in-out_forwards]"
-            variant="h1"
-          >
-            Jason Savelli
-          </Typography>
-        </div>
+        <SlideUp>
+          <Typography variant="h1">Jason Savelli</Typography>
+        </SlideUp>
 
-        <div className="overflow-hidden">
+        <SlideUp>
           <Typography
             variant="h1"
             // Muse specify translate-y-full because we're adding delay to animation
@@ -30,7 +26,7 @@ export default function Home() {
           >
             Front End Dev
           </Typography>
-        </div>
+        </SlideUp>
       </div>
 
       {/* 1150 so the second title animation is ended */}
