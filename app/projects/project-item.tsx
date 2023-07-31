@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { IProjectSummary } from "./types";
 import classNames from "classnames";
-import { fadeInAnimationClassname } from "../components/fade-in";
+import { FadeIn } from "../components/fade-in";
 
 type Props = {
   index: number;
@@ -10,14 +10,9 @@ type Props = {
 
 export const ProjectItem = ({ index, project }: Props) => {
   return (
-    <li
-      className={classNames(
-        "group/project-item relative aspect-square",
-        /**
-         * Should use FadeIn component, but component is not a li
-         */
-        fadeInAnimationClassname
-      )}
+    <FadeIn
+      className={classNames("group/project-item relative aspect-square")}
+      as="li"
       // Can't use dynamic classes with TW, so adding animationDelay through style prop
       style={{ animationDelay: `${800 + 100 * index}ms` }}
     >
@@ -35,6 +30,6 @@ export const ProjectItem = ({ index, project }: Props) => {
           </div>
         </div>
       </a>
-    </li>
+    </FadeIn>
   );
 };

@@ -3,6 +3,7 @@ import { Typography } from "../components/typography";
 import { IProjectSummary } from "./types";
 import { ProjectItem } from "./project-item";
 import { SlideUp } from "../components/slide-up";
+import { FadeIn } from "../components/fade-in";
 
 export const metadata: Metadata = {
   title: "Jason Savelli - Projects",
@@ -43,23 +44,27 @@ export default async function Projects() {
 
   return (
     <div>
-      <SlideUp className="mb-8">
-        <Typography variant="h1">Projects</Typography>
-      </SlideUp>
+      <div className="mb-8">
+        <SlideUp>
+          <Typography variant="h1">Projects</Typography>
+        </SlideUp>
+      </div>
 
-      <SlideUp className="animation-delay-150 mb-4 lg:mb-8">
-        <Typography variant="h2">
-          Some side projects I have worked on.
-        </Typography>
-      </SlideUp>
+      <FadeIn className="animation-delay-[900ms] lg:mb-8">
+        <div className="mb-4">
+          <Typography variant="h2">
+            Some side projects I have worked on.
+          </Typography>
+        </div>
 
-      <ul className="grid grid-cols-1 items-stretch gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-        {data.map((project, index) => {
-          return (
-            <ProjectItem index={index} project={project} key={project.id} />
-          );
-        })}
-      </ul>
+        <ul className="grid grid-cols-1 items-stretch gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
+          {data.map((project, index) => {
+            return (
+              <ProjectItem index={index} project={project} key={project.id} />
+            );
+          })}
+        </ul>
+      </FadeIn>
     </div>
   );
 }

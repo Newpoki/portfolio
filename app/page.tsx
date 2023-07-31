@@ -18,14 +18,8 @@ export default function Home() {
           <Typography variant="h1">Jason Savelli</Typography>
         </SlideUp>
 
-        <SlideUp>
-          <Typography
-            variant="h1"
-            // Muse specify translate-y-full because we're adding delay to animation
-            className="animation-delay-150 translate-y-full animate-[slide-up_1s_ease-in-out_forwards_150ms]"
-          >
-            Front End Dev
-          </Typography>
+        <SlideUp className="animation-delay-150">
+          <Typography variant="h1">Front End Dev</Typography>
         </SlideUp>
       </div>
 
