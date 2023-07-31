@@ -7,4 +7,5 @@ export type IProjectSummary = {
   illustration: string;
   alt: string;
   deployedYear: string;
+  slug: string;
 };

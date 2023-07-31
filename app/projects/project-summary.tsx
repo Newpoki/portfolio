@@ -2,13 +2,14 @@ import Image from "next/image";
 import { IProjectSummary } from "./types";
 import classNames from "classnames";
 import { FadeIn } from "../components/fade-in";
+import { InternalLink } from "../components/internal-link";
 
 type Props = {
   index: number;
   project: IProjectSummary;
 };
 
-export const ProjectItem = ({ index, project }: Props) => {
+export const ProjectSummary = ({ index, project }: Props) => {
   return (
     <FadeIn
       className={classNames("group/project-item relative aspect-square")}
@@ -16,7 +17,7 @@ export const ProjectItem = ({ index, project }: Props) => {
       // Can't use dynamic classes with TW, so adding animationDelay through style prop
       style={{ animationDelay: `${800 + 100 * index}ms` }}
     >
-      <a href={project.websiteUrl} target="_blank" rel="noopener noreferrer">
+      <InternalLink href={`/projects/pokedex`}>
         <div className="relative aspect-square overflow-hidden">
           <Image
             src={project.illustration}
@@ -29,7 +30,7 @@ export const ProjectItem = ({ index, project }: Props) => {
             View project
           </div>
         </div>
-      </a>
+      </InternalLink>
     </FadeIn>
   );
 };
