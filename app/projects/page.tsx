@@ -4,41 +4,27 @@ import { IProjectSummary } from "./types";
 import { ProjectSummary } from "./project-summary";
 import { SlideUp } from "../components/slide-up";
 import { FadeIn } from "../components/fade-in";
+import { PrismaClient } from "@prisma/client";
 
 export const metadata: Metadata = {
   title: "Jason Savelli - Projects",
   description: "My side projects",
 };
 
-export const getProjectsSummary = () => {
-  return new Promise<IProjectSummary[]>((resolve) => {
-    resolve([
-      {
-        id: 1,
-        title: "Pokedex",
-        description:
-          "Based on a Figma project and an open API, I've built a minimalist pokedex",
-        githubUrl: "https://github.com/Newpoki/pokedex",
-        websiteUrl: "https://pokedex-newpoki.vercel.app/",
-        illustration: "/projects/pokedex.png",
-        alt: "Screenshot from the Pokedex project",
-        deployedYear: "2022",
-        slug: "pokedex",
-      },
-      {
-        id: 2,
-        title: "Consumption calculator",
-        description:
-          "A really simple (and old) tool to get a car fuel consumption per 100km and get a journey cost",
-        githubUrl: "https://github.com/Newpoki/calcul-conso",
-        websiteUrl: "https://brave-snyder-8bb959.netlify.app/",
-        illustration: "/projects/consumption-calculator.png",
-        alt: "Screenshot from the consumption calculator project",
-        deployedYear: "2018",
-        slug: "consumption-calculator",
-      },
-    ]);
+const prisma = new PrismaClient();
+
+export const getProjectsSummary = async () => {
+  const projectsSummary = await prisma.project.findMany({
+    select: {
+      description: true,
+      slug: true,
+      id: true,
+      illustrationAlt: true,
+      illustration: true,
+    },
   });
+
+  return projectsSummary;
 };
 
 export default async function Projects() {

@@ -1,11 +1,9 @@
+import { Project } from "@prisma/client";
+
 export type IProjectSummary = {
-  id: number;
-  title: string;
-  description: string;
-  githubUrl: string;
-  websiteUrl: string;
-  illustration: string;
-  alt: string;
-  deployedYear: string;
-  slug: string;
+  description: Project["description"];
+  slug: Project["slug"];
+  id: Project["id"];
+  illustrationAlt: Project["illustrationAlt"];
+  illustration: Project["illustration"];
 };
