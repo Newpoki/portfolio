@@ -19,6 +19,9 @@ export const HeaderLink = ({
 }: IHeaderLink) => {
   const pathname = usePathname();
 
+  const isCurrentRoute =
+    href === "/" ? pathname === href : pathname.startsWith(href);
+
   return (
     <div
       className={classNames("group/link flex flex-col items-center", className)}
@@ -32,7 +35,7 @@ export const HeaderLink = ({
         className={classNames(
           "h-[2px] w-0 bg-black transition-width group-hover/link:w-full",
           {
-            "w-full": pathname === href,
+            "w-full": isCurrentRoute,
           }
         )}
       />
