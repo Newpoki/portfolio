@@ -33,7 +33,13 @@ export default async function ProjectSlug(props: Props) {
     <div>
       <div className="mb-8">
         <SlideUp>
-          <Typography variant="h1">{project.slug}</Typography>
+          <Typography
+            className="flex items-center justify-between"
+            variant="h1"
+          >
+            <span>{project.slug}</span>
+            <span>{project.deployedAt.getFullYear()}</span>
+          </Typography>
         </SlideUp>
       </div>
 
