@@ -37,23 +37,25 @@ export default async function ProjectSlug(props: Props) {
             className="flex items-center justify-between"
             variant="h1"
           >
-            <span>{project.slug}</span>
+            <span>{project.name}</span>
             <span>{project.deployedAt.getFullYear()}</span>
           </Typography>
         </SlideUp>
       </div>
 
-      <FadeIn className="animation-delay-[900ms] lg:mb-8">
+      <FadeIn className="flex flex-col animation-delay-[900ms] lg:mb-8">
         <div className="mb-4">
           <Typography variant="h2">{project.description}</Typography>
         </div>
 
-        <Image
-          src={project.illustration}
-          alt={project.illustrationAlt}
-          fill
-          className="!relative object-cover"
-        />
+        <div className="flex flex-1">
+          <Image
+            src={project.illustration}
+            alt={project.illustrationAlt}
+            fill
+            className="!relative object-cover"
+          />
+        </div>
       </FadeIn>
     </div>
   );

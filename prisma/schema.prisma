@@ -19,4 +19,5 @@ model Project {
     illustration    String
     illustrationAlt String
     deployedAt      DateTime
+    name            String
 }
