@@ -38,14 +38,18 @@ export default async function ProjectSlug(props: Props) {
             variant="h1"
           >
             <span>{project.name}</span>
-            <span>{project.deployedAt.getFullYear()}</span>
+            <span>({project.deployedAt.getFullYear()})</span>
           </Typography>
         </SlideUp>
       </div>
 
       <FadeIn className="flex flex-col animation-delay-[900ms] lg:mb-8">
-        <div className="mb-4">
-          <Typography variant="h2">{project.description}</Typography>
+        <div className="mb-4 flex items-end justify-between">
+          <Typography className="lg:max-w-screen-sm" variant="h2">
+            {project.description}
+          </Typography>
+
+          <Typography className="font-semibold">Discover ↓</Typography>
         </div>
 
         <div className="flex flex-1">

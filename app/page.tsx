@@ -24,7 +24,7 @@ export default function Home() {
       </div>
 
       <FadeIn className="animation-delay-[1150ms]">
-        <Typography className="mb-8 " variant="h2">
+        <Typography className="mb-8 lg:max-w-screen-sm" variant="h2">
           I enjoy working on React projects with TypeScript.
         </Typography>
 
