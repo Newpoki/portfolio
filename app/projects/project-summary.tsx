@@ -2,11 +2,11 @@ import Image from "next/image";
 import classNames from "classnames";
 import { FadeIn } from "../components/fade-in";
 import { InternalLink } from "../components/internal-link";
-import { IProjectSummary } from "./types";
+import { ProjectSummaryData } from "./types";
 
 type Props = {
   index: number;
-  project: IProjectSummary;
+  project: ProjectSummaryData;
 };
 
 export const ProjectSummary = ({ index, project }: Props) => {

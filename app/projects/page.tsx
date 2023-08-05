@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 import { Typography } from "../components/typography";
-import { IProjectSummary } from "./types";
 import { ProjectSummary } from "./project-summary";
 import { SlideUp } from "../components/slide-up";
 import { FadeIn } from "../components/fade-in";
@@ -16,7 +15,6 @@ const prisma = new PrismaClient();
 export const getProjectsSummary = async () => {
   const projectsSummary = await prisma.project.findMany({
     select: {
-      description: true,
       slug: true,
       id: true,
       illustrationAlt: true,

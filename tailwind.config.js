@@ -1,5 +1,3 @@
-import plugin from "tailwindcss";
-
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -11,6 +9,10 @@ module.exports = {
     extend: {
       transitionProperty: {
         width: "width",
+        left: "left",
+      },
+      borderWidth: {
+        1: 1,
       },
       keyframes: {
         "slide-up": {

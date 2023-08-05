@@ -18,6 +18,8 @@ export const ExternalLink = forwardRef<HTMLAnchorElement, Props>(
           className
         )}
         ref={ref}
+        target="_blank"
+        rel="noopener, noreferrer"
       />
     );
   }

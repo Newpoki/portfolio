@@ -13,11 +13,17 @@ datasource db {
 model Project {
     id              String   @id @default(auto()) @map("_id") @db.ObjectId
     slug            String   @unique
-    description     String
+    shortDesc       String
     githubUrl       String
     websiteUrl      String
     illustration    String
     illustrationAlt String
     deployedAt      DateTime
     name            String
+    description     String
+    bundler         String
+    dataFetching    String
+    language        String
+    stateManagement String
+    ui              String
 }
