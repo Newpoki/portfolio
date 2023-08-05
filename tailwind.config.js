@@ -45,5 +45,8 @@ module.exports = {
       },
     },
   },
-  plugins: [require("./tailwind-plugins/animation-delay")],
+  plugins: [
+    require("@tailwindcss/typography"),
+    require("./tailwind-plugins/animation-delay"),
+  ],
 };

@@ -1,19 +1,10 @@
 import { SlideUp } from "../components/slide-up";
 import { Typography } from "../components/typography";
 import { ExperienceTimelineCard } from "./experience-timeline-card";
+import { serialize } from "next-mdx-remote/serialize";
 
-export default async function Experiencies() {
-  return (
-    <div>
-      <div className="mb-8">
-        <SlideUp>
-          <Typography variant="h1">Experiencies</Typography>
-        </SlideUp>
-      </div>
-
-      <section className="flex flex-col ">
-        <ExperienceTimelineCard title="✪ Mention ✪">
-          En **CDI** chez [Mention](https://mention.com/en/) en tant que
+const test = async () => {
+  const content = `En **CDI** chez [Mention](https://mention.com/en/) en tant que
           Développeur Front End.\n\nJe fais parti de la squad **Publish**, la
           feature de **social media management**, qui permet aux utilisateurs
           une gestion amélioré de leur réseau sociaux. Pour continuer de faire
@@ -23,10 +14,28 @@ export default async function Experiencies() {
           comportements\n- Rédaction de documentation\n- Meeting front où on
           partage nos meilleurs pratiques\n- Un peu de mentoring avec les plus
           juniors\n\n\n**Librairies utilisées :** React, Redux, Relay, Moment,
-          Jest, Material ui, Styled-components, Flow, Typescript, etc...
-        </ExperienceTimelineCard>
+          Jest, Material ui, Styled-components, Flow, Typescript, etc...`;
 
-        <ExperienceTimelineCard title="✪ Mention ✪">
+  const mdxSource = await serialize(content);
+
+  return mdxSource;
+};
+
+export default async function Experiencies() {
+  const value = await test();
+
+  return (
+    <div>
+      <div className="mb-8">
+        <SlideUp>
+          <Typography variant="h1">Experiencies</Typography>
+        </SlideUp>
+      </div>
+
+      <section className="flex flex-col ">
+        <ExperienceTimelineCard title="✪ Mention ✪" source={value} />
+
+        {/* <ExperienceTimelineCard title="✪ Mention ✪">
           In an open-ended contract at Mediakeys as Front-End web developer.
           I&apos;m working on few projects, the two mains being a platform
           allowing companies / media trader to handle their advertising
@@ -38,7 +47,7 @@ export default async function Experiencies() {
           functionality nor evolution Write documentation Take part to SCRUM
           ceremonies Used libraries : React, Redux, Redux Sagas, Moment, Moment
           JS, Material-UI, Jest, etc ...
-        </ExperienceTimelineCard>
+        </ExperienceTimelineCard> */}
       </section>
     </div>
   );
