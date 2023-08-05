@@ -5,8 +5,8 @@ import { usePathname } from "next/navigation";
 import { Link } from "../components/link";
 
 type IHeaderLink = {
-  children: React.ReactNode;
   className?: string;
+  children: React.ReactNode;
   href: string;
   onClick?: React.MouseEventHandler<HTMLAnchorElement>;
 };
@@ -24,7 +24,7 @@ export const HeaderLink = ({
 
   return (
     <Link
-      className={classNames("capitalize", {
+      className={classNames(className, "capitalize", {
         "after:scale-x-100": isCurrentRoute,
       })}
       onClick={onClick}

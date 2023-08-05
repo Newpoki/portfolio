@@ -70,23 +70,25 @@ export default async function ProjectSlug(props: Props) {
             {project.description}
           </Typography>
 
-          <div className="sm:space-between flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-            <Link
-              type="external"
-              href={project.websiteUrl}
-              animation="bright-slide"
-            >
-              Visit the website&apos;s live version
-            </Link>
+          {project.websiteUrl && project.githubUrl && (
+            <div className="sm:space-between flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+              <Link
+                type="external"
+                href={project.websiteUrl}
+                animation="bright-slide"
+              >
+                Visit the website&apos;s live version
+              </Link>
 
-            <Link
-              type="external"
-              href={project.githubUrl}
-              animation="bright-slide"
-            >
-              Visit the website&apos;s github
-            </Link>
-          </div>
+              <Link
+                type="external"
+                href={project.githubUrl}
+                animation="bright-slide"
+              >
+                Visit the website&apos;s github
+              </Link>
+            </div>
+          )}
 
           <ProjectInfosList project={project} />
         </section>

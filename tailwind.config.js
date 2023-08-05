@@ -14,6 +14,9 @@ module.exports = {
       borderWidth: {
         1: 1,
       },
+      lineHeight: {
+        "extra-tight": 0.9,
+      },
       keyframes: {
         "slide-up": {
           "0%": {

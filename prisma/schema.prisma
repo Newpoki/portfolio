@@ -14,8 +14,8 @@ model Project {
     id              String   @id @default(auto()) @map("_id") @db.ObjectId
     slug            String   @unique
     shortDesc       String
-    githubUrl       String
-    websiteUrl      String
+    githubUrl       String?
+    websiteUrl      String?
     illustration    String
     illustrationAlt String
     deployedAt      DateTime
