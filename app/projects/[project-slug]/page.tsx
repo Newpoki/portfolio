@@ -5,6 +5,7 @@ import { Typography } from "@/app/components/typography";
 import { PrismaClient } from "@prisma/client";
 import Image from "next/image";
 import { ProjectInfosList } from "./project-infos-list";
+import { SlightlySlideUp } from "@/app/components/slightly-slide-up";
 
 type Props = {
   params: {
@@ -56,14 +57,14 @@ export default async function ProjectSlug(props: Props) {
           </Typography>
         </div>
 
-        <div className="relative mb-12 flex flex-1">
+        <SlightlySlideUp className="relative mb-12 flex flex-1 animation-delay-[900ms]">
           <Image
             src={project.illustration}
             alt={project.illustrationAlt}
             fill
             className="!relative object-cover"
           />
-        </div>
+        </SlightlySlideUp>
 
         <section className="mx-auto flex flex-col justify-center gap-16 md:w-4/5 lg:w-1/2">
           <Typography variant="h2" as="p" className="text-xl">
