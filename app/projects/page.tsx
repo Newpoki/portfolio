@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 const prisma = new PrismaClient();
 
-export const getProjectsSummary = async () => {
+const getProjectsSummary = async () => {
   const projectsSummary = await prisma.project.findMany({
     select: {
       slug: true,
