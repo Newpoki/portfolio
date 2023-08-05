@@ -1,4 +1,4 @@
-import { ExternalLink } from "@/app/components/external-link";
+import { Link } from "@/app/components/link";
 import { FadeIn } from "@/app/components/fade-in";
 import { SlideUp } from "@/app/components/slide-up";
 import { Typography } from "@/app/components/typography";
@@ -71,13 +71,21 @@ export default async function ProjectSlug(props: Props) {
           </Typography>
 
           <div className="sm:space-between flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-            <ExternalLink href={project.websiteUrl}>
+            <Link
+              type="external"
+              href={project.websiteUrl}
+              animation="bright-slide"
+            >
               Visit the website&apos;s live version
-            </ExternalLink>
+            </Link>
 
-            <ExternalLink href={project.githubUrl}>
+            <Link
+              type="external"
+              href={project.githubUrl}
+              animation="bright-slide"
+            >
               Visit the website&apos;s github
-            </ExternalLink>
+            </Link>
           </div>
 
           <ProjectInfosList project={project} />

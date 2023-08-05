@@ -2,13 +2,13 @@
 
 import classNames from "classnames";
 import { usePathname } from "next/navigation";
-import { InternalLink } from "../components/internal-link";
+import { Link } from "../components/link";
 
 type IHeaderLink = {
   children: React.ReactNode;
   className?: string;
   href: string;
-  onClick?: React.MouseEventHandler<HTMLDivElement>;
+  onClick?: React.MouseEventHandler<HTMLAnchorElement>;
 };
 
 export const HeaderLink = ({
@@ -23,22 +23,16 @@ export const HeaderLink = ({
     href === "/" ? pathname === href : pathname.startsWith(href);
 
   return (
-    <div
-      className={classNames("group/link flex flex-col items-center", className)}
+    <Link
+      className={classNames("capitalize", {
+        "after:scale-x-100": isCurrentRoute,
+      })}
       onClick={onClick}
+      href={href}
+      type="internal"
+      animation="expanse-center"
     >
-      <InternalLink className="capitalize" href={href}>
-        {children}
-      </InternalLink>
-
-      <span
-        className={classNames(
-          "h-[2px] w-0 bg-black transition-width group-hover/link:w-full",
-          {
-            "w-full": isCurrentRoute,
-          }
-        )}
-      />
-    </div>
+      {children}
+    </Link>
   );
 };

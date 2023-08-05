@@ -1,4 +1,4 @@
-import { ExternalLink } from "../components/external-link";
+import { Link } from "../components/link";
 import { Typography } from "../components/typography";
 import { FooterScrollTopButton } from "./footer-scroll-top-button";
 
@@ -12,14 +12,21 @@ export const Footer = () => {
 
       <section className="flex flex-col items-center gap-4 lg:flex-row lg:justify-between">
         <div className="flex items-center gap-4">
-          <ExternalLink href="https://www.linkedin.com/in/jason-savelli/">
+          <Link
+            type="external"
+            href="https://www.linkedin.com/in/jason-savelli/"
+          >
             Linkedin
-          </ExternalLink>
-          <ExternalLink href="https://x.com/Newpokii">Twitter</ExternalLink>
-          <ExternalLink href="https://github.com/Newpoki">Github</ExternalLink>
-          <ExternalLink href="mailto:savellijason@gmail.com">
+          </Link>
+          <Link type="external" href="https://x.com/Newpokii">
+            Twitter
+          </Link>
+          <Link type="external" href="https://github.com/Newpoki">
+            Github
+          </Link>
+          <Link type="external" href="mailto:savellijason@gmail.com">
             Email
-          </ExternalLink>
+          </Link>
         </div>
 
         <FooterScrollTopButton />
