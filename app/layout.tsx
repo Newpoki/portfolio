@@ -22,7 +22,7 @@ export default function RootLayout({ children }: IRootLayout) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <main className="px-4 pb-4 lg:px-12 xl:px-24">
+        <main className="flex h-[100dvh] flex-col px-4 pb-4 lg:px-12 xl:px-24">
           <Header />
 
           {children}
