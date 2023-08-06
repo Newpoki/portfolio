@@ -47,7 +47,7 @@ export default async function ProjectSlug(props: Props) {
       </div>
 
       <FadeIn className="flex flex-col animation-delay-[900ms] lg:mb-8">
-        <div className="mb-4 flex flex-col gap-6 md:flex-row md:items-center md:justify-between ">
+        <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-center md:justify-between ">
           <Typography className="md:max-w-screen-sm" variant="h2">
             {project.shortDesc}
           </Typography>

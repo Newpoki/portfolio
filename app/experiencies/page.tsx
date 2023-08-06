@@ -32,7 +32,7 @@ export default async function Experiencies() {
       </div>
 
       <FadeIn className="animation-delay-[900ms]">
-        <div className="mb-4 flex flex-col gap-6 md:flex-row md:items-center md:justify-between ">
+        <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-center md:justify-between ">
           <Typography className="md:max-w-screen-sm" variant="h2">
             Some past experiencies I went through.
           </Typography>

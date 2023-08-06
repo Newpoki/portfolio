@@ -37,7 +37,7 @@ export default async function Projects() {
       </div>
 
       <FadeIn className="animation-delay-[900ms] lg:mb-8">
-        <div className="mb-4 lg:max-w-screen-sm">
+        <div className="mb-12 lg:max-w-screen-sm">
           <Typography variant="h2">
             Some side projects I have worked on.
           </Typography>
