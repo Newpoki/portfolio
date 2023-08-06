@@ -27,3 +27,19 @@ model Project {
     stateManagement String
     ui              String
 }
+
+enum ExperienceType {
+    WORK
+    DIPLOMA
+    BIRTH
+}
+
+model Experience {
+    id        String         @id @default(auto()) @map("_id") @db.ObjectId
+    type      ExperienceType
+    place     Json
+    startedAt DateTime
+    title     String
+    content   String
+    endedAt   DateTime?
+}

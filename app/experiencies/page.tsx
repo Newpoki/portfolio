@@ -1,28 +1,25 @@
+import { PrismaClient } from "@prisma/client";
 import { SlideUp } from "../components/slide-up";
 import { Typography } from "../components/typography";
 import { ExperienceTimelineCard } from "./experience-timeline-card";
 import { serialize } from "next-mdx-remote/serialize";
 
-const test = async () => {
-  const content = `En **CDI** chez [Mention](https://mention.com/en/) en tant que
-          Développeur Front End.\n\nJe fais parti de la squad **Publish**, la
-          feature de **social media management**, qui permet aux utilisateurs
-          une gestion amélioré de leur réseau sociaux. Pour continuer de faire
-          grandir Mention, j'ai pour tache de:\n\n- Intégration de vue complexe
-          à partir de design Figma\n- Conversion de code legacy vers du code
-          plus actuel\n- Proposition de nouvelles fonctionalités /
-          comportements\n- Rédaction de documentation\n- Meeting front où on
-          partage nos meilleurs pratiques\n- Un peu de mentoring avec les plus
-          juniors\n\n\n**Librairies utilisées :** React, Redux, Relay, Moment,
-          Jest, Material ui, Styled-components, Flow, Typescript, etc...`;
+const prisma = new PrismaClient();
 
-  const mdxSource = await serialize(content);
+const fetchExperiencies = async () => {
+  const experiencies = await prisma.experience.findMany();
 
-  return mdxSource;
+  const serializedExperiencies = experiencies.map(async (experience) => {
+    const content = await serialize(experience.content);
+
+    return { ...experience, content };
+  });
+
+  return Promise.all(serializedExperiencies);
 };
 
 export default async function Experiencies() {
-  const value = await test();
+  const experiencies = await fetchExperiencies();
 
   return (
     <div>
@@ -33,21 +30,13 @@ export default async function Experiencies() {
       </div>
 
       <section className="flex flex-col ">
-        <ExperienceTimelineCard title="✪ Mention ✪" source={value} />
-
-        {/* <ExperienceTimelineCard title="✪ Mention ✪">
-          In an open-ended contract at Mediakeys as Front-End web developer.
-          I&apos;m working on few projects, the two mains being a platform
-          allowing companies / media trader to handle their advertising
-          campaigns around the worl on various media as Facebook, Instagram,
-          website, native applications, Youtube, etc, and an app to create AD
-          usable for these AD campaigns. In order to create new applications and
-          continue the existings, I have to: Create wireframes mockups Create
-          components and ducks Writing a lot of unit tests Advise new
-          functionality nor evolution Write documentation Take part to SCRUM
-          ceremonies Used libraries : React, Redux, Redux Sagas, Moment, Moment
-          JS, Material-UI, Jest, etc ...
-        </ExperienceTimelineCard> */}
+        {experiencies.map((experience) => (
+          <ExperienceTimelineCard
+            key={experience.id}
+            title="✪ Mention ✪"
+            source={experience.content}
+          />
+        ))}
       </section>
     </div>
   );
