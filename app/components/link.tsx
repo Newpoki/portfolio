@@ -3,7 +3,11 @@ import { Typography } from "./typography";
 import { forwardRef } from "react";
 import NextLink, { LinkProps } from "next/link";
 
-type LinkAnimationProps = "bright-slide" | "expanse-left" | "expanse-center";
+type LinkAnimationProps =
+  | "bright-slide"
+  | "expanse-left"
+  | "expanse-center"
+  | null;
 
 type CommonProps = {
   animation?: LinkAnimationProps;

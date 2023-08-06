@@ -17,7 +17,7 @@ export const ProjectSummary = ({ index, project }: Props) => {
       // Can't use dynamic classes with TW, so adding animationDelay through style prop
       style={{ animationDelay: `${800 + 100 * index}ms` }}
     >
-      <Link href={`/projects/${project.slug}`} type="internal">
+      <Link href={`/projects/${project.slug}`} type="internal" animation={null}>
         <div className="relative aspect-square overflow-hidden">
           <Image
             src={project.illustration}
