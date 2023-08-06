@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import DownloadIcon from "@/public/icons/download.svg";
-import { RevealButton } from "./reveal-button";
+import { RevealButton } from "./components/reveal-button";
 import { Typography } from "./components/typography";
 import { FadeIn } from "./components/fade-in";
 import { SlideUp } from "./components/slide-up";
