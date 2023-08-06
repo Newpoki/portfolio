@@ -33,7 +33,7 @@ export default async function Experiencies() {
         {experiencies.map((experience) => (
           <ExperienceTimelineCard
             key={experience.id}
-            title="✪ Mention ✪"
+            title={experience.title}
             source={experience.content}
           />
         ))}
