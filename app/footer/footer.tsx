@@ -24,6 +24,9 @@ export const Footer = () => {
           <Link type="external" href="https://github.com/Newpoki">
             Github
           </Link>
+          <Link type="external" href="https://www.instagram.com/newpoki/">
+            Instagram
+          </Link>
           <Link type="external" href="mailto:savellijason@gmail.com">
             Email
           </Link>
