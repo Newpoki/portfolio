@@ -1,57 +1,45 @@
-"use client";
-
-import { useCallback } from "react";
 import { HeaderLink } from "./header-link";
 import MenuIcon from "@/public/icons/close.svg";
 
-export const HeaderDrawer = () => {
-  const handleCloseDrawer = useCallback(() => {
-    const { activeElement } = document;
+type Props = {
+  isOpen: boolean;
+  onClose: () => void;
+};
 
-    if (
-      activeElement != null &&
-      "blur" in activeElement &&
-      typeof activeElement.blur === "function"
-    ) {
-      activeElement.blur();
-    }
-  }, []);
-
+export const HeaderDrawer = ({ isOpen, onClose }: Props) => {
   return (
-    <dialog
-      className="top-0 z-50 m-0 flex h-[100dvh] w-[100dvw] translate-x-[-100dvw] flex-col bg-transparent p-4 backdrop-blur-md transition-transform duration-500 group-focus-within/menu:translate-x-0"
-      open
+    <menu
+      className="fixed left-0 top-0 z-50 m-0 flex h-[100dvh] w-[100dvw] translate-x-[-100dvw] flex-col bg-transparent p-4 backdrop-blur-md transition-transform duration-500"
+      // Using style prop instead of className, because otherwise tailwind won't generate this class
+      // And I don't want to use safeList class https://tailwindcss.com/docs/content-configuration#safelisting-classes
+      style={isOpen ? { transform: "translateX(0)" } : undefined}
     >
-      <button className="flex self-start" onClick={handleCloseDrawer}>
+      <button className="flex self-start" onClick={onClose}>
         <MenuIcon width={24} />
       </button>
 
-      <div className="flex flex-1 flex-col justify-center gap-6 ">
-        <HeaderLink className="self-start" href="/" onClick={handleCloseDrawer}>
-          home
-        </HeaderLink>
-        <HeaderLink
-          className="self-start"
-          href="/projects"
-          onClick={handleCloseDrawer}
-        >
-          projects
-        </HeaderLink>
-        <HeaderLink
-          className="self-start"
-          href="/experiencies"
-          onClick={handleCloseDrawer}
-        >
-          experiencies
-        </HeaderLink>
-        <HeaderLink
-          className="self-start"
-          href="/about"
-          onClick={handleCloseDrawer}
-        >
-          about
-        </HeaderLink>
-      </div>
-    </dialog>
+      <ul className="flex flex-1 flex-col justify-center gap-6 ">
+        <li className="self-start">
+          <HeaderLink href="/" onClick={onClose}>
+            home
+          </HeaderLink>
+        </li>
+        <li className="self-start">
+          <HeaderLink href="/projects" onClick={onClose}>
+            projects
+          </HeaderLink>
+        </li>
+        <li className="self-start">
+          <HeaderLink href="/experiencies" onClick={onClose}>
+            experiencies
+          </HeaderLink>
+        </li>
+        <li className="self-start">
+          <HeaderLink href="/about" onClick={onClose}>
+            about
+          </HeaderLink>
+        </li>
+      </ul>
+    </menu>
   );
 };
