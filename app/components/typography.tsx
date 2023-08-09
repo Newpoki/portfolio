@@ -56,6 +56,8 @@ export const Typography: TypographyComponent = forwardRef(
           return "text-md sm:text-lg lg:text-xl font-medium xl:text-4xl";
         case "h3":
           return "text-md sm:text-lg lg:text-xl font-medium xl:text-2xl";
+        case "body2":
+          return "text-gray-600";
       }
     }, [props.variant]);
 
