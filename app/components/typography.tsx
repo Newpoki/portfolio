@@ -53,7 +53,9 @@ export const Typography: TypographyComponent = forwardRef(
         case "h1":
           return "text-2xl sm:text-3xl lg:text-5xl font-bold uppercase xl:text-7xl 2xl:text-9xl !leading-extra-tight";
         case "h2":
-          return "text-md sm:text-lg lg:text-xl font-semibold xl:text-2xl";
+          return "text-md sm:text-lg lg:text-xl font-medium xl:text-4xl";
+        case "h3":
+          return "text-md sm:text-lg lg:text-xl font-medium xl:text-2xl";
       }
     }, [props.variant]);
 
