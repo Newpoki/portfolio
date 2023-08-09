@@ -18,7 +18,10 @@ export default function About() {
         </SlideUp>
       </div>
 
-      <FadeIn className="flex flex-col gap-8 animation-delay-[900ms] lg:gap-20 xl:gap-40">
+      <FadeIn
+        as="section"
+        className="flex flex-col gap-8 animation-delay-[900ms] lg:gap-20 xl:gap-40"
+      >
         <div className=" lg:max-w-screen-sm ">
           <Typography variant="h2">
             Learn more about me, how I got here, what do I love in Front-End and
@@ -35,7 +38,7 @@ export default function About() {
           />
         </SlightlySlideUp>
 
-        <div className="lg:1/2 mx-auto flex flex-col gap-8 md:w-2/3">
+        <section className="lg:1/2 mx-auto flex flex-col gap-8 md:w-2/3">
           <Typography variant="h2">Who am I ?</Typography>
 
           <Typography variant="body2">
@@ -61,9 +64,9 @@ export default function About() {
             really love Javascript so I&apos;m giving 200% of myself in to get
             better and better everyday.
           </Typography>
-        </div>
+        </section>
 
-        <div className="flex flex-col gap-8 lg:gap-20">
+        <section className="flex flex-col gap-8 lg:gap-20">
           <Typography className="lg:1/2 mx-auto md:w-2/3" variant="h2">
             When I&apos;m not at the computer, you can find me playing guitar,
             video games or taking photo of beautifull dogs.
@@ -92,7 +95,7 @@ export default function About() {
               className="!relative rounded-xl object-cover lg:rounded-none"
             />
           </div>
-        </div>
+        </section>
       </FadeIn>
     </div>
   );
