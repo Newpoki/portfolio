@@ -4,19 +4,14 @@ import classNames from "classnames";
 import { usePathname } from "next/navigation";
 import { Link } from "../components/link";
 
-type IHeaderLink = {
+type Props = {
   className?: string;
   children: React.ReactNode;
   href: string;
   onClick?: React.MouseEventHandler<HTMLAnchorElement>;
 };
 
-export const HeaderLink = ({
-  className,
-  href,
-  children,
-  onClick,
-}: IHeaderLink) => {
+export const HeaderLink = ({ className, href, children, onClick }: Props) => {
   const pathname = usePathname();
 
   const isCurrentRoute =

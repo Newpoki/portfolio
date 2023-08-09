@@ -29,7 +29,7 @@ export default async function Projects() {
   const data = await getProjectsSummary();
 
   return (
-    <div>
+    <section>
       <div className="mb-8">
         <SlideUp>
           <Typography variant="h1">Projects</Typography>
@@ -55,6 +55,6 @@ export default async function Projects() {
           })}
         </ul>
       </FadeIn>
-    </div>
+    </section>
   );
 }

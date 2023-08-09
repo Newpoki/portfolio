@@ -17,7 +17,10 @@ type Props = {
 
 export const ExperienceTimelineCard = ({ type, source, title }: Props) => {
   return (
-    <SlightlySlideUp className="before:content-[' '] flex animation-delay-[900ms] before:hidden before:flex-1 before:border-1 before:border-transparent before:p-10 xl:before:block xl:[&:nth-child(2n)]:flex-row-reverse">
+    <SlightlySlideUp
+      as="li"
+      className="before:content-[' '] flex animation-delay-[900ms] before:hidden before:flex-1 before:border-1 before:border-transparent before:p-10 xl:before:block xl:[&:nth-child(2n)]:flex-row-reverse"
+    >
       <ExperienceTimelineSeparator type={type} />
 
       <div className="mb-6 w-1/2 flex-1 rounded-md border-1 border-gray-600 p-10">

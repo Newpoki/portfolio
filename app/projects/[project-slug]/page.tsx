@@ -46,7 +46,10 @@ export default async function ProjectSlug(props: Props) {
         </SlideUp>
       </div>
 
-      <FadeIn className="flex flex-col animation-delay-[900ms] lg:mb-8">
+      <FadeIn
+        as="section"
+        className="flex flex-col animation-delay-[900ms] lg:mb-8"
+      >
         <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-center md:justify-between ">
           <Typography className="md:max-w-screen-sm" variant="h2">
             {project.shortDesc}

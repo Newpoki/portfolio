@@ -18,28 +18,24 @@ export const HeaderDrawer = ({ isOpen, onClose }: Props) => {
         <MenuIcon width={24} />
       </button>
 
-      <ul className="flex flex-1 flex-col justify-center gap-6 ">
-        <li className="self-start">
-          <HeaderLink href="/" onClick={onClose}>
-            home
-          </HeaderLink>
-        </li>
-        <li className="self-start">
-          <HeaderLink href="/projects" onClick={onClose}>
-            projects
-          </HeaderLink>
-        </li>
-        <li className="self-start">
-          <HeaderLink href="/experiencies" onClick={onClose}>
-            experiencies
-          </HeaderLink>
-        </li>
-        <li className="self-start">
-          <HeaderLink href="/about" onClick={onClose}>
-            about
-          </HeaderLink>
-        </li>
-      </ul>
+      <nav className="flex flex-1 flex-col justify-center gap-6 ">
+        <HeaderLink className="self-start" href="/" onClick={onClose}>
+          home
+        </HeaderLink>
+        <HeaderLink className="self-start" href="/projects" onClick={onClose}>
+          projects
+        </HeaderLink>
+        <HeaderLink
+          className="self-start"
+          href="/experiencies"
+          onClick={onClose}
+        >
+          experiencies
+        </HeaderLink>
+        <HeaderLink className="self-start" href="/about" onClick={onClose}>
+          about
+        </HeaderLink>
+      </nav>
     </menu>
   );
 };

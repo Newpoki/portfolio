@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div>
+    <section>
       <div className="mb-8 flex flex-col">
         <SlideUp>
           <Typography variant="h1">Jason Savelli</Typography>
@@ -39,6 +39,6 @@ export default function Home() {
           Download my CV
         </RevealButton>
       </FadeIn>
-    </div>
+    </section>
   );
 }

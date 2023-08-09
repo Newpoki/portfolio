@@ -40,9 +40,9 @@ export const Typography: TypographyComponent = forwardRef(
         case "h5":
         case "h6":
           return props.variant;
+
         case "body1":
         case "body2":
-
         default:
           return "p";
       }

@@ -4,7 +4,6 @@ import { Typography } from "../components/typography";
 import { ExperienceTimelineCard } from "./experience-timeline-card";
 import { serialize } from "next-mdx-remote/serialize";
 import { FadeIn } from "../components/fade-in";
-import { SlightlySlideUp } from "../components/slightly-slide-up";
 
 const prisma = new PrismaClient();
 
@@ -42,7 +41,7 @@ export default async function Experiencies() {
           </Typography>
         </div>
 
-        <section className="flex flex-col">
+        <ul className="flex flex-col">
           {experiencies.map((experience) => (
             <ExperienceTimelineCard
               key={experience.id}
@@ -51,7 +50,7 @@ export default async function Experiencies() {
               type={experience.type}
             />
           ))}
-        </section>
+        </ul>
       </FadeIn>
     </div>
   );
