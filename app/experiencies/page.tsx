@@ -4,6 +4,12 @@ import { Typography } from "../components/typography";
 import { ExperienceTimelineCard } from "./experience-timeline-card";
 import { serialize } from "next-mdx-remote/serialize";
 import { FadeIn } from "../components/fade-in";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Jason Savelli - Experiencies",
+  description: "All my previous experiencies",
+};
 
 const prisma = new PrismaClient();
 

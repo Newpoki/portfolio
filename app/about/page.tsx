@@ -4,6 +4,12 @@ import { SlideUp } from "../components/slide-up";
 import { SlightlySlideUp } from "../components/slightly-slide-up";
 import { Typography } from "../components/typography";
 import { Link } from "../components/link";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Jason Savelli - About",
+  description: "Learn more about me",
+};
 
 export default function About() {
   return (
