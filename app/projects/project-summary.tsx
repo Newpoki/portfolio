@@ -1,5 +1,4 @@
 import Image from "next/image";
-import classNames from "classnames";
 import { FadeIn } from "../components/fade-in";
 import { ProjectSummaryData } from "./types";
 import { Link } from "../components/link";
@@ -12,7 +11,7 @@ type Props = {
 export const ProjectSummary = ({ index, project }: Props) => {
   return (
     <FadeIn
-      className={classNames("group/project-item relative aspect-square")}
+      className="group/project-item relative aspect-square rounded-lg bg-gray-900 p-4"
       as="li"
       // Can't use dynamic classes with TW, so adding animationDelay through style prop
       style={{ animationDelay: `${800 + 100 * index}ms` }}
@@ -23,7 +22,7 @@ export const ProjectSummary = ({ index, project }: Props) => {
             src={project.illustration}
             alt={project.illustrationAlt}
             fill
-            className="!relative object-cover transition duration-300 group-hover/project-item:scale-110"
+            className="!relative rounded-lg object-cover transition duration-300 group-hover/project-item:scale-110"
             sizes="(max-width: 768px) 100vw"
           />
 
