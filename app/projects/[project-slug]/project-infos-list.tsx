@@ -1,5 +1,5 @@
 import { Project } from "@prisma/client";
-import { ProjectInfosListItem } from "./project-infos-list-item";
+import { TabeListItem } from "@/app/components/table-list-item";
 
 type Props = {
   project: Project;
@@ -12,18 +12,12 @@ export const ProjectInfosList = ({ project }: Props) => {
 
   return (
     <ul>
-      <ProjectInfosListItem label="Release date">
-        ({deployedAt})
-      </ProjectInfosListItem>
-      <ProjectInfosListItem label="Bundler">{bundler}</ProjectInfosListItem>
-      <ProjectInfosListItem label="Language">{language}</ProjectInfosListItem>
-      <ProjectInfosListItem label="UI">{ui}</ProjectInfosListItem>
-      <ProjectInfosListItem label="State management">
-        {stateManagement}
-      </ProjectInfosListItem>
-      <ProjectInfosListItem label="Data fetching">
-        {dataFetching}
-      </ProjectInfosListItem>
+      <TabeListItem label="Release date">({deployedAt})</TabeListItem>
+      <TabeListItem label="Bundler">{bundler}</TabeListItem>
+      <TabeListItem label="Language">{language}</TabeListItem>
+      <TabeListItem label="UI">{ui}</TabeListItem>
+      <TabeListItem label="State management">{stateManagement}</TabeListItem>
+      <TabeListItem label="Data fetching">{dataFetching}</TabeListItem>
     </ul>
   );
 };

@@ -5,6 +5,7 @@ import { SlightlySlideUp } from "../components/slightly-slide-up";
 import { Typography } from "../components/typography";
 import { Link } from "../components/link";
 import { Metadata } from "next";
+import { TabeListItem } from "../components/table-list-item";
 
 export const metadata: Metadata = {
   title: "Jason Savelli - About",
@@ -70,6 +71,19 @@ export default function About() {
             really love Javascript so I&apos;m giving 200% of myself in to get
             better and better everyday.
           </Typography>
+
+          <Typography variant="h2">My dream stack</Typography>
+          <ul>
+            <TabeListItem label="Front-End Library">React</TabeListItem>
+            <TabeListItem label="Component library">Material-UI</TabeListItem>
+            <TabeListItem label="Data fetching">React-query</TabeListItem>
+            <TabeListItem label="State management">Jotai</TabeListItem>
+            <TabeListItem label="Date">Dayjs</TabeListItem>
+            <TabeListItem label="Unit tests">Jest</TabeListItem>
+            <TabeListItem label="Integration tests">
+              React testing library
+            </TabeListItem>
+          </ul>
         </section>
 
         <section className="flex flex-col gap-8 lg:gap-20">
