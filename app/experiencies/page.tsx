@@ -14,7 +14,11 @@ export const metadata: Metadata = {
 const prisma = new PrismaClient();
 
 const fetchExperiencies = async () => {
-  const experiencies = await prisma.experience.findMany();
+  const experiencies = await prisma.experience.findMany({
+    orderBy: {
+      startedAt: "desc",
+    },
+  });
 
   const serializedExperiencies = experiencies.map(async (experience) => {
     const content = await serialize(experience.content);
