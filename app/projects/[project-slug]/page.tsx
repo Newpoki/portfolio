@@ -60,7 +60,7 @@ export default async function ProjectSlug(props: Props) {
           </Typography>
         </div>
 
-        <SlightlySlideUp className="relative mb-12 flex flex-1 animation-delay-[900ms]">
+        <SlightlySlideUp className="relative mb-12 flex flex-1 animation-delay-[900ms] lg:mx-auto lg:max-w-screen-xl">
           <Image
             src={project.illustration}
             alt={project.illustrationAlt}
