@@ -1,21 +1,30 @@
 "use client";
 
-import { ExperienceType } from "@prisma/client";
+import { Experience } from "@prisma/client";
 import { Typography } from "../components/typography";
 import { ExperienceTimelineSeparator } from "./experience-timeline-separator";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import { SlightlySlideUp } from "../components/slightly-slide-up";
 
-type Props = {
-  source: MDXRemoteSerializeResult<
+type Props = Omit<Experience, "content"> & {
+  content: MDXRemoteSerializeResult<
     Record<string, unknown>,
     Record<string, unknown>
   >;
-  title: string;
-  type: ExperienceType;
 };
 
-export const ExperienceTimelineCard = ({ type, source, title }: Props) => {
+export const ExperienceTimelineCard = ({
+  type,
+  content,
+  title,
+  startedAt,
+  endedAt,
+}: Props) => {
+  const displayedStartedAt = Intl.DateTimeFormat().format(startedAt);
+  const displayedEndedAt = endedAt
+    ? Intl.DateTimeFormat().format(endedAt)
+    : "Today";
+
   return (
     <SlightlySlideUp
       as="li"
@@ -28,8 +37,12 @@ export const ExperienceTimelineCard = ({ type, source, title }: Props) => {
           {title}
         </Typography>
 
+        <Typography className="mb-4 font-semibold" variant="body2">
+          {displayedStartedAt} - {displayedEndedAt}
+        </Typography>
+
         <div className="prose">
-          <MDXRemote {...source} />
+          <MDXRemote {...content} />
         </div>
       </div>
     </SlightlySlideUp>

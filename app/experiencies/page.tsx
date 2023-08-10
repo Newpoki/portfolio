@@ -53,12 +53,7 @@ export default async function Experiencies() {
 
         <ul className="flex flex-col">
           {experiencies.map((experience) => (
-            <ExperienceTimelineCard
-              key={experience.id}
-              title={experience.title}
-              source={experience.content}
-              type={experience.type}
-            />
+            <ExperienceTimelineCard {...experience} key={experience.id} />
           ))}
         </ul>
       </FadeIn>
