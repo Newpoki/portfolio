@@ -1,4 +1,10 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Portfolio front
+
+![](./public/readme/about-page.png)
+
+This repositery host my personal website code. The site itself show my CV, custom projects, and it's a good way to show my React guidelines. Also, I can try new feature that I'm not used to, like [`tailwind-css`](https://tailwindcss.com/) or [`Next.js`](https://nextjs.org/)
+
+This is a [`Next.js`](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
 
@@ -11,6 +17,8 @@ yarn dev
 # or
 pnpm dev
 ```
+
+Then populate create and add a `.env` file at the project root with `DATABASE_URL`
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
@@ -29,6 +37,4 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 ## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Any push or merge on `main` will trigger a new deployment of the `main` branch.
