@@ -2,6 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Header } from "./header/header";
+import { Footer } from "./footer/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,6 +27,8 @@ export default function RootLayout({ children }: Props) {
           <Header />
 
           {children}
+
+          <Footer />
         </main>
       </body>
     </html>
