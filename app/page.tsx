@@ -29,12 +29,14 @@ export default function Home() {
         </Typography>
 
         <RevealButton
-          hidden={
+          revealed={
             <div className="flex h-12 items-center gap-4">
               <DownloadIcon width={16} />
               <span>jason-cv.pdf</span>
             </div>
           }
+          href="/resume.pdf"
+          download
         >
           Download my CV
         </RevealButton>
