@@ -89,7 +89,7 @@ export default function About() {
         <section className="flex flex-col gap-8 lg:gap-20">
           <Typography className="lg:1/2 mx-auto md:w-2/3" variant="h2">
             When I&apos;m not at the computer, you can find me playing guitar,
-            video games or taking photo of beautifull dogs.
+            video games or taking photos of beautifull dogs.
           </Typography>
 
           <div className="grid gap-4 lg:grid-cols-3 lg:overflow-hidden lg:rounded-xl">
