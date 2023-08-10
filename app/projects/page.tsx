@@ -50,7 +50,7 @@ export default async function Projects() {
           {data.map((project, index) => {
             return (
               <ProjectSummary
-                index={index}
+                delayFactor={index}
                 project={project}
                 key={project.id}
               />

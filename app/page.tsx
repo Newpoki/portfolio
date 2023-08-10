@@ -4,6 +4,7 @@ import { RevealButton } from "./components/reveal-button";
 import { Typography } from "./components/typography";
 import { FadeIn } from "./components/fade-in";
 import { SlideUp } from "./components/slide-up";
+import { LastProject } from "./last-project/LastProject";
 
 export const metadata: Metadata = {
   title: "Jason Savelli - Home",
@@ -37,9 +38,14 @@ export default function Home() {
           }
           href="/resume.pdf"
           download
+          className="xl:20 mb-8 md:mb-12"
         >
           Download my CV
         </RevealButton>
+
+        <section>
+          <LastProject />
+        </section>
       </FadeIn>
     </section>
   );
