@@ -20,6 +20,9 @@ const getProjectsSummary = async () => {
       illustrationAlt: true,
       illustration: true,
     },
+    orderBy: {
+      deployedAt: "desc",
+    },
   });
 
   return projectsSummary;
