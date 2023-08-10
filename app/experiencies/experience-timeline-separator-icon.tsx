@@ -14,11 +14,11 @@ export const ExperienceTimelineSeparatorIcon = ({ type }: Props) => {
   const icon = useMemo(() => {
     switch (type) {
       case "BIRTH":
-        return <BirthIcon width={24} />;
+        return <BirthIcon className="w-4 xl:w-6" />;
       case "DIPLOMA":
-        return <DiplomaIcon width={24} />;
+        return <DiplomaIcon className="w-4 xl:w-6" />;
       case "WORK":
-        return <WorkIcon width={24} />;
+        return <WorkIcon className="w-4 xl:w-6" />;
     }
   }, [type]);
 

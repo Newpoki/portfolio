@@ -28,11 +28,11 @@ export const ExperienceTimelineCard = ({
   return (
     <SlightlySlideUp
       as="li"
-      className="before:content-[' '] flex animation-delay-[900ms] before:hidden before:flex-1 before:border-1 before:border-transparent before:p-10 xl:before:block xl:[&:nth-child(2n)]:flex-row-reverse"
+      className="before:content-[' '] flex animation-delay-[900ms] before:hidden before:flex-1 before:border-1 before:border-transparent before:p-4 xl:before:block xl:before:p-10 xl:[&:nth-child(2n)]:flex-row-reverse"
     >
       <ExperienceTimelineSeparator type={type} />
 
-      <div className="mb-6 w-1/2 flex-1 rounded-md border-1 border-gray-600 p-10">
+      <div className="mb-6 w-1/2 flex-1 rounded-md border-1 border-gray-600 p-4 xl:p-10">
         <Typography className="mb-4 uppercase" variant="h2">
           {title}
         </Typography>
