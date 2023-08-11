@@ -30,8 +30,12 @@ export const LastProject = async () => {
       </div>
 
       <ProjectSummary
+        className="!aspect-auto p-4 xl:p-12"
         project={latestProject}
         slotProps={{
+          imageWrapper: {
+            className: "!aspect-auto",
+          },
           image: {
             // Have to specify !important as it already has object-cover
             className: "!object-contain",

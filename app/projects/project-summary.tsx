@@ -3,6 +3,7 @@ import { FadeIn } from "../components/fade-in";
 import { ProjectSummaryData } from "./types";
 import { Link } from "../components/link";
 import classNames from "classnames";
+import React from "react";
 
 type Props = {
   className?: string;
@@ -10,6 +11,12 @@ type Props = {
   project: ProjectSummaryData;
   slotProps?: {
     image?: Partial<React.ComponentProps<typeof Image>>;
+    imageWrapper?: Partial<
+      React.DetailedHTMLProps<
+        React.HTMLAttributes<HTMLDivElement>,
+        HTMLDivElement
+      >
+    >;
   };
 };
 
@@ -22,7 +29,7 @@ export const ProjectSummary = ({
   return (
     <FadeIn
       className={classNames(
-        "group/project-item relative aspect-square rounded-lg bg-gray-900 p-4",
+        "group/project-item aspect-unset relative aspect-square rounded-lg bg-gray-900 p-4",
         className
       )}
       as="li"
@@ -30,7 +37,13 @@ export const ProjectSummary = ({
       style={{ animationDelay: `${800 + 100 * delayFactor}ms` }}
     >
       <Link href={`/projects/${project.slug}`} type="internal" animation={null}>
-        <div className="relative aspect-square overflow-hidden">
+        <div
+          {...slotProps.imageWrapper}
+          className={classNames(
+            "relative aspect-square overflow-hidden",
+            slotProps.imageWrapper?.className
+          )}
+        >
           <Image
             {...slotProps.image}
             src={project.illustration}
