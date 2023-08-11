@@ -32,7 +32,7 @@ export const ExperienceTimelineCard = ({
     >
       <ExperienceTimelineSeparator type={type} />
 
-      <div className="mb-6 w-1/2 flex-1 rounded-md border-1 border-gray-600 p-4 xl:p-10">
+      <div className="mb-6 w-1/2 flex-1 rounded-md border-1 p-4 xl:p-10">
         <Typography className="mb-4 uppercase" variant="h2">
           {title}
         </Typography>
