@@ -101,11 +101,15 @@ export default function About() {
             />
 
             <video
-              src="/about/guitar.webm"
-              className="h-full rounded-xl object-cover lg:rounded-none"
+              // Using mp4 instead of webm because iOS doesn't support it yet
+              src="/about/guitar.mp4"
+              // min-h-full and w-full required because otherwise object-cover won't work in iOS
+              className="h-full min-h-full w-full rounded-xl object-cover lg:rounded-none"
               autoPlay
               loop
               muted
+              // https://webkit.org/blog/6784/new-video-policies-for-ios/ Needed for iOS video to autoplay
+              playsInline
             />
 
             <Image
