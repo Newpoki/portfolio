@@ -9,7 +9,7 @@ type Props = {
 export const HeaderDrawer = ({ isOpen, onClose }: Props) => {
   return (
     <menu
-      className="fixed left-0 top-0 z-50 m-0 flex h-[100dvh] w-[100dvw] translate-x-[-100dvw] flex-col bg-transparent p-4 backdrop-blur-md transition-transform duration-500"
+      className="fixed left-0 top-0 z-50 m-0 flex h-[100dvh] w-[100dvw] translate-x-[-100dvw] flex-col bg-transparent p-4 backdrop-blur-2xl transition-transform duration-500"
       // Using style prop instead of className, because otherwise tailwind won't generate this class
       // And I don't want to use safeList class https://tailwindcss.com/docs/content-configuration#safelisting-classes
       style={isOpen ? { transform: "translateX(0)" } : undefined}
