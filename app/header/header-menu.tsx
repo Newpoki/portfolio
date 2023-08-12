@@ -17,7 +17,11 @@ export const HeaderMenu = () => {
 
   return (
     <div className="flex lg:hidden">
-      <button type="button" onClick={handleOpenDrawer}>
+      <button
+        type="button"
+        onClick={handleOpenDrawer}
+        name="drawer navigation button"
+      >
         <Hamburger width={32} />
       </button>
 
