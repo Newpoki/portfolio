@@ -14,7 +14,11 @@ export const HeaderDrawer = ({ isOpen, onClose }: Props) => {
       // And I don't want to use safeList class https://tailwindcss.com/docs/content-configuration#safelisting-classes
       style={isOpen ? { transform: "translateX(0)" } : undefined}
     >
-      <button className="flex self-start" onClick={onClose}>
+      <button
+        className="flex self-start"
+        onClick={onClose}
+        aria-label="close drawer navigation button"
+      >
         <MenuIcon width={24} />
       </button>
 

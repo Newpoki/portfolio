@@ -20,7 +20,7 @@ export const HeaderMenu = () => {
       <button
         type="button"
         onClick={handleOpenDrawer}
-        name="drawer navigation button"
+        aria-label="open drawer navigation button"
       >
         <Hamburger width={32} />
       </button>
