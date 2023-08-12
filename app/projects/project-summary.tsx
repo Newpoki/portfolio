@@ -6,6 +6,7 @@ import classNames from "classnames";
 import React from "react";
 
 type Props = {
+  as?: React.ElementType;
   className?: string;
   delayFactor?: number;
   project: ProjectSummaryData;
@@ -21,6 +22,7 @@ type Props = {
 };
 
 export const ProjectSummary = ({
+  as = "li",
   className,
   delayFactor = 0,
   project,
@@ -32,7 +34,7 @@ export const ProjectSummary = ({
         "group/project-item aspect-unset relative aspect-square rounded-lg bg-gray-900 p-4",
         className
       )}
-      as="li"
+      as={as}
       // Can't use dynamic classes with TW, so adding animationDelay through style prop
       style={{ animationDelay: `${800 + 100 * delayFactor}ms` }}
     >

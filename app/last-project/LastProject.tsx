@@ -30,6 +30,7 @@ export const LastProject = async () => {
       </div>
 
       <ProjectSummary
+        as="section"
         className="!aspect-auto p-4 xl:p-12"
         project={latestProject}
         slotProps={{
