@@ -20,9 +20,9 @@ export const ExperienceTimelineCard = ({
   startedAt,
   endedAt,
 }: Props) => {
-  const displayedStartedAt = Intl.DateTimeFormat().format(startedAt);
+  const displayedStartedAt = Intl.DateTimeFormat("en").format(startedAt);
   const displayedEndedAt = endedAt
-    ? Intl.DateTimeFormat().format(endedAt)
+    ? Intl.DateTimeFormat("en").format(endedAt)
     : "Today";
 
   return (
