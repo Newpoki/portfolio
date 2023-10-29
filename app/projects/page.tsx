@@ -19,10 +19,16 @@ const getProjectsSummary = async () => {
       id: true,
       illustrationAlt: true,
       illustration: true,
+      isFavorite: true,
     },
-    orderBy: {
-      deployedAt: "desc",
-    },
+    orderBy: [
+      {
+        isFavorite: "desc",
+      },
+      {
+        deployedAt: "desc",
+      },
+    ],
   });
 
   return projectsSummary;
@@ -52,6 +58,7 @@ export default async function Projects() {
               <ProjectSummary
                 delayFactor={index}
                 project={project}
+                isFavorite={project.isFavorite}
                 key={project.id}
               />
             );

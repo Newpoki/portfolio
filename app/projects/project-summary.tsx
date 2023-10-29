@@ -4,11 +4,13 @@ import { ProjectSummaryData } from "./types";
 import { Link } from "../components/link";
 import classNames from "classnames";
 import React from "react";
+import StarIcon from "@/public/icons/star.svg";
 
 type Props = {
   as?: React.ElementType;
   className?: string;
   delayFactor?: number;
+  isFavorite?: boolean | null;
   project: ProjectSummaryData;
   slotProps?: {
     image?: Partial<React.ComponentProps<typeof Image>>;
@@ -25,6 +27,7 @@ export const ProjectSummary = ({
   as = "li",
   className,
   delayFactor = 0,
+  isFavorite = false,
   project,
   slotProps = {},
 }: Props) => {
@@ -46,6 +49,10 @@ export const ProjectSummary = ({
             slotProps.imageWrapper?.className
           )}
         >
+          {isFavorite && (
+            <StarIcon className="absolute left-0 top-0 z-10 aspect-square w-10 text-yellow-500" />
+          )}
+
           <Image
             {...slotProps.image}
             src={project.illustration}
