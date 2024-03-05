@@ -4,7 +4,7 @@ import { HeaderMenu } from "./header-menu";
 
 export const Header = () => {
   return (
-    <div className="mb-8 flex items-center justify-between py-4 font-semibold">
+    <div className="sticky top-0 z-50 mb-8 flex items-center justify-between bg-white py-4 font-semibold ">
       <HeaderMenu />
 
       <JavascriptIcon className="w-8 lg:w-8" />
