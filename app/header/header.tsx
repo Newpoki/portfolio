@@ -14,6 +14,7 @@ export const Header = () => {
         <HeaderLink href="/projects">projects</HeaderLink>
         <HeaderLink href="/experiencies">experiencies</HeaderLink>
         <HeaderLink href="/about">about</HeaderLink>
+        <HeaderLink href="/references">references</HeaderLink>
       </nav>
     </div>
   );

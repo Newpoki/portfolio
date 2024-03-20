@@ -39,6 +39,9 @@ export const HeaderDrawer = ({ isOpen, onClose }: Props) => {
         <HeaderLink className="self-start" href="/about" onClick={onClose}>
           about
         </HeaderLink>
+        <HeaderLink className="self-start" href="/references" onClick={onClose}>
+          references
+        </HeaderLink>
       </nav>
     </menu>
   );
