@@ -9,6 +9,9 @@ const fetchLatestProject = async () => {
     orderBy: {
       deployedAt: "desc",
     },
+    where: {
+      isFavorite: true,
+    },
   });
 
   return project;
