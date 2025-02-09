@@ -3,10 +3,13 @@ import { MenuIcon } from "lucide-react";
 import { HeaderLink } from "./header-link";
 import { DialogTitle } from "@radix-ui/react-dialog";
 
-export const HeaderSheet = () => {
+type HeaderDrawerProps = {
+  className: string;
+};
+export const HeaderSheet = ({ className }: HeaderDrawerProps) => {
   return (
     <Drawer>
-      <DrawerTrigger>
+      <DrawerTrigger className={className}>
         <MenuIcon />
       </DrawerTrigger>
 
