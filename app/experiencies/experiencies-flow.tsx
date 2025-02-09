@@ -116,7 +116,7 @@ export default function ExperienciesFlow({
   }, [handleCenterOnFirstElement, instance]);
 
   return (
-    <div className="absolute left-0 top-0 h-screen w-screen" ref={ref}>
+    <div className="absolute left-0 top-0 h-[100dvh] w-[100dvw]" ref={ref}>
       <ReactFlow
         nodes={nodes}
         edges={edges}
