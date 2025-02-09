@@ -14,18 +14,16 @@ export const Footer = () => {
 
   return (
     <footer className="main-layout-px mt-auto flex flex-col gap-8 py-6 pt-28 text-center lg:text-left">
-      <div>
-        <Typography variant="h1">Jason Savelli</Typography>
-        <Typography variant="h1">Front End Dev</Typography>
-      </div>
-
       <section className="flex flex-col items-center gap-4 lg:flex-row lg:justify-between">
-        <div className="flex items-center gap-4">
+        <div className="mx-4 flex flex-wrap items-center justify-center gap-4 lg:mx-0">
           <Link
             type="external"
             href="https://www.linkedin.com/in/jason-savelli/"
           >
             Linkedin
+          </Link>
+          <Link type="external" href="https://medium.com/@savellijason">
+            Medium
           </Link>
           <Link type="external" href="https://x.com/Newpokii">
             Twitter
@@ -43,7 +41,9 @@ export const Footer = () => {
 
         <FooterScrollTopButton />
 
-        <Typography>Copyright©JasonSavelli</Typography>
+        <Typography className="font-semibold">
+          Copyright©JasonSavelli
+        </Typography>
       </section>
     </footer>
   );
