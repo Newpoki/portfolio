@@ -1,13 +1,19 @@
 import { Typography } from "../components/typography";
-import { ExperienciesFlow } from "./experiencies-flow";
 import { ReactFlowProvider } from "@xyflow/react";
 import { Metadata } from "next";
 import { fetchExperiencies } from "./experiencies-actions";
+import dynamic from "next/dynamic";
 
 export const metadata: Metadata = {
   title: "Jason Savelli - Experiencies",
   description: "All my previous experiencies",
 };
+
+// Next JS still renders on the server, so we must ensure its ONLY on client
+const DynamicExperienciesFlow = dynamic(() => import("./experiencies-flow"), {
+  loading: () => null,
+  ssr: false,
+});
 
 export default async function ExperienciesPage() {
   const experiencies = await fetchExperiencies();
@@ -19,7 +25,7 @@ export default async function ExperienciesPage() {
       </Typography>
 
       <ReactFlowProvider>
-        <ExperienciesFlow experiencies={experiencies} />
+        <DynamicExperienciesFlow experiencies={experiencies} />
       </ReactFlowProvider>
     </div>
   );

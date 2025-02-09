@@ -12,9 +12,9 @@ import {
   useReactFlow,
 } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
-import { ExperienceNode, ExperienceNodeData } from "./experience-node";
+import { ExperienceNode, type ExperienceNodeData } from "./experience-node";
 import { Experiencies } from "./experiencies-actions";
-import { useCallback, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 
 const nodeTypes = {
   experienceNode: ExperienceNode,
@@ -88,7 +88,9 @@ const generateEdges = (nodes: Node[]): Edge[] => {
   }));
 };
 
-export const ExperienciesFlow = ({ experiencies }: ExperienciesFlowProps) => {
+export default function ExperienciesFlow({
+  experiencies,
+}: ExperienciesFlowProps) {
   const [nodes, , onNodesChange] = useNodesState(generateNodes(experiencies));
   const [edges, , onEdgesChange] = useEdgesState(generateEdges(nodes));
   const instance = useReactFlow();
@@ -109,7 +111,7 @@ export const ExperienciesFlow = ({ experiencies }: ExperienciesFlowProps) => {
     observer.observe(ref.current);
 
     return () => observer.disconnect();
-  }, []);
+  }, [instance]);
 
   return (
     <div className="absolute left-0 top-0 h-screen w-screen" ref={ref}>
@@ -126,4 +128,4 @@ export const ExperienciesFlow = ({ experiencies }: ExperienciesFlowProps) => {
       </ReactFlow>
     </div>
   );
-};
+}

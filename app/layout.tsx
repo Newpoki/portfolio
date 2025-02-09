@@ -4,7 +4,6 @@ import { Inter } from "next/font/google";
 import { Header } from "./header/header";
 import { Footer } from "./footer/footer";
 import classNames from "classnames";
-import { useRouter } from "next/router";
 
 const inter = Inter({ subsets: ["latin"] });
 
