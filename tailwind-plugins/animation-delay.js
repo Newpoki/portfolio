@@ -1,4 +1,4 @@
-const plugin = require("tailwindcss/plugin");
+import plugin from "tailwindcss/plugin";
 
 const animationDelay = plugin(({ matchUtilities, theme }) => {
   matchUtilities(
@@ -16,4 +16,4 @@ const animationDelay = plugin(({ matchUtilities, theme }) => {
   );
 });
 
-module.exports = animationDelay;
+export default animationDelay;
