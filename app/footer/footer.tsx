@@ -13,7 +13,7 @@ export const Footer = () => {
   }
 
   return (
-    <footer className="mt-auto flex flex-col gap-8 py-6 pt-28 text-center lg:text-left">
+    <footer className="main-layout-px mt-auto flex flex-col gap-8 py-6 pt-28 text-center lg:text-left">
       <div>
         <Typography variant="h1">Jason Savelli</Typography>
         <Typography variant="h1">Front End Dev</Typography>
