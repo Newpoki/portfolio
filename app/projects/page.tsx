@@ -1,8 +1,6 @@
 import { Metadata } from "next";
 import { Typography } from "../components/typography";
 import { ProjectSummary } from "./project-summary";
-import { SlideUp } from "../components/slide-up";
-import { FadeIn } from "../components/fade-in";
 import { PrismaClient } from "@prisma/client";
 
 export const metadata: Metadata = {
@@ -39,13 +37,11 @@ export default async function Projects() {
 
   return (
     <section>
-      <div className="mb-8">
-        <SlideUp>
-          <Typography variant="h1">Projects</Typography>
-        </SlideUp>
-      </div>
+      <Typography className="mb-8" variant="h1">
+        Projects
+      </Typography>
 
-      <FadeIn className="animation-delay-[900ms] lg:mb-8">
+      <div className="lg:mb-8">
         <div className="mb-12 lg:max-w-screen-sm">
           <Typography variant="h2">
             Some side projects I have worked on.
@@ -53,10 +49,9 @@ export default async function Projects() {
         </div>
 
         <ul className="grid grid-cols-1 items-stretch gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
-          {data.map((project, index) => {
+          {data.map((project) => {
             return (
               <ProjectSummary
-                delayFactor={index}
                 project={project}
                 isFavorite={project.isFavorite}
                 key={project.id}
@@ -64,7 +59,7 @@ export default async function Projects() {
             );
           })}
         </ul>
-      </FadeIn>
+      </div>
     </section>
   );
 }

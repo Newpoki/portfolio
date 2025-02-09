@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { FadeIn } from "../components/fade-in";
 import { ProjectSummaryData } from "./types";
 import { Link } from "../components/link";
 import classNames from "classnames";
@@ -7,9 +6,7 @@ import React from "react";
 import StarIcon from "@/public/icons/star.svg";
 
 type Props = {
-  as?: React.ElementType;
   className?: string;
-  delayFactor?: number;
   isFavorite?: boolean | null;
   project: ProjectSummaryData;
   slotProps?: {
@@ -24,22 +21,17 @@ type Props = {
 };
 
 export const ProjectSummary = ({
-  as = "li",
   className,
-  delayFactor = 0,
   isFavorite = false,
   project,
   slotProps = {},
 }: Props) => {
   return (
-    <FadeIn
+    <li
       className={classNames(
         "group/project-item aspect-unset relative aspect-square rounded-lg bg-gray-900 p-4",
         className
       )}
-      as={as}
-      // Can't use dynamic classes with TW, so adding animationDelay through style prop
-      style={{ animationDelay: `${800 + 100 * delayFactor}ms` }}
     >
       <Link href={`/projects/${project.slug}`} type="internal" animation={null}>
         <div
@@ -70,6 +62,6 @@ export const ProjectSummary = ({
           </div>
         </div>
       </Link>
-    </FadeIn>
+    </li>
   );
 };

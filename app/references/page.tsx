@@ -1,6 +1,4 @@
-import { SlideUp } from "../components/slide-up";
 import { Typography } from "../components/typography";
-import { FadeIn } from "../components/fade-in";
 import { Metadata } from "next";
 import { TabeListItem } from "../components/table-list-item";
 
@@ -12,13 +10,11 @@ export const metadata: Metadata = {
 export default async function References() {
   return (
     <div>
-      <div className="mb-8">
-        <SlideUp>
-          <Typography variant="h1">References</Typography>
-        </SlideUp>
-      </div>
+      <Typography className="mb-8" variant="h1">
+        References
+      </Typography>
 
-      <FadeIn className="animation-delay-[900ms]">
+      <section>
         <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-center md:justify-between ">
           <Typography className="md:max-w-screen-sm" variant="h2">
             People that can tell you more
@@ -49,7 +45,7 @@ export default async function References() {
             </TabeListItem>
           </ul>
         </div>
-      </FadeIn>
+      </section>
     </div>
   );
 }

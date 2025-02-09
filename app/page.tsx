@@ -2,8 +2,6 @@ import { Metadata } from "next";
 import DownloadIcon from "@/public/icons/download.svg";
 import { RevealButton } from "./components/reveal-button";
 import { Typography } from "./components/typography";
-import { FadeIn } from "./components/fade-in";
-import { SlideUp } from "./components/slide-up";
 import { LastProject } from "./last-project/LastProject";
 
 export const metadata: Metadata = {
@@ -15,38 +13,30 @@ export default function Home() {
   return (
     <section>
       <div className="mb-8 flex flex-col">
-        <SlideUp>
-          <Typography variant="h1">Jason Savelli</Typography>
-        </SlideUp>
+        <Typography variant="h1">Jason Savelli</Typography>
 
-        <SlideUp className="animation-delay-150">
-          <Typography variant="h1">Front End Dev</Typography>
-        </SlideUp>
+        <Typography variant="h1">Front End Dev</Typography>
       </div>
 
-      <FadeIn className="animation-delay-[1150ms]">
-        <Typography className="mb-8 lg:max-w-screen-sm" variant="h2">
-          I enjoy working on React projects with TypeScript.
-        </Typography>
+      <Typography className="mb-8 lg:max-w-screen-sm" variant="h2">
+        I enjoy working on React projects with TypeScript.
+      </Typography>
 
-        <RevealButton
-          revealed={
-            <div className="flex h-12 items-center gap-4">
-              <DownloadIcon width={16} />
-              <span>jason-cv.pdf</span>
-            </div>
-          }
-          href="/resume.pdf"
-          download
-          className="xl:20 mb-8 md:mb-12"
-        >
-          Download my CV
-        </RevealButton>
+      <RevealButton
+        revealed={
+          <div className="flex h-12 items-center gap-4">
+            <DownloadIcon width={16} />
+            <span>jason-cv.pdf</span>
+          </div>
+        }
+        href="/resume.pdf"
+        download
+        className="xl:20 mb-8 md:mb-12"
+      >
+        Download my CV
+      </RevealButton>
 
-        <section>
-          <LastProject />
-        </section>
-      </FadeIn>
+      <LastProject />
     </section>
   );
 }

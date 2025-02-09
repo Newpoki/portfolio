@@ -1,7 +1,4 @@
 import Image from "next/image";
-import { FadeIn } from "../components/fade-in";
-import { SlideUp } from "../components/slide-up";
-import { SlightlySlideUp } from "../components/slightly-slide-up";
 import { Typography } from "../components/typography";
 import { Link } from "../components/link";
 import { Metadata } from "next";
@@ -16,19 +13,12 @@ export default function About() {
   return (
     <div>
       <div className="mb-8 flex flex-col">
-        <SlideUp>
-          <Typography variant="h1">frontend</Typography>
-        </SlideUp>
+        <Typography variant="h1">frontend</Typography>
 
-        <SlideUp className="animation-delay-150">
-          <Typography variant="h1">and guitar</Typography>
-        </SlideUp>
+        <Typography variant="h1">and guitar</Typography>
       </div>
 
-      <FadeIn
-        as="section"
-        className="flex flex-col gap-8 animation-delay-[900ms] lg:gap-20 xl:gap-40"
-      >
+      <section className="flex flex-col gap-8 lg:gap-20 xl:gap-40">
         <div className=" lg:max-w-screen-sm ">
           <Typography variant="h2">
             Learn more about me, how I got here, what do I love in Front-End and
@@ -36,14 +26,12 @@ export default function About() {
           </Typography>
         </div>
 
-        <SlightlySlideUp className="relativeflex flex-1 animation-delay-[900ms]">
-          <Image
-            src="/about/me.jpeg"
-            alt="Pictures of me drinking a Tavel wine"
-            fill
-            className="!relative rounded-lg object-cover"
-          />
-        </SlightlySlideUp>
+        <Image
+          src="/about/me.jpeg"
+          alt="Pictures of me drinking a Tavel wine"
+          fill
+          className="!relative rounded-lg object-cover"
+        />
 
         <section className="lg:1/2 mx-auto flex flex-col gap-8 md:w-2/3">
           <Typography variant="h2">Who am I ?</Typography>
@@ -120,7 +108,7 @@ export default function About() {
             />
           </div>
         </section>
-      </FadeIn>
+      </section>
     </div>
   );
 }
