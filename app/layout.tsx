@@ -1,19 +1,21 @@
 import "./globals.css";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import { Header } from "./header/header";
 import { Footer } from "./footer/footer";
 import classNames from "classnames";
+import { useRouter } from "next/router";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Jason Savelli",
   description: "My personal portfolio",
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-  },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
 };
 
 type Props = {
