@@ -1,48 +1,68 @@
+"use client";
+
+import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
+import { MenuIcon } from "lucide-react";
 import { HeaderLink } from "./header-link";
-import MenuIcon from "@/public/icons/close.svg";
+import { DialogTitle } from "@radix-ui/react-dialog";
+import { useCallback, useState } from "react";
 
-type Props = {
-  isOpen: boolean;
-  onClose: () => void;
+type HeaderDrawerProps = {
+  className: string;
 };
+export const HeaderDrawer = ({ className }: HeaderDrawerProps) => {
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
-export const HeaderDrawer = ({ isOpen, onClose }: Props) => {
+  const handleCloseDrawer = useCallback(() => {
+    setIsDrawerOpen(false);
+  }, []);
+
   return (
-    <menu
-      className="fixed left-0 top-0 z-50 m-0 flex h-[100dvh] w-[100dvw] translate-x-[-100dvw] flex-col bg-transparent p-4 backdrop-blur-2xl transition-transform duration-500"
-      // Using style prop instead of className, because otherwise tailwind won't generate this class
-      // And I don't want to use safeList class https://tailwindcss.com/docs/content-configuration#safelisting-classes
-      style={isOpen ? { transform: "translateX(0)" } : undefined}
-    >
-      <button
-        className="flex self-start"
-        onClick={onClose}
-        aria-label="close drawer navigation button"
-      >
-        <MenuIcon width={24} />
-      </button>
+    <Drawer open={isDrawerOpen} onOpenChange={setIsDrawerOpen}>
+      <DrawerTrigger className={className}>
+        <MenuIcon />
+      </DrawerTrigger>
 
-      <nav className="flex flex-1 flex-col justify-center gap-6 ">
-        <HeaderLink className="self-start" href="/" onClick={onClose}>
-          home
-        </HeaderLink>
-        <HeaderLink className="self-start" href="/projects" onClick={onClose}>
-          projects
-        </HeaderLink>
-        <HeaderLink
-          className="self-start"
-          href="/experiencies"
-          onClick={onClose}
-        >
-          experiencies
-        </HeaderLink>
-        <HeaderLink className="self-start" href="/about" onClick={onClose}>
-          about
-        </HeaderLink>
-        <HeaderLink className="self-start" href="/references" onClick={onClose}>
-          references
-        </HeaderLink>
-      </nav>
-    </menu>
+      <DrawerContent className="p-4">
+        <DialogTitle className="hidden">Mobile navigation menu</DialogTitle>
+
+        <nav className="flex flex-1 flex-col justify-center gap-6 ">
+          <HeaderLink onClick={handleCloseDrawer} className="w-fit" href="/">
+            home
+          </HeaderLink>
+
+          <HeaderLink
+            onClick={handleCloseDrawer}
+            className="w-fit"
+            href="/projects"
+          >
+            projects
+          </HeaderLink>
+
+          <HeaderLink
+            onClick={handleCloseDrawer}
+            className="w-fit"
+            href="/experiencies"
+          >
+            experiencies
+          </HeaderLink>
+
+          <HeaderLink
+            onClick={handleCloseDrawer}
+            className="w-fit"
+            href="/about"
+          >
+            about
+          </HeaderLink>
+
+          <HeaderLink
+            onClick={handleCloseDrawer}
+            className="w-fit"
+            href="/references"
+          >
+            references
+          </HeaderLink>
+        </nav>
+      </DrawerContent>
+    </Drawer>
   );
 };
