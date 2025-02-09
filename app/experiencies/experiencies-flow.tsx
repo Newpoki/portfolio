@@ -2,6 +2,7 @@
 
 import {
   Background,
+  Controls,
   Edge,
   Node,
   NodeTypes,
@@ -14,7 +15,7 @@ import {
 import "@xyflow/react/dist/style.css";
 import { ExperienceNode, type ExperienceNodeData } from "./experience-node";
 import { Experiencies } from "./experiencies-actions";
-import { useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef } from "react";
 
 const nodeTypes = {
   experienceNode: ExperienceNode,
@@ -26,10 +27,7 @@ type ExperienciesFlowProps = {
 
 const shouldBeConsideredAsMobile = () => window.innerWidth < 968;
 
-const handleCenterOnFirstElement: OnInit<Node, Edge> = ({
-  getNodes,
-  fitView,
-}) => {
+const centerOnFirstElement: OnInit<Node, Edge> = ({ getNodes, fitView }) => {
   const isMobile = shouldBeConsideredAsMobile();
 
   const nodes = getNodes();
@@ -97,6 +95,10 @@ export default function ExperienciesFlow({
 
   const ref = useRef<HTMLDivElement>(null);
 
+  const handleCenterOnFirstElement = useCallback(() => {
+    centerOnFirstElement(instance);
+  }, [instance]);
+
   useEffect(() => {
     if (ref.current == null) {
       return;
@@ -104,14 +106,14 @@ export default function ExperienciesFlow({
 
     const observer = new ResizeObserver((entries) => {
       entries.forEach(() => {
-        handleCenterOnFirstElement(instance);
+        handleCenterOnFirstElement();
       });
     });
 
     observer.observe(ref.current);
 
     return () => observer.disconnect();
-  }, [instance]);
+  }, [handleCenterOnFirstElement, instance]);
 
   return (
     <div className="absolute left-0 top-0 h-screen w-screen" ref={ref}>
@@ -122,9 +124,10 @@ export default function ExperienciesFlow({
         onEdgesChange={onEdgesChange}
         className="flex-1"
         nodeTypes={nodeTypes}
-        onInit={handleCenterOnFirstElement}
+        onInit={centerOnFirstElement}
       >
         <Background className="bg-white" />
+        <Controls onFitView={handleCenterOnFirstElement} />
       </ReactFlow>
     </div>
   );
