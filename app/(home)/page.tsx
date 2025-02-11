@@ -12,8 +12,9 @@ export default function Home() {
     <section>
       <div className="mb-8 flex flex-col">
         <h1 className="flex flex-col">
-          <span>Jason Savelli</span>
-          <span>Front End Dev</span>
+          Jason Savelli
+          <br />
+          Front End Dev
         </h1>
       </div>
 

@@ -13,8 +13,9 @@ export default function About() {
     <div>
       <div className="mb-8 flex flex-col">
         <h1>
-          <span>frontend</span>
-          <span>and guitar</span>
+          frontend
+          <br />
+          and guitar
         </h1>
       </div>
 
