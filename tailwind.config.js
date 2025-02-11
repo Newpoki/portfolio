@@ -12,6 +12,9 @@ module.exports = {
         width: "width",
         left: "left",
       },
+      fontFamily: {
+        sans: ["var(--font-sf-pro-display)"],
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
