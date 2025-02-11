@@ -8,5 +8,4 @@ const configuration = {
   plugins: ["prettier-plugin-tailwindcss"],
 };
 
-export default configuration
- 
+export default configuration;

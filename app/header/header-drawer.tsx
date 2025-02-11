@@ -25,7 +25,7 @@ export const HeaderDrawer = ({ className }: HeaderDrawerProps) => {
       <DrawerContent className="p-4">
         <DialogTitle className="hidden">Mobile navigation menu</DialogTitle>
 
-        <nav className="flex flex-1 flex-col justify-center gap-6 ">
+        <nav className="flex flex-1 flex-col justify-center gap-6">
           <HeaderLink onClick={handleCloseDrawer} className="w-fit" href="/">
             home
           </HeaderLink>

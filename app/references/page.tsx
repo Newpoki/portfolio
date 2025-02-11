@@ -12,7 +12,7 @@ export default async function References() {
       <h1 className="mb-8">References</h1>
 
       <section>
-        <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-center md:justify-between ">
+        <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
           <h2 className="md:max-w-screen-sm">People that can tell you more</h2>
         </div>
 

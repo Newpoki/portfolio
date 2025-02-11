@@ -20,7 +20,7 @@ export default function About() {
       </div>
 
       <section className="relative flex flex-col gap-8 lg:gap-20 xl:gap-40">
-        <div className=" lg:max-w-screen-sm ">
+        <div className="lg:max-w-screen-sm">
           <h2>
             Learn more about me, how I got here, what do I love in Front-End and
             also some guitar riffs.

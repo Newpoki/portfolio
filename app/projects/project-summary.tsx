@@ -30,7 +30,7 @@ export const ProjectSummary = ({
     <li
       className={classNames(
         "group/project-item aspect-unset relative aspect-square rounded-lg bg-foreground/90 p-4",
-        className
+        className,
       )}
     >
       <Link href={`/projects/${project.slug}`} type="internal" animation={null}>
@@ -38,7 +38,7 @@ export const ProjectSummary = ({
           {...slotProps.imageWrapper}
           className={classNames(
             "relative aspect-square overflow-hidden",
-            slotProps.imageWrapper?.className
+            slotProps.imageWrapper?.className,
           )}
         >
           {isFavorite && (
@@ -52,7 +52,7 @@ export const ProjectSummary = ({
             fill
             className={classNames(
               "!relative rounded-lg object-cover transition duration-300 group-hover/project-item:scale-110",
-              slotProps.image?.className
+              slotProps.image?.className,
             )}
             sizes="(max-width: 768px) 100vw"
           />

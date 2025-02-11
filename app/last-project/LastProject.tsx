@@ -21,7 +21,7 @@ export const LastProject = async () => {
 
   return (
     <article>
-      <div className="mb-8 flex flex-row items-center justify-between gap-6 ">
+      <div className="mb-8 flex flex-row items-center justify-between gap-6">
         <h2 className="md:max-w-screen-sm">My latest project</h2>
 
         <span className="whitespace-nowrap font-semibold">Discover ↓</span>

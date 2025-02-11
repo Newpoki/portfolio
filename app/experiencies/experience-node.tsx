@@ -18,7 +18,7 @@ export type ExperienceNodeProps = NodeProps<ExperienceNodeData>;
 
 export const ExperienceNode = ({ data }: ExperienceNodeProps) => {
   const displayedStartedAt = Intl.DateTimeFormat("en").format(
-    data.experience.startedAt
+    data.experience.startedAt,
   );
 
   const displayedEndedAt = data.experience.endedAt
