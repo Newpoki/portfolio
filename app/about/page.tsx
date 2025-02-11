@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { Typography } from "../components/typography";
 import { Link } from "../components/link";
 import { Metadata } from "next";
 import { TabeListItem } from "../components/table-list-item";
@@ -13,17 +12,18 @@ export default function About() {
   return (
     <div>
       <div className="mb-8 flex flex-col">
-        <Typography variant="h1">frontend</Typography>
-
-        <Typography variant="h1">and guitar</Typography>
+        <h1>
+          <span>frontend</span>
+          <span>and guitar</span>
+        </h1>
       </div>
 
       <section className="flex flex-col gap-8 lg:gap-20 xl:gap-40">
         <div className=" lg:max-w-screen-sm ">
-          <Typography variant="h2">
+          <h2>
             Learn more about me, how I got here, what do I love in Front-End and
             also some guitar riffs.
-          </Typography>
+          </h2>
         </div>
 
         <Image
@@ -34,33 +34,35 @@ export default function About() {
         />
 
         <section className="lg:1/2 mx-auto flex flex-col gap-8 md:w-2/3">
-          <Typography variant="h2">Who am I ?</Typography>
+          <h2>Who am I ?</h2>
 
-          <Typography variant="body2">
+          <p>
             I&apos;m Jason Savelli (He / Him). I was born on the 24th of
             December 1996, in Marignane, France. I&apos; living in Barbentane,
             near Avignon, France. I have 2 beautifull doggos that I love more
             than anything, playing guitar, video games
-          </Typography>
+          </p>
 
-          <Typography variant="h2">How did I get there ?</Typography>
+          <h2>How did I get there ?</h2>
 
-          <Typography variant="body2">
-            I was an{" "}
+          <p>
+            <span>I was an&apos;</span>
             <Link
               className="inline-flex font-semibold"
               type="external"
               href="https://oclock.io/"
             >
               O&apos;Clock
-            </Link>{" "}
-            student in 2019, where I deepened my love for the web ecosystem.
-            Early in my journey in the web ecosystem, I&apos;ve found that I
-            really love Javascript so I&apos;m giving 200% of myself in to get
-            better and better everyday.
-          </Typography>
+            </Link>
+            <span>
+              &apos;student in 2019, where I deepened my love for the web
+              ecosystem. Early in my journey in the web ecosystem, I&apos;ve
+              found that I really love Javascript so I&apos;m giving 200% of
+              myself in to get better and better everyday.
+            </span>
+          </p>
 
-          <Typography variant="h2">My dream stack</Typography>
+          <h2>My dream stack</h2>
           <ul>
             <TabeListItem label="Front-End Library">React</TabeListItem>
             <TabeListItem label="Component library">Material-UI</TabeListItem>
@@ -75,10 +77,10 @@ export default function About() {
         </section>
 
         <section className="flex flex-col gap-8 lg:gap-20">
-          <Typography className="lg:1/2 mx-auto md:w-2/3" variant="h2">
+          <h2 className="lg:1/2 mx-auto md:w-2/3">
             When I&apos;m not at the computer, you can find me playing guitar,
             video games or taking photos of beautifull dogs.
-          </Typography>
+          </h2>
 
           <div className="grid gap-4 lg:grid-cols-3 lg:overflow-hidden lg:rounded-xl">
             <Image

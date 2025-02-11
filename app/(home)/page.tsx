@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import { Typography } from "../components/typography";
 import { LastProject } from "../last-project/LastProject";
 import { DownloadResumeButton } from "./download-resume-button";
 
@@ -12,14 +11,15 @@ export default function Home() {
   return (
     <section>
       <div className="mb-8 flex flex-col">
-        <Typography variant="h1">Jason Savelli</Typography>
-
-        <Typography variant="h1">Front End Dev</Typography>
+        <h1 className="flex flex-col">
+          <span>Jason Savelli</span>
+          <span>Front End Dev</span>
+        </h1>
       </div>
 
-      <Typography className="mb-8 lg:max-w-screen-sm" variant="h2">
+      <h2 className="mb-8 lg:max-w-screen-sm">
         I enjoy working on React projects with TypeScript.
-      </Typography>
+      </h2>
 
       <DownloadResumeButton className="xl:20 mb-8 md:mb-12"></DownloadResumeButton>
 

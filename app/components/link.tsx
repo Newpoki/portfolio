@@ -1,7 +1,5 @@
 import classNames from "classnames";
-import { Typography } from "./typography";
-import { forwardRef } from "react";
-import NextLink, { LinkProps } from "next/link";
+import NextLink, { LinkProps as NextLinkProps } from "next/link";
 
 type LinkAnimationProps =
   | "bright-slide"
@@ -9,20 +7,14 @@ type LinkAnimationProps =
   | "expanse-center"
   | null;
 
-type CommonProps = {
-  animation?: LinkAnimationProps;
-};
-
-type InternalLinkProps = CommonProps &
-  LinkProps &
+type InternalLinkProps = NextLinkProps &
   React.AnchorHTMLAttributes<HTMLAnchorElement> & {
     type: "internal";
   };
 
-type ExternalLinkProps = CommonProps &
-  React.AnchorHTMLAttributes<HTMLAnchorElement> & {
-    type: "external";
-  };
+type ExternalLinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
+  type: "external";
+};
 
 const BRIGHT_SLIDE_ANIMATION_CLASSNAME =
   "after:content-[' '] relative flex flex-col self-start before:absolute before:bottom-0 before:inline-block before:h-[1px] before:w-[10%] before:translate-x-[-100%] before:bg-white before:transition-transform before:duration-500 after:inline-block after:h-[1px] after:w-full after:bg-black hover:before:translate-x-[1100%]";
@@ -31,37 +23,33 @@ const EXPANSE_LEFT_CLASSNAME =
   "after:content-[' '] relative flex flex-col self-start after:absolute after:bottom-0 after:inline-block after:h-[1px] after:w-[0] hover:after:w-full after:bg-black after:transition-width";
 
 const EXPANSE_CENTER_CLASSNAME =
-  "relative flex flex-col self-start" +
-  "after:content-[' '] after:absolute after:bottom-0 after:block after:h-[1px] after:w-full after:scale-x-0 after:w-full hover:after:scale-x-100 after:bg-black after:transition-transform";
+  "relative flex flex-col self-start after:content-[' '] after:absolute after:bottom-0 after:block after:h-[1px] after:w-full after:scale-x-0 after:w-full hover:after:scale-x-100 after:bg-black after:transition-transform";
 
-type Props = InternalLinkProps | ExternalLinkProps;
+const InternalLink = ({ type, ...others }: InternalLinkProps) => {
+  return <NextLink {...others} />;
+};
 
-export const Link = forwardRef<HTMLAnchorElement, Props>(
-  ({ animation = "expanse-left", ...props }, ref) => {
-    const className = classNames(
-      {
-        [BRIGHT_SLIDE_ANIMATION_CLASSNAME]: animation === "bright-slide",
-        [EXPANSE_LEFT_CLASSNAME]: animation === "expanse-left",
-        [EXPANSE_CENTER_CLASSNAME]: animation === "expanse-center",
-      },
-      props.className
-    );
+const ExternalLink = ({ type, ...others }: ExternalLinkProps) => {
+  return <a {...others} target="_blank" rel="noopener, noreferrer" />;
+};
 
-    if (props.type === "internal") {
-      return (
-        <Typography {...props} as={NextLink} ref={ref} className={className} />
-      );
-    }
+type LinkProps = (InternalLinkProps | ExternalLinkProps) & {
+  animation?: LinkAnimationProps;
+};
 
-    return (
-      <Typography
-        {...props}
-        as="a"
-        className={className}
-        ref={ref}
-        target="_blank"
-        rel="noopener, noreferrer"
-      />
-    );
-  }
-);
+export const Link = ({ animation, ...props }: LinkProps) => {
+  const className = classNames(
+    {
+      [BRIGHT_SLIDE_ANIMATION_CLASSNAME]: animation === "bright-slide",
+      [EXPANSE_LEFT_CLASSNAME]: animation === "expanse-left",
+      [EXPANSE_CENTER_CLASSNAME]: animation === "expanse-center",
+    },
+    props.className
+  );
+
+  return props.type === "internal" ? (
+    <InternalLink {...props} className={className} />
+  ) : (
+    <ExternalLink {...props} className={className} />
+  );
+};
