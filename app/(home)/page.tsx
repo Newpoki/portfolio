@@ -1,8 +1,7 @@
 import { Metadata } from "next";
-import DownloadIcon from "@/public/icons/download.svg";
-import { RevealButton } from "./components/reveal-button";
-import { Typography } from "./components/typography";
-import { LastProject } from "./last-project/LastProject";
+import { Typography } from "../components/typography";
+import { LastProject } from "../last-project/LastProject";
+import { DownloadResumeButton } from "./download-resume-button";
 
 export const metadata: Metadata = {
   title: "Jason Savelli - Home",
@@ -22,19 +21,7 @@ export default function Home() {
         I enjoy working on React projects with TypeScript.
       </Typography>
 
-      <RevealButton
-        revealed={
-          <div className="flex h-12 items-center gap-4">
-            <DownloadIcon width={16} />
-            <span>jason-cv.pdf</span>
-          </div>
-        }
-        href="/resume.pdf"
-        download
-        className="xl:20 mb-8 md:mb-12"
-      >
-        Download my CV
-      </RevealButton>
+      <DownloadResumeButton className="xl:20 mb-8 md:mb-12"></DownloadResumeButton>
 
       <LastProject />
     </section>
