@@ -5,9 +5,9 @@ import Image from "next/image";
 import { ProjectInfosList } from "./project-infos-list";
 
 type Props = {
-  params: {
+  params: Promise<{
     "project-slug": string;
-  };
+  }>;
 };
 
 const prisma = new PrismaClient();
@@ -27,7 +27,7 @@ const fetchProjectData = async (projectSlug: string) => {
 };
 
 export default async function ProjectSlug(props: Props) {
-  const project = await fetchProjectData(props.params["project-slug"]);
+  const project = await fetchProjectData((await props.params)["project-slug"]);
 
   return (
     <div>
