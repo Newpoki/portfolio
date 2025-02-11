@@ -19,7 +19,7 @@ export default function About() {
         </h1>
       </div>
 
-      <section className="flex flex-col gap-8 lg:gap-20 xl:gap-40">
+      <section className="relative flex flex-col gap-8 lg:gap-20 xl:gap-40">
         <div className=" lg:max-w-screen-sm ">
           <h2>
             Learn more about me, how I got here, what do I love in Front-End and
@@ -32,6 +32,7 @@ export default function About() {
           alt="Pictures of me drinking a Tavel wine"
           fill
           className="!relative rounded-lg object-cover"
+          priority
         />
 
         <section className="lg:1/2 mx-auto flex flex-col gap-8 md:w-2/3">
@@ -83,12 +84,13 @@ export default function About() {
             video games or taking photos of beautifull dogs.
           </h2>
 
-          <div className="grid gap-4 lg:grid-cols-3 lg:overflow-hidden lg:rounded-xl">
+          <div className="relative grid gap-4 lg:grid-cols-3 lg:overflow-hidden lg:rounded-xl">
             <Image
               src="/about/nouchka-redux.webp"
               fill
               alt="Picture of Redux and Nouchka, loved dogs"
               className="!relative rounded-xl object-cover lg:rounded-none"
+              sizes="100%"
             />
 
             <video
@@ -108,6 +110,8 @@ export default function About() {
               fill
               alt="Picture of Redux and Nouchka, loved dogs"
               className="!relative rounded-xl object-cover lg:rounded-none"
+              priority
+              sizes="100%"
             />
           </div>
         </section>

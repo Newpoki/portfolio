@@ -6,7 +6,7 @@ import { Experiencies } from "./experiencies-actions";
 
 // Next JS still renders on the server, so we must ensure its ONLY on client
 const DynamicExperienciesFlow = dynamic(() => import("./experiencies-flow"), {
-  loading: () => null,
+  loading: () => <>{null}</>,
   ssr: false,
 });
 

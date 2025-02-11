@@ -35,7 +35,7 @@ export default async function ProjectSlug(props: Props) {
         <span>({project.deployedAt.getFullYear()})</span>
       </h1>
 
-      <section className="flex flex-col lg:mb-8">
+      <section className="relative flex flex-col lg:mb-8">
         <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-center md:justify-between ">
           <h2 className="md:max-w-screen-sm">{project.shortDesc}</h2>
 
@@ -47,6 +47,7 @@ export default async function ProjectSlug(props: Props) {
           alt={project.illustrationAlt}
           fill
           className="!relative object-cover"
+          priority
         />
 
         <section className="mx-auto flex flex-col justify-center gap-16 md:w-4/5 lg:w-1/2">
