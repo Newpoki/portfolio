@@ -126,7 +126,7 @@ export default function ExperienciesFlow({
         nodeTypes={nodeTypes}
         onInit={centerOnFirstElement}
       >
-        <Background className="bg-white" />
+        <Background />
         <Controls onFitView={handleCenterOnFirstElement} />
       </ReactFlow>
     </div>

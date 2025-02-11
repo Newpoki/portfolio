@@ -29,7 +29,7 @@ export const ProjectSummary = ({
   return (
     <li
       className={classNames(
-        "group/project-item aspect-unset relative aspect-square rounded-lg bg-gray-900 p-4",
+        "group/project-item aspect-unset relative aspect-square rounded-lg p-4",
         className
       )}
     >
@@ -42,7 +42,7 @@ export const ProjectSummary = ({
           )}
         >
           {isFavorite && (
-            <StarIcon className="absolute left-0 top-0 z-10 aspect-square w-10 text-yellow-500" />
+            <StarIcon className="absolute left-0 top-0 z-10 aspect-square w-10 text-primary" />
           )}
 
           <Image
@@ -57,7 +57,7 @@ export const ProjectSummary = ({
             sizes="(max-width: 768px) 100vw"
           />
 
-          <div className="absolute left-2/4 top-2/4 z-10 flex aspect-square -translate-x-1/2 -translate-y-1/2 scale-0 items-center rounded-full bg-white p-4 text-center shadow-xl transition-all duration-300 group-hover/project-item:scale-100">
+          <div className="absolute left-2/4 top-2/4 z-10 flex aspect-square -translate-x-1/2 -translate-y-1/2 scale-0 items-center rounded-full bg-background p-4 text-center shadow-xl transition-all duration-300 group-hover/project-item:scale-100">
             View project
           </div>
         </div>

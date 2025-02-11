@@ -10,7 +10,7 @@ export const TabeListItem = ({ children, className, label }: Props) => {
   return (
     <li
       className={classNames(
-        "flex border-collapse items-center justify-between gap-8 border-t-1 border-gray-300 py-8 last:border-b-1",
+        "flex border-collapse items-center justify-between gap-8 border-t py-8 last:border-b",
         className
       )}
     >

@@ -10,7 +10,7 @@ export const FooterScrollTopButton = () => {
   return (
     <button
       onClick={handleClick}
-      className="transition-colors hover:text-gray-500"
+      className="transition-colors hover:text-muted-foreground"
       type="button"
     >
       Back to top ↑

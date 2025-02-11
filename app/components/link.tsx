@@ -17,13 +17,10 @@ type ExternalLinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
 };
 
 const BRIGHT_SLIDE_ANIMATION_CLASSNAME =
-  "after:content-[' '] relative flex flex-col self-start before:absolute before:bottom-0 before:inline-block before:h-[1px] before:w-[10%] before:translate-x-[-100%] before:bg-white before:transition-transform before:duration-500 after:inline-block after:h-[1px] after:w-full after:bg-black hover:before:translate-x-[1100%]";
-
-const EXPANSE_LEFT_CLASSNAME =
-  "after:content-[' '] relative flex flex-col self-start after:absolute after:bottom-0 after:inline-block after:h-[1px] after:w-[0] hover:after:w-full after:bg-black after:transition-width";
+  "after:content-[' '] relative flex flex-col self-start before:absolute before:bottom-0 before:inline-block before:h-[1px] before:w-[10%] before:translate-x-[-100%] before:bg-background before:transition-transform before:duration-500 after:inline-block after:h-[1px] after:w-full after:bg-foreground hover:before:translate-x-[1100%]";
 
 const EXPANSE_CENTER_CLASSNAME =
-  "relative flex flex-col self-start after:content-[' '] after:absolute after:bottom-0 after:block after:h-[1px] after:w-full after:scale-x-0 after:w-full hover:after:scale-x-100 after:bg-black after:transition-transform";
+  "relative flex flex-col self-start after:content-[' '] after:absolute after:bottom-0 after:block after:h-[1px] after:w-full after:scale-x-0 after:w-full hover:after:scale-x-100 after:bg-foreground after:transition-transform";
 
 const InternalLink = ({ type, ...others }: InternalLinkProps) => {
   return <NextLink {...others} />;
@@ -37,11 +34,10 @@ type LinkProps = (InternalLinkProps | ExternalLinkProps) & {
   animation?: LinkAnimationProps;
 };
 
-export const Link = ({ animation, ...props }: LinkProps) => {
+export const Link = ({ animation = "expanse-center", ...props }: LinkProps) => {
   const className = classNames(
     {
       [BRIGHT_SLIDE_ANIMATION_CLASSNAME]: animation === "bright-slide",
-      [EXPANSE_LEFT_CLASSNAME]: animation === "expanse-left",
       [EXPANSE_CENTER_CLASSNAME]: animation === "expanse-center",
     },
     props.className
