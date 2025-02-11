@@ -46,7 +46,7 @@ export default function RootLayout({ children }: Props) {
         <main className="flex min-h-[100dvh] flex-col pb-4">
           <Header />
 
-          <div className="main-layout-px">{children}</div>
+          <div className="main-layout-px flex flex-1 flex-col">{children}</div>
           <Footer />
         </main>
       </body>
