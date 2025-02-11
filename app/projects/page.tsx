@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import { Typography } from "../components/typography";
 import { ProjectSummary } from "./project-summary";
 import { PrismaClient } from "@prisma/client";
 
@@ -37,15 +36,11 @@ export default async function Projects() {
 
   return (
     <section>
-      <Typography className="mb-8" variant="h1">
-        Projects
-      </Typography>
+      <h1 className="mb-8">Projects</h1>
 
       <div className="lg:mb-8">
         <div className="mb-12 lg:max-w-screen-sm">
-          <Typography variant="h2">
-            Some side projects I have worked on.
-          </Typography>
+          <h2>Some side projects I have worked on.</h2>
         </div>
 
         <ul className="grid grid-cols-1 items-stretch gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">

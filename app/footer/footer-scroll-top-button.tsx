@@ -1,7 +1,6 @@
 "use client";
 
 import { useCallback } from "react";
-import { Typography } from "../components/typography";
 
 export const FooterScrollTopButton = () => {
   const handleClick = useCallback(() => {
@@ -9,12 +8,12 @@ export const FooterScrollTopButton = () => {
   }, []);
 
   return (
-    <Typography
-      as="button"
+    <button
       onClick={handleClick}
       className="transition-colors hover:text-gray-500"
+      type="button"
     >
       Back to top ↑
-    </Typography>
+    </button>
   );
 };

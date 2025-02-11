@@ -1,5 +1,4 @@
 import { Link } from "@/app/components/link";
-import { Typography } from "@/app/components/typography";
 import { PrismaClient } from "@prisma/client";
 import Image from "next/image";
 import { ProjectInfosList } from "./project-infos-list";
@@ -31,23 +30,16 @@ export default async function ProjectSlug(props: Props) {
 
   return (
     <div>
-      <Typography
-        className="mb-8 flex items-center justify-between"
-        variant="h1"
-      >
+      <h1 className="mb-8 flex items-center justify-between">
         <span>{project.name}</span>
         <span>({project.deployedAt.getFullYear()})</span>
-      </Typography>
+      </h1>
 
       <section className="flex flex-col lg:mb-8">
         <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-center md:justify-between ">
-          <Typography className="md:max-w-screen-sm" variant="h2">
-            {project.shortDesc}
-          </Typography>
+          <h2 className="md:max-w-screen-sm">{project.shortDesc}</h2>
 
-          <Typography className="whitespace-nowrap font-semibold">
-            Discover ↓
-          </Typography>
+          <span className="whitespace-nowrap font-semibold">Discover ↓</span>
         </div>
 
         <Image
@@ -58,9 +50,7 @@ export default async function ProjectSlug(props: Props) {
         />
 
         <section className="mx-auto flex flex-col justify-center gap-16 md:w-4/5 lg:w-1/2">
-          <Typography variant="h3" as="p" className="text-xl">
-            {project.description}
-          </Typography>
+          <h3 className="text-xl">{project.description}</h3>
 
           {project.websiteUrl && project.githubUrl && (
             <div className="sm:space-between flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">

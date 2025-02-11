@@ -1,6 +1,5 @@
 "use client";
 
-import { Typography } from "@/app/components/typography";
 import { Handle, Node, NodeProps, Position } from "@xyflow/react";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import { Experiencies } from "./experiencies-actions";
@@ -31,13 +30,11 @@ export const ExperienceNode = ({ data }: ExperienceNodeProps) => {
       {data.hasLeftHandle && <Handle type="target" position={Position.Left} />}
 
       <section className="rounded-md border-1 border-gray-500 bg-white p-4 xl:p-10">
-        <Typography variant="h2" className="mb-4">
-          {data.experience.title}
-        </Typography>
+        <h2 className="mb-4">{data.experience.title}</h2>
 
-        <Typography variant="body2" className="mb-4">
+        <p className="mb-4">
           {displayedStartedAt} - {displayedEndedAt}
-        </Typography>
+        </p>
 
         <div className="prose">
           <MDXRemote {...data.content} />

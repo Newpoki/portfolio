@@ -1,5 +1,4 @@
 import { PrismaClient } from "@prisma/client";
-import { Typography } from "../components/typography";
 import { ProjectSummary } from "../projects/project-summary";
 
 const prisma = new PrismaClient();
@@ -23,13 +22,9 @@ export const LastProject = async () => {
   return (
     <article>
       <div className="mb-8 flex flex-row items-center justify-between gap-6 ">
-        <Typography className="md:max-w-screen-sm" variant="h2">
-          My latest project
-        </Typography>
+        <h2 className="md:max-w-screen-sm">My latest project</h2>
 
-        <Typography className="whitespace-nowrap font-semibold">
-          Discover ↓
-        </Typography>
+        <span className="whitespace-nowrap font-semibold">Discover ↓</span>
       </div>
 
       <ProjectSummary

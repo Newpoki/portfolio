@@ -1,5 +1,4 @@
 import classNames from "classnames";
-import { Typography } from "./typography";
 
 type Props = {
   children: React.ReactNode;
@@ -15,10 +14,8 @@ export const TabeListItem = ({ children, className, label }: Props) => {
         className
       )}
     >
-      <Typography className="font-medium">{label}</Typography>
-      <Typography variant="body2" className="font-medium">
-        {children}
-      </Typography>
+      <p className="font-medium">{label}</p>
+      <p className="font-medium">{children}</p>
     </li>
   );
 };

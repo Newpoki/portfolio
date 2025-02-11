@@ -1,7 +1,6 @@
 "use client";
 
 import { Link } from "../components/link";
-import { Typography } from "../components/typography";
 import { FooterScrollTopButton } from "./footer-scroll-top-button";
 import { usePathname } from "next/navigation";
 
@@ -41,9 +40,7 @@ export const Footer = () => {
 
         <FooterScrollTopButton />
 
-        <Typography className="font-semibold">
-          Copyright©JasonSavelli
-        </Typography>
+        <span className="font-semibold">Copyright©JasonSavelli</span>
       </section>
     </footer>
   );

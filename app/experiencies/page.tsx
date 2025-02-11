@@ -1,4 +1,3 @@
-import { Typography } from "../components/typography";
 import { ReactFlowProvider } from "@xyflow/react";
 import { Metadata } from "next";
 import { fetchExperiencies } from "./experiencies-actions";
@@ -14,9 +13,7 @@ export default async function ExperienciesPage() {
 
   return (
     <div className="flex flex-1 flex-col">
-      <Typography className="mb-8" variant="h1">
-        Experiencies
-      </Typography>
+      <h1 className="mb-8">Experiencies</h1>
 
       <ReactFlowProvider>
         <ExperienciesFlowPage experiencies={experiencies} />
