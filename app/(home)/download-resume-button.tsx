@@ -14,7 +14,7 @@ export const DownloadResumeButton = ({
       download
       className={classNames(
         "group relative inline-flex items-center overflow-hidden rounded-3xl border-2 border-foreground px-8 py-3 font-semibold lg:px-5 lg:py-2",
-        className
+        className,
       )}
     >
       Download my CV

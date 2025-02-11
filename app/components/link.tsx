@@ -40,7 +40,7 @@ export const Link = ({ animation = "expanse-center", ...props }: LinkProps) => {
       [BRIGHT_SLIDE_ANIMATION_CLASSNAME]: animation === "bright-slide",
       [EXPANSE_CENTER_CLASSNAME]: animation === "expanse-center",
     },
-    props.className
+    props.className,
   );
 
   return props.type === "internal" ? (
