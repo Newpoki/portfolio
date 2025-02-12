@@ -1,7 +1,7 @@
 import Image from "next/image";
-import { Link } from "../components/link";
 import { Metadata } from "next";
-import { TabeListItem } from "../components/table-list-item";
+import { Link } from "@/components/ui/link";
+import { TabeListItem } from "@/components/ui/table-list-item";
 
 export const metadata: Metadata = {
   title: "Jason Savelli - About",

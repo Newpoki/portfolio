@@ -1,5 +1,5 @@
+import { TabeListItem } from "@/components/ui/table-list-item";
 import { Project } from "@prisma/client";
-import { TabeListItem } from "@/app/components/table-list-item";
 
 type Props = {
   project: Project;

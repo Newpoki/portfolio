@@ -1,9 +1,9 @@
 import Image from "next/image";
 import { ProjectSummaryData } from "./types";
-import { Link } from "../components/link";
 import classNames from "classnames";
 import React from "react";
 import StarIcon from "@/public/icons/star.svg";
+import { Link } from "@/components/ui/link";
 
 type Props = {
   className?: string;

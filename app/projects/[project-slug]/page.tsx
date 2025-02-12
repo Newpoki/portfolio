@@ -1,7 +1,7 @@
-import { Link } from "@/app/components/link";
 import { PrismaClient } from "@prisma/client";
 import Image from "next/image";
 import { ProjectInfosList } from "./project-infos-list";
+import { Link } from "@/components/ui/link";
 
 type Props = {
   params: Promise<{

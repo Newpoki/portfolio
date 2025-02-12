@@ -1,5 +1,5 @@
+import { TabeListItem } from "@/components/ui/table-list-item";
 import { Metadata } from "next";
-import { TabeListItem } from "../components/table-list-item";
 
 export const metadata: Metadata = {
   title: "Jason Savelli - References",
