@@ -43,7 +43,7 @@ type Props = {
 export default function RootLayout({ children }: Props) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`mx-auto max-w-[1996px] ${sfProDisplay.variable}`}>
+      <body className={sfProDisplay.variable}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -53,7 +53,7 @@ export default function RootLayout({ children }: Props) {
           <main className="flex min-h-[100dvh] flex-col pb-4">
             <Header />
 
-            <div className="main-layout-px flex flex-1 flex-col">
+            <div className="main-layout-px mx-auto flex max-w-[1996px] flex-1 flex-col">
               {children}
             </div>
             <Footer />
