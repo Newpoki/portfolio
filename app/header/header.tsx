@@ -1,6 +1,7 @@
 import JavascriptIcon from "@/public/icons/javascript.svg";
 import { HeaderDrawer } from "./header-drawer";
 import { HeaderLink } from "./header-link";
+import { HeaderThemeToggle } from "./header-theme-toggle";
 
 export const Header = () => {
   return (
@@ -16,6 +17,8 @@ export const Header = () => {
         <HeaderLink href="/about">about</HeaderLink>
         <HeaderLink href="/references">references</HeaderLink>
       </nav>
+
+      <HeaderThemeToggle />
     </div>
   );
 };

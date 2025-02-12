@@ -68,7 +68,7 @@ const generateNodes = (experiencies: Experiencies): Node[] => {
       type: "experienceNode",
       draggable: !isMobile,
       origin: [0.5, 0],
-      initialWidth: nodeWidth,
+      width: nodeWidth,
     } satisfies ExperienceNodeData;
   });
 

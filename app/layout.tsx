@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from "next";
 import { Header } from "./header/header";
 import { Footer } from "./footer/footer";
 import localFont from "next/font/local";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const sfProDisplay = localFont({
   src: [
@@ -41,14 +42,23 @@ type Props = {
 
 export default function RootLayout({ children }: Props) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={`mx-auto max-w-[1996px] ${sfProDisplay.variable}`}>
-        <main className="flex min-h-[100dvh] flex-col pb-4">
-          <Header />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <main className="flex min-h-[100dvh] flex-col pb-4">
+            <Header />
 
-          <div className="main-layout-px flex flex-1 flex-col">{children}</div>
-          <Footer />
-        </main>
+            <div className="main-layout-px flex flex-1 flex-col">
+              {children}
+            </div>
+            <Footer />
+          </main>
+        </ThemeProvider>
       </body>
     </html>
   );
