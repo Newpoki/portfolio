@@ -99,6 +99,13 @@ export default function ExperienciesFlow({
     centerOnFirstElement(instance);
   }, [instance]);
 
+  const handleNodeClick = useCallback(
+    (_event: React.MouseEvent<Element>, node: Node) => {
+      instance.fitView({ nodes: [node], duration: 250, padding: 0.5 });
+    },
+    [instance],
+  );
+
   useEffect(() => {
     if (ref.current == null) {
       return;
@@ -125,6 +132,7 @@ export default function ExperienciesFlow({
         className="flex-1"
         nodeTypes={nodeTypes}
         onInit={centerOnFirstElement}
+        onNodeClick={handleNodeClick}
       >
         <Background />
         <Controls onFitView={handleCenterOnFirstElement} />
