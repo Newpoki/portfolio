@@ -134,6 +134,10 @@
 }
 
 @layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
   body {
     @apply bg-background text-foreground font-sans;
   }
@@ -147,17 +151,16 @@
   h3 {
     @apply text-xl;
   }
-}
 
-/*
-  ---break---
-*/
+  .prose {
+    @apply flex flex-col gap-4;
 
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
+    a {
+      @apply underline underline-offset-4;
+    }
+
+    ul {
+      @apply list-inside list-disc;
+    }
   }
 }
