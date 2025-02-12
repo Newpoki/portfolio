@@ -29,7 +29,7 @@ export const ExperienceNode = ({ data }: ExperienceNodeProps) => {
     <>
       {data.hasLeftHandle && <Handle type="target" position={Position.Left} />}
 
-      <section className="bg-background rounded-md border p-4 xl:p-10">
+      <section className="bg-accent rounded-md border p-4 xl:p-10">
         <h2 className="mb-4">{data.experience.title}</h2>
 
         <p className="mb-4">
