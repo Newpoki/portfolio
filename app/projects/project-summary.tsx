@@ -29,7 +29,7 @@ export const ProjectSummary = ({
   return (
     <li
       className={classNames(
-        "group/project-item aspect-unset relative aspect-square rounded-lg bg-foreground/90 p-4",
+        "group/project-item aspect-unset bg-foreground/90 relative aspect-square rounded-lg p-4",
         className,
       )}
     >
@@ -42,7 +42,7 @@ export const ProjectSummary = ({
           )}
         >
           {isFavorite && (
-            <StarIcon className="absolute left-0 top-0 z-10 aspect-square w-10 text-primary" />
+            <StarIcon className="text-primary absolute top-0 left-0 z-10 aspect-square w-10" />
           )}
 
           <Image
@@ -51,13 +51,13 @@ export const ProjectSummary = ({
             alt={project.illustrationAlt}
             fill
             className={classNames(
-              "!relative rounded-lg object-cover transition duration-300 group-hover/project-item:scale-110",
+              "relative! rounded-lg object-cover transition duration-300 group-hover/project-item:scale-110",
               slotProps.image?.className,
             )}
             sizes="(max-width: 768px) 100vw"
           />
 
-          <div className="absolute left-2/4 top-2/4 z-10 flex aspect-square -translate-x-1/2 -translate-y-1/2 scale-0 items-center rounded-full bg-background p-4 text-center shadow-xl transition-all duration-300 group-hover/project-item:scale-100">
+          <div className="bg-background absolute top-2/4 left-2/4 z-10 flex aspect-square -translate-x-1/2 -translate-y-1/2 scale-0 items-center rounded-full p-4 text-center shadow-xl transition-all duration-300 group-hover/project-item:scale-100">
             View project
           </div>
         </div>

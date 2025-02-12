@@ -11,27 +11,23 @@ export const metadata: Metadata = {
 export default function About() {
   return (
     <div>
-      <div className="mb-8 flex flex-col">
-        <h1>
-          frontend
-          <br />
-          and guitar
-        </h1>
-      </div>
+      <h1 className="mb-8">
+        frontend
+        <br />
+        and guitar
+      </h1>
 
       <section className="relative flex flex-col gap-8 lg:gap-20 xl:gap-40">
-        <div className="lg:max-w-screen-sm">
-          <h2>
-            Learn more about me, how I got here, what do I love in Front-End and
-            also some guitar riffs.
-          </h2>
-        </div>
+        <h2>
+          Learn more about me, how I got here, what do I love in Front-End and
+          also some guitar riffs.
+        </h2>
 
         <Image
           src="/about/me.jpeg"
           alt="Pictures of me drinking a Tavel wine"
           fill
-          className="!relative rounded-lg object-cover"
+          className="relative! rounded-lg object-cover"
           priority
         />
 
@@ -89,7 +85,7 @@ export default function About() {
               src="/about/nouchka-redux.webp"
               fill
               alt="Picture of Redux and Nouchka, loved dogs"
-              className="!relative rounded-xl object-cover lg:rounded-none"
+              className="relative! rounded-xl object-cover lg:rounded-none"
               sizes="100%"
             />
 
@@ -109,7 +105,7 @@ export default function About() {
               src="/about/redux-and-me.webp"
               fill
               alt="Picture of Redux and Nouchka, loved dogs"
-              className="!relative rounded-xl object-cover lg:rounded-none"
+              className="relative! rounded-xl object-cover lg:rounded-none"
               priority
               sizes="100%"
             />

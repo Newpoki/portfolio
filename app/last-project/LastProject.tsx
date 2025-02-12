@@ -22,21 +22,21 @@ export const LastProject = async () => {
   return (
     <article>
       <div className="mb-8 flex flex-row items-center justify-between gap-6">
-        <h2 className="md:max-w-screen-sm">My latest project</h2>
+        <h2 className="md:max-w-sm">My latest project</h2>
 
-        <span className="whitespace-nowrap font-semibold">Discover ↓</span>
+        <span className="font-semibold whitespace-nowrap">Discover ↓</span>
       </div>
 
       <ProjectSummary
-        className="!aspect-auto p-4 xl:p-12"
+        className="aspect-auto! p-4 xl:p-12"
         project={latestProject}
         slotProps={{
           imageWrapper: {
-            className: "!aspect-auto",
+            className: "aspect-auto!",
           },
           image: {
             // Have to specify !important as it already has object-cover
-            className: "!object-contain",
+            className: "object-contain!",
           },
         }}
       />

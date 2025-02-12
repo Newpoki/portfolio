@@ -4,7 +4,7 @@ import { HeaderLink } from "./header-link";
 
 export const Header = () => {
   return (
-    <div className="main-layout-px sticky top-0 z-50 mb-8 flex items-center justify-between border-b border-b-border py-4 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <div className="main-layout-px border-b-border supports-backdrop-filter:bg-background/60 sticky top-0 z-50 mb-8 flex items-center justify-between border-b py-4 backdrop-blur-sm">
       <HeaderDrawer className="flex lg:hidden" />
 
       <JavascriptIcon className="w-8 lg:w-8" />

@@ -39,7 +39,7 @@ export default async function Projects() {
       <h1 className="mb-8">Projects</h1>
 
       <div className="lg:mb-8">
-        <div className="mb-12 lg:max-w-screen-sm">
+        <div className="mb-12">
           <h2>Some side projects I have worked on.</h2>
         </div>
 

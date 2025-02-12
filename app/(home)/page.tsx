@@ -10,15 +10,13 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <section>
-      <div className="mb-8 flex flex-col">
-        <h1 className="flex flex-col">
-          Jason Savelli
-          <br />
-          Front End Dev
-        </h1>
-      </div>
+      <h1 className="mb-8">
+        Jason Savelli
+        <br />
+        Front End Dev
+      </h1>
 
-      <h2 className="mb-8 lg:max-w-screen-sm">
+      <h2 className="mb-8 lg:max-w-sm">
         I enjoy working on React projects with TypeScript.
       </h2>
 
