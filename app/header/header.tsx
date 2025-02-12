@@ -9,7 +9,7 @@ export const Header = () => {
       <div className="mx-auto flex max-w-[var(--app-max-w)] items-center justify-between">
         <HeaderDrawer className="flex lg:hidden" />
 
-        <JavascriptIcon className="w-8 lg:w-8" />
+        <JavascriptIcon className="w-8 text-black lg:w-8" />
 
         <nav className="hidden gap-8 lg:flex">
           <HeaderLink href="/">home</HeaderLink>
