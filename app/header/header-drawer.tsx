@@ -1,10 +1,15 @@
 "use client";
 
-import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
+import {
+  Drawer,
+  DrawerContent,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer";
 import { MenuIcon } from "lucide-react";
 import { HeaderLink } from "./header-link";
-import { DialogTitle } from "@radix-ui/react-dialog";
 import { useCallback, useState } from "react";
+import { ThemeButtonGroup } from "../theme/theme-button-group";
 
 type HeaderDrawerProps = {
   className: string;
@@ -22,46 +27,42 @@ export const HeaderDrawer = ({ className }: HeaderDrawerProps) => {
         <MenuIcon />
       </DrawerTrigger>
 
-      <DrawerContent className="p-4">
-        <DialogTitle className="hidden">Mobile navigation menu</DialogTitle>
+      <DrawerContent className="gap-10 p-4">
+        <div className="flex flex-col items-start gap-20">
+          <section>
+            <DrawerTitle className="hidden">
+              Mobile navigation menu and settings
+            </DrawerTitle>
 
-        <nav className="flex flex-1 flex-col justify-center gap-6">
-          <HeaderLink onClick={handleCloseDrawer} className="w-fit" href="/">
-            home
-          </HeaderLink>
+            <nav className="flex flex-1 flex-col justify-center gap-4">
+              <HeaderLink
+                onClick={handleCloseDrawer}
+                className="w-fit"
+                href="/"
+              >
+                home
+              </HeaderLink>
 
-          <HeaderLink
-            onClick={handleCloseDrawer}
-            className="w-fit"
-            href="/projects"
-          >
-            projects
-          </HeaderLink>
+              <HeaderLink onClick={handleCloseDrawer} href="/projects">
+                projects
+              </HeaderLink>
 
-          <HeaderLink
-            onClick={handleCloseDrawer}
-            className="w-fit"
-            href="/experiencies"
-          >
-            experiencies
-          </HeaderLink>
+              <HeaderLink onClick={handleCloseDrawer} href="/experiencies">
+                experiencies
+              </HeaderLink>
 
-          <HeaderLink
-            onClick={handleCloseDrawer}
-            className="w-fit"
-            href="/about"
-          >
-            about
-          </HeaderLink>
+              <HeaderLink onClick={handleCloseDrawer} href="/about">
+                about
+              </HeaderLink>
 
-          <HeaderLink
-            onClick={handleCloseDrawer}
-            className="w-fit"
-            href="/references"
-          >
-            references
-          </HeaderLink>
-        </nav>
+              <HeaderLink onClick={handleCloseDrawer} href="/references">
+                references
+              </HeaderLink>
+            </nav>
+          </section>
+
+          <ThemeButtonGroup />
+        </div>
       </DrawerContent>
     </Drawer>
   );

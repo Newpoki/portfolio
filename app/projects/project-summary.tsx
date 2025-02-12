@@ -29,7 +29,7 @@ export const ProjectSummary = ({
   return (
     <li
       className={classNames(
-        "group/project-item aspect-unset bg-foreground/90 relative aspect-square rounded-lg p-4",
+        "group/project-item aspect-unset bg-foreground/90 relative aspect-square rounded-lg p-4 dark:bg-zinc-800",
         className,
       )}
     >

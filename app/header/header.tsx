@@ -1,7 +1,7 @@
 import JavascriptIcon from "@/public/icons/javascript.svg";
 import { HeaderDrawer } from "./header-drawer";
 import { HeaderLink } from "./header-link";
-import { HeaderThemeToggle } from "./header-theme-toggle";
+import { ThemeDropdown } from "../theme/theme-dropdown";
 
 export const Header = () => {
   return (
@@ -18,7 +18,7 @@ export const Header = () => {
         <HeaderLink href="/references">references</HeaderLink>
       </nav>
 
-      <HeaderThemeToggle />
+      <ThemeDropdown className="hidden lg:flex" />
     </div>
   );
 };
