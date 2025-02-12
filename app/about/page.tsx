@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function About() {
   return (
     <div className="flex flex-col gap-10">
-      <div className="flex max-h-[calc(100dvh-var(--header-h)-var(--header-m-b))] flex-col gap-8 xl:pb-10">
+      <div className="relative flex max-h-[calc(100dvh-var(--header-h)-var(--header-m-b))] flex-col gap-8 xl:pb-10">
         <h1>
           frontend
           <br />
@@ -32,7 +32,7 @@ export default function About() {
         />
       </div>
 
-      <section className="relative flex flex-col gap-8 lg:gap-20 xl:gap-40">
+      <section className="flex flex-col gap-8 lg:gap-20 xl:gap-40">
         <section className="mx-auto flex flex-col gap-8 md:w-2/3 lg:w-1/2">
           <h2>Who am I ?</h2>
 
