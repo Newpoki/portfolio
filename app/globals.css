@@ -35,8 +35,8 @@
   --xy-controls-button-border-color: var(--border);
   --xy-controls-button-background-color: var(--background);
   --xy-controls-button-color: var(--foreground);
-  --xy-controls-button-background-color-hover: var(--primary);
-  --xy-controls-button-color-hover: var(--primary-foreground);
+  --xy-controls-button-background-color-hover: var(--accent);
+  --xy-controls-button-color-hover: var(--accent-foreground);
 }
 
 .dark {
@@ -134,10 +134,6 @@
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
-
   body {
     @apply bg-background text-foreground font-sans;
   }
