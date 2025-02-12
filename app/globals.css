@@ -30,6 +30,13 @@
   --chart-3: hsl(197 37% 24%);
   --chart-4: hsl(43 74% 66%);
   --chart-5: hsl(27 87% 67%);
+
+  --xy-attribution-background-color: var(--background);
+  --xy-controls-button-border-color: var(--border);
+  --xy-controls-button-background-color: var(--background);
+  --xy-controls-button-color: var(--foreground);
+  --xy-controls-button-background-color-hover: var(--primary);
+  --xy-controls-button-color-hover: var(--primary-foreground);
 }
 
 .dark {
@@ -124,9 +131,6 @@
 
 @utility main-layout-px {
   @apply px-4 lg:px-12 xl:px-24;
-}
-
-@layer base {
 }
 
 @layer base {
