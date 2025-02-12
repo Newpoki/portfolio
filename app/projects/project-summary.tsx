@@ -27,7 +27,7 @@ export const ProjectSummary = ({
   slotProps = {},
 }: Props) => {
   return (
-    <li
+    <article
       className={classNames(
         "group/project-item aspect-unset bg-foreground/90 relative aspect-square rounded-lg p-4 dark:bg-zinc-800",
         className,
@@ -62,6 +62,6 @@ export const ProjectSummary = ({
           </div>
         </div>
       </Link>
-    </li>
+    </article>
   );
 };
