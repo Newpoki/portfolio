@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <section>
+    <section className="lg:flex lg:flex-col lg:items-center lg:text-center">
       <h1 className="mb-8">
         Jason Savelli
         <br />
