@@ -38,10 +38,8 @@ export default async function Projects() {
     <section>
       <h1 className="mb-8">Projects</h1>
 
-      <div className="lg:mb-8">
-        <div className="mb-12">
-          <h2>Some side projects I have worked on.</h2>
-        </div>
+      <div>
+        <h2 className="mb-12">Some side projects I have worked on.</h2>
 
         <ul className="grid grid-cols-1 items-stretch gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
           {data.map((project) => {

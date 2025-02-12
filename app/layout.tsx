@@ -49,7 +49,7 @@ export default function RootLayout({ children }: Props) {
           enableSystem
           disableTransitionOnChange
         >
-          <main className="flex min-h-[100dvh] flex-col pb-4">
+          <main className="flex min-h-[100dvh] flex-col">
             <Header />
 
             <div className="main-layout-px mx-auto flex w-full max-w-[1996px] flex-1 flex-col">

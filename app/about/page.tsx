@@ -10,28 +10,30 @@ export const metadata: Metadata = {
 
 export default function About() {
   return (
-    <div>
-      <h1 className="mb-8">
-        frontend
-        <br />
-        and guitar
-      </h1>
+    <div className="flex flex-col gap-10">
+      <div className="flex max-h-[calc(100dvh-var(--header-h)-var(--header-m-b))] flex-col gap-8 xl:pb-10">
+        <h1>
+          frontend
+          <br />
+          and guitar
+        </h1>
 
-      <section className="relative flex flex-col gap-8 lg:gap-20 xl:gap-40">
         <h2>
           Learn more about me, how I got here, what do I love in Front-End and
           also some guitar riffs.
         </h2>
 
         <Image
-          src="/about/me.jpeg"
-          alt="Pictures of me drinking a Tavel wine"
+          src="/about/me.png"
+          alt="Pictures of me wearing sunglasses hit by a solar flare"
           fill
-          className="relative! rounded-lg object-cover"
+          className="relative! min-h-full rounded-lg object-cover"
           priority
         />
+      </div>
 
-        <section className="lg:1/2 mx-auto flex flex-col gap-8 md:w-2/3">
+      <section className="relative flex flex-col gap-8 lg:gap-20 xl:gap-40">
+        <section className="mx-auto flex flex-col gap-8 md:w-2/3 lg:w-1/2">
           <h2>Who am I ?</h2>
 
           <p>
@@ -50,13 +52,13 @@ export default function About() {
               type="external"
               href="https://oclock.io/"
             >
-              O&apos;Clock
+              O&apos;Clock&nbsp;
             </Link>
             <span>
-              &nsbp;student in 2019, where I deepened my love for the web
-              ecosystem. Early in my journey in the web ecosystem, I&apos;ve
-              found that I really love Javascript so I&apos;m giving 200% of
-              myself in to get better and better everyday.
+              student in 2019, where I deepened my love for the web ecosystem.
+              Early in my journey in the web ecosystem, I&apos;ve found that I
+              really love Javascript so I&apos;m giving 200% of myself in to get
+              better and better everyday.
             </span>
           </p>
 
@@ -76,8 +78,8 @@ export default function About() {
 
         <section className="flex flex-col gap-8 lg:gap-20">
           <h2 className="lg:1/2 mx-auto md:w-2/3">
-            When I&apos;m not at the computer, you can find me playing guitar,
-            video games or taking photos of beautifull dogs.
+            When I&apos;m not at the computer, you can find me taking photos of
+            beautifull dogs, playing guitar or with my friends.
           </h2>
 
           <div className="relative grid gap-4 lg:grid-cols-3 lg:overflow-hidden lg:rounded-xl">
@@ -102,9 +104,9 @@ export default function About() {
             />
 
             <Image
-              src="/about/redux-and-me.webp"
+              src="/about/me-and-friends.webp"
               fill
-              alt="Picture of Redux and Nouchka, loved dogs"
+              alt="Picture of me and my friends at a wedding"
               className="relative! rounded-xl object-cover lg:rounded-none"
               priority
               sizes="100%"

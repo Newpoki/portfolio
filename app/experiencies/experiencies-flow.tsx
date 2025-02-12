@@ -101,7 +101,7 @@ export default function ExperienciesFlow({
 
   const handleNodeClick = useCallback(
     (_event: React.MouseEvent<Element>, node: Node) => {
-      instance.fitView({ nodes: [node], duration: 250, padding: 0.5 });
+      instance.fitView({ nodes: [node], duration: 250, padding: 2 });
     },
     [instance],
   );
