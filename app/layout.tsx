@@ -1,7 +1,6 @@
 import "./globals.css";
 import type { Metadata, Viewport } from "next";
 import { Header } from "./header/header";
-import { Footer } from "./footer/footer";
 import localFont from "next/font/local";
 import { ThemeProvider } from "./theme/theme-provider";
 
@@ -56,7 +55,6 @@ export default function RootLayout({ children }: Props) {
             <div className="main-layout-px mx-auto flex w-full max-w-[1996px] flex-1 flex-col">
               {children}
             </div>
-            <Footer />
           </main>
         </ThemeProvider>
       </body>

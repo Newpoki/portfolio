@@ -1,6 +1,5 @@
 import { Metadata } from "next";
-import { LastProject } from "../last-project/LastProject";
-import { DownloadResumeButton } from "./download-resume-button";
+import { HomeDownloadResumeButton } from "./home-download-resume-button";
 
 export const metadata: Metadata = {
   title: "Jason Savelli - Home",
@@ -9,20 +8,18 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <section className="lg:flex lg:flex-col lg:items-center lg:text-center">
+    <section className="flex flex-1 flex-col items-center justify-center gap-4 text-center md:gap-16">
       <h1 className="mb-8">
         Jason Savelli
         <br />
         Front End Dev
       </h1>
 
-      <h2 className="mb-8 lg:max-w-sm">
+      <h2 className="mb-8">
         I enjoy working on React projects with TypeScript.
       </h2>
 
-      <DownloadResumeButton className="xl:20 mb-8 md:mb-12"></DownloadResumeButton>
-
-      <LastProject />
+      <HomeDownloadResumeButton className="xl:20 mb-8 md:mb-12"></HomeDownloadResumeButton>
     </section>
   );
 }
