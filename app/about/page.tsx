@@ -36,7 +36,7 @@ export default function About() {
 
           <p>
             I&apos;m Jason Savelli (He / Him). I was born on the 24th of
-            December 1996, in Marignane, France. I&apos; living in Barbentane,
+            December 1996, in Marignane, France. I&apos;m living in Barbentane,
             near Avignon, France. I have 2 beautifull doggos that I love more
             than anything, playing guitar, video games
           </p>
@@ -44,7 +44,7 @@ export default function About() {
           <h2>How did I get there ?</h2>
 
           <p>
-            <span>I was an&apos;</span>
+            <span>I was an&nbsp;</span>
             <Link
               className="inline-flex font-semibold"
               type="external"
@@ -53,7 +53,7 @@ export default function About() {
               O&apos;Clock
             </Link>
             <span>
-              &apos;student in 2019, where I deepened my love for the web
+              &nsbp;student in 2019, where I deepened my love for the web
               ecosystem. Early in my journey in the web ecosystem, I&apos;ve
               found that I really love Javascript so I&apos;m giving 200% of
               myself in to get better and better everyday.
