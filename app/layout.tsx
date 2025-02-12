@@ -52,7 +52,7 @@ export default function RootLayout({ children }: Props) {
           <main className="flex min-h-[100dvh] flex-col">
             <Header />
 
-            <div className="main-layout-px mx-auto flex w-full max-w-[1996px] flex-1 flex-col">
+            <div className="main-layout-px mx-auto flex w-full max-w-[var(--app-max-w)] flex-1 flex-col">
               {children}
             </div>
           </main>

@@ -40,6 +40,8 @@
 
   --header-h: 70px;
   --header-m-b: 32px;
+
+  --app-max-w: 1996px;
 }
 
 .dark {
