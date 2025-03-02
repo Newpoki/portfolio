@@ -14,7 +14,9 @@ type Props = React.ComponentProps<typeof I18NextLink> & {
 export const HeaderLink = ({ className, children, onClick, href }: Props) => {
   const selectedLayoutSegment = useSelectedLayoutSegment();
   const pathname = selectedLayoutSegment ? `/${selectedLayoutSegment}` : "/";
-  const isActive = pathname === href;
+
+  // Removing router groups such as (/home) from URL
+  const isActive = pathname.replace(/\(\w+\)/g, "") === href;
 
   return (
     <Link
