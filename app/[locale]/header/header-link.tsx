@@ -1,8 +1,8 @@
 "use client";
 
 import { Link } from "@/components/ui/link";
+import { usePathname } from "@/i18n/navigation";
 import classNames from "classnames";
-import { usePathname } from "next/navigation";
 
 type Props = {
   className?: string;
