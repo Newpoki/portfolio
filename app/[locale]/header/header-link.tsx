@@ -1,31 +1,30 @@
 "use client";
 
 import { Link } from "@/components/ui/link";
-import { usePathname } from "@/i18n/navigation";
+import { Link as I18NextLink } from "../i18n/navigation";
 import classNames from "classnames";
+import { useSelectedLayoutSegment } from "next/navigation";
 
-type Props = {
+type Props = React.ComponentProps<typeof I18NextLink> & {
   className?: string;
   children: React.ReactNode;
-  href: string;
   onClick?: React.MouseEventHandler<HTMLAnchorElement>;
 };
 
-export const HeaderLink = ({ className, href, children, onClick }: Props) => {
-  const pathname = usePathname();
-
-  const isCurrentRoute =
-    href === "/" ? pathname === href : pathname.startsWith(href);
+export const HeaderLink = ({ className, children, onClick, href }: Props) => {
+  const selectedLayoutSegment = useSelectedLayoutSegment();
+  const pathname = selectedLayoutSegment ? `/${selectedLayoutSegment}` : "/";
+  const isActive = pathname === href;
 
   return (
     <Link
       className={classNames(className, "capitalize", {
-        "after:scale-x-100": isCurrentRoute,
+        "after:scale-x-100": isActive,
       })}
       onClick={onClick}
-      href={href}
       type="internal"
       animation="expanse-center"
+      href={href}
     >
       {children}
     </Link>

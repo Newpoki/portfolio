@@ -5,8 +5,8 @@ import localFont from "next/font/local";
 import { ThemeProvider } from "./theme/theme-provider";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
-import { Locale, routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";
+import { Locale, routing } from "./i18n/routing";
 
 const sfProDisplay = localFont({
   src: [
