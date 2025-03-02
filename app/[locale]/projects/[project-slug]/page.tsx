@@ -3,16 +3,18 @@ import Image from "next/image";
 import { ProjectInfosList } from "./project-infos-list";
 import { Link } from "@/components/ui/link";
 import { getTranslations } from "next-intl/server";
+import { Locale } from "../../i18n/routing";
 
 type Props = {
   params: Promise<{
     "project-slug": string;
+    locale: Locale;
   }>;
 };
 
 const prisma = new PrismaClient();
 
-const fetchProjectData = async (projectSlug: string) => {
+const fetchProjectData = async (projectSlug: string, locale: Locale) => {
   const project = await prisma.project.findUnique({
     where: {
       slug: projectSlug,
@@ -23,11 +25,17 @@ const fetchProjectData = async (projectSlug: string) => {
     throw new Error(`${projectSlug} has not been found`);
   }
 
-  return project;
+  return {
+    ...project,
+    shortDesc: project[`shortDesc_${locale}`],
+    description: project[`description_${locale}`],
+  };
 };
 
-export default async function ProjectSlug(props: Props) {
-  const project = await fetchProjectData((await props.params)["project-slug"]);
+export default async function Project({ params }: Props) {
+  const { "project-slug": projectSlug, locale } = await params;
+
+  const project = await fetchProjectData(projectSlug, locale);
   const t = await getTranslations("PROJECT");
 
   return (
