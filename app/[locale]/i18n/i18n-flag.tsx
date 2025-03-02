@@ -24,8 +24,6 @@ export const I18NFlag = ({ locale }: IN18NFlagProps) => {
       height={18}
       alt={t("flag-alt", { flagCode: locale })}
       className="shrink-0"
-      // Needed to remove warning in browser console even tho we're specifying the width and height
-      style={{ width: "auto" }}
     />
   );
 };
