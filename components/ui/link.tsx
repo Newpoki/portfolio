@@ -1,5 +1,8 @@
 import classNames from "classnames";
-import NextLink, { LinkProps as NextLinkProps } from "next/link";
+import {
+  Link as NextLink,
+  LinkProps as NextLinkProps,
+} from "@/app/[locale]/i18n/navigation";
 
 type LinkAnimationProps =
   | "bright-slide"
@@ -8,7 +11,7 @@ type LinkAnimationProps =
   | null;
 
 type InternalLinkProps = NextLinkProps &
-  React.AnchorHTMLAttributes<HTMLAnchorElement> & {
+  Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, "href"> & {
     type: "internal";
   };
 

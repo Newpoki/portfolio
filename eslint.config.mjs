@@ -28,6 +28,27 @@ const config = tseslint.config(
           ignoreRestSiblings: true,
         },
       ],
+      "no-restricted-imports": [
+        "error",
+        {
+          paths: [
+            {
+              name: "next/link",
+              importNames: [
+                "default",
+                "Link",
+                "redirect",
+                "usePathname",
+                "useRouter",
+                "getPathname",
+              ],
+              message: "Please imports from @/i18/navigation instead",
+            },
+          ],
+        },
+      ],
+      // Makes sure using translation instead of raw text
+      "react/jsx-no-literals": "error",
     },
   },
   eslintConfigPrettierRecommended,

@@ -1,0 +1,103 @@
+{
+  "HOME": {
+    "title": "Jason Savelli<br></br> senior front-end software engineer",
+    "subtitle": "J'aime travailler sur des projets avec React et TypeScript",
+    "download-resume-button": "Télécharger mon CV",
+    "download-resume-file-name": "resume.pdf"
+  },
+  "PROJECTS": {
+    "title": "Projets",
+    "subtitle": "Quelques projets personnels",
+    "view-project": "Voir le projet"
+  },
+  "PROJECT": {
+    "discover": "Découvrir ↓",
+    "visit-live-version": "Aller sur le site",
+    "visit-github": "Aller sur le repository github",
+    "deployed-at-title": "Date de livraison",
+    "deployed-at-content": "({deployedAt})",
+    "bundler": "Bundler",
+    "language": "Language",
+    "ui": "Interface Utilisateur",
+    "state-management": "Gestion d'état",
+    "data-fetching": "Récupération des données"
+  },
+  "ABOUT": {
+    "title": "Front-End<br></br>et guitare",
+    "subtitle": "Apprenez-en plus sur moi, comment j'en suis arrivé là, ce que j'aime dans le Front-End et aussi quelques riffs de guitare.",
+    "about-me-picture-alt": "Photo en noir et blanc de Jason portant des lunettes de soleil touché par un rayon de soleil",
+    "who-am-i": {
+      "title": "Qui suis-je ?",
+      "content": "Je suis Jason Savelli (Il / Lui). Je suis né le 24 décembre 1996 à Marignane, en France. Je vis à Barbentane, près d'Avignon, en France. J'ai deux magnifiques toutous que j'aime plus que tout, je joue de la guitare et aux jeux vidéo."
+    },
+    "how-did-i-get-there": {
+      "title": "Comment en suis-je arrivé là ?",
+      "content": "J'étais étudiant à <oclock>O'Clock</oclock> en 2019, où j'ai approfondi mon amour pour l'écosystème web. Très tôt dans mon parcours, j'ai découvert que j'adorais Javascript, alors je donne 200 % de moi-même pour m'améliorer chaque jour."
+    },
+    "dream-stack": {
+      "title": "Ma stack de rêve",
+      "tools": {
+        "front-end": { "title": "Bibliothèque Front-End", "content": "React" },
+        "component": {
+          "title": "Interface Utilisateur",
+          "content": "Tailwind CSS / Shadcn"
+        },
+        "data": {
+          "title": "Récupération de la donnée",
+          "content": "Tanstack Query"
+        },
+        "state": { "title": "Gestion d'état", "content": "Jotai" },
+        "date": { "title": "Géstion des dates", "content": "Dayjs" },
+        "unit-tests": { "title": "Tests unitaires", "content": "Jest" },
+        "integration-tests": {
+          "title": "Tests d'intégration",
+          "content": "React testing library"
+        }
+      }
+    },
+    "outside": "Quand je ne suis pas devant l'ordinateur, vous pouvez me trouver en train de prendre des photos de magnifiques chiens, de jouer de la guitare ou de passer du temps avec mes amis.",
+    "dogs-picture-alt": "Photo de Redux et Nouchka, deux bergers australiens",
+    "me-and-my-friends-alt": "Photo de Jason et certains de ses amis à un mariage"
+  },
+  "REFERENCES": {
+    "title": "Références",
+    "subtitle": "Des personnes qui peuvent en dire plus",
+    "description": "Je vous ai dit qui je suis, mais il est parfois intéressant de laisser d'autres personnes parler pour nous. Voici une liste de personnes avec qui j'ai travaillé et qui seraient ravies de vous dire comment c'était de travailler avec moi.",
+    "privacy": "Je ne partagerai pas leurs coordonnées ici pour des raisons de confidentialité, mais n'hésitez pas à me les demander et je serai ravi de vous les transmettre.",
+    "director-of-engineering": "Director of engineering",
+    "front-end-architect": "Architecte Front end",
+    "product-manager": "Product manager"
+  },
+  "HEADER": {
+    "drawer": {
+      "title": "Menu mobile de navigation et paramètres",
+      "navigation": "Navigation",
+      "settings": "Settings"
+    },
+    "links": {
+      "home": "Accueil",
+      "projects": "Projets",
+      "experiencies": "Expériences",
+      "about": "A propos",
+      "references": "Références"
+    }
+  },
+  "THEME": {
+    "toggle-theme": "Changer le thème",
+    "light": "Clair",
+    "dark": "Sombre",
+    "system": "Système"
+  },
+  "NOT_FOUND": {
+    "code": "404",
+    "content": "Cette page n'a pas pu être trouvée 😔"
+  },
+  "EXPERIENCIES": {
+    "title": "Expériences",
+    "today": "Aujourd'hui",
+    "period": "{startDate} - {endDate}"
+  },
+  "I18N": {
+    "flag-alt": "Icone du drapeau qui correspond au code {flagCode}"
+  }
+}

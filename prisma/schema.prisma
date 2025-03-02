@@ -13,14 +13,16 @@ datasource db {
 model Project {
     id              String   @id @default(auto()) @map("_id") @db.ObjectId
     slug            String   @unique
-    shortDesc       String
+    shortDesc_en    String
+    shortDesc_fr    String
     githubUrl       String?
     websiteUrl      String?
     illustration    String
     illustrationAlt String
     deployedAt      DateTime
     name            String
-    description     String
+    description_en  String
+    description_fr  String
     bundler         String
     dataFetching    String
     language        String
@@ -36,11 +38,12 @@ enum ExperienceType {
 }
 
 model Experience {
-    id        String         @id @default(auto()) @map("_id") @db.ObjectId
-    type      ExperienceType
-    place     Json
-    startedAt DateTime
-    title     String
-    content   String
-    endedAt   DateTime?
+    id         String         @id @default(auto()) @map("_id") @db.ObjectId
+    type       ExperienceType
+    place      Json
+    startedAt  DateTime
+    title      String
+    content_en String
+    content_fr String
+    endedAt    DateTime?
 }
