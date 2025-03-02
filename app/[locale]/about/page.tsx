@@ -15,7 +15,11 @@ export default async function About() {
   return (
     <div className="flex flex-col gap-10">
       <div className="relative flex max-h-[calc(100dvh-var(--header-h)-var(--header-m-b))] flex-col gap-8 xl:pb-10">
-        <h1>{t("title")}</h1>
+        <h1>
+          {t.rich("title", {
+            br: () => <br />,
+          })}
+        </h1>
 
         <h2>{t("subtitle")}</h2>
 

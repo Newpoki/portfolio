@@ -1,6 +1,6 @@
 {
   "HOME": {
-    "title": "Jason Savelli<breakline></breakline> senior front-end software engineer",
+    "title": "Jason Savelli<br></br> senior front-end software engineer",
     "subtitle": "J'aime travailler sur des projets avec React et TypeScript",
     "download-resume-button": "Télécharger mon CV",
     "download-resume-file-name": "resume.pdf"
@@ -23,7 +23,7 @@
     "data-fetching": "Récupération des données"
   },
   "ABOUT": {
-    "title": "Frontend et guitare",
+    "title": "Front-End<br></br>et guitare",
     "subtitle": "Apprenez-en plus sur moi, comment j'en suis arrivé là, ce que j'aime dans le Front-End et aussi quelques riffs de guitare.",
     "about-me-picture-alt": "Photo en noir et blanc de Jason portant des lunettes de soleil touché par un rayon de soleil",
     "who-am-i": {

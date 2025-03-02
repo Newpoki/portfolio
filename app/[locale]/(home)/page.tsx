@@ -14,7 +14,7 @@ export default async function Home() {
     <section className="flex flex-1 flex-col items-center justify-center gap-4 text-center md:gap-16">
       <h1 className="mb-8">
         {t.rich("title", {
-          breakline: () => <br />,
+          br: () => <br />,
         })}
       </h1>
 

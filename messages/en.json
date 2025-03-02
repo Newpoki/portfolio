@@ -1,6 +1,6 @@
 {
   "HOME": {
-    "title": "Jason Savelli<breakline></breakline>senior front-end software engineer",
+    "title": "Jason Savelli<br></br>senior front-end software engineer",
     "subtitle": "I enjoy working on React projects with TypeScript",
     "download-resume-button": "Download my resume",
     "download-resume-file-name": "resume.pdf"
@@ -24,7 +24,7 @@
     "data-fetching": "Data fetching"
   },
   "ABOUT": {
-    "title": "Frontend and guitar",
+    "title": "Frontend<br></br>and guitar",
     "subtitle": "Learn more about me, how I got here, what do I love in Front-End and also some guitar riffs.",
     "about-me-picture-alt": "Picture of me wearing sunglasses hit by a solar flare",
     "who-am-i": {
@@ -33,7 +33,7 @@
     },
     "how-did-i-get-there": {
       "title": "How did I get there ?",
-      "content": "I was an <oclock>O'Clock<oclock> student in 2019, where I deepened my love for the web ecosystem. Early in my journey in the web ecosystem, I've found that I really love Javascript so I'm giving 200% of myself in to get better and better everyday."
+      "content": "I was an <oclock>O'Clock</oclock> student in 2019, where I deepened my love for the web ecosystem. Early in my journey in the web ecosystem, I've found that I really love Javascript so I'm giving 200% of myself in to get better and better everyday."
     },
     "dream-stack": {
       "title": "My dream stack",
