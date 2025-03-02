@@ -47,6 +47,8 @@ const config = tseslint.config(
           ],
         },
       ],
+      // Makes sure using translation instead of raw text
+      "react/jsx-no-literals": "error",
     },
   },
   eslintConfigPrettierRecommended,
