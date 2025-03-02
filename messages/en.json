@@ -3,5 +3,51 @@
     "title": "Jason Savelli front end software engineer",
     "subtitle": "I enjoy working on React projects with TypeScript",
     "download-resume-button": "Download my resume"
+  },
+  "PROJECTS": {
+    "title": "Projects",
+    "subtitle": "Some side projects I have worked on"
+  },
+  "ABOUT": {
+    "title": "Frontend and guitar",
+    "subtitle": "Learn more about me, how I got here, what do I love in Front-End and also some guitar riffs.",
+    "who-am-i": {
+      "title": "Who am I ?",
+      "content": "I'm Jason Savelli (He / Him). I was born on the 24th of December 1996, in Marignane, France. I'm living in Barbentane, near Avignon, France. I have 2 beautifull doggos that I love more than anything, playing guitar, video games"
+    },
+    "how-did-i-get-there": {
+      "title": "How did I get there ?",
+      "content": "I was an <important>O'Clock<important> student in 2019, where I deepened my love for the web ecosystem. Early in my journey in the web ecosystem, I've found that I really love Javascript so I'm giving 200% of myself in to get better and better everyday."
+    },
+    "dream-stack": {
+      "front-end": "React",
+      "component": "Tailwind CSS / Shadcn",
+      "data": "Tanstack Query",
+      "state": "Jotai",
+      "date": "Dayjs",
+      "unit-tests": "Jest",
+      "integration-tests": "React testing library"
+    },
+    "outside": "When I'm not at the computer, you can find me taking photos of beautifull dogs, playing guitar or with my friends."
+  },
+  "REFERENCES": {
+    "title": "References",
+    "subtitle": "People that can tell you moure",
+    "description": "I told you who I am, but sometimes it's also interesting to let other people speak for us. Here's a list of people I've work with who would be happy to tell you how it was working with me.",
+    "privacy": "I won't share their contact informations here for privacy reasons, but feel free to ask me and I'll be more than happy send your their contact."
+  },
+  "HEADER": {
+    "links": {
+      "home": "Home",
+      "projects": "Projects",
+      "experiencies": "Experiencies",
+      "about": "About",
+      "references": "References"
+    }
+  },
+  "THEME": {
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
   }
 }

@@ -3,5 +3,51 @@
     "title": "Jason Savelli front end software engineer",
     "subtitle": "J'aime travailler sur des projets avecc React et TypeScript",
     "download-resume-button": "Télécharger mon CV"
+  },
+  "PROJECTS": {
+    "title": "Projects",
+    "subtitle": "Quelques projets personels"
+  },
+  "ABOUT": {
+    "title": "Frontend et guitare",
+    "subtitle": "Apprenez-en plus sur moi, comment j'en suis arrivé là, ce que j'aime dans le Front-End et aussi quelques riffs de guitare.",
+    "who-am-i": {
+      "title": "Qui suis-je ?",
+      "content": "Je suis Jason Savelli (Il / Lui). Je suis né le 24 décembre 1996 à Marignane, en France. Je vis à Barbentane, près d'Avignon, en France. J'ai deux magnifiques toutous que j'aime plus que tout, je joue de la guitare et aux jeux vidéo."
+    },
+    "how-did-i-get-there": {
+      "title": "Comment en suis-je arrivé là ?",
+      "content": "J'étais étudiant à <important>O'Clock<important> en 2019, où j'ai approfondi mon amour pour l'écosystème web. Très tôt dans mon parcours, j'ai découvert que j'adorais Javascript, alors je donne 200 % de moi-même pour m'améliorer chaque jour."
+    },
+    "dream-stack": {
+      "front-end": "React",
+      "component": "Tailwind CSS / Shadcn",
+      "data": "Tanstack Query",
+      "state": "Jotai",
+      "date": "Dayjs",
+      "unit-tests": "Jest",
+      "integration-tests": "React Testing Library"
+    },
+    "outside": "Quand je ne suis pas devant l'ordinateur, vous pouvez me trouver en train de prendre des photos de magnifiques chiens, de jouer de la guitare ou de passer du temps avec mes amis."
+  },
+  "REFERENCES": {
+    "title": "Références",
+    "subtitle": "Des personnes qui peuvent en dire plus",
+    "description": "Je vous ai dit qui je suis, mais il est parfois intéressant de laisser d'autres personnes parler pour nous. Voici une liste de personnes avec qui j'ai travaillé et qui seraient ravies de vous dire comment c'était de travailler avec moi.",
+    "privacy": "Je ne partagerai pas leurs coordonnées ici pour des raisons de confidentialité, mais n'hésitez pas à me les demander et je serai ravi de vous les transmettre."
+  },
+  "HEADER": {
+    "links": {
+      "home": "Accueil",
+      "projects": "Projets",
+      "experiencies": "Expériences",
+      "about": "A propos",
+      "references": "Références"
+    }
+  },
+  "THEME": {
+    "light": "Clair",
+    "dark": "Sombre",
+    "system": "Système"
   }
 }
