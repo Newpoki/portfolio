@@ -4,7 +4,7 @@ import { PrismaClient } from "@prisma/client";
 import { getTranslations } from "next-intl/server";
 
 export const metadata: Metadata = {
-  title: "Projects",
+  title: "Projects - Jason Savelli",
   description: "My side projects",
 };
 

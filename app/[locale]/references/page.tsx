@@ -3,7 +3,7 @@ import { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 
 export const metadata: Metadata = {
-  title: "References",
+  title: "References - Jason Savelli",
   description: "Some references",
 };
 

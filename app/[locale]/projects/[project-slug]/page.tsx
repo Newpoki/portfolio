@@ -4,6 +4,8 @@ import { ProjectInfosList } from "./project-infos-list";
 import { Link } from "@/components/ui/link";
 import { getTranslations } from "next-intl/server";
 import { Locale } from "../../i18n/routing";
+import { Metadata } from "next";
+import { generateMetadata as generateLayoutMetaData } from "@/app/[locale]/layout";
 
 type Props = {
   params: Promise<{
@@ -31,6 +33,36 @@ const fetchProjectData = async (projectSlug: string, locale: Locale) => {
     description: project[`description_${locale}`],
   };
 };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { "project-slug": projectSlug, locale } = await params;
+
+  // As we're overiding the open graph tags, we have to import base layout metadata
+  // because next doesn't deep merge it
+  const baseMetadata = await generateLayoutMetaData();
+
+  const project = await fetchProjectData(projectSlug, locale);
+
+  const title = project.name;
+  const description = project[`shortDesc_${locale}`];
+
+  return {
+    title,
+    description,
+
+    openGraph: {
+      ...baseMetadata.openGraph,
+      title,
+      description,
+    },
+    twitter: {
+      ...baseMetadata.twitter,
+      title,
+      description,
+      card: "summary_large_image",
+    },
+  };
+}
 
 export default async function Project({ params }: Props) {
   const { "project-slug": projectSlug, locale } = await params;
