@@ -9,8 +9,8 @@ export const Header = async () => {
   const t = await getTranslations("HEADER");
 
   return (
-    <div className="main-layout-px border-b-border supports-backdrop-filter:bg-background/60 sticky top-0 z-50 mb-[var(--header-m-b)] h-[var(--header-h)] border-b py-4 backdrop-blur-sm">
-      <div className="mx-auto flex max-w-[var(--app-max-w)] items-center justify-between">
+    <div className="main-layout-px border-b-border supports-backdrop-filter:bg-background/60 sticky top-0 z-50 mb-[var(--header-m-b)] flex h-[var(--header-h)] border-b py-4 backdrop-blur-sm">
+      <div className="mx-auto flex w-full max-w-[var(--app-max-w)] items-center justify-between">
         <HeaderDrawer className="flex lg:hidden" />
 
         <JavascriptIcon className="w-8 text-black lg:w-8" />
