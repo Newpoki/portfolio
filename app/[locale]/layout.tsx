@@ -34,10 +34,6 @@ type LayoutProps = {
   params: Promise<{ locale: string }>;
 };
 
-export function generateStaticParams() {
-  return routing.locales.map((locale) => ({ locale }));
-}
-
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("METADATA");
 
@@ -67,6 +63,10 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
 };
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
 
 export default async function Layout({ children, params }: LayoutProps) {
   const messages = await getMessages();
