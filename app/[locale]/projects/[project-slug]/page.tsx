@@ -2,6 +2,7 @@ import { PrismaClient } from "@prisma/client";
 import Image from "next/image";
 import { ProjectInfosList } from "./project-infos-list";
 import { Link } from "@/components/ui/link";
+import { getTranslations } from "next-intl/server";
 
 type Props = {
   params: Promise<{
@@ -27,19 +28,27 @@ const fetchProjectData = async (projectSlug: string) => {
 
 export default async function ProjectSlug(props: Props) {
   const project = await fetchProjectData((await props.params)["project-slug"]);
+  const t = await getTranslations("PROJECT");
 
   return (
     <div>
       <h1 className="mb-8 flex items-center justify-between">
         <span>{project.name}</span>
-        <span>({project.deployedAt.getFullYear()})</span>
+
+        <span>
+          {t("deployed-at-content", {
+            deployedAt: project.deployedAt.getFullYear(),
+          })}
+        </span>
       </h1>
 
       <section className="relative flex flex-col lg:mb-8">
         <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
           <h2 className="md:max-w-sm">{project.shortDesc}</h2>
 
-          <span className="font-semibold whitespace-nowrap">Discover ↓</span>
+          <span className="font-semibold whitespace-nowrap">
+            {t("discover")}
+          </span>
         </div>
 
         <Image
@@ -60,7 +69,7 @@ export default async function ProjectSlug(props: Props) {
                 href={project.websiteUrl}
                 animation="bright-slide"
               >
-                Visit the website&apos;s live version
+                {t("visit-live-version")}
               </Link>
 
               <Link
@@ -68,7 +77,7 @@ export default async function ProjectSlug(props: Props) {
                 href={project.githubUrl}
                 animation="bright-slide"
               >
-                Visit the website&apos;s github
+                {t("visit-github")}
               </Link>
             </div>
           )}

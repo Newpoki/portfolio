@@ -4,6 +4,7 @@ import classNames from "classnames";
 import React from "react";
 import StarIcon from "@/public/icons/star.svg";
 import { Link } from "@/components/ui/link";
+import { getTranslations } from "next-intl/server";
 
 type Props = {
   className?: string;
@@ -20,12 +21,14 @@ type Props = {
   };
 };
 
-export const ProjectSummary = ({
+export const ProjectSummary = async ({
   className,
   isFavorite = false,
   project,
   slotProps = {},
 }: Props) => {
+  const t = await getTranslations("PROJECTS");
+
   return (
     <article
       className={classNames(
@@ -33,7 +36,16 @@ export const ProjectSummary = ({
         className,
       )}
     >
-      <Link href={`/projects/${project.slug}`} type="internal" animation={null}>
+      <Link
+        type="internal"
+        animation={null}
+        href={{
+          pathname: "/projects/[project-slug]",
+          params: {
+            "project-slug": project.slug,
+          },
+        }}
+      >
         <div
           {...slotProps.imageWrapper}
           className={classNames(
@@ -58,7 +70,7 @@ export const ProjectSummary = ({
           />
 
           <div className="bg-background absolute top-2/4 left-2/4 z-10 flex aspect-square -translate-x-1/2 -translate-y-1/2 scale-0 items-center rounded-full p-4 text-center shadow-xl transition-all duration-300 group-hover/project-item:scale-100">
-            View project
+            {t("view-project")}
           </div>
         </div>
       </Link>

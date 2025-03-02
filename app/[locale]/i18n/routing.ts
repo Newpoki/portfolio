@@ -28,6 +28,10 @@ export const routing = defineRouting({
       en: "/about",
       fr: "/a-propos",
     },
+    "/references": {
+      en: "/references",
+      fr: "/references",
+    },
   },
 });
 

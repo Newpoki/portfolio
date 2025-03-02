@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { ProjectSummary } from "./project-summary";
 import { PrismaClient } from "@prisma/client";
+import { getTranslations } from "next-intl/server";
 
 export const metadata: Metadata = {
   title: "Jason Savelli - Projects",
@@ -33,13 +34,14 @@ const getProjectsSummary = async () => {
 
 export default async function Projects() {
   const data = await getProjectsSummary();
+  const t = await getTranslations("PROJECTS");
 
   return (
     <section>
-      <h1 className="mb-8">Projects</h1>
+      <h1 className="mb-8">{t("title")}</h1>
 
       <div>
-        <h2 className="mb-12">Some side projects I have worked on.</h2>
+        <h2 className="mb-12">{t("subtitle")}</h2>
 
         <ul className="grid grid-cols-1 items-stretch gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
           {data.map((project) => {

@@ -1,5 +1,6 @@
 import { TabeListItem } from "@/components/ui/table-list-item";
 import { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 
 export const metadata: Metadata = {
   title: "Jason Savelli - References",
@@ -7,34 +8,30 @@ export const metadata: Metadata = {
 };
 
 export default async function References() {
+  const t = await getTranslations("REFERENCES");
+
   return (
     <div>
-      <h1 className="mb-8">References</h1>
+      <h1 className="mb-8">{t("title")}</h1>
 
       <section>
-        <h2 className="mb-12">People that can tell you more</h2>
+        <h2 className="mb-12">{t("subtitle")}</h2>
 
         <div className="lg:1/2 mx-auto flex flex-col gap-8 md:w-2/3">
-          <p>
-            I told you who I am, but sometimes it&apos;s also interesting to let
-            other people speak for us. Here&apos;s a list of people I&apos;ve
-            work with who would be happy to tell you how it was working with me.
-          </p>
-          <p>
-            I won&apos;t share their contact informations for privacy reasons,
-            but feel free to ask me and I&apos;ll be more than happy send your
-            their contact.
-          </p>
+          <p>{t("description")}</p>
+          <p>{t("privacy")}</p>
 
           <ul>
             <TabeListItem label="Damien Souquieres">
-              Director en engieneering
+              {t("director-of-engineering")}
             </TabeListItem>
+
             <TabeListItem label="Michaël Haberzettel">
-              Front end Architect
+              {t("front-end-architect")}
             </TabeListItem>
+
             <TabeListItem label="Lorenzo Gentilli">
-              Product manager
+              {t("product-manager")}
             </TabeListItem>
           </ul>
         </div>

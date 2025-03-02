@@ -3,6 +3,7 @@
 import { Handle, Node, NodeProps, Position } from "@xyflow/react";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import { Experiencies } from "./experiencies-actions";
+import { useFormatter, useTranslations } from "next-intl";
 
 export type ExperienceNodeData = Node<{
   hasLeftHandle: boolean;
@@ -17,13 +18,8 @@ export type ExperienceNodeData = Node<{
 export type ExperienceNodeProps = NodeProps<ExperienceNodeData>;
 
 export const ExperienceNode = ({ data }: ExperienceNodeProps) => {
-  const displayedStartedAt = Intl.DateTimeFormat("en").format(
-    data.experience.startedAt,
-  );
-
-  const displayedEndedAt = data.experience.endedAt
-    ? Intl.DateTimeFormat("en").format(data.experience.endedAt)
-    : "Today";
+  const t = useTranslations("EXPERIENCIES");
+  const format = useFormatter();
 
   return (
     <>
@@ -33,7 +29,13 @@ export const ExperienceNode = ({ data }: ExperienceNodeProps) => {
         <h2 className="mb-4">{data.experience.title}</h2>
 
         <p className="mb-4">
-          {displayedStartedAt} - {displayedEndedAt}
+          {/* Not using format.dateTimeRange because we want "Today" instead of today date */}
+          {t("period", {
+            startDate: format.dateTime(data.experience.startedAt),
+            endDate: data.experience.endedAt
+              ? format.dateTime(data.experience.endedAt)
+              : t("today"),
+          })}
         </p>
 
         <div className="prose">

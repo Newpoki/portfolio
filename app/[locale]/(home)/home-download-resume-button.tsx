@@ -24,7 +24,7 @@ export const HomeDownloadResumeButton = async ({
       <span className="bg-foreground text-background absolute top-0 right-0 left-0 flex h-full translate-y-12 items-center px-5 py-2 whitespace-nowrap transition-transform group-hover:translate-y-0">
         <div className="flex h-12 items-center gap-4">
           <DownloadIcon width={16} />
-          <span>jason-cv.pdf</span>
+          <span>{t("download-resume-file-name")}</span>
         </div>
       </span>
     </a>
