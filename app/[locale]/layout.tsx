@@ -40,6 +40,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: t("title"),
     description: t("description"),
+    metadataBase: new URL(process.env.BASE_URL ?? "http://localhost:3000"),
     openGraph: {
       title: t("title"),
       description: t("description"),
