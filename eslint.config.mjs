@@ -28,6 +28,25 @@ const config = tseslint.config(
           ignoreRestSiblings: true,
         },
       ],
+      "no-restricted-imports": [
+        "error",
+        {
+          paths: [
+            {
+              name: "next/link",
+              importNames: [
+                "default",
+                "Link",
+                "redirect",
+                "usePathname",
+                "useRouter",
+                "getPathname",
+              ],
+              message: "Please imports from @/i18/navigation instead",
+            },
+          ],
+        },
+      ],
     },
   },
   eslintConfigPrettierRecommended,
