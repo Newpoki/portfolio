@@ -3,6 +3,7 @@ import { HeaderDrawer } from "./header-drawer";
 import { HeaderLink } from "./header-link";
 import { ThemeDropdown } from "../theme/theme-dropdown";
 import { getTranslations } from "next-intl/server";
+import { LocaleDropdown } from "../i18n/locale-dropdown";
 
 export const Header = async () => {
   const t = await getTranslations("HEADER");
@@ -24,7 +25,11 @@ export const Header = async () => {
           <HeaderLink href="/references">{t("links.references")}</HeaderLink>
         </nav>
 
-        <ThemeDropdown className="hidden lg:flex" />
+        <div className="hidden items-center gap-2 lg:flex">
+          <ThemeDropdown />
+
+          <LocaleDropdown />
+        </div>
       </div>
     </div>
   );

@@ -12,7 +12,11 @@ export default async function Home() {
 
   return (
     <section className="flex flex-1 flex-col items-center justify-center gap-4 text-center md:gap-16">
-      <h1 className="mb-8">{t("title")}</h1>
+      <h1 className="mb-8">
+        {t.rich("title", {
+          breakline: () => <br />,
+        })}
+      </h1>
 
       <h2 className="mb-8">{t("subtitle")}</h2>
 

@@ -1,6 +1,6 @@
 {
   "HOME": {
-    "title": "Jason Savelli front end software engineer",
+    "title": "Jason Savelli<breakline></breakline>senior front-end software engineer",
     "subtitle": "I enjoy working on React projects with TypeScript",
     "download-resume-button": "Download my resume",
     "download-resume-file-name": "resume.pdf"
@@ -67,7 +67,11 @@
     "product-manager": "Product manager"
   },
   "HEADER": {
-    "drawer-title": "Mobile navigation menu and settings",
+    "drawer": {
+      "title": "Mobile navigation menu and settings",
+      "navigation": "Navigation",
+      "settings": "Settings"
+    },
     "links": {
       "home": "Home",
       "projects": "Projects",
@@ -90,5 +94,8 @@
     "title": "Experiencies",
     "today": "Today",
     "period": "{startDate} - {endDate}"
+  },
+  "I18N": {
+    "flag-alt": "Icon of the flag matching {flagCode} code"
   }
 }

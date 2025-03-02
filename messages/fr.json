@@ -1,13 +1,13 @@
 {
   "HOME": {
-    "title": "Jason Savelli front end software engineer",
-    "subtitle": "J'aime travailler sur des projets avecc React et TypeScript",
+    "title": "Jason Savelli<breakline></breakline> senior front-end software engineer",
+    "subtitle": "J'aime travailler sur des projets avec React et TypeScript",
     "download-resume-button": "Télécharger mon CV",
     "download-resume-file-name": "resume.pdf"
   },
   "PROJECTS": {
-    "title": "Projects",
-    "subtitle": "Quelques projets personels",
+    "title": "Projets",
+    "subtitle": "Quelques projets personnels",
     "view-project": "Voir le projet"
   },
   "PROJECT": {
@@ -69,7 +69,11 @@
     "product-manager": "Product manager"
   },
   "HEADER": {
-    "drawer-title": "Menu mobile de navigation et paramètres",
+    "drawer": {
+      "title": "Menu mobile de navigation et paramètres",
+      "navigation": "Navigation",
+      "settings": "Settings"
+    },
     "links": {
       "home": "Accueil",
       "projects": "Projets",
@@ -92,5 +96,8 @@
     "title": "Expériences",
     "today": "Aujourd'hui",
     "period": "{startDate} - {endDate}"
+  },
+  "I18N": {
+    "flag-alt": "Icone du drapeau qui correspond au code {flagCode}"
   }
 }

@@ -23,6 +23,17 @@ const config: NextConfig = {
       },
     },
   },
+
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "flagcdn.com",
+        port: "",
+        pathname: "/w20/**.webp",
+      },
+    ],
+  },
 };
 
 export default withNextIntl(config);

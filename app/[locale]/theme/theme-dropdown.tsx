@@ -12,17 +12,13 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { useTranslations } from "next-intl";
 
-type ThemeDropdownProps = {
-  className?: string;
-};
-
-export const ThemeDropdown = ({ className }: ThemeDropdownProps) => {
+export const ThemeDropdown = () => {
   const { setTheme } = useTheme();
   const t = useTranslations("THEME");
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild className={className}>
+      <DropdownMenuTrigger asChild>
         <Button variant="ghost" size="icon">
           <Sun className="h-5 w-5 scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
           <Moon className="absolute h-5 w-5 scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />

@@ -11,6 +11,7 @@ import { HeaderLink } from "./header-link";
 import { useCallback, useState } from "react";
 import { ThemeButtonGroup } from "../theme/theme-button-group";
 import { useTranslations } from "next-intl";
+import { LocaleDropdown } from "../i18n/locale-dropdown";
 
 type HeaderDrawerProps = {
   className: string;
@@ -33,36 +34,48 @@ export const HeaderDrawer = ({ className }: HeaderDrawerProps) => {
       <DrawerContent className="gap-10 p-4">
         <div className="flex flex-col items-start gap-20">
           <section>
-            <DrawerTitle className="hidden">{t("drawer-title")}</DrawerTitle>
+            <DrawerTitle className="hidden">{t("drawer.title")}</DrawerTitle>
 
-            <nav className="flex flex-1 flex-col justify-center gap-4">
-              <HeaderLink
-                onClick={handleCloseDrawer}
-                className="w-fit"
-                href="/"
-              >
-                {t("links.home")}
-              </HeaderLink>
+            <div className="flex flex-col items-start gap-6">
+              <h2>{t("drawer.navigation")}</h2>
 
-              <HeaderLink onClick={handleCloseDrawer} href="/projects">
-                {t("links.projects")}
-              </HeaderLink>
+              <nav className="flex flex-1 flex-col justify-center gap-4">
+                <HeaderLink
+                  onClick={handleCloseDrawer}
+                  className="w-fit"
+                  href="/"
+                >
+                  {t("links.home")}
+                </HeaderLink>
 
-              <HeaderLink onClick={handleCloseDrawer} href="/experiencies">
-                {t("links.experiencies")}
-              </HeaderLink>
+                <HeaderLink onClick={handleCloseDrawer} href="/projects">
+                  {t("links.projects")}
+                </HeaderLink>
 
-              <HeaderLink onClick={handleCloseDrawer} href="/about">
-                {t("links.about")}
-              </HeaderLink>
+                <HeaderLink onClick={handleCloseDrawer} href="/experiencies">
+                  {t("links.experiencies")}
+                </HeaderLink>
 
-              <HeaderLink onClick={handleCloseDrawer} href="/">
-                {t("links.references")}
-              </HeaderLink>
-            </nav>
+                <HeaderLink onClick={handleCloseDrawer} href="/about">
+                  {t("links.about")}
+                </HeaderLink>
+
+                <HeaderLink onClick={handleCloseDrawer} href="/">
+                  {t("links.references")}
+                </HeaderLink>
+              </nav>
+            </div>
           </section>
 
-          <ThemeButtonGroup />
+          <div className="flex flex-col items-start gap-6">
+            <h2>{t("drawer.settings")}</h2>
+
+            <div>
+              <ThemeButtonGroup />
+
+              <LocaleDropdown />
+            </div>
+          </div>
         </div>
       </DrawerContent>
     </Drawer>
