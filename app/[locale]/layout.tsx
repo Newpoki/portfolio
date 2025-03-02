@@ -5,6 +5,8 @@ import localFont from "next/font/local";
 import { ThemeProvider } from "./theme/theme-provider";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
+import { Locale, routing } from "@/i18n/routing";
+import { notFound } from "next/navigation";
 
 const sfProDisplay = localFont({
   src: [
@@ -46,6 +48,11 @@ export default async function RootLayout({ children, params }: Props) {
   const messages = await getMessages();
 
   const { locale } = await params;
+
+  // Ensure that the incoming `locale` is valid
+  if (!routing.locales.includes(locale as Locale)) {
+    notFound();
+  }
 
   return (
     <html lang={locale} suppressHydrationWarning>
