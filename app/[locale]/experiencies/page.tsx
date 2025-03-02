@@ -3,14 +3,23 @@ import { Metadata } from "next";
 import { fetchExperiencies } from "./experiencies-actions";
 import { ExperienciesFlowPage } from "./experiencies-flow-page";
 import { getTranslations } from "next-intl/server";
+import { Locale } from "../i18n/routing";
 
 export const metadata: Metadata = {
   title: "Jason Savelli - Experiencies",
   description: "All my previous experiencies",
 };
 
-export default async function ExperienciesPage() {
-  const experiencies = await fetchExperiencies();
+type ExperienciesPageProps = {
+  params: Promise<{ locale: Locale }>;
+};
+
+export default async function ExperienciesPage({
+  params,
+}: ExperienciesPageProps) {
+  const { locale } = await params;
+
+  const experiencies = await fetchExperiencies({ locale });
   const t = await getTranslations("EXPERIENCIES");
 
   return (

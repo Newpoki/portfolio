@@ -36,11 +36,12 @@ enum ExperienceType {
 }
 
 model Experience {
-    id        String         @id @default(auto()) @map("_id") @db.ObjectId
-    type      ExperienceType
-    place     Json
-    startedAt DateTime
-    title     String
-    content   String
-    endedAt   DateTime?
+    id         String         @id @default(auto()) @map("_id") @db.ObjectId
+    type       ExperienceType
+    place      Json
+    startedAt  DateTime
+    title      String
+    content_en String
+    content_fr String
+    endedAt    DateTime?
 }

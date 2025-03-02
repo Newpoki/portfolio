@@ -2,10 +2,17 @@
 
 import { PrismaClient } from "@prisma/client";
 import { serialize } from "next-mdx-remote/serialize";
+import { Locale } from "../i18n/routing";
 
 const prisma = new PrismaClient();
 
-export const fetchExperiencies = async () => {
+type FetchExperienciesParams = {
+  locale: Locale;
+};
+
+export const fetchExperiencies = async ({
+  locale,
+}: FetchExperienciesParams) => {
   const experiencies = await prisma.experience.findMany({
     orderBy: {
       startedAt: "desc",
@@ -13,7 +20,7 @@ export const fetchExperiencies = async () => {
   });
 
   const serializedExperiencies = experiencies.map(async (experience) => {
-    const content = await serialize(experience.content);
+    const content = await serialize(experience[`content_${locale}`]);
 
     return { ...experience, content };
   });
