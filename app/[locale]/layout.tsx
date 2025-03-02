@@ -29,10 +29,14 @@ const sfProDisplay = localFont({
   variable: "--font-sf-pro-display",
 });
 
-type RootLayoutProps = {
+type LayoutProps = {
   children: React.ReactNode;
   params: Promise<{ locale: string }>;
 };
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("METADATA");
@@ -64,10 +68,7 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-export default async function RootLayout({
-  children,
-  params,
-}: RootLayoutProps) {
+export default async function Layout({ children, params }: LayoutProps) {
   const messages = await getMessages();
 
   const { locale } = await params;
