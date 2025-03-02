@@ -6,7 +6,7 @@ import { getTranslations } from "next-intl/server";
 import { Locale } from "../i18n/routing";
 
 export const metadata: Metadata = {
-  title: "Jason Savelli - Experiencies",
+  title: "Experiencies",
   description: "All my previous experiencies",
 };
 

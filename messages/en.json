@@ -1,5 +1,7 @@
 {
   "HOME": {
+    "metadata-title": "Home",
+    "metadata-description": "Explore my portfolio: projects, expertise, and innovation in Front-End development.",
     "title": "Jason Savelli<br></br>senior front-end software engineer",
     "subtitle": "I enjoy working on React projects with TypeScript",
     "download-resume-button": "Download my resume",
@@ -97,5 +99,10 @@
   },
   "I18N": {
     "flag-alt": "Icon of the flag matching {flagCode} code"
+  },
+  "METADATA": {
+    "title": "Jason Savelli's portfolio",
+    "description": "My portfolio where I share everything.",
+    "open-graph-image-alt": "A black and white picture of Jason Savelli wearing sunglasses and a costume."
   }
 }

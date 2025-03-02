@@ -5,7 +5,7 @@ import { TabeListItem } from "@/components/ui/table-list-item";
 import { getTranslations } from "next-intl/server";
 
 export const metadata: Metadata = {
-  title: "Jason Savelli - About",
+  title: "About",
   description: "Learn more about me",
 };
 

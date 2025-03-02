@@ -2,28 +2,14 @@ import { Metadata } from "next";
 import { HomeDownloadResumeButton } from "./home-download-resume-button";
 import { getTranslations } from "next-intl/server";
 
-export const metadata: Metadata = {
-  title: "Jason Savelli's portfolio",
-  description: "The portfolio's home page",
-  openGraph: {
-    title: "Jason Savelli's portfolio",
-    description: "The portfolio's home page",
-    images: [
-      {
-        url: "/about/me.png",
-        width: 1200,
-        height: 630,
-        alt: "A picture of Jason Savelli",
-      },
-    ],
-  },
-  twitter: {
-    title: "Jason Savelli's portfolio",
-    description: "The portfolio's home page",
-    images: ["/about/me.png"],
-    card: "summary_large_image",
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("HOME");
+
+  return {
+    title: t("metadata-title"),
+    description: t("metadata-description"),
+  };
+}
 
 export default async function Home() {
   const t = await getTranslations("HOME");

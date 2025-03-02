@@ -4,7 +4,7 @@ import { Header } from "./header/header";
 import localFont from "next/font/local";
 import { ThemeProvider } from "./theme/theme-provider";
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages } from "next-intl/server";
+import { getMessages, getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { Locale, routing } from "./i18n/routing";
 
@@ -29,22 +29,45 @@ const sfProDisplay = localFont({
   variable: "--font-sf-pro-display",
 });
 
-export const metadata: Metadata = {
-  title: "Jason Savelli",
-  description: "My personal portfolio",
+type RootLayoutProps = {
+  children: React.ReactNode;
+  params: Promise<{ locale: string }>;
 };
+
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("METADATA");
+
+  return {
+    title: t("title"),
+    description: t("description"),
+    openGraph: {
+      title: t("title"),
+      description: t("description"),
+      images: [
+        {
+          url: "/about/me.png",
+          alt: t("open-graph-image-alt"),
+        },
+      ],
+    },
+    twitter: {
+      title: t("title"),
+      description: t("description"),
+      images: ["/about/me.png"],
+      card: "summary_large_image",
+    },
+  };
+}
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
 };
 
-type Props = {
-  children: React.ReactNode;
-  params: Promise<{ locale: string }>;
-};
-
-export default async function RootLayout({ children, params }: Props) {
+export default async function RootLayout({
+  children,
+  params,
+}: RootLayoutProps) {
   const messages = await getMessages();
 
   const { locale } = await params;

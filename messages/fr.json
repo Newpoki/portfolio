@@ -1,5 +1,7 @@
 {
   "HOME": {
+    "metadata-title": "Accueil",
+    "metadata-description": "Découvrez mon portfolio : projets, expertise et innovation en développement web Front-End.",
     "title": "Jason Savelli<br></br> senior front-end software engineer",
     "subtitle": "J'aime travailler sur des projets avec React et TypeScript",
     "download-resume-button": "Télécharger mon CV",
@@ -99,5 +101,10 @@
   },
   "I18N": {
     "flag-alt": "Icone du drapeau qui correspond au code {flagCode}"
+  },
+  "METADATA": {
+    "title": "Le portfolio de Jason Savelli",
+    "description": "Mon portfolio où je partage tout.",
+    "open-graph-image-alt": "Une photo en noir et blanc de Jason Savelli portant des lunettes de soleil et un costume"
   }
 }
