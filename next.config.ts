@@ -1,5 +1,9 @@
-/** @type {import('next').NextConfig} */
-module.exports = {
+import { NextConfig } from "next";
+import createNextIntlPlugin from "next-intl/plugin";
+
+const withNextIntl = createNextIntlPlugin("./i18n/request.ts");
+
+const config: NextConfig = {
   // This seems still needed for now, only experimental turbo rules is not enough for SVGR
   webpack(config) {
     config.module.rules.push({
@@ -20,3 +24,5 @@ module.exports = {
     },
   },
 };
+
+export default withNextIntl(config);
