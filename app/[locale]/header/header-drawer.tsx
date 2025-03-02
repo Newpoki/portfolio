@@ -60,7 +60,7 @@ export const HeaderDrawer = ({ className }: HeaderDrawerProps) => {
                   {t("links.about")}
                 </HeaderLink>
 
-                <HeaderLink onClick={handleCloseDrawer} href="/">
+                <HeaderLink onClick={handleCloseDrawer} href="/references">
                   {t("links.references")}
                 </HeaderLink>
               </nav>
