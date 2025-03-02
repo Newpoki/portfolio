@@ -39,13 +39,16 @@ export const viewport: Viewport = {
 
 type Props = {
   children: React.ReactNode;
+  params: Promise<{ locale: string }>;
 };
 
-export default async function RootLayout({ children }: Props) {
+export default async function RootLayout({ children, params }: Props) {
   const messages = await getMessages();
 
+  const { locale } = await params;
+
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning>
       <body className={sfProDisplay.variable}>
         <NextIntlClientProvider messages={messages}>
           <ThemeProvider
