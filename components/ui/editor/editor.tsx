@@ -2,16 +2,17 @@
 
 import { EditorProvider, Extensions, EditorProviderProps } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
+import { EditorQuickStyle } from "./editor-quick-style";
 
 const extensions: Extensions = [
   StarterKit.configure({
     bulletList: {
       keepMarks: true,
-      keepAttributes: false, // TODO : Making this as `false` becase marks are not preserved when I try to preserve attrs, awaiting a bit of help
+      keepAttributes: false, // Making this as `false` becase marks are not preserved when I try to preserve attrs, awaiting a bit of help
     },
     orderedList: {
       keepMarks: true,
-      keepAttributes: false, // TODO : Making this as `false` becase marks are not preserved when I try to preserve attrs, awaiting a bit of help
+      keepAttributes: false, // Making this as `false` becase marks are not preserved when I try to preserve attrs, awaiting a bit of help
     },
   }),
 ];
@@ -28,6 +29,8 @@ export const Editor = (props: EditorProps) => {
           class: "border p-4 rounded border-border outline-ring",
         },
       }}
-    />
+    >
+      <EditorQuickStyle />
+    </EditorProvider>
   );
 };
