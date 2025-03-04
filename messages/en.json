@@ -148,7 +148,8 @@
         },
         "content": {
           "label": "Content",
-          "placeholder": "Describe experience context, tasks, used libs, etc"
+          "placeholder": "Describe experience context, tasks, used libs, etc",
+          "preview": "Preview"
         },
         "submit": {
           "label": "Create new experience"

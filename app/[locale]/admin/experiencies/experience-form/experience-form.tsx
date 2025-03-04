@@ -59,7 +59,7 @@ export const ExperienceForm = () => {
 
           <ExperienceFormContentField name="content_fr" />
 
-          <Button type="submit" disabled={isSubmitting}>
+          <Button disabled={isSubmitting}>
             {isSubmitting && <Loader2Icon className="animate-spin" />}
             {t("form.submit.label")}
           </Button>

@@ -15,7 +15,9 @@ import { useTranslations } from "next-intl";
 import { useController, useFormContext } from "react-hook-form";
 import { ExperienceFormValues } from "./experience-form-schemas";
 import { Editor as EditorInstance, generateHTML } from "@tiptap/react";
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
+import { Button } from "@/components/ui/button";
+import { ExperienceFormContentPreview } from "./experience-form-content-preview";
 
 type ExperienceFormContentFieldProps = {
   name: `content_${Locale}`;
@@ -25,8 +27,10 @@ export const ExperienceFormContentField = ({
   name,
 }: ExperienceFormContentFieldProps) => {
   const t = useTranslations("ADMIN.experiencies");
-  const { control } = useFormContext<ExperienceFormValues>();
 
+  const [isDisplayingPreview, setIsDisplayingPreview] = useState(false);
+
+  const { control } = useFormContext<ExperienceFormValues>();
   const { field } = useController({ control, name });
 
   const content = generateHTML(
@@ -43,15 +47,34 @@ export const ExperienceFormContentField = ({
     [field],
   );
 
+  const handleTogglePreview = useCallback(() => {
+    setIsDisplayingPreview((current) => !current);
+  }, []);
+
   return (
     <FormItem>
-      <FormLabel>{t("form.content.label")}</FormLabel>
+      <div className="flex items-center justify-between">
+        <FormLabel>{t("form.content.label")}</FormLabel>
+        <Button
+          variant="outline"
+          size="sm"
+          type="button"
+          onClick={handleTogglePreview}
+        >
+          {t("form.content.preview")}
+        </Button>
+      </div>
+
       <FormControl>
-        <Editor
-          content={content}
-          immediatelyRender={false}
-          onUpdate={handleEditorChange}
-        />
+        {isDisplayingPreview ? (
+          <ExperienceFormContentPreview />
+        ) : (
+          <Editor
+            content={content}
+            immediatelyRender={false}
+            onUpdate={handleEditorChange}
+          />
+        )}
       </FormControl>
 
       <FormMessage />

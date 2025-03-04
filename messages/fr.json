@@ -150,7 +150,8 @@
         },
         "content": {
           "label": "Contenu",
-          "placeholder": "Décrire le contexte, les tâches, les outils utilisés, etc"
+          "placeholder": "Décrire le contexte, les tâches, les outils utilisés, etc",
+          "preview": "Prévisualisation"
         },
         "submit": {
           "label": "Créer nouvelle expérience"
