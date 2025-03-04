@@ -106,5 +106,56 @@
     "title": "Le portfolio de Jason Savelli",
     "description": "Mon portfolio où je partage tout.",
     "open-graph-image-alt": "Une photo en noir et blanc de Jason Savelli portant des lunettes de soleil et un costume"
+  },
+  "ADMIN": {
+    "title": "Tableau de bord admin",
+    "cards": {
+      "experiencies": {
+        "title": "Expériences",
+        "content": "Créer, modifier ou supprimer une expérience",
+        "link": "Créer une expérience"
+      }
+    },
+    "experiencies": {
+      "create": {
+        "title": "Nouvelle experience"
+      },
+      "form": {
+        "name": {
+          "label": "Nom de l'entreprise",
+          "placeholder": "Saisir le nom de l'entreprise",
+          "description": "Le nom de l'entreprise pour laquelle j'ai travaillé"
+        },
+        "place": {
+          "city": {
+            "label": "Ville",
+            "placeholder": "Saisir le nom de la ville",
+            "description": "Dans quelle ville est l'entreprise ?"
+          },
+          "country": {
+            "label": "Pays",
+            "placeholder": "Saisir l'abbréviation du nom du pays (FR)",
+            "description": "Dans quel pays l'entreprise a-t-elle était créée ?"
+          }
+        },
+        "startDate": {
+          "label": "Date de début",
+          "placeholder": "Choisir une date",
+          "description": "Quand est-ce que le contrat a commencé ?"
+        },
+        "endDate": {
+          "label": "Date de fin",
+          "placeholder": "Choisir une date",
+          "description": "Quand est-ce que le contrat a pris fin ?"
+        },
+        "content": {
+          "label": "Contenu",
+          "placeholder": "Décrire le contexte, les tâches, les outils utilisés, etc"
+        },
+        "submit": {
+          "label": "Créer nouvelle expérience"
+        }
+      }
+    }
   }
 }

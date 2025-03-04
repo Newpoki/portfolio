@@ -7,6 +7,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { Locale, routing } from "./i18n/routing";
+import { Toaster } from "@/components/ui/sonner";
 
 const sfProDisplay = localFont({
   src: [
@@ -96,6 +97,8 @@ export default async function Layout({ children, params }: LayoutProps) {
                 {children}
               </div>
             </main>
+
+            <Toaster />
           </ThemeProvider>
         </NextIntlClientProvider>
       </body>

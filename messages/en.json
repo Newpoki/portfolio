@@ -104,5 +104,56 @@
     "title": "Jason Savelli's portfolio",
     "description": "My portfolio where I share everything.",
     "open-graph-image-alt": "A black and white picture of Jason Savelli wearing sunglasses and a costume."
+  },
+  "ADMIN": {
+    "title": "Admin dashboard",
+    "cards": {
+      "experiencies": {
+        "title": "Experiencies",
+        "content": "Create, edit or delete an experience",
+        "link": "Create an experience"
+      }
+    },
+    "experiencies": {
+      "create": {
+        "title": "New experience"
+      },
+      "form": {
+        "name": {
+          "label": "Company name",
+          "placeholder": "Enter company name",
+          "description": "The company name I've been working for"
+        },
+        "place": {
+          "city": {
+            "label": "City",
+            "placeholder": "Enter city location",
+            "description": "Where is located the company ?"
+          },
+          "country": {
+            "label": "Country",
+            "placeholder": "Enter country abbreviation location (FR)",
+            "description": "In which country company has been created ?"
+          }
+        },
+        "startDate": {
+          "label": "Start Date",
+          "placeholder": "Pick a date",
+          "description": "When did the contract start ?"
+        },
+        "endDate": {
+          "label": "End Date",
+          "placeholder": "Pick a date",
+          "description": "When did the contract end ?"
+        },
+        "content": {
+          "label": "Content",
+          "placeholder": "Describe experience context, tasks, used libs, etc"
+        },
+        "submit": {
+          "label": "Create new experience"
+        }
+      }
+    }
   }
 }
