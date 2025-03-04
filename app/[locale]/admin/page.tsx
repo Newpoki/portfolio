@@ -1,5 +1,5 @@
-import { Editor } from "@/components/ui/editor/editor";
 import { PrismaClient } from "@prisma/client";
+import { AdminForm } from "./admin-form";
 
 const prisma = new PrismaClient();
 
@@ -20,5 +20,5 @@ const fetchExperienceData = async (experienceId: string) => {
 export default async function AdminPage() {
   const experience = await fetchExperienceData("64cf626ccb8c416781525279");
 
-  return <Editor content={experience.content_fr} immediatelyRender={false} />;
+  return <AdminForm content={experience.content_fr} />;
 }

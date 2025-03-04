@@ -26,7 +26,7 @@ export const Editor = (props: EditorProps) => {
       extensions={extensions}
       editorProps={{
         attributes: {
-          class: "border p-4 rounded border-border outline-ring",
+          class: "border p-4 rounded border-border outline-ring editor",
         },
       }}
     >
