@@ -38,7 +38,7 @@ export const ExperienceNode = ({ data }: ExperienceNodeProps) => {
           })}
         </p>
 
-        <div className="prose">
+        <div className="experience">
           <MDXRemote {...data.content} />
         </div>
       </section>
