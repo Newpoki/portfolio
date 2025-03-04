@@ -121,7 +121,7 @@
         "title": "Nouvelle experience"
       },
       "form": {
-        "name": {
+        "title": {
           "label": "Nom de l'entreprise",
           "placeholder": "Saisir le nom de l'entreprise",
           "description": "Le nom de l'entreprise pour laquelle j'ai travaillé"
@@ -138,12 +138,12 @@
             "description": "Dans quel pays l'entreprise a-t-elle était créée ?"
           }
         },
-        "startDate": {
+        "startedAt": {
           "label": "Date de début",
           "placeholder": "Choisir une date",
           "description": "Quand est-ce que le contrat a commencé ?"
         },
-        "endDate": {
+        "endedAt": {
           "label": "Date de fin",
           "placeholder": "Choisir une date",
           "description": "Quand est-ce que le contrat a pris fin ?"

@@ -19,17 +19,17 @@ export const DEFAULT_EDITOR_EXTENSIONS: Extensions = [
   }),
 ];
 
-export const VALID_EMPTY_JSON = {
+export const VALID_EMPTY_EDITOR_JSON = {
   type: "doc",
-  content: [], // Empty document but still valid
+  content: [],
 };
 
 export const emptyEditorRuleSchema = z.string().refine(
   (value) => {
     try {
-      return value !== JSON.stringify(VALID_EMPTY_JSON); // Ensure it's different
+      return value !== JSON.stringify(VALID_EMPTY_EDITOR_JSON);
     } catch {
-      return false; // Reject invalid JSON
+      return false;
     }
   },
   { message: "Required" },
