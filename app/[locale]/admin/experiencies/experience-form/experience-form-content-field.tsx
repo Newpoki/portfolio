@@ -7,6 +7,7 @@ import {
 } from "@/components/ui/editor/editor";
 import {
   FormControl,
+  FormField,
   FormItem,
   FormLabel,
   FormMessage,
@@ -52,32 +53,40 @@ export const ExperienceFormContentField = ({
   }, []);
 
   return (
-    <FormItem>
-      <div className="flex items-center justify-between">
-        <FormLabel>{t("form.content.label")}</FormLabel>
-        <Button
-          variant="outline"
-          size="sm"
-          type="button"
-          onClick={handleTogglePreview}
-        >
-          {t("form.content.preview")}
-        </Button>
-      </div>
+    <FormField
+      control={control}
+      name={name}
+      render={() => {
+        return (
+          <FormItem>
+            <div className="flex items-center justify-between">
+              <FormLabel>{t("form.content.label")}</FormLabel>
+              <Button
+                variant="ghost"
+                size="sm"
+                type="button"
+                onClick={handleTogglePreview}
+              >
+                {t("form.content.preview")}
+              </Button>
+            </div>
 
-      <FormControl>
-        {isDisplayingPreview ? (
-          <ExperienceFormContentPreview />
-        ) : (
-          <Editor
-            content={content}
-            immediatelyRender={false}
-            onUpdate={handleEditorChange}
-          />
-        )}
-      </FormControl>
+            <FormControl>
+              {isDisplayingPreview ? (
+                <ExperienceFormContentPreview />
+              ) : (
+                <Editor
+                  content={content}
+                  immediatelyRender={false}
+                  onUpdate={handleEditorChange}
+                />
+              )}
+            </FormControl>
 
-      <FormMessage />
-    </FormItem>
+            <FormMessage />
+          </FormItem>
+        );
+      }}
+    />
   );
 };

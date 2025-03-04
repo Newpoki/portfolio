@@ -47,7 +47,8 @@ export const ExperienceForm = () => {
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           <ExperienceFormNameField />
-          <section className="grid grid-cols-1 gap-x-4 sm:grid-cols-2">
+
+          <section className="grid grid-cols-1 items-baseline gap-8 sm:grid-cols-2">
             <ExperienceFormCityField />
 
             <ExperienceFormCountryField />
