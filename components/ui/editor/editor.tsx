@@ -45,7 +45,7 @@ export const Editor = (props: EditorProps) => {
       editorProps={{
         attributes: {
           class: cn(
-            "border px-3 py-2 rounded-md border-input editor shadow-xs transition-[color,box-shadow] outline-none min-h-30",
+            "border px-3 py-2 rounded-md border-input editor shadow-xs transition-[color,box-shadow] outline-none min-h-30 max-h-80 overflow-y-auto",
             "focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]",
             "aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
           ),
