@@ -116,30 +116,45 @@
     },
     "experiencies": {
       "create": {
-        "title": "New experience"
+        "title": "New experience",
+        "notification": {
+          "success": "Experience has been created",
+          "error": "An error occured while adding experience"
+        }
+      },
+      "edit": {
+        "title": "Edit experience",
+        "notification": {
+          "success": "Experience has been edited",
+          "error": "An error occured while editing experience"
+        }
       },
       "form": {
         "title": {
           "label": "Company name",
           "placeholder": "Enter company name",
-          "description": "The company name I've been working for"
+          "description": "The company name I've been working for",
+          "required": "Required"
         },
         "place": {
           "city": {
             "label": "City",
             "placeholder": "Enter city location",
-            "description": "Where is located the company ?"
+            "description": "Where is located the company ?",
+            "required": "Required"
           },
           "country": {
             "label": "Country",
             "placeholder": "Enter country abbreviation location (FR)",
-            "description": "In which country company has been created ?"
+            "description": "In which country company has been created ?",
+            "required": "Required"
           }
         },
         "startedAt": {
           "label": "Start Date",
           "placeholder": "Pick a date",
-          "description": "When did the contract start ?"
+          "description": "When did the contract start ?",
+          "required": "Required"
         },
         "endedAt": {
           "label": "End Date",
@@ -149,7 +164,8 @@
         "content": {
           "label": "Content",
           "placeholder": "Describe experience context, tasks, used libs, etc",
-          "preview": "Preview"
+          "preview": "Preview",
+          "required": "Required"
         },
         "submit": {
           "label": "Create new experience"

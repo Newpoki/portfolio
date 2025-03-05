@@ -3,8 +3,11 @@
 import { useCallback, useMemo } from "react";
 import { ExperienceFormValues } from "./experience-form-schemas";
 import { toast } from "sonner";
+import { useTranslations } from "next-intl";
 
 export const useSubmitExperienceForm = () => {
+  const t = useTranslations("ADMIN");
+
   const handleCreateExperience = useCallback(
     async (
       formValues: ExperienceFormValues,
@@ -21,16 +24,16 @@ export const useSubmitExperienceForm = () => {
           throw new Error();
         }
 
-        toast("Experience has been created.");
+        toast(t("experiencies.create.notification.success"));
 
         resolve();
       } catch {
-        toast.error("An error occured while creating experience.");
+        toast.error(t("experiencies.create.notification.error"));
 
         reject();
       }
     },
-    [],
+    [t],
   );
 
   const handleEditExperience = useCallback(
@@ -49,16 +52,16 @@ export const useSubmitExperienceForm = () => {
           throw new Error();
         }
 
-        toast("Experience has been edited.");
+        toast(t("experiencies.edit.notification.success"));
 
         resolve();
       } catch {
-        toast("An error occured while editing experience");
+        toast.error(t("experiencies.edit.notification.error"));
 
         reject();
       }
     },
-    [],
+    [t],
   );
 
   const handleSubmit = useCallback(
