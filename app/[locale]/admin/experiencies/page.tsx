@@ -9,6 +9,8 @@ import { getTranslations } from "next-intl/server";
 import { Locale } from "../../i18n/routing";
 import { fetchExperiencies } from "../../experiencies/experiencies-actions";
 import { AdminExperienciesTableRow } from "./admin-experiencies-table-row";
+import { Button } from "@/components/ui/button";
+import { Link } from "../../i18n/navigation";
 
 type AdminExperiencePageProps = {
   params: Promise<{ locale: Locale }>;
@@ -24,7 +26,15 @@ export default async function AdminExperienciesPage({
 
   return (
     <div className="flex flex-col gap-8">
-      <h1>{t("title")}</h1>
+      <h1 className="flex flex-col justify-between gap-4 md:flex-row md:items-center">
+        {t("title")}
+
+        <Button type="button">
+          <Link href={{ pathname: "/admin/experiencies/new" }}>
+            {t("add-experience")}
+          </Link>
+        </Button>
+      </h1>
 
       <Table className="w-full table-fixed">
         <TableHeader>

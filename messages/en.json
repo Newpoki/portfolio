@@ -116,6 +116,7 @@
     },
     "experiencies": {
       "title": "Experiencies",
+      "add-experience": "Add new experience",
       "table": {
         "title": "Title",
         "content": "Content"
@@ -132,6 +133,12 @@
         "notification": {
           "success": "Experience has been edited",
           "error": "An error occured while editing experience"
+        }
+      },
+      "delete": {
+        "notification": {
+          "success": "Experience has been deleted",
+          "error": "An error happened when deleting experience"
         }
       },
       "form": {
@@ -173,7 +180,11 @@
           "required": "Required"
         },
         "submit": {
-          "label": "Create new experience"
+          "create": "Create new experience",
+          "edit": "Edit experience"
+        },
+        "delete": {
+          "label": "Delete experience"
         }
       }
     }

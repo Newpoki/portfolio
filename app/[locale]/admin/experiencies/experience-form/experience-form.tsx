@@ -11,37 +11,59 @@ import { Loader2Icon } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { VALID_EMPTY_EDITOR_JSON } from "@/components/ui/editor/editor";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useSubmitExperienceForm } from "./use-submit-experience-form";
 import { ExperienceFormNameField } from "./experience-form-name-field";
 import { ExperienceFormCountryField } from "./experience-form-country-field";
 import { ExperienceFormCityField } from "./experience-form-city-field";
 import { ExperienceFormStartedAtField } from "./experience-form-started-at-field";
 import { ExperienceFormEndedAtField } from "./experience-form-ended-at-field";
 import { ExperienceFormContentField } from "./experience-form-content-field";
+import { Experience } from "@prisma/client";
+import { useCallback } from "react";
+import { useExperienceForm } from "./use-experience-form";
 
-export const ExperienceForm = () => {
+type ExperienceFormProps = {
+  experience?: Experience;
+};
+
+export const ExperienceForm = ({ experience }: ExperienceFormProps) => {
   const t = useTranslations("ADMIN.experiencies");
 
-  const { onSubmit } = useSubmitExperienceForm();
+  const { onSubmit, onDelete, isDeleting } = useExperienceForm();
 
   const form = useForm<ExperienceFormValues>({
     resolver: zodResolver(experienceFormValuesSchemas),
     defaultValues: {
-      id: null,
-      startedAt: "",
-      endedAt: null,
-      title: "",
+      id: experience?.id ?? null,
+      startedAt: experience?.startedAt.toISOString() ?? "",
+      endedAt: experience?.endedAt?.toISOString() ?? null,
+      title: experience?.title ?? "",
       content_en: JSON.stringify(VALID_EMPTY_EDITOR_JSON),
       content_fr: JSON.stringify(VALID_EMPTY_EDITOR_JSON),
+      //       content_en: experience?.content_en
+      //     ? JSON.parse(experience?.content_en)
+      //     : JSON.stringify(VALID_EMPTY_EDITOR_JSON),
+      //   content_fr: experience?.content_fr
+      //     ? JSON.parse(experience?.content_fr)
+      //     : JSON.stringify(VALID_EMPTY_EDITOR_JSON),
       place: {
-        city: "",
+        // @ts-expect-error Bad type
+        city: experience?.place?.city ?? "",
         // I've only worked in France for now, this field a bit useless but who knows
-        country: "FR",
+        // @ts-expect-error Bad type
+        country: experience?.place?.country ?? "FR",
       },
     },
   });
 
   const { isSubmitting } = form.formState;
+
+  const handleDelete = useCallback(() => {
+    if (experience == null) {
+      throw new Error("No experience have been found when trying to delete");
+    }
+
+    onDelete(experience.id);
+  }, [experience, onDelete]);
 
   return (
     <div className="max-w-2xl">
@@ -59,12 +81,32 @@ export const ExperienceForm = () => {
 
           <ExperienceFormEndedAtField />
 
-          <ExperienceFormContentField name="content_fr" />
+          <ExperienceFormContentField name="content_fr" locale="fr" />
 
-          <Button disabled={isSubmitting}>
-            {isSubmitting && <Loader2Icon className="animate-spin" />}
-            {t("form.submit.label")}
-          </Button>
+          <ExperienceFormContentField name="content_en" locale="en" />
+
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-end">
+            <Button disabled={isSubmitting || isDeleting}>
+              {isSubmitting && <Loader2Icon className="animate-spin" />}
+
+              {experience != null
+                ? t("form.submit.edit")
+                : t("form.submit.create")}
+            </Button>
+
+            {experience != null && (
+              <Button
+                disabled={isSubmitting || isDeleting}
+                variant="destructive"
+                type="button"
+                onClick={handleDelete}
+              >
+                {isDeleting && <Loader2Icon className="animate-spin" />}
+
+                {t("form.delete.label")}
+              </Button>
+            )}
+          </div>
         </form>
       </Form>
     </div>

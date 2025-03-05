@@ -29,14 +29,12 @@ export async function POST(request: NextRequest) {
     });
   }
 
-  const createdExperience = await prisma.experience.create({
+  await prisma.experience.create({
     data: {
       ...parsedResult.data,
       id: undefined,
     },
   });
-
-  console.log({ createdExperience });
 
   return new Response(JSON.stringify({}), {
     status: 200,

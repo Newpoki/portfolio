@@ -19,13 +19,16 @@ import { Editor as EditorInstance, generateHTML } from "@tiptap/react";
 import { useCallback, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ExperienceFormContentPreview } from "./experience-form-content-preview";
+import { I18NFlag } from "@/app/[locale]/i18n/i18n-flag";
 
 type ExperienceFormContentFieldProps = {
   name: `content_${Locale}`;
+  locale: Locale;
 };
 
 export const ExperienceFormContentField = ({
   name,
+  locale,
 }: ExperienceFormContentFieldProps) => {
   const t = useTranslations("ADMIN.experiencies");
 
@@ -59,8 +62,12 @@ export const ExperienceFormContentField = ({
       render={() => {
         return (
           <FormItem>
-            <div className="flex items-center justify-between">
-              <FormLabel>{t("form.content.label")}</FormLabel>
+            <div className="flex items-center justify-between gap-2">
+              <FormLabel>
+                {t("form.content.label")}
+
+                <I18NFlag locale={locale} />
+              </FormLabel>
               <Button
                 variant="ghost"
                 size="sm"

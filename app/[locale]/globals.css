@@ -186,5 +186,10 @@
     li > p {
       @apply inline;
     }
+
+    p {
+      /** Adding empty new line have 0 height otherwise  */
+      min-height: 1lh;
+    }
   }
 }
