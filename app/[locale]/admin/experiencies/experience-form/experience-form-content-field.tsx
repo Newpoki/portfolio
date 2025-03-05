@@ -73,7 +73,7 @@ export const ExperienceFormContentField = ({
 
             <FormControl>
               {isDisplayingPreview ? (
-                <ExperienceFormContentPreview />
+                <ExperienceFormContentPreview content={content} />
               ) : (
                 <Editor
                   content={content}

@@ -1,20 +1,13 @@
-"use client";
-
-import { DEFAULT_EDITOR_EXTENSIONS } from "@/components/ui/editor/editor";
-import { generateHTML, useCurrentEditor } from "@tiptap/react";
-
-export const ExperienceFormContentPreview = () => {
-  const { editor } = useCurrentEditor();
-
-  if (editor == null) {
-    return null;
-  }
-
+type ExperienceFormContentPreviewProps = {
+  content: string;
+};
+export const ExperienceFormContentPreview = ({
+  content,
+}: ExperienceFormContentPreviewProps) => {
   return (
     <div
-      dangerouslySetInnerHTML={{
-        __html: generateHTML(editor.getJSON(), DEFAULT_EDITOR_EXTENSIONS),
-      }}
+      className="editor-preview border-input bg-input rounded-md border px-3 py-2"
+      dangerouslySetInnerHTML={{ __html: content }}
     />
   );
 };
