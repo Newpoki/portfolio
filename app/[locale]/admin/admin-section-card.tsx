@@ -10,17 +10,17 @@ import {
 } from "@/components/ui/card";
 import { Link, LinkProps } from "../i18n/navigation";
 
-type AdminCreationCardProps = {
+type AdminSectionCardProps = {
   title: string;
   content: string;
   linkProps: LinkProps;
 };
 
-export const AdminCreationCard = ({
+export const AdminSectionCard = ({
   title,
   content,
   linkProps,
-}: AdminCreationCardProps) => {
+}: AdminSectionCardProps) => {
   return (
     <Card>
       <CardHeader>

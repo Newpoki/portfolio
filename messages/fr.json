@@ -113,10 +113,15 @@
       "experiencies": {
         "title": "Expériences",
         "content": "Créer, modifier ou supprimer une expérience",
-        "link": "Créer une expérience"
+        "link": "Aller vers les expériences"
       }
     },
     "experiencies": {
+      "title": "Expériences",
+      "table": {
+        "title": "Titre",
+        "content": "Contenu"
+      },
       "create": {
         "title": "Nouvelle experience",
         "notification": {

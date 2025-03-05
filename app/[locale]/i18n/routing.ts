@@ -46,6 +46,10 @@ export const routing = defineRouting({
       en: "/admin/experiencies/new",
       fr: "/admin/experiences/new",
     },
+    "/admin/experiencies/[id]": {
+      en: "/admin/experiencies/[id]",
+      fr: "/admin/experiences/[id]",
+    },
   },
 });
 

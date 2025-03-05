@@ -111,10 +111,15 @@
       "experiencies": {
         "title": "Experiencies",
         "content": "Create, edit or delete an experience",
-        "link": "Create an experience"
+        "link": "Go to experiencies dashboard"
       }
     },
     "experiencies": {
+      "title": "Experiencies",
+      "table": {
+        "title": "Title",
+        "content": "Content"
+      },
       "create": {
         "title": "New experience",
         "notification": {
