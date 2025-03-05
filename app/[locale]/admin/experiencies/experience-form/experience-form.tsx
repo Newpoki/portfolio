@@ -28,6 +28,7 @@ export const ExperienceForm = () => {
     resolver: zodResolver(experienceFormValuesSchemas),
     defaultValues: {
       id: null,
+      startedAt: "",
       endedAt: null,
       title: "",
       content_en: JSON.stringify(VALID_EMPTY_EDITOR_JSON),

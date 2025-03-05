@@ -6,7 +6,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { useTranslations } from "next-intl";
+import { useFormatter, useTranslations } from "next-intl";
 import { useFormContext } from "react-hook-form";
 import { ExperienceFormValues } from "./experience-form-schemas";
 import {
@@ -21,6 +21,8 @@ import { Calendar } from "@/components/ui/calendar";
 
 export const ExperienceFormEndedAtField = () => {
   const t = useTranslations("ADMIN.experiencies");
+  const format = useFormatter();
+
   const { control } = useFormContext<ExperienceFormValues>();
 
   return (
@@ -29,7 +31,9 @@ export const ExperienceFormEndedAtField = () => {
       name="endedAt"
       render={({ field }) => {
         const displayedDate =
-          field.value?.toString() ?? t("form.endedAt.placeholder");
+          field.value != null && !isNaN(new Date(field.value).getTime())
+            ? format.dateTime(new Date(field.value))
+            : t("form.endedAt.placeholder");
 
         return (
           <FormItem className="flex flex-col">
