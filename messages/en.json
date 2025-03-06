@@ -135,7 +135,14 @@
           "error": "An error occured while editing experience"
         }
       },
-      "delete": {
+      "delete-dialog": {
+        "trigger": "Delete experience",
+        "title": "Are you sure ?",
+        "description": "This action cannot be undone. This will permanently delete the experience from our servers.",
+        "actions": {
+          "delete": "Delete",
+          "cancel": "Cancel"
+        },
         "notification": {
           "success": "Experience has been deleted",
           "error": "An error happened when deleting experience"
@@ -182,9 +189,6 @@
         "submit": {
           "create": "Create new experience",
           "edit": "Edit experience"
-        },
-        "delete": {
-          "label": "Delete experience"
         }
       }
     }

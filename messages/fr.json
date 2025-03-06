@@ -137,7 +137,14 @@
           "error": "Une erreur est survenue lors de l'édition"
         }
       },
-      "delete": {
+      "delete-dialog": {
+        "trigger": "Supprimer l'expérience",
+        "title": "Etes-vous sûr ?",
+        "description": "Cette action ne peut pas être annuler. Cela va supprimer définitivement l'expérience de nos serveurs.",
+        "actions": {
+          "delete": "Supprimer",
+          "cancel": "Annuler"
+        },
         "notification": {
           "success": "L'expérience a été supprimée",
           "error": "Une erreur est survenue lors de la suppréssion"
@@ -184,9 +191,6 @@
         "submit": {
           "create": "Créer nouvelle expérience",
           "edit": "Editer expérience"
-        },
-        "delete": {
-          "label": "Supprimer l'expérience"
         }
       }
     }

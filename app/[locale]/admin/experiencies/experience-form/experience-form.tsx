@@ -18,8 +18,8 @@ import { ExperienceFormStartedAtField } from "./experience-form-started-at-field
 import { ExperienceFormEndedAtField } from "./experience-form-ended-at-field";
 import { ExperienceFormContentField } from "./experience-form-content-field";
 import { Experience } from "@prisma/client";
-import { useCallback } from "react";
 import { useExperienceForm } from "./use-experience-form";
+import { ExperienceFormDeleteDialog } from "./experience-form-delete-dialog";
 
 type ExperienceFormProps = {
   experience?: Experience;
@@ -28,7 +28,7 @@ type ExperienceFormProps = {
 export const ExperienceForm = ({ experience }: ExperienceFormProps) => {
   const t = useTranslations("ADMIN.experiencies");
 
-  const { onSubmit, onDelete, isDeleting } = useExperienceForm();
+  const { onSubmit } = useExperienceForm();
 
   const form = useForm<ExperienceFormValues>({
     resolver: zodResolver(experienceFormValuesSchemas),
@@ -57,14 +57,6 @@ export const ExperienceForm = ({ experience }: ExperienceFormProps) => {
 
   const { isSubmitting } = form.formState;
 
-  const handleDelete = useCallback(() => {
-    if (experience == null) {
-      throw new Error("No experience have been found when trying to delete");
-    }
-
-    onDelete(experience.id);
-  }, [experience, onDelete]);
-
   return (
     <div className="max-w-2xl">
       <Form {...form}>
@@ -86,7 +78,7 @@ export const ExperienceForm = ({ experience }: ExperienceFormProps) => {
           <ExperienceFormContentField name="content_en" locale="en" />
 
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-end">
-            <Button disabled={isSubmitting || isDeleting}>
+            <Button disabled={isSubmitting}>
               {isSubmitting && <Loader2Icon className="animate-spin" />}
 
               {experience != null
@@ -95,16 +87,7 @@ export const ExperienceForm = ({ experience }: ExperienceFormProps) => {
             </Button>
 
             {experience != null && (
-              <Button
-                disabled={isSubmitting || isDeleting}
-                variant="destructive"
-                type="button"
-                onClick={handleDelete}
-              >
-                {isDeleting && <Loader2Icon className="animate-spin" />}
-
-                {t("form.delete.label")}
-              </Button>
+              <ExperienceFormDeleteDialog experience={experience} />
             )}
           </div>
         </form>
