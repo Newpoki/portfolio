@@ -160,9 +160,9 @@
     @apply text-xl;
   }
 
-  .experience {
+  /* .experience {
     @apply flex flex-col gap-4;
-  }
+  } */
 
   .editor {
     a {

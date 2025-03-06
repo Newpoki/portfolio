@@ -53,6 +53,12 @@ export const useDeleteExperience = () => {
       openDialog: handleOpenDialog,
       closeDialog: handleCloseDialog,
     }),
-    [handleDelete, handleOpenDialog, isDeleting, isDialogOpen],
+    [
+      handleCloseDialog,
+      handleDelete,
+      handleOpenDialog,
+      isDeleting,
+      isDialogOpen,
+    ],
   );
 };

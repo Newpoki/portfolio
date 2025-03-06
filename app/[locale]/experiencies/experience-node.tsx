@@ -1,18 +1,18 @@
 "use client";
 
 import { Handle, Node, NodeProps, Position } from "@xyflow/react";
-import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import { Experiencies } from "./experiencies-actions";
 import { useFormatter, useTranslations } from "next-intl";
+import { generateHTML } from "@tiptap/react";
+import { DEFAULT_EDITOR_EXTENSIONS } from "@/components/ui/editor/editor";
+import { useMemo } from "react";
+import { Locale } from "../i18n/routing";
 
 export type ExperienceNodeData = Node<{
   hasLeftHandle: boolean;
   hasRightHandle: boolean;
   experience: Experiencies[number];
-  content: MDXRemoteSerializeResult<
-    Record<string, unknown>,
-    Record<string, unknown>
-  >;
+  locale: Locale;
 }>;
 
 export type ExperienceNodeProps = NodeProps<ExperienceNodeData>;
@@ -20,6 +20,13 @@ export type ExperienceNodeProps = NodeProps<ExperienceNodeData>;
 export const ExperienceNode = ({ data }: ExperienceNodeProps) => {
   const t = useTranslations("EXPERIENCIES");
   const format = useFormatter();
+
+  const experienceContentHTML = useMemo(() => {
+    return generateHTML(
+      JSON.parse(data.experience[`content_${data.locale}`]),
+      DEFAULT_EDITOR_EXTENSIONS,
+    );
+  }, [data]);
 
   return (
     <>
@@ -38,9 +45,10 @@ export const ExperienceNode = ({ data }: ExperienceNodeProps) => {
           })}
         </p>
 
-        <div className="experience">
-          <MDXRemote {...data.content} />
-        </div>
+        <div
+          className="editor-preview"
+          dangerouslySetInnerHTML={{ __html: experienceContentHTML }}
+        />
       </section>
 
       {data.hasRightHandle && (

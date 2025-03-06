@@ -16,6 +16,7 @@ import "@xyflow/react/dist/style.css";
 import { ExperienceNode, type ExperienceNodeData } from "./experience-node";
 import { Experiencies } from "./experiencies-actions";
 import { useCallback, useEffect, useRef } from "react";
+import { Locale } from "../i18n/routing";
 
 const nodeTypes = {
   experienceNode: ExperienceNode,
@@ -23,6 +24,7 @@ const nodeTypes = {
 
 type ExperienciesFlowProps = {
   experiencies: Experiencies;
+  locale: Locale;
 };
 
 const shouldBeConsideredAsMobile = () => window.innerWidth < 968;
@@ -47,7 +49,7 @@ const centerOnFirstElement: OnInit<Node, Edge> = ({ getNodes, fitView }) => {
   });
 };
 
-const generateNodes = (experiencies: Experiencies): Node[] => {
+const generateNodes = (experiencies: Experiencies, locale: Locale): Node[] => {
   const nodes = experiencies.map((experience, index) => {
     const isMobile = shouldBeConsideredAsMobile();
 
@@ -59,8 +61,8 @@ const generateNodes = (experiencies: Experiencies): Node[] => {
     return {
       id: experience.id,
       data: {
-        content: experience.content,
         experience,
+        locale,
         hasLeftHandle: index !== 0,
         hasRightHandle: index !== experiencies.length - 1,
       },
@@ -88,8 +90,11 @@ const generateEdges = (nodes: Node[]): Edge[] => {
 
 export default function ExperienciesFlow({
   experiencies,
+  locale,
 }: ExperienciesFlowProps) {
-  const [nodes, , onNodesChange] = useNodesState(generateNodes(experiencies));
+  const [nodes, , onNodesChange] = useNodesState(
+    generateNodes(experiencies, locale),
+  );
   const [edges, , onEdgesChange] = useEdgesState(generateEdges(nodes));
   const instance = useReactFlow();
 
