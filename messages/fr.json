@@ -195,7 +195,7 @@
       }
     }
   },
-  "LOGIN": {
+  "SIGNIN": {
     "title": "Connexion",
     "alert": {
       "title": "Accès page administrateur",
