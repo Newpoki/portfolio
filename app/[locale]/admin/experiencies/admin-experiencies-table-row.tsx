@@ -3,8 +3,10 @@
 import { TableCell, TableRow } from "@/components/ui/table";
 import { Experience } from "@prisma/client";
 import { Locale } from "../../i18n/routing";
-import { useCallback } from "react";
+import { useCallback, useMemo } from "react";
 import { useRouter } from "../../i18n/navigation";
+import { generateText } from "@tiptap/react";
+import { DEFAULT_EDITOR_EXTENSIONS } from "@/components/ui/editor/editor";
 
 type AdminExperienciesTableRowProps = {
   experience: Experience;
@@ -16,6 +18,13 @@ export const AdminExperienciesTableRow = ({
   locale,
 }: AdminExperienciesTableRowProps) => {
   const { push } = useRouter();
+
+  const content = useMemo(() => {
+    return generateText(
+      JSON.parse(experience[`content_${locale}`]),
+      DEFAULT_EDITOR_EXTENSIONS,
+    );
+  }, [experience, locale]);
 
   const handleClick = useCallback(() => {
     push({
@@ -32,9 +41,7 @@ export const AdminExperienciesTableRow = ({
         {experience.title}
       </TableCell>
 
-      <TableCell className="w-full truncate">
-        {experience[`content_${locale}`]}
-      </TableCell>
+      <TableCell className="w-full truncate">{content}</TableCell>
     </TableRow>
   );
 };
