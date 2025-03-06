@@ -165,6 +165,10 @@
   }
 
   .editor {
+    a {
+      @apply underline underline-offset-2;
+    }
+
     ul {
       @apply list-inside list-disc;
     }
@@ -172,11 +176,15 @@
     li > p {
       @apply inline;
     }
+
+    a {
+      @apply underline;
+    }
   }
 
   .editor-preview {
     a {
-      @apply underline underline-offset-4;
+      @apply underline underline-offset-2;
     }
 
     ul {

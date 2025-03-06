@@ -22,6 +22,25 @@ export const EditorQuickStyle = () => {
     editor.chain().focus().toggleStrike().run();
   };
 
+  const handleSetLink = () => {
+    const previousUrl = editor.getAttributes("link").href;
+    const url = window.prompt("URL", previousUrl);
+
+    // cancelled
+    if (url === null) {
+      return;
+    }
+
+    // empty
+    if (url === "") {
+      editor.chain().focus().extendMarkRange("link").unsetLink().run();
+
+      return;
+    }
+
+    editor.chain().focus().extendMarkRange("link").setLink({ href: url }).run();
+  };
+
   return (
     // This div here is really important, otherwise if component is unmount
     // The whole app crash, cf https://github.com/ueberdosis/tiptap/issues/2658#issuecomment-1513826220
@@ -54,6 +73,15 @@ export const EditorQuickStyle = () => {
             size="sm"
           >
             {"Strike"}
+          </Button>
+
+          <Button
+            onClick={handleSetLink}
+            variant={editor.isActive("link") ? "default" : "ghost"}
+            type="button"
+            size="sm"
+          >
+            {"Set link"}
           </Button>
         </div>
       </BubbleMenu>

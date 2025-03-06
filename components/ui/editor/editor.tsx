@@ -5,6 +5,7 @@ import StarterKit from "@tiptap/starter-kit";
 import { EditorQuickStyle } from "./editor-quick-style";
 import { cn } from "@/lib/utils";
 import { z } from "zod";
+import Link from "@tiptap/extension-link";
 
 export const DEFAULT_EDITOR_EXTENSIONS: Extensions = [
   StarterKit.configure({
@@ -16,6 +17,12 @@ export const DEFAULT_EDITOR_EXTENSIONS: Extensions = [
       keepMarks: true,
       keepAttributes: false, // Making this as `false` becase marks are not preserved when I try to preserve attrs, awaiting a bit of help
     },
+  }),
+  Link.configure({
+    autolink: true,
+    defaultProtocol: "https",
+    linkOnPaste: true,
+    protocols: ["https"],
   }),
 ];
 

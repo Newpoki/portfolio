@@ -27,7 +27,7 @@ export const ExperienceFormDeleteDialog = ({
 }: ExperienceFormDeleteDialogProps) => {
   const t = useTranslations("ADMIN.experiencies");
 
-  const { isDeleting, onDelete, isDialogOpen, openDialog } =
+  const { isDeleting, onDelete, isDialogOpen, openDialog, closeDialog } =
     useDeleteExperience();
 
   const handleDelete = useCallback(() => {
@@ -50,7 +50,7 @@ export const ExperienceFormDeleteDialog = ({
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <AlertDialogCancel disabled={isDeleting}>
+          <AlertDialogCancel disabled={isDeleting} onClick={closeDialog}>
             {t("delete-dialog.actions.cancel")}
           </AlertDialogCancel>
 

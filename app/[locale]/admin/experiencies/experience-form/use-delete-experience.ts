@@ -17,6 +17,10 @@ export const useDeleteExperience = () => {
     setIsDialogOpen(true);
   }, []);
 
+  const handleCloseDialog = useCallback(() => {
+    setIsDialogOpen(false);
+  }, []);
+
   const handleDelete = useCallback(
     async (id: string) => {
       try {
@@ -47,6 +51,7 @@ export const useDeleteExperience = () => {
       isDeleting,
       onDelete: handleDelete,
       openDialog: handleOpenDialog,
+      closeDialog: handleCloseDialog,
     }),
     [handleDelete, handleOpenDialog, isDeleting, isDialogOpen],
   );
