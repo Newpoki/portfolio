@@ -15,8 +15,10 @@ import { LocaleDropdown } from "../i18n/locale-dropdown";
 
 type HeaderDrawerProps = {
   className: string;
+  profile: React.ReactNode;
 };
-export const HeaderDrawer = ({ className }: HeaderDrawerProps) => {
+
+export const HeaderDrawer = ({ className, profile }: HeaderDrawerProps) => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   const t = useTranslations("HEADER");
@@ -67,8 +69,17 @@ export const HeaderDrawer = ({ className }: HeaderDrawerProps) => {
             </div>
           </section>
 
-          <div className="flex flex-col items-start gap-6">
-            <h2>{t("drawer.settings")}</h2>
+          <div className="flex w-full flex-col items-start gap-6">
+            <h2 className="flex w-full items-center justify-between">
+              {t("drawer.settings")}
+
+              <div
+                className="flex items-center gap-4"
+                onClick={handleCloseDrawer}
+              >
+                {profile}
+              </div>
+            </h2>
 
             <div>
               <ThemeButtonGroup />

@@ -1,8 +1,27 @@
+import { auth } from "@/auth";
 import { AdminSectionCard } from "./admin-section-card";
 import { getTranslations } from "next-intl/server";
+import { redirect } from "../i18n/navigation";
+import { Locale } from "../i18n/routing";
 
-export default async function AdminPage() {
+type AdminPageProps = {
+  params: Promise<{ locale: Locale }>;
+};
+
+export default async function AdminPage({ params }: AdminPageProps) {
+  const { locale } = await params;
+
   const t = await getTranslations("ADMIN");
+
+  const session = await auth();
+
+  // Only logged user (me) can access to admin dashboard
+  if (session == null) {
+    redirect({
+      href: { pathname: "/login" },
+      locale,
+    });
+  }
 
   return (
     <div className="flex flex-col gap-10">

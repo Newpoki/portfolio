@@ -194,5 +194,13 @@
         }
       }
     }
+  },
+  "LOGIN": {
+    "title": "Connexion",
+    "alert": {
+      "title": "Accès page administrateur",
+      "description": "Permet d'acceder au panneau administrateur. En tant qu'utilisateur, vous n'y avez pas accès."
+    },
+    "github-signin": "Se connecter via GitHub"
   }
 }

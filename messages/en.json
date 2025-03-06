@@ -192,5 +192,13 @@
         }
       }
     }
+  },
+  "SIGNIN": {
+    "title": "Sign in",
+    "alert": {
+      "title": "Admin page access",
+      "description": "This grant access to the admin panel. As a user, you don't have any access."
+    },
+    "github-signin": "Sign in with GitHub"
   }
 }
