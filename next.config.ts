@@ -32,6 +32,11 @@ const config: NextConfig = {
         port: "",
         pathname: "/w20/**.webp",
       },
+      {
+        protocol: "https",
+        hostname: "avatars.githubusercontent.com",
+        port: "",
+      },
     ],
   },
 };

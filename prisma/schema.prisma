@@ -31,19 +31,13 @@ model Project {
     isFavorite      Boolean?
 }
 
-enum ExperienceType {
-    WORK
-    DIPLOMA
-    BIRTH
-}
-
 model Experience {
-    id         String         @id @default(auto()) @map("_id") @db.ObjectId
-    type       ExperienceType
+    id         String    @id @default(auto()) @map("_id") @db.ObjectId
     place      Json
     startedAt  DateTime
     title      String
     content_en String
     content_fr String
     endedAt    DateTime?
+    hidden     Boolean?
 }

@@ -106,5 +106,101 @@
     "title": "Le portfolio de Jason Savelli",
     "description": "Mon portfolio où je partage tout.",
     "open-graph-image-alt": "Une photo en noir et blanc de Jason Savelli portant des lunettes de soleil et un costume"
+  },
+  "ADMIN": {
+    "title": "Tableau de bord admin",
+    "cards": {
+      "experiencies": {
+        "title": "Expériences",
+        "content": "Créer, modifier ou supprimer une expérience",
+        "link": "Aller vers les expériences"
+      }
+    },
+    "experiencies": {
+      "title": "Expériences",
+      "add-experience": "Ajouter nouvelle expérience",
+      "table": {
+        "title": "Titre",
+        "content": "Contenu"
+      },
+      "create": {
+        "title": "Nouvelle experience",
+        "notification": {
+          "success": "L'expérience a été créée",
+          "error": "Une erreur est survenue lors de la création"
+        }
+      },
+      "edit": {
+        "title": "Editer l'expérience",
+        "notification": {
+          "success": "L'expérience a été modifiée",
+          "error": "Une erreur est survenue lors de l'édition"
+        }
+      },
+      "delete-dialog": {
+        "trigger": "Supprimer l'expérience",
+        "title": "Etes-vous sûr ?",
+        "description": "Cette action ne peut pas être annuler. Cela va supprimer définitivement l'expérience de nos serveurs.",
+        "actions": {
+          "delete": "Supprimer",
+          "cancel": "Annuler"
+        },
+        "notification": {
+          "success": "L'expérience a été supprimée",
+          "error": "Une erreur est survenue lors de la suppréssion"
+        }
+      },
+      "form": {
+        "title": {
+          "label": "Nom de l'entreprise",
+          "placeholder": "Saisir le nom de l'entreprise",
+          "description": "Le nom de l'entreprise pour laquelle j'ai travaillé",
+          "required": "Requis"
+        },
+        "place": {
+          "city": {
+            "label": "Ville",
+            "placeholder": "Saisir le nom de la ville",
+            "description": "Dans quelle ville est l'entreprise ?",
+            "required": "Requis"
+          },
+          "country": {
+            "label": "Pays",
+            "placeholder": "Saisir l'abbréviation du nom du pays (FR)",
+            "description": "Dans quel pays l'entreprise a-t-elle était créée ?",
+            "required": "Requis"
+          }
+        },
+        "startedAt": {
+          "label": "Date de début",
+          "placeholder": "Choisir une date",
+          "description": "Quand est-ce que le contrat a commencé ?",
+          "required": "Requis"
+        },
+        "endedAt": {
+          "label": "Date de fin",
+          "placeholder": "Choisir une date",
+          "description": "Quand est-ce que le contrat a pris fin ?"
+        },
+        "content": {
+          "label": "Contenu",
+          "placeholder": "Décrire le contexte, les tâches, les outils utilisés, etc",
+          "preview": "Prévisualisation",
+          "required": "Requis"
+        },
+        "submit": {
+          "create": "Créer nouvelle expérience",
+          "edit": "Editer expérience"
+        }
+      }
+    }
+  },
+  "LOGIN": {
+    "title": "Connexion",
+    "alert": {
+      "title": "Accès page administrateur",
+      "description": "Permet d'acceder au panneau administrateur. En tant qu'utilisateur, vous n'y avez pas accès."
+    },
+    "github-signin": "Se connecter via GitHub"
   }
 }

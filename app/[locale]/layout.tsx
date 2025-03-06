@@ -7,6 +7,8 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { Locale, routing } from "./i18n/routing";
+import { Toaster } from "@/components/ui/sonner";
+import { SessionProvider } from "next-auth/react";
 
 const sfProDisplay = localFont({
   src: [
@@ -80,25 +82,29 @@ export default async function Layout({ children, params }: LayoutProps) {
   }
 
   return (
-    <html lang={locale} suppressHydrationWarning>
-      <body className={sfProDisplay.variable}>
-        <NextIntlClientProvider messages={messages}>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <main className="flex min-h-[100dvh] flex-col">
-              <Header />
+    <SessionProvider>
+      <html lang={locale} suppressHydrationWarning>
+        <body className={sfProDisplay.variable}>
+          <NextIntlClientProvider messages={messages}>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem
+              disableTransitionOnChange
+            >
+              <main className="flex min-h-[100dvh] flex-col">
+                <Header />
 
-              <div className="main-layout-px mx-auto flex w-full max-w-[var(--app-max-w)] flex-1 flex-col">
-                {children}
-              </div>
-            </main>
-          </ThemeProvider>
-        </NextIntlClientProvider>
-      </body>
-    </html>
+                <div className="main-layout-px mx-auto flex w-full max-w-[var(--app-max-w)] flex-1 flex-col">
+                  {children}
+                </div>
+              </main>
+
+              <Toaster />
+            </ThemeProvider>
+          </NextIntlClientProvider>
+        </body>
+      </html>
+    </SessionProvider>
   );
 }

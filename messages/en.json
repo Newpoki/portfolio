@@ -104,5 +104,101 @@
     "title": "Jason Savelli's portfolio",
     "description": "My portfolio where I share everything.",
     "open-graph-image-alt": "A black and white picture of Jason Savelli wearing sunglasses and a costume."
+  },
+  "ADMIN": {
+    "title": "Admin dashboard",
+    "cards": {
+      "experiencies": {
+        "title": "Experiencies",
+        "content": "Create, edit or delete an experience",
+        "link": "Go to experiencies dashboard"
+      }
+    },
+    "experiencies": {
+      "title": "Experiencies",
+      "add-experience": "Add new experience",
+      "table": {
+        "title": "Title",
+        "content": "Content"
+      },
+      "create": {
+        "title": "New experience",
+        "notification": {
+          "success": "Experience has been created",
+          "error": "An error occured while adding experience"
+        }
+      },
+      "edit": {
+        "title": "Edit experience",
+        "notification": {
+          "success": "Experience has been edited",
+          "error": "An error occured while editing experience"
+        }
+      },
+      "delete-dialog": {
+        "trigger": "Delete experience",
+        "title": "Are you sure ?",
+        "description": "This action cannot be undone. This will permanently delete the experience from our servers.",
+        "actions": {
+          "delete": "Delete",
+          "cancel": "Cancel"
+        },
+        "notification": {
+          "success": "Experience has been deleted",
+          "error": "An error happened when deleting experience"
+        }
+      },
+      "form": {
+        "title": {
+          "label": "Company name",
+          "placeholder": "Enter company name",
+          "description": "The company name I've been working for",
+          "required": "Required"
+        },
+        "place": {
+          "city": {
+            "label": "City",
+            "placeholder": "Enter city location",
+            "description": "Where is located the company ?",
+            "required": "Required"
+          },
+          "country": {
+            "label": "Country",
+            "placeholder": "Enter country abbreviation location (FR)",
+            "description": "In which country company has been created ?",
+            "required": "Required"
+          }
+        },
+        "startedAt": {
+          "label": "Start Date",
+          "placeholder": "Pick a date",
+          "description": "When did the contract start ?",
+          "required": "Required"
+        },
+        "endedAt": {
+          "label": "End Date",
+          "placeholder": "Pick a date",
+          "description": "When did the contract end ?"
+        },
+        "content": {
+          "label": "Content",
+          "placeholder": "Describe experience context, tasks, used libs, etc",
+          "preview": "Preview",
+          "required": "Required"
+        },
+        "submit": {
+          "create": "Create new experience",
+          "edit": "Edit experience"
+        }
+      }
+    }
+  },
+  "SIGNIN": {
+    "title": "Sign in",
+    "alert": {
+      "title": "Admin page access",
+      "description": "This grant access to the admin panel. As a user, you don't have any access."
+    },
+    "github-signin": "Sign in with GitHub"
   }
 }

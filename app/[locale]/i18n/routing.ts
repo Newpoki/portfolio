@@ -34,6 +34,26 @@ export const routing = defineRouting({
       en: "/references",
       fr: "/references",
     },
+    "/login": {
+      en: "/login",
+      fr: "/login",
+    },
+    "/admin": {
+      en: "/admin",
+      fr: "/admin",
+    },
+    "/admin/experiencies": {
+      en: "/admin/experiencies",
+      fr: "/admin/experiences",
+    },
+    "/admin/experiencies/new": {
+      en: "/admin/experiencies/new",
+      fr: "/admin/experiences/new",
+    },
+    "/admin/experiencies/[id]": {
+      en: "/admin/experiencies/[id]",
+      fr: "/admin/experiences/[id]",
+    },
   },
 });
 

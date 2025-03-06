@@ -13,21 +13,20 @@ export const metadata: Metadata = {
 type ExperienciesPageProps = {
   params: Promise<{ locale: Locale }>;
 };
-
 export default async function ExperienciesPage({
   params,
 }: ExperienciesPageProps) {
-  const { locale } = await params;
-
-  const experiencies = await fetchExperiencies({ locale });
+  const experiencies = await fetchExperiencies();
   const t = await getTranslations("EXPERIENCIES");
+
+  const { locale } = await params;
 
   return (
     <div className="flex flex-1 flex-col">
       <h1 className="mb-8">{t("title")}</h1>
 
       <ReactFlowProvider>
-        <ExperienciesFlowPage experiencies={experiencies} />
+        <ExperienciesFlowPage experiencies={experiencies} locale={locale} />
       </ReactFlowProvider>
     </div>
   );
