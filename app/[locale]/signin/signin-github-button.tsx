@@ -2,18 +2,18 @@
 
 import { Button } from "@/components/ui/button";
 import { useCallback } from "react";
-import { githubLogin } from "./login-actions";
+import { githubSignin } from "./signin-actions";
 import { useTranslations } from "next-intl";
 
-type LoginGithubButtonProps = {
+type SigninGithubButtonProps = {
   className?: string;
 };
 
-export const LoginGithubButton = ({ className }: LoginGithubButtonProps) => {
+export const SigninGithubButton = ({ className }: SigninGithubButtonProps) => {
   const t = useTranslations("SIGNIN");
 
   const handleClick = useCallback(async () => {
-    await githubLogin();
+    await githubSignin();
   }, []);
 
   return (

@@ -2,7 +2,7 @@
 
 import { signIn } from "@/auth";
 
-export const githubLogin = async () => {
+export const githubSignin = async () => {
   await signIn("github", {
     redirectTo: "/en/admin",
   });

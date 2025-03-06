@@ -10,7 +10,7 @@ export const HeaderProfile = async () => {
 
   return (
     <>
-      <Link href={{ pathname: "/login" }}>
+      <Link href={{ pathname: "/signin" }}>
         <Button
           size="icon"
           variant="ghost"

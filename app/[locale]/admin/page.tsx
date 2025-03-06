@@ -18,7 +18,7 @@ export default async function AdminPage({ params }: AdminPageProps) {
   // Only logged user (me) can access to admin dashboard
   if (session == null) {
     redirect({
-      href: { pathname: "/login" },
+      href: { pathname: "/signin" },
       locale,
     });
   }

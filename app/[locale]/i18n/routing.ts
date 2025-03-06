@@ -34,9 +34,9 @@ export const routing = defineRouting({
       en: "/references",
       fr: "/references",
     },
-    "/login": {
-      en: "/login",
-      fr: "/login",
+    "/signin": {
+      en: "/signin",
+      fr: "/signin",
     },
     "/admin": {
       en: "/admin",

@@ -1,11 +1,11 @@
-import { LoginGithubButton } from "./login-github-button";
+import { SigninGithubButton } from "./signin-github-button";
 import { redirect } from "next/navigation";
 import { auth } from "@/auth";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { TerminalIcon } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
-export default async function LoginPage() {
+export default async function SigninPage() {
   const session = await auth();
   const t = await getTranslations("SIGNIN");
 
@@ -23,7 +23,7 @@ export default async function LoginPage() {
         <AlertDescription>{t("alert.description")}</AlertDescription>
       </Alert>
 
-      <LoginGithubButton className="mt-auto md:mt-0 md:w-fit" />
+      <SigninGithubButton className="mt-auto md:mt-0 md:w-fit" />
     </div>
   );
 }
