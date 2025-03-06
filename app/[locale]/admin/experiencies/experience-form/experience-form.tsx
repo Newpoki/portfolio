@@ -37,14 +37,12 @@ export const ExperienceForm = ({ experience }: ExperienceFormProps) => {
       startedAt: experience?.startedAt.toISOString() ?? "",
       endedAt: experience?.endedAt?.toISOString() ?? null,
       title: experience?.title ?? "",
-      content_en: JSON.stringify(VALID_EMPTY_EDITOR_JSON),
-      content_fr: JSON.stringify(VALID_EMPTY_EDITOR_JSON),
-      //       content_en: experience?.content_en
-      //     ? JSON.parse(experience?.content_en)
-      //     : JSON.stringify(VALID_EMPTY_EDITOR_JSON),
-      //   content_fr: experience?.content_fr
-      //     ? JSON.parse(experience?.content_fr)
-      //     : JSON.stringify(VALID_EMPTY_EDITOR_JSON),
+      content_en: experience?.content_en
+        ? experience?.content_en
+        : JSON.stringify(VALID_EMPTY_EDITOR_JSON),
+      content_fr: experience?.content_fr
+        ? experience?.content_fr
+        : JSON.stringify(VALID_EMPTY_EDITOR_JSON),
       place: {
         // @ts-expect-error Bad type
         city: experience?.place?.city ?? "",
