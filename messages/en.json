@@ -112,6 +112,11 @@
         "title": "Experiencies",
         "content": "Create, edit or delete an experience",
         "link": "Go to experiencies dashboard"
+      },
+      "projects": {
+        "title": "Projects",
+        "content": "Create, edit or delete a project",
+        "link": "Go to projects dashboard"
       }
     },
     "experiencies": {
@@ -190,6 +195,14 @@
           "create": "Create new experience",
           "edit": "Edit experience"
         }
+      }
+    },
+    "projects": {
+      "title": "Projects",
+      "add-project": "Add new project",
+      "table": {
+        "name": "Name",
+        "short-desc": "Short description"
       }
     }
   },

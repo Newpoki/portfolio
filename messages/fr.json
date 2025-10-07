@@ -114,6 +114,11 @@
         "title": "Expériences",
         "content": "Créer, modifier ou supprimer une expérience",
         "link": "Aller vers les expériences"
+      },
+      "projects": {
+        "title": "Projets",
+        "content": "Créer, modifier ou supprimer un projet",
+        "link": "Aller vers les projets"
       }
     },
     "experiencies": {
@@ -192,6 +197,14 @@
           "create": "Créer nouvelle expérience",
           "edit": "Editer expérience"
         }
+      }
+    },
+    "projects": {
+      "title": "Projets",
+      "add-project": "Ajouter nouveau projet",
+      "table": {
+        "name": "Nom",
+        "short-desc": "Description courte"
       }
     }
   },

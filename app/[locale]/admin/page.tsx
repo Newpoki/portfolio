@@ -40,6 +40,19 @@ export default async function AdminPage({ params }: AdminPageProps) {
             }}
           />
         </li>
+
+        <li>
+          <AdminSectionCard
+            title={t("cards.projects.title")}
+            content={t("cards.projects.content")}
+            linkProps={{
+              children: t("cards.projects.link"),
+              href: {
+                pathname: "/admin/projects",
+              },
+            }}
+          />
+        </li>
       </ul>
     </div>
   );
