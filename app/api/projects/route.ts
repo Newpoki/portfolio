@@ -20,11 +20,12 @@ const createProjectSchema = z.object({
   description_en: z.string().min(1),
   deployedAt: z.string().datetime(),
   slug: z.string().min(1),
-  websiteUrl: z.string().url(),
-  githubUrl: z.string().url(),
+  websiteUrl: z.string().url().optional(),
+  githubUrl: z.string().url().optional(),
   bundler: z.nativeEnum(Bundler),
   framework: z.nativeEnum(Framework),
   userInterface: z.nativeEnum(UserInterfaceLibrary),
+  isFavorite: z.boolean(),
 });
 
 const editProjectSchema = createProjectSchema.extend({
@@ -35,8 +36,6 @@ export async function POST(request: NextRequest) {
   const { formValues } = await request.json();
 
   const parsedResult = createProjectSchema.safeParse(formValues);
-
-  console.log({ parsedResult });
 
   // TODO: It could be cool to return the validation error to map with front end fields
   // But not really important as this is only an admin panel for me

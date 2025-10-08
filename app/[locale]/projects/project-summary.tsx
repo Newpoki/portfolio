@@ -21,6 +21,7 @@ type Props = {
   };
 };
 
+// TODO: On hover / click, display the tag and a goto button
 export const ProjectSummary = async ({
   className,
   isFavorite = false,

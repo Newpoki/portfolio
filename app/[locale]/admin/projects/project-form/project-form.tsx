@@ -47,12 +47,13 @@ export const AdminProjectForm = ({ project }: AdminProjectFormProps) => {
       description_en: project?.description_en ?? "",
       illustration: project?.illustration ?? "",
       illustrationAlt: project?.illustrationAlt ?? "",
-      githubUrl: project?.githubUrl ?? "",
+      githubUrl: project?.githubUrl ?? undefined,
+      websiteUrl: project?.websiteUrl ?? undefined,
       slug: project?.slug ?? "",
-      websiteUrl: project?.websiteUrl ?? "",
       bundler: project?.bundler,
       framework: project?.framework,
       userInterface: project?.userInterface,
+      isFavorite: project?.isFavorite ?? false,
     },
   });
 
@@ -108,6 +109,7 @@ export const AdminProjectForm = ({ project }: AdminProjectFormProps) => {
                 : t("form.submit.create")}
             </Button>
 
+            {/* TODO: Add deletion */}
             {/* {projet != null && (
               <ExperienceFormDeleteDialog projet={projet} />
             )} */}

@@ -19,6 +19,7 @@ export const ProjectFormIsFavoriteField = () => {
       control={control}
       name="isFavorite"
       render={({ field }) => {
+        console.log({ field });
         return (
           <FormItem className="flex flex-row items-center justify-between rounded-lg border p-3 shadow-sm">
             <div className="space-y-0.5">

@@ -11,6 +11,7 @@ import { useTranslations } from "next-intl";
 import { useFormContext } from "react-hook-form";
 import { AdminProjectFormValues } from "./project-form-schemas";
 
+// TODO: Add go to link icon button (same for website URL)
 export const ProjectFormGithubURLField = () => {
   const t = useTranslations("ADMIN.projects");
   const { control } = useFormContext<AdminProjectFormValues>();

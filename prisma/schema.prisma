@@ -23,7 +23,7 @@ model Project {
     name            String
     description_en  String
     description_fr  String
-    isFavorite      Boolean?
+    isFavorite      Boolean
     bundler         Bundler
     framework       Framework
     userInterface   UserInterfaceLibrary

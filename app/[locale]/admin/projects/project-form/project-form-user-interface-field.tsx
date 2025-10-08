@@ -31,7 +31,7 @@ import { UserInterfaceLibrary } from "@prisma/client";
 const USER_INTERFACE_LIBRARY_OPTIONS = [
   { value: UserInterfaceLibrary.SHADCN, label: "Shadcn" },
   { value: UserInterfaceLibrary.TAILWIND_CSS, label: "Tailwind CSS" },
-  { value: UserInterfaceLibrary.MATERIAL_UI, label: "Next JS" },
+  { value: UserInterfaceLibrary.MATERIAL_UI, label: "Material UI" },
   { value: UserInterfaceLibrary.STYLED_COMPONENTS, label: "Styled components" },
 ] as const;
 
