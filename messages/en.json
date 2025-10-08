@@ -203,6 +203,111 @@
       "table": {
         "name": "Name",
         "short-desc": "Short description"
+      },
+      "create": {
+        "title": "New project",
+        "notification": {
+          "success": "Project has been created",
+          "error": "An error occured while adding project"
+        }
+      },
+      "edit": {
+        "title": "Edit project",
+        "notification": {
+          "success": "Project has been edited",
+          "error": "An error occured while editing project"
+        }
+      },
+      "delete-dialog": {
+        "trigger": "Delete project",
+        "title": "Are you sure ?",
+        "description": "This action cannot be undone. This will permanently delete the project from our servers.",
+        "actions": {
+          "delete": "Delete",
+          "cancel": "Cancel"
+        },
+        "notification": {
+          "success": "Project has been deleted",
+          "error": "An error happened when deleting project"
+        }
+      },
+      "form": {
+        "name": {
+          "label": "Name",
+          "placeholder": "Enter project name",
+          "description": "Name of the project",
+          "required": "Required"
+        },
+        "illustration": {
+          "label": "Illustration",
+          "placeholder": "my-cool-project.png",
+          "description": "Name of the illustration file within public/projects folder (with extension)",
+          "required": "Required"
+        },
+        "illustration-alt": {
+          "label": "Illustration's alt",
+          "placeholder": "Screenshot of the desktop app on ...",
+          "description": "The alternative text for accessibility",
+          "required": "Required"
+        },
+        "short-desc": {
+          "label": "Short description",
+          "placeholder": "Enter project short description",
+          "description": "Describe project main feature",
+          "required": "Required"
+        },
+        "description": {
+          "label": "Project description",
+          "placeholder": "Enter project description",
+          "description": "Give some context about how did the project start, the goal, features, etc",
+          "required": "Required"
+        },
+        "deployed-at": {
+          "label": "Deployed at",
+          "placeholder": "Pick a date",
+          "description": "When did the project has been deployed first ?"
+        },
+        "bundler": {
+          "label": "Bundler",
+          "placeholder": "Choose a bundler",
+          "description": "Which bundler has been used ?",
+          "no-result": "No bundler found"
+        },
+        "framework": {
+          "label": "Framework",
+          "placeholder": "Choose a framework",
+          "description": "Which framework has been used ?",
+          "no-result": "No framework found"
+        },
+        "user-interface": {
+          "label": "UI library",
+          "placeholder": "Choose an UI library",
+          "description": "Which library has been used ?",
+          "no-result": "No UI library found"
+        },
+        "github-url": {
+          "label": "Github URL",
+          "placeholder": "https://github.com/Newpoki/...",
+          "description": "The project's Github URL"
+        },
+        "website-url": {
+          "label": "Website URL",
+          "placeholder": "https://my-cool-website.com",
+          "description": "The project's website URL"
+        },
+        "slug": {
+          "label": "Slug",
+          "placeholder": "my-cool-app",
+          "description": "The project's website slug"
+        },
+        "is-favorite": {
+          "label": "Is it a favorite project ?",
+          "description": "Projects flagged as favorite are displayed first in the projects list"
+        },
+        "submit": {
+          "create": "Create new project",
+          "edit": "Edit project"
+        }
       }
     }
   },
