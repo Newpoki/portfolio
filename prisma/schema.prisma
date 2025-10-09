@@ -11,8 +11,8 @@ datasource db {
 }
 
 model Project {
-    id              String   @id @default(auto()) @map("_id") @db.ObjectId
-    slug            String   @unique
+    id              String               @id @default(auto()) @map("_id") @db.ObjectId
+    slug            String               @unique
     shortDesc_en    String
     shortDesc_fr    String
     githubUrl       String?
@@ -23,12 +23,37 @@ model Project {
     name            String
     description_en  String
     description_fr  String
-    bundler         String
-    dataFetching    String
-    language        String
-    stateManagement String
-    ui              String
-    isFavorite      Boolean?
+    isFavorite      Boolean
+    bundler         Bundler
+    framework       Framework
+    userInterface   UserInterfaceLibrary
+    stateManagement StateManagement
+}
+
+enum Framework {
+    REACT
+    NEXT
+    TANSTACK_START
+}
+
+enum Bundler {
+    TURBOPACK
+    VITE
+    WEBPACK
+}
+
+enum UserInterfaceLibrary {
+    MATERIAL_UI
+    SHADCN
+    TAILWIND_CSS
+    STYLED_COMPONENTS
+}
+
+enum StateManagement {
+    ZUSTAND
+    JOTAI
+    CONTEXT
+    NONE
 }
 
 model Experience {

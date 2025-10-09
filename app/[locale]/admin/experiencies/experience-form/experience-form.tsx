@@ -20,6 +20,7 @@ import { ExperienceFormContentField } from "./experience-form-content-field";
 import { Experience } from "@prisma/client";
 import { useExperienceForm } from "./use-experience-form";
 import { ExperienceFormDeleteDialog } from "./experience-form-delete-dialog";
+import { useCallback } from "react";
 
 type ExperienceFormProps = {
   experience?: Experience;
@@ -55,6 +56,10 @@ export const ExperienceForm = ({ experience }: ExperienceFormProps) => {
 
   const { isSubmitting } = form.formState;
 
+  const handleReset = useCallback(() => {
+    form.reset();
+  }, [form]);
+
   return (
     <div className="max-w-2xl">
       <Form {...form}>
@@ -75,18 +80,24 @@ export const ExperienceForm = ({ experience }: ExperienceFormProps) => {
 
           <ExperienceFormContentField name="content_en" locale="en" />
 
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-end">
-            <Button disabled={isSubmitting}>
-              {isSubmitting && <Loader2Icon className="animate-spin" />}
-
-              {experience != null
-                ? t("form.submit.edit")
-                : t("form.submit.create")}
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <Button variant="ghost" onClick={handleReset} type="button">
+              {t("form.cancel")}
             </Button>
 
-            {experience != null && (
-              <ExperienceFormDeleteDialog experience={experience} />
-            )}
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+              <Button disabled={isSubmitting}>
+                {isSubmitting && <Loader2Icon className="animate-spin" />}
+
+                {experience != null
+                  ? t("form.submit.edit")
+                  : t("form.submit.create")}
+              </Button>
+
+              {experience != null && (
+                <ExperienceFormDeleteDialog experience={experience} />
+              )}
+            </div>
           </div>
         </form>
       </Form>

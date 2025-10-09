@@ -19,10 +19,9 @@
     "deployed-at-title": "Date de livraison",
     "deployed-at-content": "({deployedAt})",
     "bundler": "Bundler",
-    "language": "Language",
-    "ui": "Interface Utilisateur",
-    "state-management": "Gestion d'état",
-    "data-fetching": "Récupération des données"
+    "framework": "Framework",
+    "user-interface": "Interface Utilisateur",
+    "state-management": "Gestion d'état"
   },
   "ABOUT": {
     "title": "Front-End<br></br>et guitare",
@@ -114,6 +113,11 @@
         "title": "Expériences",
         "content": "Créer, modifier ou supprimer une expérience",
         "link": "Aller vers les expériences"
+      },
+      "projects": {
+        "title": "Projets",
+        "content": "Créer, modifier ou supprimer un projet",
+        "link": "Aller vers les projets"
       }
     },
     "experiencies": {
@@ -127,14 +131,14 @@
         "title": "Nouvelle experience",
         "notification": {
           "success": "L'expérience a été créée",
-          "error": "Une erreur est survenue lors de la création"
+          "error": "Une erreur est survenue lors de la création de l'expérience"
         }
       },
       "edit": {
         "title": "Editer l'expérience",
         "notification": {
           "success": "L'expérience a été modifiée",
-          "error": "Une erreur est survenue lors de l'édition"
+          "error": "Une erreur est survenue lors de l'édition de l'expérience"
         }
       },
       "delete-dialog": {
@@ -147,7 +151,7 @@
         },
         "notification": {
           "success": "L'expérience a été supprimée",
-          "error": "Une erreur est survenue lors de la suppréssion"
+          "error": "Une erreur est survenue lors de la suppréssion de l'expérience"
         }
       },
       "form": {
@@ -191,7 +195,128 @@
         "submit": {
           "create": "Créer nouvelle expérience",
           "edit": "Editer expérience"
+        },
+        "cancel": "Annuler"
+      }
+    },
+    "projects": {
+      "title": "Projets",
+      "add-project": "Ajouter nouveau projet",
+      "table": {
+        "name": "Nom",
+        "short-desc": "Description courte"
+      },
+      "create": {
+        "title": "Nouveau projet",
+        "notification": {
+          "success": "Le projet a été créé",
+          "error": "Une erreur est survenue lors de la création du projet"
         }
+      },
+      "edit": {
+        "title": "Editer le projet",
+        "notification": {
+          "success": "Le projet a été modifié",
+          "error": "Une erreur est survenue lors de l'édition du projet"
+        }
+      },
+      "delete-dialog": {
+        "trigger": "Supprimer le projet",
+        "title": "Etes-vous sûr ?",
+        "description": "Cette action ne peut pas être annuler. Cela va supprimer définitivement le projet de nos serveurs.",
+        "actions": {
+          "delete": "Supprimer",
+          "cancel": "Annuler"
+        },
+        "notification": {
+          "success": "Le projet a été supprimé",
+          "error": "Une erreur est survenue lors de la suppréssion du projet"
+        }
+      },
+      "form": {
+        "name": {
+          "label": "Nom",
+          "placeholder": "Saisir le nom du projet",
+          "description": "Nom du projet sur lequel j'ai travaillé",
+          "required": "Requis"
+        },
+        "illustration": {
+          "label": "Illustration",
+          "placeholder": "mon-projet-cool.png",
+          "description": "Nom du fichier de l'illustration dans le dossier public/projects (avec l'extension)",
+          "required": "Requis"
+        },
+        "illustration-alt": {
+          "label": "Illustration alt",
+          "placeholder": "Screenshot de l'application en vue desktop",
+          "description": "Le texte alternatif à afficher lorsque l'image n'est pas disponible",
+          "required": "Requis"
+        },
+        "short-desc": {
+          "label": "Courte description",
+          "placeholder": "Saisir une courte description du projet",
+          "description": "Décrire la fonctionnalité principale du projet",
+          "required": "Requis"
+        },
+        "description": {
+          "label": "Description du projet",
+          "placeholder": "Décrire le projet",
+          "description": "Donner du context sur comment a commencer le projet, le but, les fonctionnalités, etc",
+          "required": "Requis"
+        },
+        "deployed-at": {
+          "label": "Date de déploiement",
+          "placeholder": "Pick a date",
+          "description": "Quand est-ce que le projet a été déployé pour la première fois ?"
+        },
+        "bundler": {
+          "label": "Bundler",
+          "placeholder": "Choisir un bundler",
+          "description": "Quel bundler a été utilisé ?",
+          "no-result": "Aucun bundler trouvé"
+        },
+        "framework": {
+          "label": "Framework",
+          "placeholder": "Choisir un framework",
+          "description": "Quel framework a été utilisé ?",
+          "no-result": "Aucun framework trouvé"
+        },
+        "user-interface": {
+          "label": "Interface utilisateur",
+          "placeholder": "Choisir une interface utilisateur",
+          "description": "Quelle bibliothèque d'interface utilisateur a été utilisée ?",
+          "no-result": "Aucune bibliothèque d'interface utilisateur trouvée"
+        },
+        "state-management": {
+          "label": "Gestion d'état",
+          "placeholder": "Choisir un outil de gestion d'état",
+          "description": "Comment a été géré les états globaux de l'application ?",
+          "no-result": "Aucun géstionnaire d'état trouvé"
+        },
+        "github-url": {
+          "label": "URL du Github",
+          "placeholder": "https://github.com/Newpoki/...",
+          "description": "L'URL du projet Github"
+        },
+        "website-url": {
+          "label": "URL du site",
+          "placeholder": "https://my-cool-website.com",
+          "description": "URL du site du projet"
+        },
+        "slug": {
+          "label": "Slug",
+          "placeholder": "my-cool-app",
+          "description": "Le slug du projet"
+        },
+        "is-favorite": {
+          "label": "Est-ce un des projets favoris ?",
+          "description": "Les projets marqués comme favoris sont affichés en premier dans la liste"
+        },
+        "submit": {
+          "create": "Créer nouveau projet",
+          "edit": "Editer projet"
+        },
+        "cancel": "Annuler"
       }
     }
   },
