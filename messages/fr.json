@@ -19,7 +19,8 @@
     "deployed-at-title": "Date de livraison",
     "deployed-at-content": "({deployedAt})",
     "bundler": "Bundler",
-    "framework": "Framework"
+    "framework": "Framework",
+    "user-interface": "Interface Utilisateur"
   },
   "ABOUT": {
     "title": "Front-End<br></br>et guitare",

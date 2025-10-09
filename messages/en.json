@@ -20,7 +20,8 @@
     "deployed-at-title": "Release date",
     "deployed-at-content": "({deployedAt})",
     "bundler": "Bundler",
-    "framework": "Framework"
+    "framework": "Framework",
+    "user-interface": "User Interface"
   },
   "ABOUT": {
     "title": "Frontend<br></br>and guitar",
