@@ -196,7 +196,8 @@
         "submit": {
           "create": "Créer nouvelle expérience",
           "edit": "Editer expérience"
-        }
+        },
+        "cancel": "Annuler"
       }
     },
     "projects": {
@@ -309,7 +310,8 @@
         "submit": {
           "create": "Créer nouveau projet",
           "edit": "Editer projet"
-        }
+        },
+        "cancel": "Annuler"
       }
     }
   },

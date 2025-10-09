@@ -26,6 +26,7 @@ import { useProjectForm } from "./use-project-form";
 import { ProjectFormSlugField } from "./project-form-slug-field";
 import { ProjectFormIsFavoriteField } from "./project-form-is-favorite-field";
 import { ProjectFormDeleteDialog } from "./project-form-delete-dialog";
+import { useCallback } from "react";
 
 type AdminProjectFormProps = {
   project?: Project;
@@ -59,6 +60,10 @@ export const AdminProjectForm = ({ project }: AdminProjectFormProps) => {
   });
 
   const { isSubmitting } = form.formState;
+
+  const handleReset = useCallback(() => {
+    form.reset();
+  }, [form]);
 
   return (
     <div className="max-w-2xl">
@@ -100,17 +105,22 @@ export const AdminProjectForm = ({ project }: AdminProjectFormProps) => {
 
           <ProjectFormUserInterfaceField />
 
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-end">
-            <Button disabled={isSubmitting}>
-              {isSubmitting && <Loader2Icon className="animate-spin" />}
-
-              {/* TODO: Add cancel button and for experience too just form.reset */}
-              {project != null
-                ? t("form.submit.edit")
-                : t("form.submit.create")}
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <Button variant="ghost" onClick={handleReset} type="button">
+              {t("form.cancel")}
             </Button>
 
-            {project != null && <ProjectFormDeleteDialog project={project} />}
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+              <Button disabled={isSubmitting}>
+                {isSubmitting && <Loader2Icon className="animate-spin" />}
+
+                {project != null
+                  ? t("form.submit.edit")
+                  : t("form.submit.create")}
+              </Button>
+
+              {project != null && <ProjectFormDeleteDialog project={project} />}
+            </div>
           </div>
         </form>
       </Form>
