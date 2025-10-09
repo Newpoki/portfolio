@@ -26,12 +26,12 @@ import {
   CommandList,
 } from "@/components/ui/command";
 import { cn } from "@/lib/utils";
-import { Bundler } from "@prisma/client";
+import { BUNDLER_OPTIONS } from "@/app/[locale]/projects/[project-slug]/project-constants";
 
-const BUNDLER_OPTIONS = [
-  { value: Bundler.TURBOPACK, label: "Turbopack" },
-  { value: Bundler.WEBPACK, label: "Webpack" },
-  { value: Bundler.VITE, label: "Vite" },
+const OPTIONS = [
+  BUNDLER_OPTIONS.TURBOPACK,
+  BUNDLER_OPTIONS.WEBPACK,
+  BUNDLER_OPTIONS.VITE,
 ] as const;
 
 export const ProjectFormBundlerField = () => {
@@ -41,7 +41,7 @@ export const ProjectFormBundlerField = () => {
   const { control } = useFormContext<AdminProjectFormValues>();
 
   const filter = useCallback((value: string, search: string) => {
-    const option = BUNDLER_OPTIONS.find((option) => option.value === value);
+    const option = OPTIONS.find((option) => option.value === value);
 
     return option?.label.toLowerCase().includes(search.toLowerCase()) ? 1 : 0;
   }, []);
@@ -66,9 +66,8 @@ export const ProjectFormBundlerField = () => {
                     })}
                   >
                     {field.value
-                      ? BUNDLER_OPTIONS.find(
-                          (bundler) => bundler.value === field.value,
-                        )?.label
+                      ? OPTIONS.find((bundler) => bundler.value === field.value)
+                          ?.label
                       : t("form.bundler.placeholder")}
                     <ChevronsUpDownIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                   </Button>
@@ -80,7 +79,7 @@ export const ProjectFormBundlerField = () => {
                     <CommandList>
                       <CommandEmpty>{t("form.bundler.no-result")}</CommandEmpty>
                       <CommandGroup>
-                        {BUNDLER_OPTIONS.map((bundler) => (
+                        {OPTIONS.map((bundler) => (
                           <CommandItem
                             key={bundler.value}
                             value={bundler.value}

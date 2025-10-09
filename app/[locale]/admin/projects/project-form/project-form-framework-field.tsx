@@ -26,13 +26,12 @@ import {
   CommandList,
 } from "@/components/ui/command";
 import { cn } from "@/lib/utils";
-import { Framework } from "@prisma/client";
+import { FRAMEWORK_OPTIONS } from "@/app/[locale]/projects/[project-slug]/project-constants";
 
-// TODO: Put this in a .constant file so it can be used within project view
-const FRAMEWORK_OPTIONS = [
-  { value: Framework.NEXT, label: "Next JS" },
-  { value: Framework.REACT, label: "React" },
-  { value: Framework.TANSTACK_START, label: "Tanstack Start" },
+const OPTIONS = [
+  FRAMEWORK_OPTIONS.NEXT,
+  FRAMEWORK_OPTIONS.REACT,
+  FRAMEWORK_OPTIONS.TANSTACK_START,
 ] as const;
 
 export const ProjectFormFrameworkField = () => {
@@ -42,7 +41,7 @@ export const ProjectFormFrameworkField = () => {
   const { control } = useFormContext<AdminProjectFormValues>();
 
   const filter = useCallback((value: string, search: string) => {
-    const option = FRAMEWORK_OPTIONS.find((option) => option.value === value);
+    const option = OPTIONS.find((option) => option.value === value);
 
     return option?.label.toLowerCase().includes(search.toLowerCase()) ? 1 : 0;
   }, []);
@@ -67,7 +66,7 @@ export const ProjectFormFrameworkField = () => {
                     })}
                   >
                     {field.value
-                      ? FRAMEWORK_OPTIONS.find(
+                      ? OPTIONS.find(
                           (framework) => framework.value === field.value,
                         )?.label
                       : "Select framework..."}
@@ -86,7 +85,7 @@ export const ProjectFormFrameworkField = () => {
                         {t("form.framework.no-result")}
                       </CommandEmpty>
                       <CommandGroup>
-                        {FRAMEWORK_OPTIONS.map((framework) => (
+                        {OPTIONS.map((framework) => (
                           <CommandItem
                             key={framework.value}
                             value={framework.value}

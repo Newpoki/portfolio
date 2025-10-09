@@ -19,10 +19,7 @@
     "deployed-at-title": "Date de livraison",
     "deployed-at-content": "({deployedAt})",
     "bundler": "Bundler",
-    "language": "Language",
-    "ui": "Interface Utilisateur",
-    "state-management": "Gestion d'état",
-    "data-fetching": "Récupération des données"
+    "framework": "Framework"
   },
   "ABOUT": {
     "title": "Front-End<br></br>et guitare",

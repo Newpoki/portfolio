@@ -20,10 +20,7 @@
     "deployed-at-title": "Release date",
     "deployed-at-content": "({deployedAt})",
     "bundler": "Bundler",
-    "language": "Language",
-    "ui": "User Interface",
-    "state-management": "State management",
-    "data-fetching": "Data fetching"
+    "framework": "Framework"
   },
   "ABOUT": {
     "title": "Frontend<br></br>and guitar",
