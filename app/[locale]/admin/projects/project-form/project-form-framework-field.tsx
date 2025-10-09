@@ -66,10 +66,9 @@ export const ProjectFormFrameworkField = () => {
                     })}
                   >
                     {field.value
-                      ? OPTIONS.find(
-                          (framework) => framework.value === field.value,
-                        )?.label
-                      : "Select framework..."}
+                      ? OPTIONS.find((option) => option.value === field.value)
+                          ?.label
+                      : t("form.framework.placeholder")}
                     <ChevronsUpDownIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                   </Button>
                 </PopoverTrigger>
@@ -79,16 +78,18 @@ export const ProjectFormFrameworkField = () => {
                   align="start"
                 >
                   <Command filter={filter}>
-                    <CommandInput placeholder="Search framework..." />
+                    <CommandInput
+                      placeholder={t("form.framework.placeholder")}
+                    />
                     <CommandList>
                       <CommandEmpty>
                         {t("form.framework.no-result")}
                       </CommandEmpty>
                       <CommandGroup>
-                        {OPTIONS.map((framework) => (
+                        {OPTIONS.map((option) => (
                           <CommandItem
-                            key={framework.value}
-                            value={framework.value}
+                            key={option.value}
+                            value={option.value}
                             onSelect={(currentValue) => {
                               field.onChange(
                                 currentValue === field.value
@@ -101,12 +102,12 @@ export const ProjectFormFrameworkField = () => {
                             <CheckIcon
                               className={cn(
                                 "mr-2 h-4 w-4",
-                                field.value === framework.value
+                                field.value === option.value
                                   ? "opacity-100"
                                   : "opacity-0",
                               )}
                             />
-                            {framework.label}
+                            {option.label}
                           </CommandItem>
                         ))}
                       </CommandGroup>

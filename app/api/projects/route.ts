@@ -2,6 +2,7 @@ import {
   Bundler,
   Framework,
   PrismaClient,
+  StateManagement,
   UserInterfaceLibrary,
 } from "@prisma/client";
 import { NextRequest } from "next/server";
@@ -12,6 +13,7 @@ const prisma = new PrismaClient();
 const createProjectSchema = z.object({
   id: z.string().nullable(),
   name: z.string().min(1),
+  isFavorite: z.boolean(),
   illustration: z.string().min(1),
   illustrationAlt: z.string().min(1),
   shortDesc_fr: z.string().min(1),
@@ -25,7 +27,7 @@ const createProjectSchema = z.object({
   bundler: z.nativeEnum(Bundler),
   framework: z.nativeEnum(Framework),
   userInterface: z.nativeEnum(UserInterfaceLibrary),
-  isFavorite: z.boolean(),
+  stateManagement: z.nativeEnum(StateManagement),
 });
 
 const editProjectSchema = createProjectSchema.extend({

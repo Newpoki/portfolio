@@ -27,6 +27,7 @@ model Project {
     bundler         Bundler
     framework       Framework
     userInterface   UserInterfaceLibrary
+    stateManagement StateManagement
 }
 
 enum Framework {
@@ -46,6 +47,13 @@ enum UserInterfaceLibrary {
     SHADCN
     TAILWIND_CSS
     STYLED_COMPONENTS
+}
+
+enum StateManagement {
+    ZUSTAND
+    JOTAI
+    CONTEXT
+    NONE
 }
 
 model Experience {

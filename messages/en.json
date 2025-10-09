@@ -21,7 +21,8 @@
     "deployed-at-content": "({deployedAt})",
     "bundler": "Bundler",
     "framework": "Framework",
-    "user-interface": "User Interface"
+    "user-interface": "User Interface",
+    "state-management": "State management"
   },
   "ABOUT": {
     "title": "Frontend<br></br>and guitar",
@@ -283,6 +284,12 @@
           "placeholder": "Choose an UI library",
           "description": "Which library has been used ?",
           "no-result": "No UI library found"
+        },
+        "state-management": {
+          "label": "State management",
+          "placeholder": "Choose a state manager",
+          "description": "How has global state been handled ?",
+          "no-result": "No state manager library found"
         },
         "github-url": {
           "label": "Github URL",

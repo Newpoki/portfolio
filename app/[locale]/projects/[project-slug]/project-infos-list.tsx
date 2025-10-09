@@ -4,6 +4,7 @@ import { getTranslations } from "next-intl/server";
 import {
   BUNDLER_OPTIONS,
   FRAMEWORK_OPTIONS,
+  STATE_MANAGEMENT_OPTIONS,
   USER_INTERFACE_OPTIONS,
 } from "./project-constants";
 
@@ -14,7 +15,7 @@ type Props = {
 export const ProjectInfosList = async ({ project }: Props) => {
   const t = await getTranslations("PROJECT");
 
-  const { bundler, framework, userInterface } = project;
+  const { bundler, framework, userInterface, stateManagement } = project;
 
   const deployedAt = project.deployedAt.getFullYear();
 
@@ -36,17 +37,9 @@ export const ProjectInfosList = async ({ project }: Props) => {
         {USER_INTERFACE_OPTIONS[userInterface].label}
       </TabeListItem>
 
-      {/* TODO: Add back data fetching */}
-      {/* TODO: Add back state management */}
-      {/* TODO: Add I18N field*/}
-      {/* TODO: Remove language */}
-
-      {/* <TabeListItem label={t("language")}>{language}</TabeListItem>
-      <TabeListItem label={t("ui")}>{ui}</TabeListItem>
       <TabeListItem label={t("state-management")}>
-        {stateManagement}
+        {STATE_MANAGEMENT_OPTIONS[stateManagement].label}
       </TabeListItem>
-      <TabeListItem label={t("data-fetching")}>{dataFetching}</TabeListItem> */}
     </ul>
   );
 };

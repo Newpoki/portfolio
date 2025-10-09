@@ -26,25 +26,23 @@ import {
   CommandList,
 } from "@/components/ui/command";
 import { cn } from "@/lib/utils";
-import { UserInterfaceLibrary } from "@prisma/client";
+import { STATE_MANAGEMENT_OPTIONS } from "@/app/[locale]/projects/[project-slug]/project-constants";
 
-const USER_INTERFACE_LIBRARY_OPTIONS = [
-  { value: UserInterfaceLibrary.SHADCN, label: "Shadcn" },
-  { value: UserInterfaceLibrary.TAILWIND_CSS, label: "Tailwind CSS" },
-  { value: UserInterfaceLibrary.MATERIAL_UI, label: "Material UI" },
-  { value: UserInterfaceLibrary.STYLED_COMPONENTS, label: "Styled components" },
+const OPTIONS = [
+  STATE_MANAGEMENT_OPTIONS.NONE,
+  STATE_MANAGEMENT_OPTIONS.CONTEXT,
+  STATE_MANAGEMENT_OPTIONS.ZUSTAND,
+  STATE_MANAGEMENT_OPTIONS.JOTAI,
 ] as const;
 
-export const ProjectFormUserInterfaceField = () => {
+export const ProjectFormStateManagementField = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const t = useTranslations("ADMIN.projects");
   const { control } = useFormContext<AdminProjectFormValues>();
 
   const filter = useCallback((value: string, search: string) => {
-    const option = USER_INTERFACE_LIBRARY_OPTIONS.find(
-      (option) => option.value === value,
-    );
+    const option = OPTIONS.find((option) => option.value === value);
 
     return option?.label.toLowerCase().includes(search.toLowerCase()) ? 1 : 0;
   }, []);
@@ -52,11 +50,11 @@ export const ProjectFormUserInterfaceField = () => {
   return (
     <FormField
       control={control}
-      name="userInterface"
+      name="stateManagement"
       render={({ field, fieldState }) => {
         return (
           <FormItem>
-            <FormLabel>{t("form.user-interface.label")}</FormLabel>
+            <FormLabel>{t("form.state-management.label")}</FormLabel>
             <FormControl>
               <Popover open={isOpen} onOpenChange={setIsOpen}>
                 <PopoverTrigger asChild>
@@ -69,10 +67,9 @@ export const ProjectFormUserInterfaceField = () => {
                     })}
                   >
                     {field.value
-                      ? USER_INTERFACE_LIBRARY_OPTIONS.find(
-                          (option) => option.value === field.value,
-                        )?.label
-                      : t("form.user-interface.placeholder")}
+                      ? OPTIONS.find((option) => option.value === field.value)
+                          ?.label
+                      : t("form.state-management.placeholder")}
                     <ChevronsUpDownIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                   </Button>
                 </PopoverTrigger>
@@ -83,14 +80,14 @@ export const ProjectFormUserInterfaceField = () => {
                 >
                   <Command filter={filter}>
                     <CommandInput
-                      placeholder={t("form.user-interface.placeholder")}
+                      placeholder={"form.state-management.placeholder"}
                     />
                     <CommandList>
                       <CommandEmpty>
-                        {t("form.user-interface.no-result")}
+                        {t("form.state-management.no-result")}
                       </CommandEmpty>
                       <CommandGroup>
-                        {USER_INTERFACE_LIBRARY_OPTIONS.map((option) => (
+                        {OPTIONS.map((option) => (
                           <CommandItem
                             key={option.value}
                             value={option.value}
@@ -121,7 +118,7 @@ export const ProjectFormUserInterfaceField = () => {
               </Popover>
             </FormControl>
             <FormDescription>
-              {t("form.user-interface.description")}
+              {t("form.state-management.description")}
             </FormDescription>
             <FormMessage />
           </FormItem>

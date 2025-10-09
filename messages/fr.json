@@ -20,7 +20,8 @@
     "deployed-at-content": "({deployedAt})",
     "bundler": "Bundler",
     "framework": "Framework",
-    "user-interface": "Interface Utilisateur"
+    "user-interface": "Interface Utilisateur",
+    "state-management": "Gestion d'état"
   },
   "ABOUT": {
     "title": "Front-End<br></br>et guitare",
@@ -285,6 +286,12 @@
           "placeholder": "Choisir une interface utilisateur",
           "description": "Quelle bibliothèque d'interface utilisateur a été utilisée ?",
           "no-result": "Aucune bibliothèque d'interface utilisateur trouvée"
+        },
+        "state-management": {
+          "label": "Gestion d'état",
+          "placeholder": "Choisir un outil de gestion d'état",
+          "description": "Comment a été géré les états globaux de l'application ?",
+          "no-result": "Aucun géstionnaire d'état trouvé"
         },
         "github-url": {
           "label": "URL du Github",

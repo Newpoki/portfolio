@@ -27,6 +27,7 @@ import { ProjectFormSlugField } from "./project-form-slug-field";
 import { ProjectFormIsFavoriteField } from "./project-form-is-favorite-field";
 import { ProjectFormDeleteDialog } from "./project-form-delete-dialog";
 import { useCallback } from "react";
+import { ProjectFormStateManagementField } from "./project-form-state-management-field";
 
 type AdminProjectFormProps = {
   project?: Project;
@@ -42,6 +43,7 @@ export const AdminProjectForm = ({ project }: AdminProjectFormProps) => {
     defaultValues: {
       id: project?.id ?? null,
       name: project?.name ?? "",
+      isFavorite: project?.isFavorite ?? false,
       deployedAt: project?.deployedAt.toISOString() ?? "",
       shortDesc_fr: project?.shortDesc_fr ?? "",
       shortDesc_en: project?.shortDesc_en ?? "",
@@ -55,7 +57,7 @@ export const AdminProjectForm = ({ project }: AdminProjectFormProps) => {
       bundler: project?.bundler,
       framework: project?.framework,
       userInterface: project?.userInterface,
-      isFavorite: project?.isFavorite ?? false,
+      stateManagement: project?.stateManagement,
     },
   });
 
@@ -104,6 +106,8 @@ export const AdminProjectForm = ({ project }: AdminProjectFormProps) => {
           <ProjectFormFrameworkField />
 
           <ProjectFormUserInterfaceField />
+
+          <ProjectFormStateManagementField />
 
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <Button variant="ghost" onClick={handleReset} type="button">

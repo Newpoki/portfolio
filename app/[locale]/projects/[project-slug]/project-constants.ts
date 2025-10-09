@@ -1,4 +1,9 @@
-import { Bundler, Framework, UserInterfaceLibrary } from "@prisma/client";
+import {
+  Bundler,
+  Framework,
+  StateManagement,
+  UserInterfaceLibrary,
+} from "@prisma/client";
 
 export const FRAMEWORK_OPTIONS = {
   NEXT: { value: Framework.NEXT, label: "Next JS" },
@@ -25,5 +30,21 @@ export const USER_INTERFACE_OPTIONS = {
   TAILWIND_CSS: {
     value: UserInterfaceLibrary.TAILWIND_CSS,
     label: "Tailwind CSS",
+  },
+} as const;
+
+export const STATE_MANAGEMENT_OPTIONS = {
+  NONE: {
+    value: StateManagement.NONE,
+    label: "N/A",
+  },
+  CONTEXT: { value: StateManagement.CONTEXT, label: "React Context" },
+  JOTAI: {
+    value: StateManagement.JOTAI,
+    label: "Jotaï",
+  },
+  ZUSTAND: {
+    value: StateManagement.ZUSTAND,
+    label: "Zustand",
   },
 } as const;

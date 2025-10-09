@@ -1,4 +1,9 @@
-import { Bundler, Framework, UserInterfaceLibrary } from "@prisma/client";
+import {
+  Bundler,
+  Framework,
+  StateManagement,
+  UserInterfaceLibrary,
+} from "@prisma/client";
 import { z } from "zod";
 
 // TODO: It cool be cool to have the error message in translations
@@ -24,6 +29,7 @@ export const adminProjectFormValuesSchema = z.object({
   bundler: z.nativeEnum(Bundler),
   framework: z.nativeEnum(Framework),
   userInterface: z.nativeEnum(UserInterfaceLibrary),
+  stateManagement: z.nativeEnum(StateManagement),
 });
 
 export type AdminProjectFormValues = z.infer<
