@@ -14,8 +14,9 @@ export const adminProjectFormValuesSchema = z.object({
   description_fr: z.string().min(1),
   description_en: z.string().min(1),
   deployedAt: z.string().datetime(),
-  // TODO: Ensure it's all lowercase with only a-z-dash
-  slug: z.string().min(1),
+  slug: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, {
+    message: "Slug must be lowercase and hyphen-separated",
+  }),
   websiteUrl: z.string().url().optional(),
   githubUrl: z.string().url().optional(),
   bundler: z.nativeEnum(Bundler),
