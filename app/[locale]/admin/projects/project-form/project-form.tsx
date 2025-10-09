@@ -25,6 +25,7 @@ import { ProjectFormWebsiteURLField } from "./project-form-website-url-field ";
 import { useProjectForm } from "./use-project-form";
 import { ProjectFormSlugField } from "./project-form-slug-field";
 import { ProjectFormIsFavoriteField } from "./project-form-is-favorite-field";
+import { ProjectFormDeleteDialog } from "./project-form-delete-dialog";
 
 type AdminProjectFormProps = {
   project?: Project;
@@ -109,10 +110,7 @@ export const AdminProjectForm = ({ project }: AdminProjectFormProps) => {
                 : t("form.submit.create")}
             </Button>
 
-            {/* TODO: Add deletion */}
-            {/* {projet != null && (
-              <ExperienceFormDeleteDialog projet={projet} />
-            )} */}
+            {project != null && <ProjectFormDeleteDialog project={project} />}
           </div>
         </form>
       </Form>

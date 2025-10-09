@@ -11,7 +11,7 @@ export async function DELETE(
 
   await prisma.project.delete({ where: { id } });
 
-  return new Response(JSON.stringify({}), {
+  return new Response(null, {
     status: 204,
   });
 }
