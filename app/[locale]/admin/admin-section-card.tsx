@@ -29,7 +29,7 @@ export const AdminSectionCard = ({
 
       <CardContent>{content}</CardContent>
 
-      <CardFooter>
+      <CardFooter className="mt-auto">
         <Button className="w-full" asChild>
           <Link {...linkProps} />
         </Button>
