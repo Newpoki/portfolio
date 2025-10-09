@@ -60,7 +60,7 @@ export const ProjectSummary = async ({
 
           <Image
             {...slotProps.image}
-            src={project.illustration}
+            src={`/projects/${project.illustration}`}
             alt={project.illustrationAlt}
             fill
             className={classNames(

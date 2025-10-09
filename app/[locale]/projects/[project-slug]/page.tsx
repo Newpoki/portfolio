@@ -93,7 +93,7 @@ export default async function Project({ params }: Props) {
           </div>
 
           <Image
-            src={project.illustration}
+            src={`/projects/${project.illustration}`}
             alt={project.illustrationAlt}
             fill
             className="relative! min-h-full object-contain"

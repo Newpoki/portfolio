@@ -6,8 +6,10 @@ export const adminProjectFormValuesSchema = z.object({
   id: z.string().nullable(),
   isFavorite: z.boolean(),
   name: z.string().min(1),
-  //   TODO: Improve description so it says it's just he file name + ensure its just the file name
-  illustration: z.string().min(1),
+  // This could accept way more, but I want to ensure to keep them all the same format
+  illustration: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*\.png$/, {
+    message: "Filename must be lower case, with png extension",
+  }),
   illustrationAlt: z.string().min(1),
   shortDesc_fr: z.string().min(1),
   shortDesc_en: z.string().min(1),
