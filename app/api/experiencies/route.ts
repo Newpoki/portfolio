@@ -33,7 +33,7 @@ export async function POST(request: NextRequest) {
     });
   }
 
-  await prisma.project.create({
+  await prisma.experience.create({
     data: {
       ...parsedResult.data,
       id: undefined,
