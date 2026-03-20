@@ -6,11 +6,9 @@ import { z } from "zod";
 import type { Experience } from "@prisma/client";
 import type { MutationOptions } from "@tanstack/react-query";
 import { emptyEditorRuleSchema } from "@/components/ui/editor/editor";
-import { adminExperienceFormSchema } from "@/admin/experiencies/form/admin-experience-form-types";
 
 const prisma = new PrismaClient();
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const updateExperiencePayloadSchema = z.object({
   id: z.string(),
   title: z.string().min(1),
@@ -54,22 +52,14 @@ export const Route = createFileRoute("/api/experiencies/$id")({
           );
         }
       },
-
       PUT: async ({ request, params }) => {
         try {
           const body = await request.json();
-          const parsed = adminExperienceFormSchema.parse(body);
+          const parsed = updateExperiencePayloadSchema.parse(body);
 
           const experience = await prisma.experience.update({
             where: { id: params.id },
-            data: {
-              title: parsed.title,
-              startedAt: new Date(parsed.startedAt),
-              endedAt: parsed.endedAt ? new Date(parsed.endedAt) : null,
-              content_fr: parsed.content_fr,
-              content_en: parsed.content_en,
-              place: parsed.place,
-            },
+            data: parsed,
           });
 
           return Response.json(experience);

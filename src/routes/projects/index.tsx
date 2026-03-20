@@ -1,6 +1,6 @@
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { createFileRoute } from "@tanstack/react-router";
-import { projectsSummaryQueryOptions } from "../api/projects";
+import { projectsSummaryQueryOptions } from "../api/projects.summary";
 import { ProjectSummary } from "./-projects-summary";
 import { m } from "@/paraglide/messages";
 

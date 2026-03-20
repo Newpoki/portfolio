@@ -185,7 +185,6 @@ export const AdminExperienceForm = ({
 
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <form.AppForm>
-            {/* TODO: Check why doesnt reset content fields */}
             <form.CancelButton label={m.admin_experiencies_form_cancel()} />
 
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center">

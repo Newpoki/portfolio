@@ -5,10 +5,21 @@ import axios from "axios";
 import z from "zod";
 import type { MutationOptions } from "@tanstack/react-query";
 import type { Experience } from "@prisma/client";
-import { adminExperienceFormSchema } from "@/admin/experiencies/form/admin-experience-form-types";
 import { emptyEditorRuleSchema } from "@/components/ui/editor/editor";
 
 const prisma = new PrismaClient();
+
+const createExperiencePayloadSchema = z.object({
+  title: z.string().min(1),
+  startedAt: z.iso.datetime(),
+  endedAt: z.iso.datetime().nullable(),
+  content_fr: emptyEditorRuleSchema,
+  content_en: emptyEditorRuleSchema,
+  place: z.object({
+    city: z.string().min(1),
+    country: z.string().min(1),
+  }),
+});
 
 export const Route = createFileRoute("/api/experiencies")({
   server: {
@@ -34,18 +45,10 @@ export const Route = createFileRoute("/api/experiencies")({
       POST: async ({ request }) => {
         try {
           const body = await request.json();
-          const parsed = adminExperienceFormSchema.parse(body);
+          const parsed = createExperiencePayloadSchema.parse(body);
 
           const experience = await prisma.experience.create({
-            data: {
-              title: parsed.title,
-              startedAt: new Date(parsed.startedAt),
-              endedAt: parsed.endedAt ? new Date(parsed.endedAt) : null,
-              content_fr: parsed.content_fr,
-              content_en: parsed.content_en,
-              place: parsed.place,
-              hidden: false,
-            },
+            data: parsed,
           });
 
           return Response.json(experience, { status: 201 });
@@ -70,19 +73,6 @@ export const experienciesQueryOptions = queryOptions({
 
     return data;
   },
-});
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const createExperiencePayloadSchema = z.object({
-  title: z.string().min(1),
-  startedAt: z.iso.datetime(),
-  endedAt: z.iso.datetime().nullable(),
-  content_fr: emptyEditorRuleSchema,
-  content_en: emptyEditorRuleSchema,
-  place: z.object({
-    city: z.string().min(1),
-    country: z.string().min(1),
-  }),
 });
 
 type CreateExperiencePayload = z.infer<typeof createExperiencePayloadSchema>;

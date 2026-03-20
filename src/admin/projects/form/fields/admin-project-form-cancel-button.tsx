@@ -1,0 +1,27 @@
+import { useFormContext } from "../admin-project-form-utils";
+import { Button } from "@/components/ui/button";
+
+type AdminProjectFormCancelButtonProps = {
+  label: string;
+};
+
+export const AdminProjectFormCancelButton = ({
+  label,
+}: AdminProjectFormCancelButtonProps) => {
+  const form = useFormContext();
+
+  return (
+    <form.Subscribe selector={(state) => state.isSubmitting}>
+      {(isSubmitting) => (
+        <Button
+          disabled={isSubmitting}
+          type="button"
+          variant="ghost"
+          onClick={() => form.reset()}
+        >
+          {label}
+        </Button>
+      )}
+    </form.Subscribe>
+  );
+};
