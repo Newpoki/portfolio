@@ -38,12 +38,9 @@ export const AdminExperienceForm = ({
   const form = useAppForm({
     ...adminExperienceFormOptions(experience),
     onSubmit: async ({ value }) => {
-      if (value.id != null) {
+      if (value.type === "edit") {
         try {
-          // TS don't understand value has an non null id after the checks
-          // TODO: Create discriminated union type in form depending to avoid this condition
-          // by adding a type: "edit" | "create"
-          const response = await updateExperience({ ...value, id: value.id });
+          const response = await updateExperience(value);
 
           // Updating the existing experience
           queryClient.setQueryData(
@@ -97,8 +94,6 @@ export const AdminExperienceForm = ({
       } catch {
         toast(m.admin_experiencies_create_error());
       }
-
-      return;
     },
   });
 

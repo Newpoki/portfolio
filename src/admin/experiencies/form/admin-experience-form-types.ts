@@ -1,8 +1,7 @@
 import z from "zod";
 import { emptyEditorRuleSchema } from "@/components/ui/editor/editor";
 
-export const adminExperienceFormSchema = z.object({
-  id: z.string().nullable(),
+const adminExperienceBaseFormSchema = z.object({
   title: z.string().min(1),
   startedAt: z.iso.datetime(),
   endedAt: z.iso.datetime().nullable(),
@@ -13,5 +12,21 @@ export const adminExperienceFormSchema = z.object({
     country: z.string().min(1),
   }),
 });
+
+const adminExperienceCreateFormSchema = z.object({
+  ...adminExperienceBaseFormSchema.shape,
+  type: z.literal("create"),
+});
+
+const adminExperienceEditFormSchema = z.object({
+  ...adminExperienceBaseFormSchema.shape,
+  id: z.string(),
+  type: z.literal("edit"),
+});
+
+export const adminExperienceFormSchema = z.discriminatedUnion("id", [
+  adminExperienceCreateFormSchema,
+  adminExperienceEditFormSchema,
+]);
 
 export type AdminExperienceForm = z.infer<typeof adminExperienceFormSchema>;
