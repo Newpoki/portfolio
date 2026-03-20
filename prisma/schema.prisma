@@ -1,0 +1,68 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "mongodb"
+    url      = env("DATABASE_URL")
+}
+
+model Project {
+    id              String               @id @default(auto()) @map("_id") @db.ObjectId
+    slug            String               @unique
+    shortDesc_en    String
+    shortDesc_fr    String
+    githubUrl       String?
+    websiteUrl      String?
+    illustration    String
+    illustrationAlt String
+    deployedAt      DateTime
+    name            String
+    description_en  String
+    description_fr  String
+    isFavorite      Boolean
+    bundler         Bundler
+    framework       Framework
+    userInterface   UserInterfaceLibrary
+    stateManagement StateManagement
+}
+
+enum Framework {
+    REACT
+    NEXT
+    TANSTACK_START
+}
+
+enum Bundler {
+    TURBOPACK
+    VITE
+    WEBPACK
+}
+
+enum UserInterfaceLibrary {
+    MATERIAL_UI
+    SHADCN
+    TAILWIND_CSS
+    STYLED_COMPONENTS
+}
+
+enum StateManagement {
+    ZUSTAND
+    JOTAI
+    CONTEXT
+    NONE
+}
+
+model Experience {
+    id         String    @id @default(auto()) @map("_id") @db.ObjectId
+    place      Json
+    startedAt  DateTime
+    title      String
+    content_en String
+    content_fr String
+    endedAt    DateTime?
+    hidden     Boolean?
+}

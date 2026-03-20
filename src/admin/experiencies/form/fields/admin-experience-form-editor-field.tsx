@@ -1,0 +1,100 @@
+import { useStore } from "@tanstack/react-form";
+import { generateHTML } from "@tiptap/react";
+import { useEffect, useRef, useState } from "react";
+import { useFieldContext } from "../admin-experience-form-utils";
+import type { Editor as EditorInstance, JSONContent } from "@tiptap/react";
+import type { Locale } from "@/paraglide/runtime";
+import { Field, FieldError, FieldLabel } from "@/components/ui/field";
+import { I18NFlag } from "@/components/i18n/i18n-flag";
+import { Button } from "@/components/ui/button";
+import { m } from "@/paraglide/messages";
+import {
+  DEFAULT_EDITOR_EXTENSIONS,
+  Editor,
+} from "@/components/ui/editor/editor";
+
+type AdminExperienceFormEditorFieldProps = {
+  label: string;
+  locale: Locale;
+};
+
+export const AdminExperienceFormEditorField = ({
+  label,
+  locale,
+}: AdminExperienceFormEditorFieldProps) => {
+  const [isDisplayingPreview, setIsDisplayingPreview] = useState(false);
+
+  const editorRef = useRef<EditorInstance>(null);
+
+  const field = useFieldContext<string>();
+
+  const errors = useStore(field.store, (state) => state.meta.errors);
+  const isInvalid = useStore(
+    field.store,
+    (state) => state.meta.isTouched && !state.meta.isValid,
+  );
+
+  const content = generateHTML(
+    JSON.parse(field.state.value) as JSONContent,
+    DEFAULT_EDITOR_EXTENSIONS,
+  );
+
+  const handleEditorChange = ({ editor }: { editor: EditorInstance }) => {
+    const stringifiedEditorState = JSON.stringify(editor.getJSON());
+
+    field.handleChange(stringifiedEditorState);
+  };
+
+  const handleTogglePreview = () => {
+    setIsDisplayingPreview((current) => !current);
+  };
+
+  useEffect(() => {
+    // As TipTap internally uses it's own state, and field.value.change doesn't trigger re-render
+    // We have to mmanually handle state change like this
+    const editor = editorRef.current;
+    if (editor == null) return;
+
+    const currentContent = JSON.stringify(editor.getJSON());
+
+    if (currentContent !== field.state.value) {
+      editor.commands.setContent(JSON.parse(field.state.value) as JSONContent);
+    }
+  }, [field.state.value]);
+
+  return (
+    <Field data-invalid={isInvalid}>
+      <div className="flex items-center justify-between gap-2">
+        <FieldLabel>
+          {label}
+
+          <I18NFlag locale={locale} />
+        </FieldLabel>
+        <Button
+          variant="ghost"
+          size="sm"
+          type="button"
+          onClick={handleTogglePreview}
+        >
+          {m.admin_experiencies_form_content_preview()}
+        </Button>
+      </div>
+
+      {isDisplayingPreview ? (
+        <div
+          className="editor-preview border-input bg-input max-h-80 min-h-30 overflow-y-auto rounded-md border px-3 py-2"
+          dangerouslySetInnerHTML={{ __html: content }}
+        />
+      ) : (
+        <Editor
+          ref={editorRef}
+          content={content}
+          immediatelyRender={false}
+          onUpdate={handleEditorChange}
+        />
+      )}
+
+      {isInvalid && <FieldError errors={errors} />}
+    </Field>
+  );
+};

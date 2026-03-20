@@ -1,0 +1,48 @@
+0000000000000000000000000000000000000000 ef08474081f9ba401e22810939eb11b0fcadbe45 Jason Savelli <savellijason@gmail.com> 1773439344 +0100	commit (initial): task: first commit
+ef08474081f9ba401e22810939eb11b0fcadbe45 6d53035f33e98b66c939a124deb289fb54446419 Jason Savelli <savellijason@gmail.com> 1773439995 +0100	commit: task: eslint basic setup
+6d53035f33e98b66c939a124deb289fb54446419 38b1eb0a000482b5c02b7ff85d3fe2acb5f9f08b Jason Savelli <savellijason@gmail.com> 1773440442 +0100	commit: task: setup prettier and tailwind
+38b1eb0a000482b5c02b7ff85d3fe2acb5f9f08b 57652e201e8911c2892ea71243cb194702f68f28 Jason Savelli <savellijason@gmail.com> 1773440518 +0100	commit (amend): task: setup prettier and tailwind
+57652e201e8911c2892ea71243cb194702f68f28 a385cdf4ae6536e495855144e326a1a2a363adf1 Jason Savelli <savellijason@gmail.com> 1773511379 +0100	commit: feat: handling translations
+a385cdf4ae6536e495855144e326a1a2a363adf1 02c7a25ba5acc53ce8e8d51eb05e67a7f6701bab Jason Savelli <savellijason@gmail.com> 1773513874 +0100	commit: feat: add base of layout
+02c7a25ba5acc53ce8e8d51eb05e67a7f6701bab 651c3ace7ebd9ae1c1131194a4fc9a2615648f58 Jason Savelli <savellijason@gmail.com> 1773516000 +0100	commit: feat: add header
+651c3ace7ebd9ae1c1131194a4fc9a2615648f58 8f45eea931fe828024ca5dfe29adc1e474f22e50 Jason Savelli <savellijason@gmail.com> 1773520000 +0100	commit: task: translations working fine now
+8f45eea931fe828024ca5dfe29adc1e474f22e50 2952292dda177a6fc2763bee9b1df056b4f9af38 Jason Savelli <savellijason@gmail.com> 1773520790 +0100	commit (amend): task: translations working fine now
+2952292dda177a6fc2763bee9b1df056b4f9af38 4317509343922b13c2c13097b9d2d99535dfe842 Jason Savelli <savellijason@gmail.com> 1773586737 +0100	commit: task: use SF Pro Display fonts
+4317509343922b13c2c13097b9d2d99535dfe842 02cf58cd0f1db42342d15a0f19b7298e6cf2bf72 Jason Savelli <savellijason@gmail.com> 1773589296 +0100	commit: feat: add theme
+02cf58cd0f1db42342d15a0f19b7298e6cf2bf72 4880fbbc3ecd81c4fec6edb7ecc03180b19a764f Jason Savelli <savellijason@gmail.com> 1773589715 +0100	commit: task: prisma setup
+4880fbbc3ecd81c4fec6edb7ecc03180b19a764f da9635a81fc5a4d7a68c053f52ed8600df7dc940 Jason Savelli <savellijason@gmail.com> 1773594970 +0100	commit: feat: can now display projects list
+da9635a81fc5a4d7a68c053f52ed8600df7dc940 76fabbb07c8c973322015f2d66b50f763ce1fd46 Jason Savelli <savellijason@gmail.com> 1773598444 +0100	commit: feat: can now display a project
+76fabbb07c8c973322015f2d66b50f763ce1fd46 76fabbb07c8c973322015f2d66b50f763ce1fd46 Jason Savelli <savellijason@gmail.com> 1773598573 +0100	reset: moving to HEAD
+76fabbb07c8c973322015f2d66b50f763ce1fd46 76fabbb07c8c973322015f2d66b50f763ce1fd46 Jason Savelli <savellijason@gmail.com> 1773598793 +0100	reset: moving to HEAD
+76fabbb07c8c973322015f2d66b50f763ce1fd46 79f3637680e3b8523862911980a282156e27ed15 Jason Savelli <savellijason@gmail.com> 1773600312 +0100	commit (amend): feat: can now display a project
+79f3637680e3b8523862911980a282156e27ed15 150a6d435ec3be92737661c8b8da665c0c1a2b03 Jason Savelli <savellijason@gmail.com> 1773601934 +0100	commit (amend): feat: can now display a project
+150a6d435ec3be92737661c8b8da665c0c1a2b03 6f97c683b7dfe02b76c05f0fe448b6b24b516b30 Jason Savelli <savellijason@gmail.com> 1773603353 +0100	commit: task: create about page
+6f97c683b7dfe02b76c05f0fe448b6b24b516b30 4d70be266f6d87beb898ed76951d860f116a91bd Jason Savelli <savellijason@gmail.com> 1773645084 +0100	commit: feat: add references page
+4d70be266f6d87beb898ed76951d860f116a91bd fcb76066cda2c8dc3603ae930148030e39e12d37 Jason Savelli <savellijason@gmail.com> 1773647902 +0100	commit: feat: add experiencies page
+fcb76066cda2c8dc3603ae930148030e39e12d37 fcb76066cda2c8dc3603ae930148030e39e12d37 Jason Savelli <savellijason@gmail.com> 1773689371 +0100	reset: moving to HEAD
+fcb76066cda2c8dc3603ae930148030e39e12d37 503b27efd32c7cce1c8c73f5d66483bd4e3eb106 Jason Savelli <savellijason@gmail.com> 1773698891 +0100	commit: task: can now login
+503b27efd32c7cce1c8c73f5d66483bd4e3eb106 503b27efd32c7cce1c8c73f5d66483bd4e3eb106 Jason Savelli <savellijason@gmail.com> 1773699249 +0100	reset: moving to HEAD
+503b27efd32c7cce1c8c73f5d66483bd4e3eb106 503b27efd32c7cce1c8c73f5d66483bd4e3eb106 Jason Savelli <savellijason@gmail.com> 1773699257 +0100	reset: moving to HEAD
+503b27efd32c7cce1c8c73f5d66483bd4e3eb106 a7ae5e2632c0db720ab83a0f520531c19ed86287 Jason Savelli <savellijason@gmail.com> 1773699444 +0100	commit (amend): task: can now login
+a7ae5e2632c0db720ab83a0f520531c19ed86287 a7ae5e2632c0db720ab83a0f520531c19ed86287 Jason Savelli <savellijason@gmail.com> 1773699784 +0100	reset: moving to HEAD
+a7ae5e2632c0db720ab83a0f520531c19ed86287 cb0f62de8422540f4e743445a9ee2a0cc5de16e8 Jason Savelli <savellijason@gmail.com> 1773700553 +0100	commit (amend): task: can now login
+cb0f62de8422540f4e743445a9ee2a0cc5de16e8 e971798485abb1825ba8d8864a3eb472b290dd97 Jason Savelli <savellijason@gmail.com> 1773701259 +0100	commit: task: add tanstack eslint plugins
+e971798485abb1825ba8d8864a3eb472b290dd97 9def66968c5343efe8f96719f58822424f204dbf Jason Savelli <savellijason@gmail.com> 1773702190 +0100	commit: feat: only me can login
+9def66968c5343efe8f96719f58822424f204dbf c86c7785399d49a9c6bd83f46691fb0b726e0818 Jason Savelli <savellijason@gmail.com> 1773702338 +0100	commit (amend): feat: only me can login
+c86c7785399d49a9c6bd83f46691fb0b726e0818 4440157f1976e6a6be712e60ca19951119385416 Jason Savelli <savellijason@gmail.com> 1773732135 +0100	commit: feat: add admin page
+4440157f1976e6a6be712e60ca19951119385416 4601f7c25a641ec0cf245ad89de5cd896c81df58 Jason Savelli <savellijason@gmail.com> 1773732340 +0100	commit: fix: theme picker on mobile
+4601f7c25a641ec0cf245ad89de5cd896c81df58 e3b9a81c1c6998a1333835b05cf31f91d7dc3410 Jason Savelli <savellijason@gmail.com> 1773733857 +0100	commit: feat: add admin experiencies page
+e3b9a81c1c6998a1333835b05cf31f91d7dc3410 7fda0936929b1ea909ec46351a91e827b0512891 Jason Savelli <savellijason@gmail.com> 1773734717 +0100	commit (amend): feat: add admin experiencies page
+7fda0936929b1ea909ec46351a91e827b0512891 7fda0936929b1ea909ec46351a91e827b0512891 Jason Savelli <savellijason@gmail.com> 1773820189 +0100	reset: moving to HEAD
+7fda0936929b1ea909ec46351a91e827b0512891 fb2a6db31ecebec02f9e6b805f8901cfb23444f3 Jason Savelli <savellijason@gmail.com> 1773820423 +0100	commit: fix: router
+fb2a6db31ecebec02f9e6b805f8901cfb23444f3 7fda0936929b1ea909ec46351a91e827b0512891 Jason Savelli <savellijason@gmail.com> 1773820442 +0100	reset: moving to HEAD~1
+7fda0936929b1ea909ec46351a91e827b0512891 efb920a441bfb43056f54600adf7acab98a4c608 Jason Savelli <savellijason@gmail.com> 1773820444 +0100	commit (amend): feat: add admin experiencies page
+efb920a441bfb43056f54600adf7acab98a4c608 cfa318836ed767c3862aa591ef37c28883561c15 Jason Savelli <savellijason@gmail.com> 1773870543 +0100	commit: wip
+cfa318836ed767c3862aa591ef37c28883561c15 cfa318836ed767c3862aa591ef37c28883561c15 Jason Savelli <savellijason@gmail.com> 1773870546 +0100	reset: moving to HEAD
+cfa318836ed767c3862aa591ef37c28883561c15 efb920a441bfb43056f54600adf7acab98a4c608 Jason Savelli <savellijason@gmail.com> 1773870555 +0100	reset: moving to HEAD~1
+efb920a441bfb43056f54600adf7acab98a4c608 3a8d8b892132ba65623c195c8c2621f81d7f9a29 Jason Savelli <savellijason@gmail.com> 1773871953 +0100	commit: feat: create base of admin experience form
+3a8d8b892132ba65623c195c8c2621f81d7f9a29 ade1b94543e0c87c1a0f1c481edac18b3d349b67 Jason Savelli <savellijason@gmail.com> 1773907260 +0100	commit (amend): feat: create base of admin experience form
+ade1b94543e0c87c1a0f1c481edac18b3d349b67 4cd1f692912d9deec6345d3953a0888ecefd74b9 Jason Savelli <savellijason@gmail.com> 1773952764 +0100	commit (amend): feat: create base of admin experience form
+4cd1f692912d9deec6345d3953a0888ecefd74b9 271c25e3ecc201a9b51acbee82a0486b092dc78c Jason Savelli <savellijason@gmail.com> 1773953470 +0100	commit: task: add edition route
+271c25e3ecc201a9b51acbee82a0486b092dc78c 0143a1057b5fb94918f00e638166f81c56494d1f Jason Savelli <savellijason@gmail.com> 1773957400 +0100	commit: feat: can now create and update experience
+                                                     

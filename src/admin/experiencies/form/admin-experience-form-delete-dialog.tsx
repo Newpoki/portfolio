@@ -1,0 +1,92 @@
+import { useState } from "react";
+import { Loader2Icon } from "lucide-react";
+import { toast } from "sonner";
+import { useMutation } from "@tanstack/react-query";
+import { useNavigate } from "@tanstack/react-router";
+import type { Experience } from "@prisma/client";
+import { Button } from "@/components/ui/button";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
+import { deleteExperienceMutationOptions } from "@/routes/api/experiencies.$id";
+import { m } from "@/paraglide/messages";
+
+type ExperienceFormDeleteDialogProps = {
+  experience: Experience;
+};
+
+export const AdminExperienceFormDeleteDialog = ({
+  experience,
+}: ExperienceFormDeleteDialogProps) => {
+  const navigate = useNavigate();
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const { mutate: deleteExperience, isPending } = useMutation(
+    deleteExperienceMutationOptions,
+  );
+
+  const handleOpenDialog = () => {
+    setIsOpen(true);
+  };
+
+  const handleCloseDialog = () => {
+    setIsOpen(false);
+  };
+
+  const handleDelete = () => {
+    deleteExperience(
+      { id: experience.id },
+      {
+        onSuccess: () => {
+          navigate({ to: "/admin/experiencies" });
+
+          toast(m.admin_experiencies_delete_dialog_success());
+        },
+        onError: () => {
+          toast(m.admin_experiencies_delete_dialog_error());
+        },
+      },
+    );
+  };
+
+  return (
+    <AlertDialog open={isOpen}>
+      <AlertDialogTrigger asChild>
+        <Button variant="destructive" type="button" onClick={handleOpenDialog}>
+          {m.admin_experiencies_delete_dialog_trigger()}
+        </Button>
+      </AlertDialogTrigger>
+
+      <AlertDialogContent>
+        <AlertDialogHeader>
+          <AlertDialogTitle>
+            {m.admin_experiencies_delete_dialog_title()}
+          </AlertDialogTitle>
+          <AlertDialogDescription>
+            {m.admin_experiencies_delete_dialog_description()}
+          </AlertDialogDescription>
+        </AlertDialogHeader>
+        <AlertDialogFooter>
+          <AlertDialogCancel disabled={isPending} onClick={handleCloseDialog}>
+            {m.admin_experiencies_delete_dialog_cancel()}
+          </AlertDialogCancel>
+
+          <AlertDialogAction disabled={isPending} onClick={handleDelete}>
+            {isPending && <Loader2Icon className="animate-spin" />}
+
+            {m.admin_experiencies_delete_dialog_delete()}
+          </AlertDialogAction>
+        </AlertDialogFooter>
+      </AlertDialogContent>
+    </AlertDialog>
+  );
+};
