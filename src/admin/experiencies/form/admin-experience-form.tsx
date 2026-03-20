@@ -1,4 +1,4 @@
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { useNavigate } from "@tanstack/react-router";
 import {
@@ -8,8 +8,14 @@ import {
 import { AdminExperienceFormDeleteDialog } from "./admin-experience-form-delete-dialog";
 import type { Experience } from "@prisma/client";
 import { m } from "@/paraglide/messages";
-import { updateExperienceMutationOptions } from "@/routes/api/experiencies.$id";
-import { createExperienceMutationOptions } from "@/routes/api/experiencies";
+import {
+  experienceQueryOptions,
+  updateExperienceMutationOptions,
+} from "@/routes/api/experiencies.$id";
+import {
+  createExperienceMutationOptions,
+  experienciesQueryOptions,
+} from "@/routes/api/experiencies";
 
 type AdminExperienceFormProps = {
   experience?: Experience;
@@ -19,6 +25,8 @@ export const AdminExperienceForm = ({
   experience,
 }: AdminExperienceFormProps) => {
   const navigate = useNavigate();
+
+  const queryClient = useQueryClient();
 
   const { mutateAsync: createExperience } = useMutation(
     createExperienceMutationOptions,
@@ -35,7 +43,27 @@ export const AdminExperienceForm = ({
           // TS don't understand value has an non null id after the checks
           // TODO: Create discriminated union type in form depending to avoid this condition
           // by adding a type: "edit" | "create"
-          await updateExperience({ ...value, id: value.id });
+          const response = await updateExperience({ ...value, id: value.id });
+
+          // Updating the existing experience
+          queryClient.setQueryData(
+            experienceQueryOptions({ id: response.id }).queryKey,
+            response,
+          );
+
+          // Then updating the list
+          queryClient.setQueryData(
+            experienciesQueryOptions.queryKey,
+            (current) => {
+              return (
+                current?.map((currentExperience) => {
+                  return currentExperience.id === response.id
+                    ? response
+                    : currentExperience;
+                }) ?? []
+              );
+            },
+          );
 
           toast(m.admin_experiencies_edit_success());
         } catch {
@@ -47,6 +75,18 @@ export const AdminExperienceForm = ({
 
       try {
         const response = await createExperience(value);
+
+        // Creating the new experience
+        queryClient.setQueryData(
+          experienceQueryOptions({ id: response.id }).queryKey,
+          response,
+        );
+
+        // And then, as we can't know where will it be added in the list, invalidating the list
+        queryClient.invalidateQueries({
+          exact: true,
+          queryKey: experienciesQueryOptions.queryKey,
+        });
 
         navigate({
           to: "/admin/experiencies/$id",

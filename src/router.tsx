@@ -7,7 +7,13 @@ import { Separator } from "./components/ui/separator";
 import { deLocalizeUrl, localizeUrl } from "@/paraglide/runtime.js";
 
 export function getRouter() {
-  const queryClient = new QueryClient();
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        staleTime: Infinity,
+      },
+    },
+  });
 
   const router = createRouter({
     routeTree,

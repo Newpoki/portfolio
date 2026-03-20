@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Loader2Icon } from "lucide-react";
 import { toast } from "sonner";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useNavigate } from "@tanstack/react-router";
 import type { Experience } from "@prisma/client";
 import { Button } from "@/components/ui/button";
@@ -16,8 +16,12 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
-import { deleteExperienceMutationOptions } from "@/routes/api/experiencies.$id";
+import {
+  deleteExperienceMutationOptions,
+  experienceQueryOptions,
+} from "@/routes/api/experiencies.$id";
 import { m } from "@/paraglide/messages";
+import { experienciesQueryOptions } from "@/routes/api/experiencies";
 
 type ExperienceFormDeleteDialogProps = {
   experience: Experience;
@@ -27,6 +31,7 @@ export const AdminExperienceFormDeleteDialog = ({
   experience,
 }: ExperienceFormDeleteDialogProps) => {
   const navigate = useNavigate();
+  const queryClient = useQueryClient();
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -47,6 +52,23 @@ export const AdminExperienceFormDeleteDialog = ({
       { id: experience.id },
       {
         onSuccess: () => {
+          queryClient.removeQueries({
+            exact: true,
+            queryKey: experienceQueryOptions({ id: experience.id }).queryKey,
+          });
+
+          // Then removing the element from the list
+          queryClient.setQueryData(
+            experienciesQueryOptions.queryKey,
+            (current) => {
+              return (
+                current?.filter((currentExperience) => {
+                  return currentExperience.id !== experience.id;
+                }) ?? []
+              );
+            },
+          );
+
           navigate({ to: "/admin/experiencies" });
 
           toast(m.admin_experiencies_delete_dialog_success());
