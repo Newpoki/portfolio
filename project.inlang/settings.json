@@ -8,5 +8,8 @@
   ],
   "plugin.inlang.messageFormat": {
     "pathPattern": "./messages/{locale}.json"
+  },
+  "plugin.inlang.paraglideJs": {
+    "exclude": ["/api/**"]
   }
 }
