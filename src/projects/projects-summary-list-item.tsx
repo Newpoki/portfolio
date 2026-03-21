@@ -1,13 +1,13 @@
-import type { ProjectSummary as IProjectSummary } from "../api/projects";
+import type { ProjectSummary } from "../routes/api/projects.summary";
 import StarIcon from "@/icons/star.svg?react";
 import { Link } from "@/components/ui/link";
 import { cn } from "@/lib/cn";
 import { m } from "@/paraglide/messages";
 
-type Props = {
+type ProjectsSummaryItemProps = {
   className?: string;
   isFavorite?: boolean | null;
-  project: IProjectSummary;
+  project: ProjectSummary;
   slotProps?: {
     image?: React.ImgHTMLAttributes<HTMLImageElement>;
     imageWrapper?: Partial<
@@ -19,13 +19,12 @@ type Props = {
   };
 };
 
-// TODO: Try to improve routes archi for projects
-export const ProjectSummary = ({
+export const ProjectsSummaryItem = ({
   className,
   isFavorite = false,
   project,
   slotProps = {},
-}: Props) => {
+}: ProjectsSummaryItemProps) => {
   return (
     <article
       className={cn(

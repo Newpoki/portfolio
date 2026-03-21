@@ -10,11 +10,11 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ReferencesRouteImport } from './routes/references'
+import { Route as ProjectsRouteImport } from './routes/projects'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as ExperienciesRouteImport } from './routes/experiencies'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as ProjectsIndexRouteImport } from './routes/projects/index'
 import { Route as AdminIndexRouteImport } from './routes/admin/index'
 import { Route as ProjectsSlugRouteImport } from './routes/projects.$slug'
 import { Route as ApiProjectsRouteImport } from './routes/api/projects'
@@ -33,6 +33,11 @@ import { Route as AdminExperienciesIdRouteImport } from './routes/admin/experien
 const ReferencesRoute = ReferencesRouteImport.update({
   id: '/references',
   path: '/references',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectsRoute = ProjectsRouteImport.update({
+  id: '/projects',
+  path: '/projects',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LoginRoute = LoginRouteImport.update({
@@ -55,20 +60,15 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ProjectsIndexRoute = ProjectsIndexRouteImport.update({
-  id: '/projects/',
-  path: '/projects/',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const AdminIndexRoute = AdminIndexRouteImport.update({
   id: '/admin/',
   path: '/admin/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProjectsSlugRoute = ProjectsSlugRouteImport.update({
-  id: '/projects/$slug',
-  path: '/projects/$slug',
-  getParentRoute: () => rootRouteImport,
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => ProjectsRoute,
 } as any)
 const ApiProjectsRoute = ApiProjectsRouteImport.update({
   id: '/api/projects',
@@ -136,12 +136,12 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/experiencies': typeof ExperienciesRoute
   '/login': typeof LoginRoute
+  '/projects': typeof ProjectsRouteWithChildren
   '/references': typeof ReferencesRoute
   '/api/experiencies': typeof ApiExperienciesRouteWithChildren
   '/api/projects': typeof ApiProjectsRouteWithChildren
   '/projects/$slug': typeof ProjectsSlugRoute
   '/admin/': typeof AdminIndexRoute
-  '/projects/': typeof ProjectsIndexRoute
   '/admin/experiencies/$id': typeof AdminExperienciesIdRoute
   '/admin/experiencies/new': typeof AdminExperienciesNewRoute
   '/admin/projects/$slug': typeof AdminProjectsSlugRoute
@@ -158,12 +158,12 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/experiencies': typeof ExperienciesRoute
   '/login': typeof LoginRoute
+  '/projects': typeof ProjectsRouteWithChildren
   '/references': typeof ReferencesRoute
   '/api/experiencies': typeof ApiExperienciesRouteWithChildren
   '/api/projects': typeof ApiProjectsRouteWithChildren
   '/projects/$slug': typeof ProjectsSlugRoute
   '/admin': typeof AdminIndexRoute
-  '/projects': typeof ProjectsIndexRoute
   '/admin/experiencies/$id': typeof AdminExperienciesIdRoute
   '/admin/experiencies/new': typeof AdminExperienciesNewRoute
   '/admin/projects/$slug': typeof AdminProjectsSlugRoute
@@ -181,12 +181,12 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/experiencies': typeof ExperienciesRoute
   '/login': typeof LoginRoute
+  '/projects': typeof ProjectsRouteWithChildren
   '/references': typeof ReferencesRoute
   '/api/experiencies': typeof ApiExperienciesRouteWithChildren
   '/api/projects': typeof ApiProjectsRouteWithChildren
   '/projects/$slug': typeof ProjectsSlugRoute
   '/admin/': typeof AdminIndexRoute
-  '/projects/': typeof ProjectsIndexRoute
   '/admin/experiencies/$id': typeof AdminExperienciesIdRoute
   '/admin/experiencies/new': typeof AdminExperienciesNewRoute
   '/admin/projects/$slug': typeof AdminProjectsSlugRoute
@@ -205,12 +205,12 @@ export interface FileRouteTypes {
     | '/about'
     | '/experiencies'
     | '/login'
+    | '/projects'
     | '/references'
     | '/api/experiencies'
     | '/api/projects'
     | '/projects/$slug'
     | '/admin/'
-    | '/projects/'
     | '/admin/experiencies/$id'
     | '/admin/experiencies/new'
     | '/admin/projects/$slug'
@@ -227,12 +227,12 @@ export interface FileRouteTypes {
     | '/about'
     | '/experiencies'
     | '/login'
+    | '/projects'
     | '/references'
     | '/api/experiencies'
     | '/api/projects'
     | '/projects/$slug'
     | '/admin'
-    | '/projects'
     | '/admin/experiencies/$id'
     | '/admin/experiencies/new'
     | '/admin/projects/$slug'
@@ -249,12 +249,12 @@ export interface FileRouteTypes {
     | '/about'
     | '/experiencies'
     | '/login'
+    | '/projects'
     | '/references'
     | '/api/experiencies'
     | '/api/projects'
     | '/projects/$slug'
     | '/admin/'
-    | '/projects/'
     | '/admin/experiencies/$id'
     | '/admin/experiencies/new'
     | '/admin/projects/$slug'
@@ -272,12 +272,11 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   ExperienciesRoute: typeof ExperienciesRoute
   LoginRoute: typeof LoginRoute
+  ProjectsRoute: typeof ProjectsRouteWithChildren
   ReferencesRoute: typeof ReferencesRoute
   ApiExperienciesRoute: typeof ApiExperienciesRouteWithChildren
   ApiProjectsRoute: typeof ApiProjectsRouteWithChildren
-  ProjectsSlugRoute: typeof ProjectsSlugRoute
   AdminIndexRoute: typeof AdminIndexRoute
-  ProjectsIndexRoute: typeof ProjectsIndexRoute
   AdminExperienciesIdRoute: typeof AdminExperienciesIdRoute
   AdminExperienciesNewRoute: typeof AdminExperienciesNewRoute
   AdminProjectsSlugRoute: typeof AdminProjectsSlugRoute
@@ -294,6 +293,13 @@ declare module '@tanstack/react-router' {
       path: '/references'
       fullPath: '/references'
       preLoaderRoute: typeof ReferencesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects': {
+      id: '/projects'
+      path: '/projects'
+      fullPath: '/projects'
+      preLoaderRoute: typeof ProjectsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/login': {
@@ -324,13 +330,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/projects/': {
-      id: '/projects/'
-      path: '/projects'
-      fullPath: '/projects/'
-      preLoaderRoute: typeof ProjectsIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/admin/': {
       id: '/admin/'
       path: '/admin'
@@ -340,10 +339,10 @@ declare module '@tanstack/react-router' {
     }
     '/projects/$slug': {
       id: '/projects/$slug'
-      path: '/projects/$slug'
+      path: '/$slug'
       fullPath: '/projects/$slug'
       preLoaderRoute: typeof ProjectsSlugRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof ProjectsRoute
     }
     '/api/projects': {
       id: '/api/projects'
@@ -432,6 +431,18 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface ProjectsRouteChildren {
+  ProjectsSlugRoute: typeof ProjectsSlugRoute
+}
+
+const ProjectsRouteChildren: ProjectsRouteChildren = {
+  ProjectsSlugRoute: ProjectsSlugRoute,
+}
+
+const ProjectsRouteWithChildren = ProjectsRoute._addFileChildren(
+  ProjectsRouteChildren,
+)
+
 interface ApiExperienciesRouteChildren {
   ApiExperienciesIdRoute: typeof ApiExperienciesIdRoute
 }
@@ -463,12 +474,11 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   ExperienciesRoute: ExperienciesRoute,
   LoginRoute: LoginRoute,
+  ProjectsRoute: ProjectsRouteWithChildren,
   ReferencesRoute: ReferencesRoute,
   ApiExperienciesRoute: ApiExperienciesRouteWithChildren,
   ApiProjectsRoute: ApiProjectsRouteWithChildren,
-  ProjectsSlugRoute: ProjectsSlugRoute,
   AdminIndexRoute: AdminIndexRoute,
-  ProjectsIndexRoute: ProjectsIndexRoute,
   AdminExperienciesIdRoute: AdminExperienciesIdRoute,
   AdminExperienciesNewRoute: AdminExperienciesNewRoute,
   AdminProjectsSlugRoute: AdminProjectsSlugRoute,
