@@ -12,8 +12,6 @@ type ExperienciesFlowPageProps = {
   experiencies: Array<Experience>;
 };
 
-// TODO: Remove use client directives
-
 export const ExperienciesFlowPage = ({
   experiencies,
 }: ExperienciesFlowPageProps) => {

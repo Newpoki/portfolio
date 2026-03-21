@@ -3,8 +3,9 @@ import { useMemo } from "react";
 import { generateHTML } from "@tiptap/react";
 import { DEFAULT_EDITOR_EXTENSIONS } from "../ui/editor/editor";
 import type { Node, NodeProps } from "@xyflow/react";
-import type { Locale } from "@/paraglide/runtime";
 import type { Experience } from "@prisma/client";
+import type { Locale } from "@/paraglide/runtime";
+import { getLocale } from "@/paraglide/runtime";
 import { m } from "@/paraglide/messages";
 
 export type ExperienceNodeData = Node<{
@@ -17,6 +18,8 @@ export type ExperienceNodeData = Node<{
 export type ExperienceNodeProps = NodeProps<ExperienceNodeData>;
 
 export const ExperienceNode = ({ data }: ExperienceNodeProps) => {
+  const locale = getLocale();
+
   const experienceContentHTML = useMemo(() => {
     return generateHTML(
       JSON.parse(data.experience[`content_${data.locale}`]) ?? "",
@@ -33,10 +36,18 @@ export const ExperienceNode = ({ data }: ExperienceNodeProps) => {
 
         <p className="mb-4">
           {m.experiencies_period({
-            // TODO: Add back proper formatting
-            startDate: data.experience.startedAt,
+            startDate: new Intl.DateTimeFormat(locale, {
+              day: "2-digit",
+              month: "long",
+              year: "numeric",
+            }).format(new Date(data.experience.startedAt)),
+
             endDate: data.experience.endedAt
-              ? data.experience.endedAt
+              ? new Intl.DateTimeFormat(locale, {
+                  day: "2-digit",
+                  month: "long",
+                  year: "numeric",
+                }).format(new Date(data.experience.endedAt))
               : m.experiencies_today(),
           })}
         </p>

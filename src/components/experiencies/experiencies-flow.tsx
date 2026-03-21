@@ -118,9 +118,12 @@ export const ExperienciesFlow = ({ experiencies }: ExperienciesFlowProps) => {
     centerOnFirstElement(instance);
   }, [instance]);
 
-  const handleNodeClick = (_event: React.MouseEvent<Element>, node: Node) => {
-    instance.fitView({ nodes: [node], duration: 250, padding: 2 });
-  };
+  const handleNodeClick = useCallback(
+    (_event: React.MouseEvent<Element>, node: Node) => {
+      instance.fitView({ nodes: [node], duration: 250, padding: 2 });
+    },
+    [instance],
+  );
 
   useEffect(() => {
     if (ref.current == null) {
