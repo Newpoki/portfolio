@@ -36,12 +36,15 @@ export default defineConfig(
     },
     rules: {
       "no-unused-vars": "off",
-      "@typescript-eslint/no-unused-vars": ["error"],
       "react/jsx-no-literals": "error", // Makes sure using translation instead of raw text
       "@typescript-eslint/no-unused-expressions": [
         // Allow uses of a ? b() : c()
         "error",
         { allowTernary: true },
+      ],
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        { ignoreRestSiblings: true },
       ],
       "react-hooks/exhaustive-deps": "error", // We never want to omit hooks dependencies
       "react/jsx-key": "error", // We never want to omit key on JSX items that requires it

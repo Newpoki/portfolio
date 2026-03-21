@@ -23,14 +23,10 @@ const BRIGHT_SLIDE_ANIMATION_CLASSNAME =
 const EXPANSE_CENTER_CLASSNAME =
   "relative flex flex-col self-start after:content-[' '] after:absolute after:bottom-0 after:block after:h-[1px] after:w-full after:scale-x-0 after:w-full hover:after:scale-x-100 after:bg-foreground after:transition-transform";
 
-//   TODO: Fix this false error
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const InternalLink = ({ type, ...others }: InternalLinkProps) => {
   return <TSRLink {...others} />;
 };
 
-//   TODO: Fix this false error
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const ExternalLink = ({ type, ...others }: ExternalLinkProps) => {
   return <a {...others} target="_blank" rel="noopener, noreferrer" />;
 };
