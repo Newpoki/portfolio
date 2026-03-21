@@ -1,5 +1,5 @@
 import { MenuIcon } from "lucide-react";
-import { useCallback, useState } from "react";
+import { useState } from "react";
 import { ThemeButtonGroup } from "../theme/theme-button-group";
 import { LocaleDropdown } from "../i18n/locale-dropdown";
 import { HeaderLink } from "./header-link";
@@ -19,9 +19,9 @@ type HeaderDrawerProps = {
 export const HeaderDrawer = ({ className, profile }: HeaderDrawerProps) => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
-  const handleCloseDrawer = useCallback(() => {
+  const handleCloseDrawer = () => {
     setIsDrawerOpen(false);
-  }, []);
+  };
 
   return (
     <Drawer open={isDrawerOpen} onOpenChange={setIsDrawerOpen}>

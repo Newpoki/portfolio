@@ -36,9 +36,11 @@ export default defineConfig(
       "@typescript-eslint/no-unused-vars": ["error"],
       "react/jsx-no-literals": "error", // Makes sure using translation instead of raw text
       "@typescript-eslint/no-unused-expressions": [
+        // Allow uses of a ? b() : c()
         "error",
         { allowTernary: true },
       ],
+      "react-hooks/exhaustive-deps": "error",
     },
   },
 );
