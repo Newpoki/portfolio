@@ -1,10 +1,4 @@
 import { createFormHook, createFormHookContexts } from "@tanstack/react-form";
-import {
-  BUNDLER,
-  FRAMEWORK,
-  STATE_MANAGEMENT,
-  USER_INTERFACE_LIBRARY,
-} from "../../../../project/project-constants";
 import { AdminProjectFormTextField } from "./fields/admin-project-form-text-field";
 import { adminProjectFormSchema } from "./admin-project-form-types";
 import { AdminProjectFormDateField } from "./fields/admin-project-form-date-field";
@@ -15,6 +9,12 @@ import { AdminProjectFormLinkField } from "./fields/admin-project-form-link-fiel
 import { AdminProjectFormAutocompleteField } from "./fields/admin-project-form-autocomplete";
 import type { AdminProjectForm } from "./admin-project-form-types";
 import type { Project } from "@prisma/client";
+import {
+  BUNDLER,
+  FRAMEWORK,
+  STATE_MANAGEMENT,
+  USER_INTERFACE_LIBRARY,
+} from "@/projects/project-constants";
 
 export const { fieldContext, useFieldContext, formContext, useFormContext } =
   createFormHookContexts();

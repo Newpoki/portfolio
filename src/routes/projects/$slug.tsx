@@ -1,12 +1,12 @@
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { createFileRoute } from "@tanstack/react-router";
+import { projectQueryOptions } from "../api/projects.$slug";
 import {
   BUNDLER_OPTIONS,
   FRAMEWORK_OPTIONS,
   STATE_MANAGEMENT_OPTIONS,
   USER_INTERFACE_OPTIONS,
-} from "../../../project/project-constants";
-import { projectQueryOptions } from "../api/projects.$slug";
+} from "@/projects/project-constants";
 import { Link } from "@/components/ui/link";
 import { m } from "@/paraglide/messages";
 import { TabeListItem } from "@/components/ui/table-list-item";

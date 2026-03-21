@@ -1,18 +1,19 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { useNavigate } from "@tanstack/react-router";
-import {
-  BUNDLER_OPTIONS,
-  FRAMEWORK_OPTIONS,
-  STATE_MANAGEMENT_OPTIONS,
-  USER_INTERFACE_OPTIONS,
-} from "../../../../project/project-constants";
+
 import {
   adminProjectFormOptions,
   useAppForm,
 } from "./admin-project-form-utils";
 import { AdminProjectFormDeleteDialog } from "./admin-project-form-delete-dialog";
 import type { Project } from "@prisma/client";
+import {
+  BUNDLER_OPTIONS,
+  FRAMEWORK_OPTIONS,
+  STATE_MANAGEMENT_OPTIONS,
+  USER_INTERFACE_OPTIONS,
+} from "@/projects/project-constants";
 import { m } from "@/paraglide/messages";
 import {
   projectQueryOptions,

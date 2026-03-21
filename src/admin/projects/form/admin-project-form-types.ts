@@ -4,7 +4,7 @@ import {
   FRAMEWORK,
   STATE_MANAGEMENT,
   USER_INTERFACE_LIBRARY,
-} from "../../../../project/project-constants";
+} from "@/projects/project-constants";
 
 const adminProjectBaseFormSchema = z.object({
   isFavorite: z.boolean(),

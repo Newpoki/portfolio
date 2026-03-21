@@ -2,14 +2,14 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PrismaClient } from "@prisma/client";
 import { queryOptions } from "@tanstack/react-query";
 import z from "zod";
+import type { MutationOptions } from "@tanstack/react-query";
+import type { Project } from "@prisma/client";
 import {
   BUNDLER,
   FRAMEWORK,
   STATE_MANAGEMENT,
   USER_INTERFACE_LIBRARY,
-} from "../../../project/project-constants";
-import type { MutationOptions } from "@tanstack/react-query";
-import type { Project } from "@prisma/client";
+} from "@/projects/project-constants";
 import { axiosClient } from "@/axios-client";
 
 const prisma = new PrismaClient();
