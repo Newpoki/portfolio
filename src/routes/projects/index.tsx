@@ -4,6 +4,7 @@ import { projectsSummaryQueryOptions } from "../api/projects.summary";
 import { m } from "@/paraglide/messages";
 import { ProjectsSummaryItem } from "@/projects/projects-summary-list-item";
 import { ProjectsPending } from "@/projects/projects-pending";
+import { seo } from "@/lib/seo";
 
 export const Route = createFileRoute("/projects/")({
   component: RouteComponent,
@@ -11,6 +12,12 @@ export const Route = createFileRoute("/projects/")({
     await context.queryClient.ensureQueryData(projectsSummaryQueryOptions);
   },
   pendingComponent: ProjectsPending,
+  head: () => ({
+    meta: seo({
+      title: m.projects_metadata_title(),
+      description: m.projects_metadata_description(),
+    }),
+  }),
 });
 
 function RouteComponent() {

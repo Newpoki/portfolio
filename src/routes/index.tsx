@@ -2,8 +2,19 @@ import { createFileRoute } from "@tanstack/react-router";
 import { m } from "@/paraglide/messages";
 import { cn } from "@/lib/cn";
 import DownloadIcon from "@/icons/download.svg?react";
+import { seo } from "@/lib/seo";
 
-const Home = () => {
+export const Route = createFileRoute("/")({
+  component: Home,
+  head: () => ({
+    meta: seo({
+      title: m.home_metadata_title(),
+      description: m.home_metadata_description(),
+    }),
+  }),
+});
+
+function Home() {
   return (
     <section className="flex flex-1 flex-col items-center justify-center gap-4 text-center md:gap-16">
       <h1
@@ -32,8 +43,4 @@ const Home = () => {
       </a>
     </section>
   );
-};
-
-export const Route = createFileRoute("/")({
-  component: Home,
-});
+}

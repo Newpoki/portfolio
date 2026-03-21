@@ -12,13 +12,31 @@ import { m } from "@/paraglide/messages";
 import { TabeListItem } from "@/components/ui/table-list-item";
 import { getLocale } from "@/paraglide/runtime";
 import { ProjectPending } from "@/projects/project-pending";
+import { seo } from "@/lib/seo";
+// import { seo } from "@/lib/seo";
 
 export const Route = createFileRoute("/projects/$slug")({
   component: ProjectComponent,
   loader: async ({ context, params: { slug } }) => {
-    await context.queryClient.ensureQueryData(projectQueryOptions({ slug }));
+    const project = await context.queryClient.ensureQueryData(
+      projectQueryOptions({ slug }),
+    );
+
+    return { project };
   },
   pendingComponent: ProjectPending,
+  head: (params) => {
+    const project = params.loaderData?.project;
+    const title = project?.name ?? m.project_metadata_title();
+    // Should also have description, but can't find a way to get locale from here :(
+
+    return {
+      meta: seo({
+        title,
+        image: project?.illustration,
+      }),
+    };
+  },
   //   TODO: Implement not found
   // TODO: Implement error component,
 });

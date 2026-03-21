@@ -7,7 +7,7 @@
   "generic_set_link": "Définir le lien",
   "generic_close": "Fermer",
 
-  "home_metadata_title": "Accueil",
+  "home_metadata_title": "Accueil / Jason Savelli",
   "home_metadata_description": "Découvrez mon portfolio : projets, expertise et innovation en développement web Front-End.",
   "home_title": "Jason Savelli</br> senior front-end software engineer",
   "home_subtitle": "J'aime travailler sur des projets avec React et TypeScript",
@@ -33,11 +33,14 @@
   "theme_dark": "Sombre",
   "theme_system": "Système",
 
+  "projects_metadata_title": "Projets / Jason Savelli",
+  "projects_metadata_description": "Voici certains de mes projets personnels.",
   "projects_title": "Projets",
   "projects_subtitle": "Quelques projets personnels",
   "projects_view_project": "Voir le projet",
   "projects_deployed_at": "({deployedAt})",
 
+  "project_metadata_title": "Projet / Jason Savelli",
   "project_discover": "Découvrir ↓",
   "project_visit_live_version": "Aller sur le site",
   "project_visit_github": "Aller sur le repository github",

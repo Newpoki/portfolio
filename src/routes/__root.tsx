@@ -2,6 +2,7 @@
 /// <reference types="vite-plugin-svgr/client" />
 
 import {
+  ClientOnly,
   HeadContent,
   Outlet,
   Scripts,
@@ -34,7 +35,7 @@ export const Route = createRootRouteWithContext<RootRouteContext>()({
         content: "width=device-width, initial-scale=1",
       },
       {
-        title: "TanStack Start Starter",
+        title: "Jason Savelli",
       },
     ],
     links: [{ rel: "stylesheet", href: appCss }, { rel: "" }],
@@ -78,21 +79,23 @@ function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
 
         <Toaster theme={theme} />
 
-        <TanStackDevtools
-          config={{
-            defaultOpen: false,
-          }}
-          plugins={[
-            {
-              name: "TanStack Query",
-              render: <ReactQueryDevtoolsPanel />,
-            },
-            {
-              name: "TanStack Router",
-              render: <TanStackRouterDevtoolsPanel />,
-            },
-          ]}
-        />
+        <ClientOnly>
+          <TanStackDevtools
+            config={{
+              defaultOpen: false,
+            }}
+            plugins={[
+              {
+                name: "TanStack Query",
+                render: <ReactQueryDevtoolsPanel />,
+              },
+              {
+                name: "TanStack Router",
+                render: <TanStackRouterDevtoolsPanel />,
+              },
+            ]}
+          />
+        </ClientOnly>
         <Scripts />
       </body>
     </html>
