@@ -37,7 +37,6 @@ export const ThemeDropdown = () => {
       </DropdownMenuTrigger>
 
       <DropdownMenuContent align="end">
-        {/* TODO: ESLInt rule for mandatory key */}
         {OPTIONS.map((option) => (
           <DropdownMenuItem
             key={option.value}

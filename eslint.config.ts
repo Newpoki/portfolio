@@ -18,10 +18,13 @@ export default defineConfig(
   },
   {
     files: ["**/*.ts", "**/*.tsx"],
+    ...react.configs.flat.recommended, // This is not a plugin object, but a shareable config object
+    ...react.configs.flat["jsx-runtime"], // Add this if you are using React 17+
     plugins: {
       react,
     },
     languageOptions: {
+      ...react.configs.flat.recommended?.languageOptions,
       parserOptions: {
         ecmaFeatures: {
           jsx: true,
@@ -40,7 +43,8 @@ export default defineConfig(
         "error",
         { allowTernary: true },
       ],
-      "react-hooks/exhaustive-deps": "error",
+      "react-hooks/exhaustive-deps": "error", // We never want to omit hooks dependencies
+      "react/jsx-key": "error", // We never want to omit key on JSX items that requires it
     },
   },
 );
