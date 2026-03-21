@@ -4,6 +4,7 @@ import viteReact from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import { paraglideVitePlugin } from "@inlang/paraglide-js";
 import svgr from "vite-plugin-svgr";
+import { nitro } from "nitro/vite";
 
 import { translatedPathnames } from "./src//lib/translated-pathnames"; // tsconfigPaths is setup below, can't use aliases yet
 
@@ -17,6 +18,9 @@ export default defineConfig({
   },
   plugins: [
     tanstackStart(),
+    nitro({
+      preset: "vercel",
+    }),
     viteReact(), // react's vite plugin must come after start's vite plugin
     tailwindcss(),
     svgr(),

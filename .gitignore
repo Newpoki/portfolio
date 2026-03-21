@@ -5,7 +5,7 @@
 
 # production
 
-/build
+.vercel
 
 # typescript
 
@@ -19,3 +19,4 @@
 
 .tanstack
 /src/generated/prisma
+
