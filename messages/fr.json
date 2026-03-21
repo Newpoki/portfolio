@@ -7,7 +7,7 @@
   "generic_set_link": "Définir le lien",
   "generic_close": "Fermer",
 
-  "home_metadata_title": "Accueil / Jason Savelli",
+  "home_metadata_title": "Jason Savelli",
   "home_metadata_description": "Découvrez mon portfolio : projets, expertise et innovation en développement web Front-End.",
   "home_title": "Jason Savelli</br> senior front-end software engineer",
   "home_subtitle": "J'aime travailler sur des projets avec React et TypeScript",
@@ -51,10 +51,14 @@
   "project_user_interface": "Interface Utilisateur",
   "project_state_management": "Gestion d'état",
 
+  "experiencies_metadata_title": "Expériences / Jason Savelli",
+  "experiencies_metadata_description": "Toutes mes expériences professionnelles à ce jour",
   "experiencies_title": "Expériences",
   "experiencies_today": "Aujourd'hui",
   "experiencies_period": "{startDate} - {endDate}",
 
+  "about_metadata_title": "A propos / Jason Savelli",
+  "about_metadata_description": "Apprenez en plus sur moi",
   "about_title": "Front-End</br>et guitare",
   "about_subtitle": "Apprenez-en plus sur moi, comment j'en suis arrivé là, ce que j'aime dans le Front-End et aussi quelques riffs de guitare.",
   "about_about_me_picture_alt": "Photo en noir et blanc de Jason portant des lunettes de soleil touché par un rayon de soleil",
@@ -81,6 +85,8 @@
   "about_dogs_picture_alt": "Photo de Redux et Nouchka, deux bergers australiens",
   "about_me_and_my_friends_alt": "Photo de Jason et certains de ses amis à un mariage",
 
+  "references_metadata_title": "Références / Jason Savelli",
+  "references_metadata_description": "Laissons parler les gens en mon nom",
   "references_title": "Références",
   "references_subtitle": "Des personnes qui peuvent en dire plus",
   "references_description": "Je vous ai dit qui je suis, mais il est parfois intéressant de laisser d'autres personnes parler pour nous. Voici une liste de personnes avec qui j'ai travaillé et qui seraient ravies de vous dire comment c'était de travailler avec moi.",
@@ -89,11 +95,14 @@
   "references_front_end_architect": "Architecte Front end",
   "references_product_manager": "Product manager",
 
+  "login_metadata_title": "Admin / Jason Savelli",
+  "login_metadata_description": "Page de connexion pour acceder au dashboard",
   "login_title": "Connexion",
   "login_alert_title": "Accès page administrateur",
   "login_alert_description": "Permet d'acceder au panneau administrateur. En tant qu'utilisateur, vous n'y avez pas accès.",
   "login_github_button": "Se connecter via GitHub",
 
+  "admin_metadata_title": "Admin / Jason Savelli",
   "admin_title_title": "Tableau de bord admin",
   "admin_cards_experiencies_title": "Expériences",
   "admin_cards_experiencies_content": "Créer, modifier ou supprimer une expérience",

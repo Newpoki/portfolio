@@ -3,9 +3,16 @@ import { ParaglideMessage } from "@inlang/paraglide-js-react";
 import { m } from "@/paraglide/messages";
 import { Link } from "@/components/ui/link";
 import { TabeListItem } from "@/components/ui/table-list-item";
+import { seo } from "@/lib/seo";
 
 export const Route = createFileRoute("/about")({
   component: RouteComponent,
+  head: () => ({
+    meta: seo({
+      title: m.about_metadata_title(),
+      description: m.about_metadata_description(),
+    }),
+  }),
 });
 
 function RouteComponent() {

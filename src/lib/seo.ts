@@ -9,6 +9,8 @@ export const seo = ({
   image?: string;
   keywords?: string;
 }) => {
+  const fallbackImage = `${import.meta.env.VERCEL_URL}/about/me.png`;
+
   const tags = [
     { title },
     { name: "description", content: description },
@@ -20,13 +22,17 @@ export const seo = ({
     { name: "og:type", content: "website" },
     { name: "og:title", content: title },
     { name: "og:description", content: description },
-    ...(image
-      ? [
-          { name: "twitter:image", content: image },
-          { name: "twitter:card", content: "summary_large_image" },
-          { name: "og:image", content: image },
-        ]
-      : []),
+    ...[
+      {
+        name: "twitter:image",
+        content: image ?? fallbackImage,
+      },
+      { name: "twitter:card", content: "summary_large_image" },
+      {
+        name: "og:image",
+        content: image ?? fallbackImage,
+      },
+    ],
   ];
 
   return tags;

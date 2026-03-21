@@ -1,8 +1,8 @@
 import { createFileRoute, redirect } from "@tanstack/react-router";
 import { AdminSectionCard } from "@/admin/admin-section-card";
 import { m } from "@/paraglide/messages";
+import { seo } from "@/lib/seo";
 
-// TODO: Add back SEO on every page
 export const Route = createFileRoute("/admin/")({
   component: Admin,
   beforeLoad: ({ context }) => {
@@ -10,6 +10,11 @@ export const Route = createFileRoute("/admin/")({
       throw redirect({ to: "/login" });
     }
   },
+  head: () => ({
+    meta: seo({
+      title: m.admin_metadata_title(),
+    }),
+  }),
 });
 
 function Admin() {

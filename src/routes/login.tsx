@@ -5,6 +5,7 @@ import { authClient } from "@/auth/auth";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { m } from "@/paraglide/messages";
+import { seo } from "@/lib/seo";
 
 export const Route = createFileRoute("/login")({
   component: Login,
@@ -13,6 +14,12 @@ export const Route = createFileRoute("/login")({
       throw redirect({ to: "/admin" });
     }
   },
+  head: () => ({
+    meta: seo({
+      title: m.login_metadata_title(),
+      description: m.login_metadata_description(),
+    }),
+  }),
 });
 
 function Login() {

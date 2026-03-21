@@ -7,7 +7,7 @@
   "generic_set_link": "Set link",
   "generic_close": "Close",
 
-  "home_metadata_title": "Home / Jason Savelli",
+  "home_metadata_title": "Jason Savelli",
   "home_metadata_description": "Explore my portfolio: projects, expertise, and innovation in Front-End development.",
   "home_title": "Jason Savelli</br>senior front-end software engineer",
   "home_subtitle": "I enjoy working on React projects with TypeScript",
@@ -51,10 +51,14 @@
   "project_user_interface": "User Interface",
   "project_state_management": "State management",
 
+  "experiencies_metadata_title": "Experiencies / Jason Savelli",
+  "experiencies_metadata_description": "All my previous professional experiencies up to day",
   "experiencies_title": "Experiencies",
   "experiencies_today": "Today",
   "experiencies_period": "{startDate} - {endDate}",
 
+  "about_metadata_title": "About / Jason Savelli",
+  "about_metadata_description": "Learn more about me",
   "about_title": "Frontend</br>and guitar",
   "about_subtitle": "Learn more about me, how I got here, what do I love in Front-End and also some guitar riffs.",
   "about_about_me_picture_alt": "Picture of me wearing sunglasses hit by a solar flare",
@@ -81,6 +85,8 @@
   "about_dogs_picture_alt": "Picture of Redux and Nouchka, two australian shepard dogs",
   "about_me_and_my_friends_alt": "Picture of Jason and some of his friends at a wedding",
 
+  "references_metadata_title": "References / Jason Savelli",
+  "references_metadata_description": "Let people speak for me",
   "references_title": "References",
   "references_subtitle": "People that can tell you moure",
   "references_description": "I told you who I am, but sometimes it's also interesting to let other people speak for us. Here's a list of people I've work with who would be happy to tell you how it was working with me.",
@@ -89,11 +95,14 @@
   "references_front_end_architect": "Front end Architect",
   "references_product_manager": "Product manager",
 
+  "login_metadata_title": "Admin / Jason Savelli",
+  "login_metadata_description": "Login page to access the dashboard",
   "login_title": "Login",
   "login_alert_title": "Admin page access",
   "login_alert_description": "This grant access to the admin panel. As a user, you don't have any access.",
   "login_github_button": "Sign in with GitHub",
 
+  "admin_metadata_title": "Admin / Jason Savelli",
   "admin_title": "Admin dashboard",
   "admin_cards_experiencies_title": "Experiencies",
   "admin_cards_experiencies_content": "Create, edit or delete an experience",

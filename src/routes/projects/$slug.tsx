@@ -33,7 +33,10 @@ export const Route = createFileRoute("/projects/$slug")({
     return {
       meta: seo({
         title,
-        image: project?.illustration,
+        image:
+          project?.illustration != null
+            ? `${import.meta.env.VERCEL_URL}/projects/${project.illustration}`
+            : undefined,
       }),
     };
   },

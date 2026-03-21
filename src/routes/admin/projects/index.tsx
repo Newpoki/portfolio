@@ -14,7 +14,6 @@ import { projectsQueryOptions } from "@/routes/api/projects";
 
 export const Route = createFileRoute("/admin/projects/")({
   component: AdminProjects,
-
   loader: async ({ context }) => {
     await context.queryClient.ensureQueryData(projectsQueryOptions);
   },

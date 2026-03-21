@@ -5,6 +5,7 @@ import tailwindcss from "@tailwindcss/vite";
 import { paraglideVitePlugin } from "@inlang/paraglide-js";
 import svgr from "vite-plugin-svgr";
 import { nitro } from "nitro/vite";
+import { devtools } from "@tanstack/devtools-vite";
 
 import { translatedPathnames } from "./src//lib/translated-pathnames"; // tsconfigPaths is setup below, can't use aliases yet
 
@@ -17,6 +18,7 @@ export default defineConfig({
     tsconfigPaths: true,
   },
   plugins: [
+    devtools(),
     tanstackStart(),
     nitro({
       preset: "vercel",

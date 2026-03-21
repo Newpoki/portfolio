@@ -1,9 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { TabeListItem } from "@/components/ui/table-list-item";
 import { m } from "@/paraglide/messages";
+import { seo } from "@/lib/seo";
 
 export const Route = createFileRoute("/references")({
   component: RouteComponent,
+  head: () => ({
+    meta: seo({
+      title: m.references_metadata_title(),
+      description: m.references_metadata_description(),
+    }),
+  }),
 });
 
 function RouteComponent() {

@@ -4,6 +4,7 @@ import { experienciesQueryOptions } from "./api/experiencies";
 import { m } from "@/paraglide/messages";
 import { ExperienciesFlowPage } from "@/experiencies/experiencies-flow-page";
 import { ExperienciesPending } from "@/experiencies/experiencies-pending";
+import { seo } from "@/lib/seo";
 
 export const Route = createFileRoute("/experiencies")({
   component: RouteComponent,
@@ -11,6 +12,12 @@ export const Route = createFileRoute("/experiencies")({
     await context.queryClient.ensureQueryData(experienciesQueryOptions);
   },
   pendingComponent: ExperienciesPending,
+  head: () => ({
+    meta: seo({
+      title: m.experiencies_metadata_title(),
+      description: m.experiencies_metadata_description(),
+    }),
+  }),
 });
 
 function RouteComponent() {
