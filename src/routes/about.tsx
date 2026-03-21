@@ -19,7 +19,7 @@ function RouteComponent() {
         <img
           src="/about/me.png"
           alt={m.about_about_me_picture_alt()}
-          className="relative! h-full min-h-full w-full rounded-lg object-cover"
+          className="h-full min-h-full w-full rounded-lg object-cover"
         />
       </div>
 
@@ -88,7 +88,7 @@ function RouteComponent() {
             <img
               src="/about/nouchka-redux.webp"
               alt={m.about_dogs_picture_alt()}
-              className="relative! h-full w-full rounded-xl object-cover lg:rounded-none"
+              className="h-full w-full rounded-xl object-cover lg:rounded-none"
             />
 
             <video
@@ -106,7 +106,7 @@ function RouteComponent() {
             <img
               src="/about/me-and-friends.webp"
               alt={m.about_me_and_my_friends_alt()}
-              className="relative! h-full w-full rounded-xl object-cover lg:rounded-none"
+              className="h-full w-full rounded-xl object-cover lg:rounded-none"
             />
           </div>
         </section>

@@ -56,7 +56,7 @@ export const ProjectsSummaryItem = ({
             src={`/projects/${project.illustration}`}
             alt={project.illustrationAlt}
             className={cn(
-              "relative! h-full w-full rounded-lg object-cover transition duration-300 group-hover/project-item:scale-110",
+              "h-full w-full rounded-lg object-cover transition duration-300 group-hover/project-item:scale-110",
               slotProps.image?.className,
             )}
             sizes="(max-width: 768px) 100vw"

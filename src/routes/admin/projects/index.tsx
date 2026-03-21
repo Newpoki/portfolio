@@ -23,8 +23,6 @@ export const Route = createFileRoute("/admin/projects/")({
 function AdminProjects() {
   const { data: projects } = useSuspenseQuery(projectsQueryOptions);
 
-  console.log({ projects });
-
   return (
     <div className="flex flex-col gap-8">
       <h1 className="flex flex-col justify-between gap-4 md:flex-row md:items-center">

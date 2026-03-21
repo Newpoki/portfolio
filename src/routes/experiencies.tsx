@@ -2,13 +2,15 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { experienciesQueryOptions } from "./api/experiencies";
 import { m } from "@/paraglide/messages";
-import { ExperienciesFlowPage } from "@/components/experiencies/experiencies-flow-page";
+import { ExperienciesFlowPage } from "@/experiencies/experiencies-flow-page";
+import { ExperienciesPending } from "@/experiencies/experiencies-pending";
 
 export const Route = createFileRoute("/experiencies")({
   component: RouteComponent,
   loader: async ({ context }) => {
     await context.queryClient.ensureQueryData(experienciesQueryOptions);
   },
+  pendingComponent: ExperienciesPending,
 });
 
 function RouteComponent() {

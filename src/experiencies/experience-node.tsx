@@ -1,12 +1,12 @@
 import { Handle, Position } from "@xyflow/react";
 import { useMemo } from "react";
 import { generateHTML } from "@tiptap/react";
-import { DEFAULT_EDITOR_EXTENSIONS } from "../ui/editor/editor";
 import type { Node, NodeProps } from "@xyflow/react";
 import type { Experience } from "@prisma/client";
 import type { Locale } from "@/paraglide/runtime";
 import { getLocale } from "@/paraglide/runtime";
 import { m } from "@/paraglide/messages";
+import { DEFAULT_EDITOR_EXTENSIONS } from "@/components/ui/editor/editor";
 
 export type ExperienceNodeData = Node<{
   hasLeftHandle: boolean;

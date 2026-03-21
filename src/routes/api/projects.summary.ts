@@ -15,7 +15,6 @@ export const Route = createFileRoute("/api/projects/summary")({
   server: {
     handlers: {
       GET: async ({ request }) => {
-        console.log(request);
         console.info("Fetching projects summary", request.url);
         try {
           const projectsSummary = (await prisma.project.findMany({

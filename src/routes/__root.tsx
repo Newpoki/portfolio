@@ -79,6 +79,9 @@ function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
         <Toaster theme={theme} />
 
         <TanStackDevtools
+          config={{
+            defaultOpen: false,
+          }}
           plugins={[
             {
               name: "TanStack Query",

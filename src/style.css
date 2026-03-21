@@ -180,7 +180,7 @@
   }
 
   h1 {
-    @apply text-3xl leading-[0.9]! font-bold uppercase sm:text-3xl md:text-7xl 2xl:text-9xl;
+    @apply text-3xl leading-[1.1]! font-bold uppercase sm:text-3xl md:text-7xl 2xl:text-9xl;
   }
 
   h2 {
@@ -190,10 +190,6 @@
   h3 {
     @apply text-xl;
   }
-
-  /* .experience {
-    @apply flex flex-col gap-4;
-  } */
 
   .editor {
     a {

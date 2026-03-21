@@ -3,13 +3,14 @@ import { createFileRoute } from "@tanstack/react-router";
 import { projectsSummaryQueryOptions } from "../api/projects.summary";
 import { m } from "@/paraglide/messages";
 import { ProjectsSummaryItem } from "@/projects/projects-summary-list-item";
+import { ProjectsPending } from "@/projects/projects-pending";
 
 export const Route = createFileRoute("/projects/")({
   component: RouteComponent,
   loader: async ({ context }) => {
     await context.queryClient.ensureQueryData(projectsSummaryQueryOptions);
   },
-  onError: (error) => console.log(error),
+  pendingComponent: ProjectsPending,
 });
 
 function RouteComponent() {

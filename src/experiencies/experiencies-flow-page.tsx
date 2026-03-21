@@ -3,7 +3,7 @@ import { lazy } from "react";
 import type { Experience } from "@prisma/client";
 
 const ExperienciesFlow = lazy(() =>
-  import("@/components/experiencies/experiencies-flow").then((module) => ({
+  import("@/experiencies/experiencies-flow").then((module) => ({
     default: module.ExperienciesFlow,
   })),
 );
