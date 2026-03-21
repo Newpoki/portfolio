@@ -33,5 +33,3 @@ export const HeaderProfile = () => {
     </>
   );
 };
-
-// TODO: Remove use client directives

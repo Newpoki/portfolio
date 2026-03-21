@@ -5,8 +5,8 @@ import {
   FRAMEWORK_OPTIONS,
   STATE_MANAGEMENT_OPTIONS,
   USER_INTERFACE_OPTIONS,
-} from "../../project/project-constants";
-import { projectQueryOptions } from "./api/projects.$slug";
+} from "../../../project/project-constants";
+import { projectQueryOptions } from "../api/projects.$slug";
 import type { ErrorComponentProps } from "@tanstack/react-router";
 import { Link } from "@/components/ui/link";
 import { m } from "@/paraglide/messages";

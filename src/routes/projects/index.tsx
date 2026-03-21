@@ -1,10 +1,10 @@
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { createFileRoute } from "@tanstack/react-router";
-import { projectsSummaryQueryOptions } from "./api/projects.summary";
+import { projectsSummaryQueryOptions } from "../api/projects.summary";
 import { m } from "@/paraglide/messages";
 import { ProjectsSummaryItem } from "@/projects/projects-summary-list-item";
 
-export const Route = createFileRoute("/projects")({
+export const Route = createFileRoute("/projects/")({
   component: RouteComponent,
   loader: async ({ context }) => {
     await context.queryClient.ensureQueryData(projectsSummaryQueryOptions);
