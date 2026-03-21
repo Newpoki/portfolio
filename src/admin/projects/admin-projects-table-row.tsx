@@ -16,15 +16,12 @@ export const AdminProjectsTableRow = ({
 
   const handleClick = () => {
     navigate({
-      // TODO: Modify DB so we can use a slug
       to: "/admin/projects/$slug",
       params: {
         slug: project.slug,
       },
     });
   };
-
-  // TODO: check why picking date sometilmes display the previous day date
 
   return (
     <TableRow onClick={handleClick}>

@@ -5,8 +5,6 @@ import { Dialog, DialogContent } from "./dialog";
 import type { DialogProps } from "@radix-ui/react-dialog";
 import { cn } from "@/lib/cn";
 
-// TODO: MAke hook rule error instead of warning
-
 const Command = ({
   className,
   ref,
