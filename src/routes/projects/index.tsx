@@ -9,6 +9,7 @@ export const Route = createFileRoute("/projects/")({
   loader: async ({ context }) => {
     await context.queryClient.ensureQueryData(projectsSummaryQueryOptions);
   },
+  onError: (error) => console.log(error),
 });
 
 function RouteComponent() {

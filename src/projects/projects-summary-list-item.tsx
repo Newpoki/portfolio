@@ -35,7 +35,7 @@ export const ProjectsSummaryItem = ({
       <Link
         type="internal"
         animation={null}
-        to={`/projects/$slug`}
+        to="/projects/$slug"
         params={{
           slug: project.slug,
         }}

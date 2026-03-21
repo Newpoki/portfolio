@@ -1,11 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PrismaClient } from "@prisma/client";
 import { queryOptions } from "@tanstack/react-query";
-import axios from "axios";
 import { z } from "zod";
 import type { Experience } from "@prisma/client";
 import type { MutationOptions } from "@tanstack/react-query";
 import { emptyEditorRuleSchema } from "@/components/ui/editor/editor";
+import { axiosClient } from "@/axios-client";
 
 const prisma = new PrismaClient();
 
@@ -93,8 +93,8 @@ export const experienceQueryOptions = ({ id }: { id: Experience["id"] }) =>
   queryOptions({
     queryKey: ["experience", id],
     queryFn: async () => {
-      const { data } = await axios.get<Experience>(
-        `${import.meta.env.VITE_BASE_URL}/api/experiencies/${id}`,
+      const { data } = await axiosClient.get<Experience>(
+        `/api/experiencies/${id}`,
       );
       return data;
     },
@@ -106,8 +106,8 @@ export const updateExperienceMutationOptions: MutationOptions<
   UpdateExperiencePayload
 > = {
   mutationFn: async (payload) => {
-    const { data } = await axios.put<Experience>(
-      `${import.meta.env.VITE_BASE_URL}/api/experiencies/${payload.id}`,
+    const { data } = await axiosClient.put<Experience>(
+      `/api/experiencies/${payload.id}`,
       payload,
     );
     return data;
@@ -120,8 +120,8 @@ export const deleteExperienceMutationOptions: MutationOptions<
   DeleteExperiencePayload
 > = {
   mutationFn: async (payload) => {
-    const { data } = await axios.delete<void>(
-      `${import.meta.env.VITE_BASE_URL}/api/experiencies/${payload.id}`,
+    const { data } = await axiosClient.delete<void>(
+      `/api/experiencies/${payload.id}`,
     );
 
     return data;

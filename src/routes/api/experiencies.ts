@@ -1,11 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PrismaClient } from "@prisma/client";
 import { queryOptions } from "@tanstack/react-query";
-import axios from "axios";
 import z from "zod";
 import type { MutationOptions } from "@tanstack/react-query";
 import type { Experience } from "@prisma/client";
 import { emptyEditorRuleSchema } from "@/components/ui/editor/editor";
+import { axiosClient } from "@/axios-client";
 
 const prisma = new PrismaClient();
 
@@ -25,7 +25,7 @@ export const Route = createFileRoute("/api/experiencies")({
   server: {
     handlers: {
       GET: async ({ request }) => {
-        console.info(`Fetching experiencies`, request.url);
+        console.info("Fetching experiencies", request.url);
         try {
           const experiencies = await prisma.experience.findMany({
             orderBy: {
@@ -67,9 +67,8 @@ export const Route = createFileRoute("/api/experiencies")({
 export const experienciesQueryOptions = queryOptions({
   queryKey: ["experiencies"],
   queryFn: async () => {
-    const { data } = await axios.get<Array<Experience>>(
-      `${import.meta.env.VITE_BASE_URL}/api/experiencies`,
-    );
+    const { data } =
+      await axiosClient.get<Array<Experience>>("/api/experiencies");
 
     return data;
   },
@@ -83,8 +82,8 @@ export const createExperienceMutationOptions: MutationOptions<
   CreateExperiencePayload
 > = {
   mutationFn: async (values) => {
-    const { data } = await axios.post<Experience>(
-      `${import.meta.env.VITE_BASE_URL}/api/experiencies/`,
+    const { data } = await axiosClient.post<Experience>(
+      "/api/experiencies/",
       values,
     );
     return data;

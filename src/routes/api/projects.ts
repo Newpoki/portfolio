@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PrismaClient } from "@prisma/client";
 import { queryOptions } from "@tanstack/react-query";
-import axios from "axios";
 import z from "zod";
 import {
   BUNDLER,
@@ -11,6 +10,7 @@ import {
 } from "../../../project/project-constants";
 import type { MutationOptions } from "@tanstack/react-query";
 import type { Project } from "@prisma/client";
+import { axiosClient } from "@/axios-client";
 
 const prisma = new PrismaClient();
 
@@ -42,7 +42,7 @@ export const Route = createFileRoute("/api/projects")({
   server: {
     handlers: {
       GET: async ({ request }) => {
-        console.info(`Fetching projects`, request.url);
+        console.info("Fetching projects", request.url);
         try {
           const projects = await prisma.project.findMany({
             orderBy: [{ isFavorite: "desc" }, { deployedAt: "desc" }],
@@ -79,9 +79,7 @@ export const Route = createFileRoute("/api/projects")({
 export const projectsQueryOptions = queryOptions({
   queryKey: ["projects"],
   queryFn: async () => {
-    const { data } = await axios.get<Array<Project>>(
-      `${import.meta.env.VITE_BASE_URL}/api/projects`,
-    );
+    const { data } = await axiosClient.get<Array<Project>>("/api/projects");
 
     return data;
   },
@@ -95,10 +93,7 @@ export const createProjectMutationOptions: MutationOptions<
   CreateProjectPayload
 > = {
   mutationFn: async (values) => {
-    const { data } = await axios.post<Project>(
-      `${import.meta.env.VITE_BASE_URL}/api/projects/`,
-      values,
-    );
+    const { data } = await axiosClient.post<Project>("/api/projects", values);
     return data;
   },
 };

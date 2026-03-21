@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PrismaClient } from "@prisma/client";
 import { queryOptions } from "@tanstack/react-query";
-import axios from "axios";
 import z from "zod";
 import {
   BUNDLER,
@@ -11,6 +10,7 @@ import {
 } from "../../../project/project-constants";
 import type { Project } from "@prisma/client";
 import type { MutationOptions } from "@tanstack/react-query";
+import { axiosClient } from "@/axios-client";
 
 const prisma = new PrismaClient();
 
@@ -114,9 +114,7 @@ export const projectQueryOptions = ({ slug }: { slug: Project["slug"] }) =>
   queryOptions({
     queryKey: ["project", slug],
     queryFn: async () => {
-      const { data } = await axios.get<Project>(
-        `${import.meta.env.VITE_BASE_URL}/api/projects/${slug}`,
-      );
+      const { data } = await axiosClient.get<Project>(`/api/projects/${slug}`);
 
       return data;
     },
@@ -128,8 +126,8 @@ export const updateProjectMutationOptions: MutationOptions<
   UpdateProjectPayload
 > = {
   mutationFn: async (payload) => {
-    const { data } = await axios.put<Project>(
-      `${import.meta.env.VITE_BASE_URL}/api/projects/${payload.id}`,
+    const { data } = await axiosClient.put<Project>(
+      `/api/projects/${payload.id}`,
       payload,
     );
     return data;
@@ -142,8 +140,8 @@ export const deleteProjectMutationOptions: MutationOptions<
   DeleteProjectPayload
 > = {
   mutationFn: async (payload) => {
-    const { data } = await axios.delete<void>(
-      `${import.meta.env.VITE_BASE_URL}/api/projects/${payload.id}`,
+    const { data } = await axiosClient.delete<void>(
+      `/api/projects/${payload.id}`,
     );
 
     return data;
