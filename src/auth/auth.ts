@@ -32,6 +32,11 @@ export const auth = betterAuth({
       },
     },
   },
+  trustedOrigins: [
+    "http://localhost:3000",
+    "https://jasonsavelli.fr",
+    "https://www.jasonsavelli.fr",
+  ],
 });
 
 export const getSession = createServerFn({ method: "GET" }).handler(
