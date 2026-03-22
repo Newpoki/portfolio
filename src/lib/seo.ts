@@ -9,7 +9,7 @@ export const seo = ({
   image?: string;
   keywords?: string;
 }) => {
-  const fallbackImage = `${import.meta.env.VERCEL_URL}/about/me.png`;
+  const fallbackImage = `https://${process.env.VERCEL_PROJECT_PRODUCTION_UR}/about/me.png`;
 
   const tags = [
     { title },

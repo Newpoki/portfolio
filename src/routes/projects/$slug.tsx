@@ -35,7 +35,7 @@ export const Route = createFileRoute("/projects/$slug")({
         title,
         image:
           project?.illustration != null
-            ? `${import.meta.env.VERCEL_URL}/projects/${project.illustration}`
+            ? `${process.env.VERCEL_PROJECT_PRODUCTION_URL}/projects/${project.illustration}`
             : undefined,
       }),
     };

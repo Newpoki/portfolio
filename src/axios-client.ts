@@ -10,7 +10,6 @@ import axios from "axios";
  *
  */
 
-console.log(process.env);
 export const axiosClient = axios.create({
   baseURL:
     process.env.VERCEL_PROJECT_PRODUCTION_URL != null

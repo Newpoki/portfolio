@@ -38,7 +38,7 @@ export const Route = createRootRouteWithContext<RootRouteContext>()({
         title: "Jason Savelli",
       },
     ],
-    links: [{ rel: "stylesheet", href: appCss }, { rel: "" }],
+    links: [{ rel: "stylesheet", href: appCss }],
   }),
   beforeLoad: async () => {
     const [theme, session] = await Promise.all([

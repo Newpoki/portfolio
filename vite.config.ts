@@ -6,8 +6,7 @@ import { paraglideVitePlugin } from "@inlang/paraglide-js";
 import svgr from "vite-plugin-svgr";
 import { nitro } from "nitro/vite";
 import { devtools } from "@tanstack/devtools-vite";
-
-import { translatedPathnames } from "./src//lib/translated-pathnames"; // tsconfigPaths is setup below, can't use aliases yet
+import { translatedPathnames } from "./src/lib/translated-pathnames";
 
 export default defineConfig({
   server: {
@@ -22,6 +21,7 @@ export default defineConfig({
     tanstackStart({
       sitemap: {
         host: "https://jasonsavelli.fr",
+        enabled: true,
       },
       prerender: {
         failOnError: false,
