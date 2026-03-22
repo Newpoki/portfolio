@@ -4,6 +4,7 @@ import { Link } from "@/ui/link";
 import { cn } from "@/lib/cn";
 import { m } from "@/i18n/paraglide/messages";
 
+// TODO: FIX spacing between image and description on large screen in projects/$slug
 type ProjectsSummaryItemProps = {
   className?: string;
   isFavorite?: boolean | null;
@@ -53,7 +54,7 @@ export const ProjectsSummaryItem = ({
 
           <img
             {...slotProps.image}
-            src={`/projects/${project.illustration}`}
+            src={project.illustration}
             alt={project.illustrationAlt}
             className={cn(
               "h-full w-full rounded-lg object-cover transition duration-300 group-hover/project-item:scale-110",

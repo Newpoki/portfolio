@@ -24,6 +24,11 @@ import {
   projectsQueryOptions,
 } from "@/routes/api/projects";
 import { projectsSummaryQueryOptions } from "@/routes/api/projects.summary";
+import {
+  MEDIA_ALLOWED_EXTENSIONS_READABLE,
+  MEDIA_ALLOWED_INPUT_ACCEPT,
+  MEDIA_MAX_FILE_SIZE_MB,
+} from "@/media/media-constants";
 
 type AdminProjectFormProps = {
   project?: Project;
@@ -57,7 +62,6 @@ const stateManagementOptions = [
 
 export const AdminProjectForm = ({ project }: AdminProjectFormProps) => {
   const navigate = useNavigate();
-
   const queryClient = useQueryClient();
 
   const { mutateAsync: createProject } = useMutation(
@@ -72,15 +76,18 @@ export const AdminProjectForm = ({ project }: AdminProjectFormProps) => {
     onSubmit: async ({ value }) => {
       if (value.type === "edit") {
         try {
-          const response = await updateProject(value);
+          const { illustration, ...others } = value;
 
-          // Updating the existing project
+          const response = await updateProject({
+            data: others,
+            file: illustration,
+          });
+
           queryClient.setQueryData(
             projectQueryOptions({ slug: response.slug }).queryKey,
             response,
           );
 
-          // Then updating the list
           queryClient.setQueryData(projectsQueryOptions.queryKey, (current) => {
             return (
               current?.map((currentProject) => {
@@ -91,7 +98,6 @@ export const AdminProjectForm = ({ project }: AdminProjectFormProps) => {
             );
           });
 
-          // Then updating the list
           queryClient.setQueryData(
             projectsSummaryQueryOptions.queryKey,
             (current) => {
@@ -105,7 +111,6 @@ export const AdminProjectForm = ({ project }: AdminProjectFormProps) => {
             },
           );
 
-          // Even on edition we're redirecting because the slug might also has been updated
           navigate({
             to: "/admin/projects/$slug",
             params: { slug: response.slug },
@@ -120,15 +125,18 @@ export const AdminProjectForm = ({ project }: AdminProjectFormProps) => {
       }
 
       try {
-        const response = await createProject(value);
+        const { illustration, ...others } = value;
 
-        // Creating the new project
+        const response = await createProject({
+          data: others,
+          file: illustration,
+        });
+
         queryClient.setQueryData(
           projectQueryOptions({ slug: response.slug }).queryKey,
           response,
         );
 
-        // And then, as we can't know where will it be added in the list, invalidating the list
         queryClient.invalidateQueries({
           exact: true,
           queryKey: projectsQueryOptions.queryKey,
@@ -198,10 +206,19 @@ export const AdminProjectForm = ({ project }: AdminProjectFormProps) => {
           <form.AppField
             name="illustration"
             children={(field) => (
-              <field.TextField
+              <field.ImageField
+                accept={MEDIA_ALLOWED_INPUT_ACCEPT}
                 label={m.admin_projects_form_illustration_label()}
                 description={m.admin_projects_form_illustration_description()}
-                placeholder={m.admin_projects_form_illustration_placeholder()}
+                dropzoneLabel={m.admin_projects_form_illustration_dropzone_label()}
+                fileRulesInfos={m.admin_projects_form_illustration_dropzone_file_rules(
+                  {
+                    extensions: MEDIA_ALLOWED_EXTENSIONS_READABLE,
+                    unit: "MB",
+                    weight: MEDIA_MAX_FILE_SIZE_MB,
+                  },
+                )}
+                project={project}
               />
             )}
           />

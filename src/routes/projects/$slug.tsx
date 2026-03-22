@@ -13,7 +13,6 @@ import { TabeListItem } from "@/ui/table-list-item";
 import { getLocale } from "@/i18n/paraglide/runtime";
 import { ProjectPending } from "@/projects/project-pending";
 import { seo } from "@/lib/seo";
-// import { seo } from "@/lib/seo";
 
 export const Route = createFileRoute("/projects/$slug")({
   component: ProjectComponent,
@@ -33,10 +32,7 @@ export const Route = createFileRoute("/projects/$slug")({
     return {
       meta: seo({
         title,
-        image:
-          project?.illustration != null
-            ? `${process.env.VERCEL_PROJECT_PRODUCTION_URL}/projects/${project.illustration}`
-            : undefined,
+        image: project?.illustration != null ? project.illustration : undefined,
       }),
     };
   },
@@ -66,7 +62,7 @@ function ProjectComponent() {
           </span>
         </h1>
 
-        <section className="flex flex-1 flex-col gap-10 md:gap-16">
+        <section className="flex min-h-0 flex-1 flex-col gap-10 md:gap-16">
           <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
             <h2 className="xl:max-w-4xl">{project[`shortDesc_${locale}`]}</h2>
 
@@ -75,13 +71,17 @@ function ProjectComponent() {
             </span>
           </div>
 
-          <img
-            src={`/projects/${project.illustration}`}
-            alt={project.illustrationAlt}
-            className="w-full"
-          />
+          <div className="flex min-h-0 flex-1 justify-center">
+            <img
+              src={project.illustration}
+              alt={project.illustrationAlt}
+              className="aspect-video max-h-full max-w-full object-contain"
+            />
+          </div>
         </section>
       </div>
+
+      {/* TODO: Check pending fallback on screen larger than macbook  */}
 
       <section className="mx-auto flex flex-col justify-center gap-16 md:w-4/5 lg:w-1/2">
         <h3 className="text-xl">{project[`description_${locale}`]}</h3>
@@ -108,7 +108,13 @@ function ProjectComponent() {
 
         <ul>
           <TabeListItem label={m.project_deployed_at_title()}>
-            {m.project_deployed_at_content({ deployedAt: project.deployedAt })}
+            {m.project_deployed_at_content({
+              deployedAt: new Intl.DateTimeFormat(locale, {
+                day: "2-digit",
+                month: "long",
+                year: "numeric",
+              }).format(new Date(project.deployedAt)),
+            })}
           </TabeListItem>
 
           <TabeListItem label={m.project_bundler()}>

@@ -7,7 +7,8 @@ import { AdminProjectFormSubmitButton } from "./fields/admin-project-form-submit
 import { AdminProjectFormSwitch } from "./fields/admin-project-form-switch";
 import { AdminProjectFormLinkField } from "./fields/admin-project-form-link-field";
 import { AdminProjectFormAutocompleteField } from "./fields/admin-project-form-autocomplete";
-import type { AdminProjectForm } from "./admin-project-form-types";
+import { AdminProjectFormImageField } from "./fields/admin-project-form-image-field";
+import type { AdminProjectFormDefaultValues } from "./admin-project-form-types";
 import type { Project } from "@prisma/client";
 import {
   BUNDLER,
@@ -26,6 +27,7 @@ export const { useAppForm, withForm, withFieldGroup } = createFormHook({
     LinkField: AdminProjectFormLinkField,
     AutocompleteField: AdminProjectFormAutocompleteField,
     Switch: AdminProjectFormSwitch,
+    ImageField: AdminProjectFormImageField,
   },
   formComponents: {
     CancelButton: AdminProjectFormCancelButton,
@@ -36,7 +38,7 @@ export const { useAppForm, withForm, withFieldGroup } = createFormHook({
 });
 
 export const adminProjectFormOptions = (project?: Project) => {
-  const defaultValues: AdminProjectForm =
+  const defaultValues: AdminProjectFormDefaultValues =
     project != null
       ? {
           type: "edit",
@@ -49,7 +51,7 @@ export const adminProjectFormOptions = (project?: Project) => {
           shortDesc_en: project.shortDesc_en,
           description_fr: project.description_fr,
           description_en: project.description_en,
-          illustration: project.illustration,
+          illustration: null,
           illustrationAlt: project.illustrationAlt,
           githubUrl: project.githubUrl ?? "",
           websiteUrl: project.websiteUrl ?? "",
@@ -68,7 +70,7 @@ export const adminProjectFormOptions = (project?: Project) => {
           shortDesc_en: "",
           description_fr: "",
           description_en: "",
-          illustration: "",
+          illustration: null,
           illustrationAlt: "",
           githubUrl: "",
           websiteUrl: "",
@@ -83,6 +85,7 @@ export const adminProjectFormOptions = (project?: Project) => {
     defaultValues,
     validators: {
       onSubmit: adminProjectFormSchema,
+      onChange: adminProjectFormSchema,
     },
   };
 };

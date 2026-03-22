@@ -3,6 +3,8 @@ import { Loader2Icon } from "lucide-react";
 import { toast } from "sonner";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useNavigate } from "@tanstack/react-router";
+import { useStore } from "@tanstack/react-form";
+import { useFormContext } from "./admin-project-form-utils";
 import type { Project } from "@prisma/client";
 import { Button } from "@/ui/button";
 import {
@@ -39,6 +41,10 @@ export const AdminProjectFormDeleteDialog = ({
   const { mutate: deleteProject, isPending } = useMutation(
     deleteProjectMutationOptions,
   );
+
+  const form = useFormContext();
+
+  const isSubmitting = useStore(form.store, (state) => state.isSubmitting);
 
   const handleOpenDialog = () => {
     setIsOpen(true);
@@ -93,7 +99,12 @@ export const AdminProjectFormDeleteDialog = ({
   return (
     <AlertDialog open={isOpen}>
       <AlertDialogTrigger asChild>
-        <Button variant="destructive" type="button" onClick={handleOpenDialog}>
+        <Button
+          variant="destructive"
+          type="button"
+          onClick={handleOpenDialog}
+          disabled={isSubmitting}
+        >
           {m.admin_projects_delete_dialog_trigger()}
         </Button>
       </AlertDialogTrigger>

@@ -1,6 +1,8 @@
 import { useStore } from "@tanstack/react-form";
 import { generateHTML } from "@tiptap/react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { createIsomorphicFn } from "@tanstack/react-start";
+import { ClientOnly } from "@tanstack/react-router";
 import { useFieldContext } from "../admin-experience-form-utils";
 import type { Editor as EditorInstance, JSONContent } from "@tiptap/react";
 import type { Locale } from "@/i18n/paraglide/runtime";
@@ -9,6 +11,7 @@ import { Button } from "@/ui/button";
 import { m } from "@/i18n/paraglide/messages";
 import { DEFAULT_EDITOR_EXTENSIONS, Editor } from "@/ui/editor/editor";
 import { LocaleFlag } from "@/i18n/locale-flag";
+import { Skeleton } from "@/ui/skeleton";
 
 type AdminExperienceFormEditorFieldProps = {
   label: string;
@@ -31,10 +34,18 @@ export const AdminExperienceFormEditorField = ({
     (state) => state.meta.isTouched && !state.meta.isValid,
   );
 
-  const content = generateHTML(
-    JSON.parse(field.state.value) as JSONContent,
-    DEFAULT_EDITOR_EXTENSIONS,
-  );
+  const content = useMemo(() => {
+    const getContent = createIsomorphicFn()
+      .client(() =>
+        generateHTML(
+          JSON.parse(field.state.value) as JSONContent,
+          DEFAULT_EDITOR_EXTENSIONS,
+        ),
+      )
+      .server(() => "");
+
+    return getContent();
+  }, [field.state.value]);
 
   const handleEditorChange = ({ editor }: { editor: EditorInstance }) => {
     const stringifiedEditorState = JSON.stringify(editor.getJSON());
@@ -48,7 +59,7 @@ export const AdminExperienceFormEditorField = ({
 
   useEffect(() => {
     // As TipTap internally uses it's own state, and field.value.change doesn't trigger re-render
-    // We have to mmanually handle state change like this
+    // We have to manually handle state change like this
     const editor = editorRef.current;
     if (editor == null) return;
 
@@ -83,12 +94,14 @@ export const AdminExperienceFormEditorField = ({
           dangerouslySetInnerHTML={{ __html: content }}
         />
       ) : (
-        <Editor
-          ref={editorRef}
-          content={content}
-          immediatelyRender={false}
-          onUpdate={handleEditorChange}
-        />
+        <ClientOnly fallback={<Skeleton className="h-80 w-full" />}>
+          <Editor
+            ref={editorRef}
+            content={content}
+            immediatelyRender
+            onUpdate={handleEditorChange}
+          />
+        </ClientOnly>
       )}
 
       {isInvalid && <FieldError errors={errors} />}

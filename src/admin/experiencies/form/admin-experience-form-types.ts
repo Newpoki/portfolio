@@ -20,11 +20,11 @@ const adminExperienceCreateFormSchema = z.object({
 
 const adminExperienceEditFormSchema = z.object({
   ...adminExperienceBaseFormSchema.shape,
-  id: z.string(),
+  id: z.string().min(1),
   type: z.literal("edit"),
 });
 
-export const adminExperienceFormSchema = z.discriminatedUnion("id", [
+export const adminExperienceFormSchema = z.discriminatedUnion("type", [
   adminExperienceCreateFormSchema,
   adminExperienceEditFormSchema,
 ]);
