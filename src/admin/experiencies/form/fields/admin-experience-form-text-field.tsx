@@ -1,12 +1,7 @@
 import { useStore } from "@tanstack/react-form";
 import { useFieldContext } from "../admin-experience-form-utils";
-import {
-  Field,
-  FieldDescription,
-  FieldError,
-  FieldLabel,
-} from "@/components/ui/field";
-import { Input } from "@/components/ui/input";
+import { Field, FieldDescription, FieldError, FieldLabel } from "@/ui/field";
+import { Input } from "@/ui/input";
 
 type AdminExperienceFormTextFieldProps = {
   description: string;

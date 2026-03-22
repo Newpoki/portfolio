@@ -3,10 +3,10 @@ import { useMemo } from "react";
 import { generateHTML } from "@tiptap/react";
 import type { Node, NodeProps } from "@xyflow/react";
 import type { Experience } from "@prisma/client";
-import type { Locale } from "@/paraglide/runtime";
-import { getLocale } from "@/paraglide/runtime";
-import { m } from "@/paraglide/messages";
-import { DEFAULT_EDITOR_EXTENSIONS } from "@/components/ui/editor/editor";
+import type { Locale } from "@/i18n/paraglide/runtime";
+import { getLocale } from "@/i18n/paraglide/runtime";
+import { m } from "@/i18n/paraglide/messages";
+import { DEFAULT_EDITOR_EXTENSIONS } from "@/ui/editor/editor";
 
 export type ExperienceNodeData = Node<{
   hasLeftHandle: boolean;

@@ -1,5 +1,5 @@
 import z from "zod";
-import { emptyEditorRuleSchema } from "@/components/ui/editor/editor";
+import { emptyEditorRuleSchema } from "@/ui/editor/editor";
 
 const adminExperienceBaseFormSchema = z.object({
   title: z.string().min(1),

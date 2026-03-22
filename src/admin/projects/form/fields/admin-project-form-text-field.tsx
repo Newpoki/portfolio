@@ -1,14 +1,9 @@
 import { useStore } from "@tanstack/react-form";
 import { useFieldContext } from "../admin-project-form-utils";
-import type { Locale } from "@/paraglide/runtime";
-import {
-  Field,
-  FieldDescription,
-  FieldError,
-  FieldLabel,
-} from "@/components/ui/field";
-import { Input } from "@/components/ui/input";
-import { I18NFlag } from "@/components/i18n/i18n-flag";
+import type { Locale } from "@/i18n/paraglide/runtime";
+import { Field, FieldDescription, FieldError, FieldLabel } from "@/ui/field";
+import { Input } from "@/ui/input";
+import { LocaleFlag } from "@/i18n/locale-flag";
 
 type AdminProjectFormTextFieldProps = {
   description: string;
@@ -36,7 +31,7 @@ export const AdminProjectFormTextField = ({
       <FieldLabel htmlFor={field.name}>
         {label}
 
-        {locale != null && <I18NFlag locale={locale} />}
+        {locale != null && <LocaleFlag locale={locale} />}
       </FieldLabel>
       <Input
         id={field.name}

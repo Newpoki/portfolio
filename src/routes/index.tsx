@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { m } from "@/paraglide/messages";
+import { DownloadIcon } from "lucide-react";
+import { m } from "@/i18n/paraglide/messages";
 import { cn } from "@/lib/cn";
-import DownloadIcon from "@/icons/download.svg?react";
 import { seo } from "@/lib/seo";
 
 export const Route = createFileRoute("/")({

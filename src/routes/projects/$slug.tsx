@@ -7,10 +7,10 @@ import {
   STATE_MANAGEMENT_OPTIONS,
   USER_INTERFACE_OPTIONS,
 } from "@/projects/project-constants";
-import { Link } from "@/components/ui/link";
-import { m } from "@/paraglide/messages";
-import { TabeListItem } from "@/components/ui/table-list-item";
-import { getLocale } from "@/paraglide/runtime";
+import { Link } from "@/ui/link";
+import { m } from "@/i18n/paraglide/messages";
+import { TabeListItem } from "@/ui/table-list-item";
+import { getLocale } from "@/i18n/paraglide/runtime";
 import { ProjectPending } from "@/projects/project-pending";
 import { seo } from "@/lib/seo";
 // import { seo } from "@/lib/seo";

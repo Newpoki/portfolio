@@ -14,7 +14,7 @@ export default defineConfig(
   reactHooks.configs.flat.recommended,
   {
     // Everything here is auto generated, we don't want to bother linting it
-    ignores: ["src/paraglide", "project.inlang", ".vercel"],
+    ignores: ["src/i18n/paraglide", "project.inlang", ".vercel"],
   },
   {
     files: ["**/*.ts", "**/*.tsx"],

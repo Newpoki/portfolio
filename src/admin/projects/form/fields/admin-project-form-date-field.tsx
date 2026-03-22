@@ -1,20 +1,11 @@
 import { useStore } from "@tanstack/react-form";
 import { CalendarIcon } from "lucide-react";
 import { useFieldContext } from "../admin-project-form-utils";
-import {
-  Field,
-  FieldDescription,
-  FieldError,
-  FieldLabel,
-} from "@/components/ui/field";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
-import { Button } from "@/components/ui/button";
+import { Field, FieldDescription, FieldError, FieldLabel } from "@/ui/field";
+import { Popover, PopoverContent, PopoverTrigger } from "@/ui/popover";
+import { Button } from "@/ui/button";
 import { cn } from "@/lib/cn";
-import { Calendar } from "@/components/ui/calendar";
+import { Calendar } from "@/ui/calendar";
 
 type AdminProjectFormDateFieldProps = {
   description: string;

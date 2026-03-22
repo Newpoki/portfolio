@@ -1,5 +1,5 @@
 import { Background, ReactFlow, ReactFlowProvider } from "@xyflow/react";
-import { m } from "@/paraglide/messages";
+import { m } from "@/i18n/paraglide/messages";
 import "@xyflow/react/dist/style.css";
 
 export const ExperienciesPending = () => {

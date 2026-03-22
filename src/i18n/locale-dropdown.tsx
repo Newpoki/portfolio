@@ -1,13 +1,13 @@
-import { I18NFlag } from "./i18n-flag";
-import type { Locale} from "@/paraglide/runtime";
-import { Button } from "@/components/ui/button";
+import { LocaleFlag } from "./locale-flag";
+import type { Locale } from "@/i18n/paraglide/runtime";
+import { Button } from "@/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { getLocale, setLocale } from "@/paraglide/runtime";
+} from "@/ui/dropdown-menu";
+import { getLocale, setLocale } from "@/i18n/paraglide/runtime";
 
 const LOCALES_OPTIONS = {
   en: "English",
@@ -23,11 +23,9 @@ export const LocaleDropdown = () => {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="ghost">
-          <I18NFlag locale={currentLocale} />
+          <LocaleFlag locale={currentLocale} />
 
-          <span className="lg:hidden">
-            {LOCALES_OPTIONS[currentLocale]}
-          </span>
+          <span className="lg:hidden">{LOCALES_OPTIONS[currentLocale]}</span>
         </Button>
       </DropdownMenuTrigger>
 
@@ -40,7 +38,7 @@ export const LocaleDropdown = () => {
               onClick={() => setLocale(locale)}
             >
               <span>
-                <I18NFlag locale={locale} />
+                <LocaleFlag locale={locale} />
 
                 <span>{LOCALES_OPTIONS[locale]}</span>
               </span>

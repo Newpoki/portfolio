@@ -1,5 +1,5 @@
-import type { InternalLinkProps } from "@/components/ui/link";
-import { Link } from "@/components/ui/link";
+import type { InternalLinkProps } from "@/ui/link";
+import { Link } from "@/ui/link";
 import { cn } from "@/lib/cn";
 
 type Props = Omit<InternalLinkProps, "type"> & {

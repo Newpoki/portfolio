@@ -1,5 +1,5 @@
-import type { Locale } from "@/paraglide/runtime";
-import { m } from "@/paraglide/messages";
+import type { Locale } from "@/i18n/paraglide/runtime";
+import { m } from "@/i18n/paraglide/messages";
 
 // According to flagcdn documentation, it's using ISO 3166 code
 // For english and fr only, it seems useless, but its still important
@@ -12,7 +12,7 @@ type IN18NFlagProps = {
   locale: Locale;
 };
 
-export const I18NFlag = ({ locale }: IN18NFlagProps) => {
+export const LocaleFlag = ({ locale }: IN18NFlagProps) => {
   return (
     <img
       src={`https://flagcdn.com/w20/${LOCALES_FLAG_MAPPING[locale]}.webp`}

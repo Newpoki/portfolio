@@ -1,5 +1,5 @@
-import { Skeleton } from "@/components/ui/skeleton";
-import { m } from "@/paraglide/messages";
+import { Skeleton } from "@/ui/skeleton";
+import { m } from "@/i18n/paraglide/messages";
 
 export const ProjectsPending = () => {
   return (

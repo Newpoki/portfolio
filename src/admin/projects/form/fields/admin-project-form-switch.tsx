@@ -1,12 +1,7 @@
 import { useStore } from "@tanstack/react-form";
 import { useFieldContext } from "../admin-project-form-utils";
-import {
-  Field,
-  FieldDescription,
-  FieldError,
-  FieldLabel,
-} from "@/components/ui/field";
-import { Switch } from "@/components/ui/switch";
+import { Field, FieldDescription, FieldError, FieldLabel } from "@/ui/field";
+import { Switch } from "@/ui/switch";
 
 type AdminProjectFormSwitchProps = {
   description: string;

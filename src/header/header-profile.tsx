@@ -1,7 +1,7 @@
 import { Link, useRouteContext } from "@tanstack/react-router";
 import { CircleUserIcon } from "lucide-react";
 import { HeaderLogoutButton } from "./header-logout-button";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/ui/button";
 
 export const HeaderProfile = () => {
   const { session } = useRouteContext({ from: "__root__" });

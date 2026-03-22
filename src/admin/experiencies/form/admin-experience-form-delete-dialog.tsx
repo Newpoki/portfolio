@@ -4,7 +4,7 @@ import { toast } from "sonner";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useNavigate } from "@tanstack/react-router";
 import type { Experience } from "@prisma/client";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/ui/button";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -15,12 +15,12 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from "@/components/ui/alert-dialog";
+} from "@/ui/alert-dialog";
 import {
   deleteExperienceMutationOptions,
   experienceQueryOptions,
 } from "@/routes/api/experiencies.$id";
-import { m } from "@/paraglide/messages";
+import { m } from "@/i18n/paraglide/messages";
 import { experienciesQueryOptions } from "@/routes/api/experiencies";
 
 type ExperienceFormDeleteDialogProps = {

@@ -34,8 +34,8 @@ export default defineConfig({
     tailwindcss(),
     svgr(),
     paraglideVitePlugin({
-      project: "./project.inlang",
-      outdir: "./src/paraglide",
+      project: "./src/i18n/project.inlang",
+      outdir: "./src/i18n/paraglide",
       outputStructure: "message-modules",
       cookieName: "PARAGLIDE_LOCALE",
       strategy: ["url", "cookie", "preferredLanguage", "baseLocale"],

@@ -12,8 +12,8 @@ import { ExperienceNode } from "./experience-node";
 import type { Edge, Node, NodeTypes, OnInit } from "@xyflow/react";
 import type { ExperienceNodeData } from "./experience-node";
 import type { Experience } from "@prisma/client";
-import type { Locale } from "@/paraglide/runtime";
-import { getLocale } from "@/paraglide/runtime";
+import type { Locale } from "@/i18n/paraglide/runtime";
+import { getLocale } from "@/i18n/paraglide/runtime";
 import "@xyflow/react/dist/style.css";
 
 const nodeTypes = {

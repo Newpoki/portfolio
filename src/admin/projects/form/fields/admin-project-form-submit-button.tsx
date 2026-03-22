@@ -1,6 +1,6 @@
 import { Loader2Icon } from "lucide-react";
 import { useFormContext } from "../admin-project-form-utils";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/ui/button";
 
 type AdminProjectFormSubmitButtonProps = {
   label: string;

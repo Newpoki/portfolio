@@ -2,9 +2,9 @@ import { createFileRoute, redirect } from "@tanstack/react-router";
 import { TerminalIcon } from "lucide-react";
 import { useState } from "react";
 import { authClient } from "@/auth/auth";
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { Button } from "@/components/ui/button";
-import { m } from "@/paraglide/messages";
+import { Alert, AlertDescription, AlertTitle } from "@/ui/alert";
+import { Button } from "@/ui/button";
+import { m } from "@/i18n/paraglide/messages";
 import { seo } from "@/lib/seo";
 
 export const Route = createFileRoute("/login")({

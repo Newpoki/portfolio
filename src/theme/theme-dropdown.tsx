@@ -2,14 +2,14 @@ import { Moon, Sun } from "lucide-react";
 
 import { useRouter } from "@tanstack/react-router";
 import { THEME, setThemeServerFn } from "./theme";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { m } from "@/paraglide/messages";
+} from "@/ui/dropdown-menu";
+import { m } from "@/i18n/paraglide/messages";
 
 const OPTIONS = [
   { value: THEME.LIGHT, label: m.theme_light() },

@@ -1,8 +1,8 @@
 import type { ProjectSummary } from "../routes/api/projects.summary";
 import StarIcon from "@/icons/star.svg?react";
-import { Link } from "@/components/ui/link";
+import { Link } from "@/ui/link";
 import { cn } from "@/lib/cn";
-import { m } from "@/paraglide/messages";
+import { m } from "@/i18n/paraglide/messages";
 
 type ProjectsSummaryItemProps = {
   className?: string;

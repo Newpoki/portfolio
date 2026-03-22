@@ -1,5 +1,5 @@
 import type { FileRoutesByTo } from "../routeTree.gen";
-import type { Locale } from "@/paraglide/runtime";
+import type { Locale } from "@/i18n/paraglide/runtime";
 
 type RoutePath = keyof FileRoutesByTo;
 

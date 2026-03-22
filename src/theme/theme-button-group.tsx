@@ -1,8 +1,8 @@
 import { Moon, Sun, SunMoon } from "lucide-react";
 import { useRouter } from "@tanstack/react-router";
 import { THEME, setThemeServerFn, themeSchema } from "./theme";
-import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
-import { m } from "@/paraglide/messages";
+import { ToggleGroup, ToggleGroupItem } from "@/ui/toggle-group";
+import { m } from "@/i18n/paraglide/messages";
 
 export const ThemeButtonGroup = () => {
   const router = useRouter();

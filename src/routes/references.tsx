@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { TabeListItem } from "@/components/ui/table-list-item";
-import { m } from "@/paraglide/messages";
+import { TabeListItem } from "@/ui/table-list-item";
+import { m } from "@/i18n/paraglide/messages";
 import { seo } from "@/lib/seo";
 
 export const Route = createFileRoute("/references")({

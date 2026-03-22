@@ -2,9 +2,9 @@ import { createRouter } from "@tanstack/react-router";
 import { setupRouterSsrQueryIntegration } from "@tanstack/react-router-ssr-query";
 import { QueryClient } from "@tanstack/react-query";
 import { routeTree } from "./routeTree.gen";
-import { m } from "./paraglide/messages";
-import { Separator } from "./components/ui/separator";
-import { deLocalizeUrl, localizeUrl } from "@/paraglide/runtime.js";
+import { Separator } from "./ui/separator";
+import { m } from "@/i18n/paraglide/messages";
+import { deLocalizeUrl, localizeUrl } from "@/i18n/paraglide/runtime.js";
 
 export function getRouter() {
   const queryClient = new QueryClient({

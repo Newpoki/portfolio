@@ -1,15 +1,9 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { experienciesQueryOptions } from "../../api/experiencies";
-import { Button } from "@/components/ui/button";
-import {
-  Table,
-  TableBody,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
-import { m } from "@/paraglide/messages";
+import { Button } from "@/ui/button";
+import { Table, TableBody, TableHead, TableHeader, TableRow } from "@/ui/table";
+import { m } from "@/i18n/paraglide/messages";
 import { AdminExperienciesTableRow } from "@/admin/experiencies/admin-experiencies-table-row";
 
 export const Route = createFileRoute("/admin/experiencies/")({

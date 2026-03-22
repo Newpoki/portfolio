@@ -3,13 +3,8 @@ import { useState } from "react";
 import { ThemeButtonGroup } from "../theme/theme-button-group";
 import { LocaleDropdown } from "../i18n/locale-dropdown";
 import { HeaderLink } from "./header-link";
-import { m } from "@/paraglide/messages";
-import {
-  Drawer,
-  DrawerContent,
-  DrawerTitle,
-  DrawerTrigger,
-} from "@/components/ui/drawer";
+import { m } from "@/i18n/paraglide/messages";
+import { Drawer, DrawerContent, DrawerTitle, DrawerTrigger } from "@/ui/drawer";
 
 type HeaderDrawerProps = {
   className: string;

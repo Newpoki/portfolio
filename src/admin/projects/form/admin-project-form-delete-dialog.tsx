@@ -4,7 +4,7 @@ import { toast } from "sonner";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useNavigate } from "@tanstack/react-router";
 import type { Project } from "@prisma/client";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/ui/button";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -15,12 +15,12 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from "@/components/ui/alert-dialog";
+} from "@/ui/alert-dialog";
 import {
   deleteProjectMutationOptions,
   projectQueryOptions,
 } from "@/routes/api/projects.$slug";
-import { m } from "@/paraglide/messages";
+import { m } from "@/i18n/paraglide/messages";
 import { projectsQueryOptions } from "@/routes/api/projects";
 import { projectsSummaryQueryOptions } from "@/routes/api/projects.summary";
 

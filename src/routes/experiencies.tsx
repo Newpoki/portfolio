@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { experienciesQueryOptions } from "./api/experiencies";
-import { m } from "@/paraglide/messages";
+import { m } from "@/i18n/paraglide/messages";
 import { ExperienciesFlowPage } from "@/experiencies/experiencies-flow-page";
 import { ExperienciesPending } from "@/experiencies/experiencies-pending";
 import { seo } from "@/lib/seo";

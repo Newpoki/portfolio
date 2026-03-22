@@ -14,7 +14,7 @@ import {
   STATE_MANAGEMENT_OPTIONS,
   USER_INTERFACE_OPTIONS,
 } from "@/projects/project-constants";
-import { m } from "@/paraglide/messages";
+import { m } from "@/i18n/paraglide/messages";
 import {
   projectQueryOptions,
   updateProjectMutationOptions,

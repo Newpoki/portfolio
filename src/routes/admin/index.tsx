@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { AdminSectionCard } from "@/admin/admin-section-card";
-import { m } from "@/paraglide/messages";
+import { m } from "@/i18n/paraglide/messages";
 import { seo } from "@/lib/seo";
 
 export const Route = createFileRoute("/admin/")({

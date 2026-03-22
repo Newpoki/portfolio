@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ParaglideMessage } from "@inlang/paraglide-js-react";
-import { m } from "@/paraglide/messages";
-import { Link } from "@/components/ui/link";
-import { TabeListItem } from "@/components/ui/table-list-item";
+import { m } from "@/i18n/paraglide/messages";
+import { Link } from "@/ui/link";
+import { TabeListItem } from "@/ui/table-list-item";
 import { seo } from "@/lib/seo";
 
 export const Route = createFileRoute("/about")({

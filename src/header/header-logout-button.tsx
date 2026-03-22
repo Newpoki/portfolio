@@ -1,6 +1,6 @@
 import { useNavigate } from "@tanstack/react-router";
 import { LogOutIcon } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/ui/button";
 import { authClient } from "@/auth/auth";
 
 export const HeaderLogoutButton = () => {

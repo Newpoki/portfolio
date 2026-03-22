@@ -3,15 +3,12 @@ import { generateHTML } from "@tiptap/react";
 import { useEffect, useRef, useState } from "react";
 import { useFieldContext } from "../admin-experience-form-utils";
 import type { Editor as EditorInstance, JSONContent } from "@tiptap/react";
-import type { Locale } from "@/paraglide/runtime";
-import { Field, FieldError, FieldLabel } from "@/components/ui/field";
-import { I18NFlag } from "@/components/i18n/i18n-flag";
-import { Button } from "@/components/ui/button";
-import { m } from "@/paraglide/messages";
-import {
-  DEFAULT_EDITOR_EXTENSIONS,
-  Editor,
-} from "@/components/ui/editor/editor";
+import type { Locale } from "@/i18n/paraglide/runtime";
+import { Field, FieldError, FieldLabel } from "@/ui/field";
+import { Button } from "@/ui/button";
+import { m } from "@/i18n/paraglide/messages";
+import { DEFAULT_EDITOR_EXTENSIONS, Editor } from "@/ui/editor/editor";
+import { LocaleFlag } from "@/i18n/locale-flag";
 
 type AdminExperienceFormEditorFieldProps = {
   label: string;
@@ -68,7 +65,7 @@ export const AdminExperienceFormEditorField = ({
         <FieldLabel>
           {label}
 
-          <I18NFlag locale={locale} />
+          <LocaleFlag locale={locale} />
         </FieldLabel>
         <Button
           variant="ghost"

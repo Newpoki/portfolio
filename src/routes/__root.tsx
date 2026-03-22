@@ -14,11 +14,11 @@ import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
 import appCss from "../style.css?url";
 import type { ReactNode } from "react";
 import type { QueryClient } from "@tanstack/react-query";
-import { getLocale } from "@/paraglide/runtime.js";
-import { Header } from "@/components/header/header";
-import { getThemeServerFn } from "@/components/theme/theme";
+import { getLocale } from "@/i18n/paraglide/runtime.js";
+import { Header } from "@/header/header";
+import { getThemeServerFn } from "@/theme/theme";
 import { getSession } from "@/auth/auth";
-import { Toaster } from "@/components/ui/sonner";
+import { Toaster } from "@/ui/sonner";
 
 type RootRouteContext = {
   queryClient: QueryClient;

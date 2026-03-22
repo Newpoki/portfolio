@@ -4,7 +4,7 @@ import { HeaderDrawer } from "./header-drawer";
 import { HeaderLink } from "./header-link";
 import { HeaderProfile } from "./header-profile";
 import JavascriptIcon from "@/icons/javascript.svg?react";
-import { m } from "@/paraglide/messages";
+import { m } from "@/i18n/paraglide/messages";
 
 export const Header = () => {
   return (

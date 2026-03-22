@@ -4,7 +4,7 @@ import { queryOptions } from "@tanstack/react-query";
 import { z } from "zod";
 import type { Experience } from "@prisma/client";
 import type { MutationOptions } from "@tanstack/react-query";
-import { emptyEditorRuleSchema } from "@/components/ui/editor/editor";
+import { emptyEditorRuleSchema } from "@/ui/editor/editor";
 import { axiosClient } from "@/axios-client";
 
 const prisma = new PrismaClient();

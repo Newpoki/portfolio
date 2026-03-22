@@ -1,14 +1,8 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
 import { useSuspenseQuery } from "@tanstack/react-query";
-import { Button } from "@/components/ui/button";
-import {
-  Table,
-  TableBody,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
-import { m } from "@/paraglide/messages";
+import { Button } from "@/ui/button";
+import { Table, TableBody, TableHead, TableHeader, TableRow } from "@/ui/table";
+import { m } from "@/i18n/paraglide/messages";
 import { AdminProjectsTableRow } from "@/admin/projects/admin-projects-table-row";
 import { projectsQueryOptions } from "@/routes/api/projects";
 

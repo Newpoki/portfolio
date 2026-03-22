@@ -7,7 +7,7 @@ import { AdminExperienceFormCancelButton } from "./fields/admin-experience-form-
 import { AdminExperienceFormSubmitButton } from "./fields/admin-experience-form-submit-button";
 import type { AdminExperienceForm } from "./admin-experience-form-types";
 import type { Experience } from "@prisma/client";
-import { VALID_EMPTY_EDITOR_JSON } from "@/components/ui/editor/editor";
+import { VALID_EMPTY_EDITOR_JSON } from "@/ui/editor/editor";
 
 export const { fieldContext, useFieldContext, formContext, useFormContext } =
   createFormHookContexts();

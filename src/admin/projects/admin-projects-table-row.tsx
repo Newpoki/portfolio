@@ -1,7 +1,7 @@
 import { useNavigate } from "@tanstack/react-router";
 import type { Project } from "@prisma/client";
-import { getLocale } from "@/paraglide/runtime";
-import { TableCell, TableRow } from "@/components/ui/table";
+import { getLocale } from "@/i18n/paraglide/runtime";
+import { TableCell, TableRow } from "@/ui/table";
 
 type AdminProjectsTableRowProps = {
   project: Project;

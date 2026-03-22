@@ -7,7 +7,7 @@ import {
 } from "./admin-experience-form-utils";
 import { AdminExperienceFormDeleteDialog } from "./admin-experience-form-delete-dialog";
 import type { Experience } from "@prisma/client";
-import { m } from "@/paraglide/messages";
+import { m } from "@/i18n/paraglide/messages";
 import {
   experienceQueryOptions,
   updateExperienceMutationOptions,

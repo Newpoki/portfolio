@@ -1,6 +1,6 @@
-import { Skeleton } from "@/components/ui/skeleton";
-import { TabeListItem } from "@/components/ui/table-list-item";
-import { m } from "@/paraglide/messages";
+import { Skeleton } from "@/ui/skeleton";
+import { TabeListItem } from "@/ui/table-list-item";
+import { m } from "@/i18n/paraglide/messages";
 
 export const ProjectPending = () => {
   return (

@@ -1,14 +1,9 @@
 import { useStore } from "@tanstack/react-form";
 import { SquareArrowUpRightIcon } from "lucide-react";
 import { useFieldContext } from "../admin-project-form-utils";
-import {
-  Field,
-  FieldDescription,
-  FieldError,
-  FieldLabel,
-} from "@/components/ui/field";
-import { Input } from "@/components/ui/input";
-import { Link } from "@/components/ui/link";
+import { Field, FieldDescription, FieldError, FieldLabel } from "@/ui/field";
+import { Input } from "@/ui/input";
+import { Link } from "@/ui/link";
 
 type AdminProjectFormLinkFieldProps = {
   description: string;

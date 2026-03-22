@@ -2,9 +2,9 @@ import { useMemo } from "react";
 import { generateText } from "@tiptap/react";
 import { useNavigate } from "@tanstack/react-router";
 import type { Experience } from "@prisma/client";
-import { getLocale } from "@/paraglide/runtime";
-import { DEFAULT_EDITOR_EXTENSIONS } from "@/components/ui/editor/editor";
-import { TableCell, TableRow } from "@/components/ui/table";
+import { getLocale } from "@/i18n/paraglide/runtime";
+import { DEFAULT_EDITOR_EXTENSIONS } from "@/ui/editor/editor";
+import { TableCell, TableRow } from "@/ui/table";
 
 type AdminExperienciesTableRowProps = {
   experience: Experience;

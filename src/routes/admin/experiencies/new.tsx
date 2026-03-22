@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { AdminExperienceForm } from "@/admin/experiencies/form/admin-experience-form";
-import { m } from "@/paraglide/messages";
+import { m } from "@/i18n/paraglide/messages";
 
 export const Route = createFileRoute("/admin/experiencies/new")({
   component: RouteComponent,

@@ -1,7 +1,7 @@
 import { BubbleMenu } from "@tiptap/react/menus";
 import { Button } from "../button";
 import type { Editor } from "@tiptap/react";
-import { m } from "@/paraglide/messages";
+import { m } from "@/i18n/paraglide/messages";
 
 type EditorQuickStyleProps = {
   editor: Editor;
