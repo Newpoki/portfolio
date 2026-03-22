@@ -43,7 +43,7 @@ const centerOnFirstElement: OnInit<Node, Edge> = ({ getNodes, fitView }) => {
   fitView({
     nodes: nodesToFitInView,
     duration: 250,
-    padding: isMobile ? 0.8 : 0.3,
+    padding: isMobile ? 0.8 : 0.8,
   });
 };
 
