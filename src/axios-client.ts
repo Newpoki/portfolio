@@ -9,6 +9,11 @@ import axios from "axios";
  * Then, if we're on local, this won't be defined, so we have to fallback on our own VITE_BASE_URL
  *
  */
+
+console.log(process.env);
 export const axiosClient = axios.create({
-  baseURL: import.meta.env.VERCEL_URL ?? import.meta.env.VITE_BASE_URL,
+  baseURL:
+    process.env.VERCEL_PROJECT_PRODUCTION_URL != null
+      ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+      : import.meta.env.VITE_BASE_URL,
 });

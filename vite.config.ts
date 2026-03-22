@@ -20,12 +20,6 @@ export default defineConfig({
   plugins: [
     devtools(),
     tanstackStart({
-      spa: {
-        enabled: true,
-        prerender: {
-          crawlLinks: true,
-        },
-      },
       sitemap: {
         host: "https://jasonsavelli.fr",
       },
