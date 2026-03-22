@@ -1,15 +1,10 @@
-import { createFileRoute, redirect } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { AdminSectionCard } from "@/admin/admin-section-card";
 import { m } from "@/paraglide/messages";
 import { seo } from "@/lib/seo";
 
 export const Route = createFileRoute("/admin/")({
   component: Admin,
-  beforeLoad: ({ context }) => {
-    if (!context.session) {
-      throw redirect({ to: "/login" });
-    }
-  },
   head: () => ({
     meta: seo({
       title: m.admin_metadata_title(),

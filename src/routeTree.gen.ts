@@ -13,6 +13,7 @@ import { Route as ReferencesRouteImport } from './routes/references'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as ExperienciesRouteImport } from './routes/experiencies'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as AdminRouteRouteImport } from './routes/admin/route'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProjectsIndexRouteImport } from './routes/projects/index'
 import { Route as AdminIndexRouteImport } from './routes/admin/index'
@@ -50,6 +51,11 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminRouteRoute = AdminRouteRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -61,9 +67,9 @@ const ProjectsIndexRoute = ProjectsIndexRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any)
 const AdminIndexRoute = AdminIndexRouteImport.update({
-  id: '/admin/',
-  path: '/admin/',
-  getParentRoute: () => rootRouteImport,
+  id: '/',
+  path: '/',
+  getParentRoute: () => AdminRouteRoute,
 } as any)
 const ProjectsSlugRoute = ProjectsSlugRouteImport.update({
   id: '/projects/$slug',
@@ -81,14 +87,14 @@ const ApiExperienciesRoute = ApiExperienciesRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any)
 const AdminProjectsIndexRoute = AdminProjectsIndexRouteImport.update({
-  id: '/admin/projects/',
-  path: '/admin/projects/',
-  getParentRoute: () => rootRouteImport,
+  id: '/projects/',
+  path: '/projects/',
+  getParentRoute: () => AdminRouteRoute,
 } as any)
 const AdminExperienciesIndexRoute = AdminExperienciesIndexRouteImport.update({
-  id: '/admin/experiencies/',
-  path: '/admin/experiencies/',
-  getParentRoute: () => rootRouteImport,
+  id: '/experiencies/',
+  path: '/experiencies/',
+  getParentRoute: () => AdminRouteRoute,
 } as any)
 const ApiProjectsSummaryRoute = ApiProjectsSummaryRouteImport.update({
   id: '/summary',
@@ -111,28 +117,29 @@ const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any)
 const AdminProjectsNewRoute = AdminProjectsNewRouteImport.update({
-  id: '/admin/projects/new',
-  path: '/admin/projects/new',
-  getParentRoute: () => rootRouteImport,
+  id: '/projects/new',
+  path: '/projects/new',
+  getParentRoute: () => AdminRouteRoute,
 } as any)
 const AdminProjectsSlugRoute = AdminProjectsSlugRouteImport.update({
-  id: '/admin/projects/$slug',
-  path: '/admin/projects/$slug',
-  getParentRoute: () => rootRouteImport,
+  id: '/projects/$slug',
+  path: '/projects/$slug',
+  getParentRoute: () => AdminRouteRoute,
 } as any)
 const AdminExperienciesNewRoute = AdminExperienciesNewRouteImport.update({
-  id: '/admin/experiencies/new',
-  path: '/admin/experiencies/new',
-  getParentRoute: () => rootRouteImport,
+  id: '/experiencies/new',
+  path: '/experiencies/new',
+  getParentRoute: () => AdminRouteRoute,
 } as any)
 const AdminExperienciesIdRoute = AdminExperienciesIdRouteImport.update({
-  id: '/admin/experiencies/$id',
-  path: '/admin/experiencies/$id',
-  getParentRoute: () => rootRouteImport,
+  id: '/experiencies/$id',
+  path: '/experiencies/$id',
+  getParentRoute: () => AdminRouteRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRouteRouteWithChildren
   '/about': typeof AboutRoute
   '/experiencies': typeof ExperienciesRoute
   '/login': typeof LoginRoute
@@ -178,6 +185,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/admin': typeof AdminRouteRouteWithChildren
   '/about': typeof AboutRoute
   '/experiencies': typeof ExperienciesRoute
   '/login': typeof LoginRoute
@@ -202,6 +210,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/admin'
     | '/about'
     | '/experiencies'
     | '/login'
@@ -246,6 +255,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/admin'
     | '/about'
     | '/experiencies'
     | '/login'
@@ -269,6 +279,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdminRouteRoute: typeof AdminRouteRouteWithChildren
   AboutRoute: typeof AboutRoute
   ExperienciesRoute: typeof ExperienciesRoute
   LoginRoute: typeof LoginRoute
@@ -276,15 +287,8 @@ export interface RootRouteChildren {
   ApiExperienciesRoute: typeof ApiExperienciesRouteWithChildren
   ApiProjectsRoute: typeof ApiProjectsRouteWithChildren
   ProjectsSlugRoute: typeof ProjectsSlugRoute
-  AdminIndexRoute: typeof AdminIndexRoute
   ProjectsIndexRoute: typeof ProjectsIndexRoute
-  AdminExperienciesIdRoute: typeof AdminExperienciesIdRoute
-  AdminExperienciesNewRoute: typeof AdminExperienciesNewRoute
-  AdminProjectsSlugRoute: typeof AdminProjectsSlugRoute
-  AdminProjectsNewRoute: typeof AdminProjectsNewRoute
   ApiAuthSplatRoute: typeof ApiAuthSplatRoute
-  AdminExperienciesIndexRoute: typeof AdminExperienciesIndexRoute
-  AdminProjectsIndexRoute: typeof AdminProjectsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -317,6 +321,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -333,10 +344,10 @@ declare module '@tanstack/react-router' {
     }
     '/admin/': {
       id: '/admin/'
-      path: '/admin'
+      path: '/'
       fullPath: '/admin/'
       preLoaderRoute: typeof AdminIndexRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof AdminRouteRoute
     }
     '/projects/$slug': {
       id: '/projects/$slug'
@@ -361,17 +372,17 @@ declare module '@tanstack/react-router' {
     }
     '/admin/projects/': {
       id: '/admin/projects/'
-      path: '/admin/projects'
+      path: '/projects'
       fullPath: '/admin/projects/'
       preLoaderRoute: typeof AdminProjectsIndexRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof AdminRouteRoute
     }
     '/admin/experiencies/': {
       id: '/admin/experiencies/'
-      path: '/admin/experiencies'
+      path: '/experiencies'
       fullPath: '/admin/experiencies/'
       preLoaderRoute: typeof AdminExperienciesIndexRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof AdminRouteRoute
     }
     '/api/projects/summary': {
       id: '/api/projects/summary'
@@ -403,34 +414,58 @@ declare module '@tanstack/react-router' {
     }
     '/admin/projects/new': {
       id: '/admin/projects/new'
-      path: '/admin/projects/new'
+      path: '/projects/new'
       fullPath: '/admin/projects/new'
       preLoaderRoute: typeof AdminProjectsNewRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof AdminRouteRoute
     }
     '/admin/projects/$slug': {
       id: '/admin/projects/$slug'
-      path: '/admin/projects/$slug'
+      path: '/projects/$slug'
       fullPath: '/admin/projects/$slug'
       preLoaderRoute: typeof AdminProjectsSlugRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof AdminRouteRoute
     }
     '/admin/experiencies/new': {
       id: '/admin/experiencies/new'
-      path: '/admin/experiencies/new'
+      path: '/experiencies/new'
       fullPath: '/admin/experiencies/new'
       preLoaderRoute: typeof AdminExperienciesNewRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof AdminRouteRoute
     }
     '/admin/experiencies/$id': {
       id: '/admin/experiencies/$id'
-      path: '/admin/experiencies/$id'
+      path: '/experiencies/$id'
       fullPath: '/admin/experiencies/$id'
       preLoaderRoute: typeof AdminExperienciesIdRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof AdminRouteRoute
     }
   }
 }
+
+interface AdminRouteRouteChildren {
+  AdminIndexRoute: typeof AdminIndexRoute
+  AdminExperienciesIdRoute: typeof AdminExperienciesIdRoute
+  AdminExperienciesNewRoute: typeof AdminExperienciesNewRoute
+  AdminProjectsSlugRoute: typeof AdminProjectsSlugRoute
+  AdminProjectsNewRoute: typeof AdminProjectsNewRoute
+  AdminExperienciesIndexRoute: typeof AdminExperienciesIndexRoute
+  AdminProjectsIndexRoute: typeof AdminProjectsIndexRoute
+}
+
+const AdminRouteRouteChildren: AdminRouteRouteChildren = {
+  AdminIndexRoute: AdminIndexRoute,
+  AdminExperienciesIdRoute: AdminExperienciesIdRoute,
+  AdminExperienciesNewRoute: AdminExperienciesNewRoute,
+  AdminProjectsSlugRoute: AdminProjectsSlugRoute,
+  AdminProjectsNewRoute: AdminProjectsNewRoute,
+  AdminExperienciesIndexRoute: AdminExperienciesIndexRoute,
+  AdminProjectsIndexRoute: AdminProjectsIndexRoute,
+}
+
+const AdminRouteRouteWithChildren = AdminRouteRoute._addFileChildren(
+  AdminRouteRouteChildren,
+)
 
 interface ApiExperienciesRouteChildren {
   ApiExperienciesIdRoute: typeof ApiExperienciesIdRoute
@@ -460,6 +495,7 @@ const ApiProjectsRouteWithChildren = ApiProjectsRoute._addFileChildren(
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdminRouteRoute: AdminRouteRouteWithChildren,
   AboutRoute: AboutRoute,
   ExperienciesRoute: ExperienciesRoute,
   LoginRoute: LoginRoute,
@@ -467,15 +503,8 @@ const rootRouteChildren: RootRouteChildren = {
   ApiExperienciesRoute: ApiExperienciesRouteWithChildren,
   ApiProjectsRoute: ApiProjectsRouteWithChildren,
   ProjectsSlugRoute: ProjectsSlugRoute,
-  AdminIndexRoute: AdminIndexRoute,
   ProjectsIndexRoute: ProjectsIndexRoute,
-  AdminExperienciesIdRoute: AdminExperienciesIdRoute,
-  AdminExperienciesNewRoute: AdminExperienciesNewRoute,
-  AdminProjectsSlugRoute: AdminProjectsSlugRoute,
-  AdminProjectsNewRoute: AdminProjectsNewRoute,
   ApiAuthSplatRoute: ApiAuthSplatRoute,
-  AdminExperienciesIndexRoute: AdminExperienciesIndexRoute,
-  AdminProjectsIndexRoute: AdminProjectsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
