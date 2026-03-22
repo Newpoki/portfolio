@@ -19,7 +19,20 @@ export default defineConfig({
   },
   plugins: [
     devtools(),
-    tanstackStart(),
+    tanstackStart({
+      spa: {
+        enabled: true,
+        prerender: {
+          crawlLinks: true,
+        },
+      },
+      sitemap: {
+        host: "https://jasonsavelli.fr",
+      },
+      prerender: {
+        failOnError: false,
+      },
+    }),
     nitro({
       preset: "vercel",
     }),
