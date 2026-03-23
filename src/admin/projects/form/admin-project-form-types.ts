@@ -5,14 +5,42 @@ import {
   STATE_MANAGEMENT,
   USER_INTERFACE_LIBRARY,
 } from "@/projects/project-constants";
+import {
+  MEDIA_ALLOWED_EXTENSIONS,
+  MEDIA_ALLOWED_EXTENSIONS_READABLE,
+  MEDIA_MAX_FILE_SIZE,
+} from "@/media/media-constants";
+import { m } from "@/i18n/paraglide/messages";
+
+export const illustrationFileSchema = z
+  .custom<File>((val) => val instanceof File)
+  .refine((file) => file.size <= MEDIA_MAX_FILE_SIZE, {
+    message: m.admin_projects_form_illustration_exceeded_size({
+      size: MEDIA_MAX_FILE_SIZE,
+      unit: "MB",
+    }),
+  })
+  .refine(
+    (file) => {
+      const ext = file.name.split(".").pop()?.toLowerCase();
+      return (
+        ext != null &&
+        MEDIA_ALLOWED_EXTENSIONS.includes(
+          ext as (typeof MEDIA_ALLOWED_EXTENSIONS)[number],
+        )
+      );
+    },
+    {
+      message: m.admin_projects_form_illustration_invalid_extension({
+        extensions: MEDIA_ALLOWED_EXTENSIONS_READABLE,
+      }),
+    },
+  );
 
 const adminProjectBaseFormSchema = z.object({
   isFavorite: z.boolean(),
   name: z.string().min(1),
-  // This could accept way more, but I want to ensure to keep them all the same format
-  illustration: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*\.png$/, {
-    message: "Filename must be lower case, with png extension",
-  }),
+  illustration: illustrationFileSchema,
   illustrationAlt: z.string().min(1),
   shortDesc_fr: z.string().min(1),
   shortDesc_en: z.string().min(1),
@@ -20,10 +48,10 @@ const adminProjectBaseFormSchema = z.object({
   description_en: z.string().min(1),
   deployedAt: z.iso.datetime(),
   slug: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, {
-    message: "Slug must be lowercase and hyphen-separated",
+    message: m.admin_projects_form_slug_format(),
   }),
-  websiteUrl: z.url().optional(),
-  githubUrl: z.url().optional(),
+  websiteUrl: z.literal("").or(z.url().optional()),
+  githubUrl: z.literal("").or(z.url().optional()),
   bundler: z.enum(BUNDLER),
   framework: z.enum(FRAMEWORK),
   userInterface: z.enum(USER_INTERFACE_LIBRARY),
@@ -47,3 +75,25 @@ export const adminProjectFormSchema = z.discriminatedUnion("type", [
 ]);
 
 export type AdminProjectForm = z.infer<typeof adminProjectFormSchema>;
+
+/**
+ * Validation schema only used to generate a type used for form default values only
+ * Only way found to accept a nullish file on initialization, while making it mandatory on submit
+ */
+export const adminProjectFormDefaultValuesSchema = z.discriminatedUnion(
+  "type",
+  [
+    z.object({
+      ...adminProjectCreateFormSchema.shape,
+      illustration: illustrationFileSchema.nullable(),
+    }),
+    z.object({
+      ...adminProjectEditFormSchema.shape,
+      illustration: illustrationFileSchema.nullable(),
+    }),
+  ],
+);
+
+export type AdminProjectFormDefaultValues = z.infer<
+  typeof adminProjectFormDefaultValuesSchema
+>;

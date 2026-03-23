@@ -52,14 +52,17 @@ export const Route = createFileRoute("/api/experiencies/$id")({
           );
         }
       },
-      PUT: async ({ request, params }) => {
+      PUT: async ({ request }) => {
         try {
           const body = await request.json();
+
           const parsed = updateExperiencePayloadSchema.parse(body);
 
+          const { id, ...data } = parsed;
+
           const experience = await prisma.experience.update({
-            where: { id: params.id },
-            data: parsed,
+            where: { id },
+            data,
           });
 
           return Response.json(experience);

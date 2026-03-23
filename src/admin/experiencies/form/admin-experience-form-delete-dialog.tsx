@@ -3,6 +3,8 @@ import { Loader2Icon } from "lucide-react";
 import { toast } from "sonner";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useNavigate } from "@tanstack/react-router";
+import { useStore } from "@tanstack/react-form";
+import { useFormContext } from "./admin-experience-form-utils";
 import type { Experience } from "@prisma/client";
 import { Button } from "@/ui/button";
 import {
@@ -38,6 +40,10 @@ export const AdminExperienceFormDeleteDialog = ({
   const { mutate: deleteExperience, isPending } = useMutation(
     deleteExperienceMutationOptions,
   );
+
+  const form = useFormContext();
+
+  const isSubmitting = useStore(form.store, (state) => state.isSubmitting);
 
   const handleOpenDialog = () => {
     setIsOpen(true);
@@ -83,7 +89,12 @@ export const AdminExperienceFormDeleteDialog = ({
   return (
     <AlertDialog open={isOpen}>
       <AlertDialogTrigger asChild>
-        <Button variant="destructive" type="button" onClick={handleOpenDialog}>
+        <Button
+          variant="destructive"
+          type="button"
+          onClick={handleOpenDialog}
+          disabled={isSubmitting}
+        >
           {m.admin_experiencies_delete_dialog_trigger()}
         </Button>
       </AlertDialogTrigger>

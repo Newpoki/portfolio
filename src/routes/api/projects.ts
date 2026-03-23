@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PrismaClient } from "@prisma/client";
 import { queryOptions } from "@tanstack/react-query";
 import z from "zod";
+import { put } from "@vercel/blob";
 import type { MutationOptions } from "@tanstack/react-query";
 import type { Project } from "@prisma/client";
 import {
@@ -17,10 +18,7 @@ const prisma = new PrismaClient();
 const createProjectPayloadSchema = z.object({
   isFavorite: z.boolean(),
   name: z.string().min(1),
-  // This could accept way more, but I want to ensure to keep them all the same format
-  illustration: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*\.png$/, {
-    message: "Filename must be lower case, with png extension",
-  }),
+  illustration: z.url(),
   illustrationAlt: z.string().min(1),
   shortDesc_fr: z.string().min(1),
   shortDesc_en: z.string().min(1),
@@ -37,6 +35,14 @@ const createProjectPayloadSchema = z.object({
   userInterface: z.enum(USER_INTERFACE_LIBRARY),
   stateManagement: z.enum(STATE_MANAGEMENT),
 });
+
+async function uploadIllustration(formData: FormData): Promise<string | null> {
+  const file = formData.get("illustration") as File | null;
+  if (!file || file.size === 0) return null;
+
+  const blob = await put(`projects/${file.name}`, file, { access: "public" });
+  return blob.url;
+}
 
 export const Route = createFileRoute("/api/projects")({
   server: {
@@ -56,8 +62,21 @@ export const Route = createFileRoute("/api/projects")({
       },
       POST: async ({ request }) => {
         try {
-          const body = await request.json();
-          const parsed = createProjectPayloadSchema.parse(body);
+          const formData = await request.formData();
+
+          const illustrationUrl = await uploadIllustration(formData);
+          if (!illustrationUrl) {
+            return Response.json(
+              { error: "Illustration file is required" },
+              { status: 400 },
+            );
+          }
+
+          const payload = JSON.parse(formData.get("data") as string) as Record<string, unknown>;
+          const parsed = createProjectPayloadSchema.parse({
+            ...payload,
+            illustration: illustrationUrl,
+          });
 
           const project = await prisma.project.create({
             data: parsed,
@@ -85,15 +104,27 @@ export const projectsQueryOptions = queryOptions({
   },
 });
 
-type CreateProjectPayload = z.infer<typeof createProjectPayloadSchema>;
+export type CreateProjectPayload = {
+  data: Omit<z.infer<typeof createProjectPayloadSchema>, "illustration">;
+  file: File | null;
+};
 
 export const createProjectMutationOptions: MutationOptions<
   Project,
   Error,
   CreateProjectPayload
 > = {
-  mutationFn: async (values) => {
-    const { data } = await axiosClient.post<Project>("/api/projects", values);
-    return data;
+  mutationFn: async ({ data, file }) => {
+    const formData = new FormData();
+    formData.append("data", JSON.stringify(data));
+    if (file) {
+      formData.append("illustration", file);
+    }
+
+    const { data: project } = await axiosClient.post<Project>(
+      "/api/projects",
+      formData,
+    );
+    return project;
   },
 };

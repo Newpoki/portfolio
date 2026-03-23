@@ -53,7 +53,7 @@ export const ProjectsSummaryItem = ({
 
           <img
             {...slotProps.image}
-            src={`/projects/${project.illustration}`}
+            src={project.illustration}
             alt={project.illustrationAlt}
             className={cn(
               "h-full w-full rounded-lg object-cover transition duration-300 group-hover/project-item:scale-110",
