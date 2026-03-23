@@ -25,10 +25,10 @@ import {
 } from "@/routes/api/projects";
 import { projectsSummaryQueryOptions } from "@/routes/api/projects.summary";
 import {
-  MEDIA_ALLOWED_EXTENSIONS_READABLE,
-  MEDIA_ALLOWED_INPUT_ACCEPT,
-  MEDIA_MAX_FILE_SIZE_MB,
-} from "@/media/media-constants";
+  ADMIN_EXPERIENCE_ALLOWED_EXTENSIONS_READABLE,
+  ADMIN_EXPERIENCE_ALLOWED_INPUT_ACCEPT,
+  ADMIN_EXPERIENCE_MAX_FILE_SIZE_MB,
+} from "./admin-project-form-constants";
 
 type AdminProjectFormProps = {
   project?: Project;
@@ -207,15 +207,15 @@ export const AdminProjectForm = ({ project }: AdminProjectFormProps) => {
             name="illustration"
             children={(field) => (
               <field.ImageField
-                accept={MEDIA_ALLOWED_INPUT_ACCEPT}
+                accept={ADMIN_EXPERIENCE_ALLOWED_INPUT_ACCEPT}
                 label={m.admin_projects_form_illustration_label()}
                 description={m.admin_projects_form_illustration_description()}
                 dropzoneLabel={m.admin_projects_form_illustration_dropzone_label()}
                 fileRulesInfos={m.admin_projects_form_illustration_dropzone_file_rules(
                   {
-                    extensions: MEDIA_ALLOWED_EXTENSIONS_READABLE,
+                    extensions: ADMIN_EXPERIENCE_ALLOWED_EXTENSIONS_READABLE,
                     unit: "MB",
-                    weight: MEDIA_MAX_FILE_SIZE_MB,
+                    weight: ADMIN_EXPERIENCE_MAX_FILE_SIZE_MB,
                   },
                 )}
                 project={project}

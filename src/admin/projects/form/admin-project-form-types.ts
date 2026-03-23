@@ -6,17 +6,17 @@ import {
   USER_INTERFACE_LIBRARY,
 } from "@/projects/project-constants";
 import {
-  MEDIA_ALLOWED_EXTENSIONS,
-  MEDIA_ALLOWED_EXTENSIONS_READABLE,
-  MEDIA_MAX_FILE_SIZE,
-} from "@/media/media-constants";
+  ADMIN_EXPERIENCE_ALLOWED_EXTENSIONS,
+  ADMIN_EXPERIENCE_ALLOWED_EXTENSIONS_READABLE,
+  ADMIN_EXPERIENCE_MAX_FILE_SIZE,
+} from "./admin-project-form-constants";
 import { m } from "@/i18n/paraglide/messages";
 
 export const illustrationFileSchema = z
   .custom<File>((val) => val instanceof File)
-  .refine((file) => file.size <= MEDIA_MAX_FILE_SIZE, {
+  .refine((file) => file.size <= ADMIN_EXPERIENCE_MAX_FILE_SIZE, {
     message: m.admin_projects_form_illustration_exceeded_size({
-      size: MEDIA_MAX_FILE_SIZE,
+      size: ADMIN_EXPERIENCE_MAX_FILE_SIZE,
       unit: "MB",
     }),
   })
@@ -25,14 +25,14 @@ export const illustrationFileSchema = z
       const ext = file.name.split(".").pop()?.toLowerCase();
       return (
         ext != null &&
-        MEDIA_ALLOWED_EXTENSIONS.includes(
-          ext as (typeof MEDIA_ALLOWED_EXTENSIONS)[number],
+        ADMIN_EXPERIENCE_ALLOWED_EXTENSIONS.includes(
+          ext as (typeof ADMIN_EXPERIENCE_ALLOWED_EXTENSIONS)[number],
         )
       );
     },
     {
       message: m.admin_projects_form_illustration_invalid_extension({
-        extensions: MEDIA_ALLOWED_EXTENSIONS_READABLE,
+        extensions: ADMIN_EXPERIENCE_ALLOWED_EXTENSIONS_READABLE,
       }),
     },
   );
