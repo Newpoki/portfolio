@@ -28,7 +28,7 @@ export const ProjectsSummaryItem = ({
   return (
     <article
       className={cn(
-        "group/project-item aspect-unset bg-accent relative aspect-square rounded-lg p-4",
+        "group/project-item aspect-unset relative aspect-square rounded-lg bg-accent p-4",
         className,
       )}
     >
@@ -48,7 +48,7 @@ export const ProjectsSummaryItem = ({
           )}
         >
           {isFavorite && (
-            <StarIcon className="text-primary absolute top-0 left-0 z-10 aspect-square w-10" />
+            <StarIcon className="absolute top-0 left-0 z-10 aspect-square w-10 text-primary" />
           )}
 
           <img
@@ -62,7 +62,7 @@ export const ProjectsSummaryItem = ({
             sizes="(max-width: 768px) 100vw"
           />
 
-          <div className="bg-background absolute top-2/4 left-2/4 z-10 flex aspect-square -translate-x-1/2 -translate-y-1/2 scale-0 items-center rounded-full p-4 text-center shadow-xl transition-all duration-300 group-hover/project-item:scale-100">
+          <div className="absolute top-2/4 left-2/4 z-10 flex aspect-square -translate-x-1/2 -translate-y-1/2 scale-0 items-center rounded-full bg-background p-4 text-center shadow-xl transition-all duration-300 group-hover/project-item:scale-100">
             {m.projects_view_project()}
           </div>
         </div>

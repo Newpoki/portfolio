@@ -43,6 +43,15 @@ pnpm machine-translate
 
 Routes are localized via `src/lib/translated-pathnames.ts` — add new public routes there when creating pages.
 
+## Linting & Formatting
+
+This project uses [Oxc](https://oxc.rs/) for linting and formatting (replaces ESLint + Prettier).
+
+```bash
+pnpm lint
+pnpm format:check # `pnpm format` to apply format
+```
+
 ## Project Structure
 
 ```

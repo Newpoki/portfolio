@@ -44,7 +44,7 @@ export const EditorQuickStyle = ({ editor }: EditorQuickStyleProps) => {
     // The whole app crash, cf https://github.com/ueberdosis/tiptap/issues/2658#issuecomment-1513826220
     <div>
       <BubbleMenu editor={editor}>
-        <div className="bg-background border-border flex items-center gap-2 rounded-xl border p-2 shadow">
+        <div className="flex items-center gap-2 rounded-xl border border-border bg-background p-2 shadow">
           <Button
             onClick={handleToggleBold}
             className={editor.isActive("bold") ? "is-active" : ""}

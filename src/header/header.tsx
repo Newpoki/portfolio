@@ -8,7 +8,7 @@ import { m } from "@/i18n/paraglide/messages";
 
 export const Header = () => {
   return (
-    <div className="main-layout-px border-b-border supports-backdrop-filter:bg-background/60 sticky top-0 z-50 mb-(--header-m-b) flex h-(--header-h) border-b py-4 backdrop-blur-sm">
+    <div className="sticky top-0 z-50 mb-(--header-m-b) flex h-(--header-h) border-b border-b-border main-layout-px py-4 backdrop-blur-sm supports-backdrop-filter:bg-background/60">
       <div className="mx-auto flex w-full max-w-(--app-max-w) items-center justify-between">
         <HeaderDrawer
           className="flex lg:hidden"

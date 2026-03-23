@@ -74,7 +74,7 @@ export const AdminProjectFormImageField = ({
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
         data-dragging={isDragging || undefined}
-        className="border-input hover:bg-accent/50 data-dragging:border-ring data-dragging:ring-ring/50 aria-invalid:border-destructive flex min-h-32 w-full cursor-pointer flex-col items-center justify-center gap-2 rounded-lg border-2 border-dashed p-4 transition-colors"
+        className="flex min-h-32 w-full cursor-pointer flex-col items-center justify-center gap-2 rounded-lg border-2 border-dashed border-input p-4 transition-colors hover:bg-accent/50 aria-invalid:border-destructive data-dragging:border-ring data-dragging:ring-ring/50"
         aria-invalid={isInvalid}
       >
         {previewUrl ? (
@@ -85,12 +85,12 @@ export const AdminProjectFormImageField = ({
           />
         ) : (
           <>
-            <Upload className="text-muted-foreground size-8" />
+            <Upload className="size-8 text-muted-foreground" />
 
-            <p className="text-muted-foreground text-sm">{dropzoneLabel}</p>
+            <p className="text-sm text-muted-foreground">{dropzoneLabel}</p>
           </>
         )}
-        <p className="text-muted-foreground text-xs">{fileRulesInfos}</p>
+        <p className="text-xs text-muted-foreground">{fileRulesInfos}</p>
       </button>
 
       <input
@@ -109,5 +109,3 @@ export const AdminProjectFormImageField = ({
     </Field>
   );
 };
-
-// TODO: Try to migrate from ESlint to Oxlint

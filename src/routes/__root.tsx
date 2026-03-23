@@ -72,7 +72,7 @@ function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
         <main className="flex min-h-dvh flex-col">
           <Header />
 
-          <div className="main-layout-px mx-auto flex w-full max-w-(--app-max-w) flex-1 flex-col">
+          <div className="mx-auto flex w-full max-w-(--app-max-w) flex-1 flex-col main-layout-px">
             {children}
           </div>
         </main>

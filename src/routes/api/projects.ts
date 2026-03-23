@@ -72,7 +72,10 @@ export const Route = createFileRoute("/api/projects")({
             );
           }
 
-          const payload = JSON.parse(formData.get("data") as string) as Record<string, unknown>;
+          const payload = JSON.parse(formData.get("data") as string) as Record<
+            string,
+            unknown
+          >;
           const parsed = createProjectPayloadSchema.parse({
             ...payload,
             illustration: illustrationUrl,

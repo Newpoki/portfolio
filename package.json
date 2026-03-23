@@ -4,7 +4,10 @@
     "dev": "vite dev",
     "build": "vite build",
     "postinstall": "prisma generate",
-    "machine-translate": "inlang machine translate --project project.inlang"
+    "machine-translate": "inlang machine translate --project project.inlang",
+    "lint": "oxlint",
+    "format": "oxfmt",
+    "format:check": "oxfmt --check"
   },
   "dependencies": {
     "@inlang/paraglide-js-react": "^1.0.1",
@@ -55,13 +58,9 @@
     "zod": "^4.3.6"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3.3.5",
-    "@eslint/js": "^10.0.1",
     "@inlang/cli": "^3.0.0",
     "@inlang/paraglide-js": "^2.15.0",
-    "@stylistic/eslint-plugin": "^5.10.0",
     "@tanstack/devtools-vite": "^0.6.0",
-    "@tanstack/eslint-config": "^0.4.0",
     "@total-typescript/ts-reset": "^0.6.1",
     "@types/node": "^25.5.0",
     "@types/react": "^19.2.14",
@@ -69,16 +68,11 @@
     "@vercel/config": "^0.0.40",
     "@vitejs/plugin-react": "^6.0.1",
     "dotenv": "^17.3.1",
-    "eslint": "^10.0.3",
-    "eslint-plugin-react": "^7.37.5",
-    "eslint-plugin-react-hooks": "^7.0.1",
-    "globals": "^17.4.0",
     "jiti": "^2.6.1",
-    "prettier": "^3.8.1",
-    "prettier-plugin-tailwindcss": "^0.7.2",
+    "oxfmt": "^0.41.0",
+    "oxlint": "^1.56.0",
     "prisma": "^6.19.2",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.57.0",
     "vite": "^8.0.0",
     "vite-plugin-svgr": "^4.5.0",
     "vite-tsconfig-paths": "^6.1.1"
