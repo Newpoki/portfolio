@@ -81,8 +81,6 @@ function ProjectComponent() {
         </section>
       </div>
 
-      {/* TODO: Check pending fallback on screen larger than macbook  */}
-
       <section className="mx-auto flex flex-col justify-center gap-16 md:w-4/5 lg:w-1/2">
         <h3 className="text-xl">{project[`description_${locale}`]}</h3>
 
