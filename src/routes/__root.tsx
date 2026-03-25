@@ -24,6 +24,8 @@ type RootRouteContext = {
   queryClient: QueryClient;
 };
 
+const FONT_WEIGHTS = ["regular", "medium", "bold"];
+
 export const Route = createRootRouteWithContext<RootRouteContext>()({
   head: () => ({
     meta: [
@@ -38,7 +40,17 @@ export const Route = createRootRouteWithContext<RootRouteContext>()({
         title: "Jason Savelli",
       },
     ],
-    links: [{ rel: "stylesheet", href: appCss }],
+    links: [
+      { rel: "stylesheet", href: appCss },
+      ...FONT_WEIGHTS.map((fontWeight) => ({
+        // Avoid FOUT (font flickers) on initial load
+        rel: "preload",
+        href: `/fonts/sf-pro-display-${fontWeight}.woff2`,
+        as: "font",
+        type: "font/woff2",
+        crossOrigin: "anonymous" as const, // Required even if not cross-origin
+      })),
+    ],
   }),
   beforeLoad: async () => {
     const [theme, session] = await Promise.all([
