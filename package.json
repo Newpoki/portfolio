@@ -72,7 +72,7 @@
     "oxfmt": "^0.41.0",
     "oxlint": "^1.56.0",
     "prisma": "^6.19.2",
-    "typescript": "^5.9.3",
+    "typescript": "^6.0.2",
     "vite": "^8.0.0",
     "vite-plugin-svgr": "^4.5.0",
     "vite-tsconfig-paths": "^6.1.1"
