@@ -19,6 +19,7 @@ export function getRouter() {
     routeTree,
     context: { queryClient },
     scrollRestoration: true,
+    defaultPreload: "intent",
     defaultNotFoundComponent: DefaultNotFound,
     rewrite: {
       input: ({ url }) => deLocalizeUrl(url),
