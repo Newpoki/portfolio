@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PrismaClient } from "@prisma/client";
 import { queryOptions } from "@tanstack/react-query";
 import type { Project } from "@prisma/client";
-import { axiosClient } from "@/axios-client";
+import { fetchClient } from "@/fetch-client";
 
 const prisma = new PrismaClient();
 
@@ -41,7 +41,7 @@ export const Route = createFileRoute("/api/projects/summary")({
 export const projectsSummaryQueryOptions = queryOptions({
   queryKey: ["projects", "summary"],
   queryFn: async () => {
-    const { data } = await axiosClient.get<Array<ProjectSummary>>(
+    const { data } = await fetchClient.get<Array<ProjectSummary>>(
       "/api/projects/summary",
     );
 

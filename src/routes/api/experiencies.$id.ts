@@ -5,7 +5,7 @@ import { z } from "zod";
 import type { Experience } from "@prisma/client";
 import type { MutationOptions } from "@tanstack/react-query";
 import { emptyEditorRuleSchema } from "@/ui/editor/editor";
-import { axiosClient } from "@/axios-client";
+import { fetchClient } from "@/fetch-client";
 
 const prisma = new PrismaClient();
 
@@ -96,7 +96,7 @@ export const experienceQueryOptions = ({ id }: { id: Experience["id"] }) =>
   queryOptions({
     queryKey: ["experience", id],
     queryFn: async () => {
-      const { data } = await axiosClient.get<Experience>(
+      const { data } = await fetchClient.get<Experience>(
         `/api/experiencies/${id}`,
       );
       return data;
@@ -109,7 +109,7 @@ export const updateExperienceMutationOptions: MutationOptions<
   UpdateExperiencePayload
 > = {
   mutationFn: async (payload) => {
-    const { data } = await axiosClient.put<Experience>(
+    const { data } = await fetchClient.put<Experience>(
       `/api/experiencies/${payload.id}`,
       payload,
     );
@@ -123,7 +123,7 @@ export const deleteExperienceMutationOptions: MutationOptions<
   DeleteExperiencePayload
 > = {
   mutationFn: async (payload) => {
-    const { data } = await axiosClient.delete<void>(
+    const { data } = await fetchClient.delete<void>(
       `/api/experiencies/${payload.id}`,
     );
 

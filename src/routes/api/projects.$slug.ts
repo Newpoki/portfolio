@@ -11,7 +11,7 @@ import {
   STATE_MANAGEMENT,
   USER_INTERFACE_LIBRARY,
 } from "@/projects/project-constants";
-import { axiosClient } from "@/axios-client";
+import { fetchClient } from "@/fetch-client";
 import { m } from "@/i18n/paraglide/messages";
 
 const prisma = new PrismaClient();
@@ -136,7 +136,7 @@ export const projectQueryOptions = ({ slug }: { slug: Project["slug"] }) =>
   queryOptions({
     queryKey: ["project", slug],
     queryFn: async () => {
-      const { data } = await axiosClient.get<Project>(`/api/projects/${slug}`);
+      const { data } = await fetchClient.get<Project>(`/api/projects/${slug}`);
 
       return data;
     },
@@ -159,7 +159,7 @@ export const updateProjectMutationOptions: MutationOptions<
       formData.append("illustration", file);
     }
 
-    const { data: project } = await axiosClient.put<Project>(
+    const { data: project } = await fetchClient.put<Project>(
       `/api/projects/${data.id}`,
       formData,
     );
@@ -173,7 +173,7 @@ export const deleteProjectMutationOptions: MutationOptions<
   DeleteProjectPayload
 > = {
   mutationFn: async (payload) => {
-    const { data } = await axiosClient.delete<void>(
+    const { data } = await fetchClient.delete<void>(
       `/api/projects/${payload.id}`,
     );
 

@@ -11,7 +11,7 @@ import {
   STATE_MANAGEMENT,
   USER_INTERFACE_LIBRARY,
 } from "@/projects/project-constants";
-import { axiosClient } from "@/axios-client";
+import { fetchClient } from "@/fetch-client";
 
 const prisma = new PrismaClient();
 
@@ -101,7 +101,7 @@ export const Route = createFileRoute("/api/projects")({
 export const projectsQueryOptions = queryOptions({
   queryKey: ["projects"],
   queryFn: async () => {
-    const { data } = await axiosClient.get<Array<Project>>("/api/projects");
+    const { data } = await fetchClient.get<Array<Project>>("/api/projects");
 
     return data;
   },
@@ -124,7 +124,7 @@ export const createProjectMutationOptions: MutationOptions<
       formData.append("illustration", file);
     }
 
-    const { data: project } = await axiosClient.post<Project>(
+    const { data: project } = await fetchClient.post<Project>(
       "/api/projects",
       formData,
     );
