@@ -26,7 +26,10 @@ const shouldBeConsideredAsMobile = createIsomorphicFn()
   })
   .server(() => false);
 
-const centerOnFirstElement: OnInit<Node, Edge> = ({ getNodes, fitView }) => {
+const centerOnFirstElement: OnInit<Node, Edge> = async ({
+  getNodes,
+  fitView,
+}) => {
   const isMobile = shouldBeConsideredAsMobile();
 
   const nodes = getNodes();
@@ -40,7 +43,7 @@ const centerOnFirstElement: OnInit<Node, Edge> = ({ getNodes, fitView }) => {
 
   const nodesToFitInView = isMobile ? [firstNode] : [firstNode, secondNode];
 
-  fitView({
+  await fitView({
     nodes: nodesToFitInView,
     duration: 250,
     padding: isMobile ? 0.8 : 0.8,
@@ -119,8 +122,8 @@ export const ExperienciesFlow = ({ experiencies }: ExperienciesFlowProps) => {
   }, [instance]);
 
   const handleNodeClick = useCallback(
-    (_event: React.MouseEvent<Element>, node: Node) => {
-      instance.fitView({ nodes: [node], duration: 250, padding: 2 });
+    async (_event: React.MouseEvent<Element>, node: Node) => {
+      await instance.fitView({ nodes: [node], duration: 250, padding: 2 });
     },
     [instance],
   );

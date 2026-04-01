@@ -25,7 +25,7 @@ export const Route = createFileRoute("/login")({
 function Login() {
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleLogin = () => {
+  const handleLogin = async () => {
     // We don't have to set is back to false after login,
     // because after the promise is done, we're still not login yet
     // But we'll be redirected to another page anyway
@@ -33,7 +33,7 @@ function Login() {
     // And we don't know about it
     setIsLoading(true);
 
-    authClient.signIn.social({
+    await authClient.signIn.social({
       provider: "github",
       callbackURL: "/admin",
     });

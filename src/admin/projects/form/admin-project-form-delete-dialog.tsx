@@ -58,7 +58,7 @@ export const AdminProjectFormDeleteDialog = ({
     deleteProject(
       { id: project.id },
       {
-        onSuccess: () => {
+        onSuccess: async () => {
           queryClient.removeQueries({
             exact: true,
             queryKey: projectQueryOptions({ slug: project.slug }).queryKey,
@@ -85,7 +85,7 @@ export const AdminProjectFormDeleteDialog = ({
             },
           );
 
-          navigate({ to: "/admin/projects" });
+          await navigate({ to: "/admin/projects" });
 
           toast(m.admin_projects_delete_dialog_notification_success());
         },

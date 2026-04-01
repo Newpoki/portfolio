@@ -7,14 +7,14 @@ import { m } from "@/i18n/paraglide/messages";
 export const ThemeButtonGroup = () => {
   const router = useRouter();
 
-  const handleChangeTheme = (value: string) => {
+  const handleChangeTheme = async (value: string) => {
     const parsed = themeSchema.safeParse(value);
 
     // This shouldn't happening, only to satify TS
     if (parsed.error) return;
 
-    setThemeServerFn({ data: parsed.data }).then(() => {
-      router.invalidate();
+    await setThemeServerFn({ data: parsed.data }).then(async () => {
+      await router.invalidate();
     });
   };
 

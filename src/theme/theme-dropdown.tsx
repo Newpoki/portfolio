@@ -20,9 +20,9 @@ const OPTIONS = [
 export const ThemeDropdown = () => {
   const router = useRouter();
 
-  const handleChangeTheme = (option: (typeof OPTIONS)[number]) => {
-    setThemeServerFn({ data: option.value }).then(() => {
-      router.invalidate();
+  const handleChangeTheme = async (option: (typeof OPTIONS)[number]) => {
+    await setThemeServerFn({ data: option.value }).then(async () => {
+      await router.invalidate();
     });
   };
 

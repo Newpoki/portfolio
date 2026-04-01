@@ -6,11 +6,11 @@ import { authClient } from "@/auth/auth";
 export const HeaderLogoutButton = () => {
   const navigate = useNavigate();
 
-  const handleSignout = () => {
-    authClient.signOut({
+  const handleSignout = async () => {
+    await authClient.signOut({
       fetchOptions: {
-        onSuccess: () => {
-          navigate({ to: "/" });
+        onSuccess: async () => {
+          await navigate({ to: "/" });
         },
       },
     });

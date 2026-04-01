@@ -80,12 +80,12 @@ export const AdminExperienceForm = ({
         );
 
         // And then, as we can't know where will it be added in the list, invalidating the list
-        queryClient.invalidateQueries({
+        await queryClient.invalidateQueries({
           exact: true,
           queryKey: experienciesQueryOptions.queryKey,
         });
 
-        navigate({
+        await navigate({
           to: "/admin/experiencies/$id",
           params: { id: response.id },
         });
@@ -97,10 +97,10 @@ export const AdminExperienceForm = ({
     },
   });
 
-  const handleSubmit = (event: React.SubmitEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.SubmitEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    form.handleSubmit();
+    await form.handleSubmit();
   };
 
   return (

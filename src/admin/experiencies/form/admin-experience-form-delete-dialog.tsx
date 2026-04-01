@@ -57,7 +57,7 @@ export const AdminExperienceFormDeleteDialog = ({
     deleteExperience(
       { id: experience.id },
       {
-        onSuccess: () => {
+        onSuccess: async () => {
           queryClient.removeQueries({
             exact: true,
             queryKey: experienceQueryOptions({ id: experience.id }).queryKey,
@@ -75,7 +75,7 @@ export const AdminExperienceFormDeleteDialog = ({
             },
           );
 
-          navigate({ to: "/admin/experiencies" });
+          await navigate({ to: "/admin/experiencies" });
 
           toast(m.admin_experiencies_delete_dialog_success());
         },

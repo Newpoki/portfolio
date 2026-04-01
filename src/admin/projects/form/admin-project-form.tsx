@@ -111,7 +111,7 @@ export const AdminProjectForm = ({ project }: AdminProjectFormProps) => {
             },
           );
 
-          navigate({
+          await navigate({
             to: "/admin/projects/$slug",
             params: { slug: response.slug },
           });
@@ -137,17 +137,17 @@ export const AdminProjectForm = ({ project }: AdminProjectFormProps) => {
           response,
         );
 
-        queryClient.invalidateQueries({
+        await queryClient.invalidateQueries({
           exact: true,
           queryKey: projectsQueryOptions.queryKey,
         });
 
-        queryClient.invalidateQueries({
+        await queryClient.invalidateQueries({
           exact: true,
           queryKey: projectsSummaryQueryOptions.queryKey,
         });
 
-        navigate({
+        await navigate({
           to: "/admin/projects/$slug",
           params: { slug: response.slug },
         });
@@ -159,10 +159,10 @@ export const AdminProjectForm = ({ project }: AdminProjectFormProps) => {
     },
   });
 
-  const handleSubmit = (event: React.SubmitEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.SubmitEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    form.handleSubmit();
+    await form.handleSubmit();
   };
 
   return (

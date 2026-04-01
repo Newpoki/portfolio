@@ -14,8 +14,8 @@ export const AdminProjectsTableRow = ({
 
   const locale = getLocale();
 
-  const handleClick = () => {
-    navigate({
+  const handleClick = async () => {
+    await navigate({
       to: "/admin/projects/$slug",
       params: {
         slug: project.slug,

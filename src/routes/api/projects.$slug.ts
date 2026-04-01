@@ -83,6 +83,7 @@ export const Route = createFileRoute("/api/projects/$slug")({
           let illustrationUrl: string | undefined;
 
           if (file && file.size > 0) {
+            // oxlint-disable-next-line typescript/restrict-template-expressions
             const blob = await put(`projects/${payload.name}`, file, {
               access: "public",
               allowOverwrite: true,

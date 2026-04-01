@@ -39,7 +39,7 @@ export const AdminProjectFormImageField = ({
     console.log(field.state.value, project);
 
     return project?.illustration ?? null;
-  }, [field.state.value, project]);
+  }, [project, field.state.value]);
 
   const handleFile = (file: File | null) => {
     field.handleChange(file);

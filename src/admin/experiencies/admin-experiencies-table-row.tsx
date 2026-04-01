@@ -24,8 +24,8 @@ export const AdminExperienciesTableRow = ({
     );
   }, [experience, locale]);
 
-  const handleClick = () => {
-    navigate({
+  const handleClick = async () => {
+    await navigate({
       // TODO: Modify DB so we can use a slug
       to: "/admin/experiencies/$id",
       params: {
