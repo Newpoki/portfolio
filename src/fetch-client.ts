@@ -17,9 +17,7 @@ async function request<T>(
 ): Promise<{ data: T }> {
   const { headers, params, signal } = config;
 
-  console.log({url, baseURL, env: import.meta.env.VITE_BASE_URL})
   const fullURL = new URL(url, baseURL);
-
 
   if (params) {
     Object.entries(params).forEach(([k, v]) => fullURL.searchParams.set(k, v));
